@@ -42,6 +42,14 @@ jobs:
           NODE_ENV: development
           HOST: 0.0.0.0
           PORT: 1337
+          PREVIEW_SECRET: ${{ secrets.STRAPI_PREVIEW_SECRET }}
+          APP_KEYS: ${{ secrets.APP_KEYS }}
+          API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
+          TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
+          ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          STRAPI_ADMIN_CLIENT_PREVIEW_SECRET: ${{ vars.NEXT_PREVIEW_SECRET }}
+          STRAPI_ADMIN_CLIENT_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
       # Wait for Strapi to be ready
       - name: Wait for Strapi
@@ -53,9 +61,8 @@ jobs:
         run: |
           yarn next
         env:
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
-          PREVIEW_SECRET: ${{ secrets.PREVIEW_SECRET }}
-
+          PREVIEW_SECRET: ${{ secrets.NEXT_PREVIEW_SECRET }}
+          STRAPI_ADMIN_CLIENT_URL: ${{ secrets.STRAPI_ADMIN_CLIENT_URL }}
       # Run tests (if any)
       - name: Run tests
         run: |
