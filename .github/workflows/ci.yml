@@ -1,0 +1,63 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Install dependencies and set up both Strapi and Next.js
+      - name: Install dependencies and setup
+        run: |
+          yarn setup
+
+      # Seed data for Strapi
+      - name: Seed Strapi data
+        run: |
+          cd strapi
+          node ./scripts/check-and-seed.js
+
+      # Build and start Strapi
+      - name: Start Strapi
+        run: |
+          yarn strapi &
+        env:
+          NODE_ENV: development
+          HOST: 0.0.0.0
+          PORT: 1337
+
+      # Wait for Strapi to be ready
+      - name: Wait for Strapi
+        run: |
+          npx wait-on http://localhost:1337
+
+      # Build Next.js
+      - name: Build Next.js
+        run: |
+          yarn next
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          PREVIEW_SECRET: ${{ secrets.PREVIEW_SECRET }}
+
+      # Run tests (if any)
+      - name: Run tests
+        run: |
+          cd next
+          yarn test

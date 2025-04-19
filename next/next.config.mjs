@@ -2,6 +2,7 @@
 const nextConfig = {
   images: {
     remotePatterns: [{ hostname: process.env.IMAGE_HOSTNAME || "localhost" }],
+    domains: [process.env.IMAGE_HOSTNAME || "localhost" ],
   },
   pageExtensions: ["ts", "tsx"],
   async redirects() {

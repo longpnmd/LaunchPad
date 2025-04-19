@@ -9,7 +9,7 @@
     "build": "strapi build",
     "strapi": "strapi",
     "deploy": "strapi deploy",
-    "seed": "strapi import -f ./data/export_20250116105447.tar.gz",
+    "seed": "cd strapi && node ./scripts/check-and-seed.js",
     "postinstall": "node ./scripts/updateUuid.js"
   },
   "devDependencies": {
@@ -36,7 +36,7 @@
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "LAUNCHPAD"
+    "uuid": "LAUNCHPAD-LOCAL-2102617d-bf6d-44a6-bf5c-b5b7607d0ab8"
   },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",
