@@ -52,9 +52,9 @@ jobs:
           STRAPI_ADMIN_CLIENT_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
       # Wait for Strapi to be ready
-      - name: Wait for Strapi
-        run: |
-          npx wait-on http://localhost:1337
+      # - name: Wait for Strapi
+      #   run: |
+      #     npx wait-on http://localhost:1337
 
       # Build Next.js
       - name: Build Next.js

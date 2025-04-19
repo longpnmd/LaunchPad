@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  nextjs:
+    build:
+      context: .
+      dockerfile: ./next/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - strapi
+
+  strapi:
+    build:
+      context: .
+      dockerfile: ./strapi/Dockerfile
+    ports:
+      - "1337:1337"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_CLIENT=sqlite
+      - DATABASE_FILENAME=./data.db
+    volumes:
+      - ./strapi/data:/app/data
