@@ -62,7 +62,7 @@ jobs:
           yarn next
         env:
           PREVIEW_SECRET: ${{ secrets.NEXT_PREVIEW_SECRET }}
-          STRAPI_ADMIN_CLIENT_URL: ${{ secrets.STRAPI_ADMIN_CLIENT_URL }}
+          STRAPI_ADMIN_CLIENT_URL: ${{ vars.STRAPI_ADMIN_CLIENT_URL }}
       # Run tests (if any)
       - name: Run tests
         run: |
