@@ -32,7 +32,7 @@ jobs:
       - name: Seed Strapi data
         run: |
           cd strapi
-          node ./scripts/check-and-seed.js
+          yarn seed
 
       # Build and start Strapi
       - name: Start Strapi
