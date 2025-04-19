@@ -1,5 +1,4 @@
 const { exec } = require("child_process");
-const fetch = require("node-fetch");
 
 const STRAPI_URL = process.env.STRAPI_URL || "http://localhost:1337";
 
