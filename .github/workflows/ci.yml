@@ -28,11 +28,11 @@ jobs:
         run: |
           yarn setup
 
-      # Seed data for Strapi
-      - name: Seed Strapi data
-        run: |
-          cd strapi
-          yarn seed
+      # # Seed data for Strapi
+      # - name: Seed Strapi data
+      #   run: |
+      #     cd strapi
+      #     yarn seed
 
       # Build and start Strapi
       - name: Start Strapi
