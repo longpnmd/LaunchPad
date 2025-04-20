@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [{ hostname: process.env.IMAGE_HOSTNAME || "localhost" }],
-    domains: [process.env.IMAGE_HOSTNAME || "localhost" ],
+    remotePatterns: [{ hostname: process.env.IMAGE_HOSTNAME || "launchpad-admin.swiftsync.tech" }],
+    domains: [process.env.IMAGE_HOSTNAME || "launchpad-admin.swiftsync.tech" ],
   },
   pageExtensions: ["ts", "tsx"],
   async redirects() {
