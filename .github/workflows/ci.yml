@@ -51,7 +51,7 @@ jobs:
 
       # Build and run Docker Compose using run.sh
       - name: Build and run Docker Compose
-        run: sh ./run.sh
+        run: sudo sh ./run.sh
 
       # Check logs
       - name: Check logs
