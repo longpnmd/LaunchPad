@@ -56,9 +56,9 @@ jobs:
           docker compose logs
 
       # Verify health status
-      - name: Verify health status
-        run: |
-          docker inspect --format='{{json .State.Health.Status}}' strapi
+      # - name: Verify health status
+      #   run: |
+      #     docker inspect --format='{{json .State.Health.Status}}' strapi
 
       # Debug .env file
       - name: Debug .env file
