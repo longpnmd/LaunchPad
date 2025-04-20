@@ -46,11 +46,9 @@ jobs:
           echo "STRAPI_CLIENT_URL=${{ vars.STRAPI_CLIENT_URL }}" >> .env
           echo "STRAPI_PREVIEW_SECRET=${{ secrets.STRAPI_PREVIEW_SECRET }}" >> .env
 
-      # Build and run Docker Compose
+      # Build and run Docker Compose using run.sh
       - name: Build and run Docker Compose
-        run: |
-          docker compose down || true
-          docker compose up --build -d
+        run: sh ./run.sh
 
       # Check logs
       - name: Check logs
