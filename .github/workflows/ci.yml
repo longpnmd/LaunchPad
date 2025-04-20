@@ -10,6 +10,7 @@ on:
 
 jobs:
   build-and-deploy:
+    environment: RELEASE # Chỉ định Environment RELEASE
     runs-on: ubuntu-latest
 
     steps:
