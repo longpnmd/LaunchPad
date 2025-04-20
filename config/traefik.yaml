@@ -9,14 +9,14 @@ http:
       tls:
         certResolver: myresolver
     strapi:
-      rule: Host(`strapi.{{ env "BASE_DOMAIN" }}`)
+      rule: Host(`launchpad-admin.{{ env "BASE_DOMAIN" }}`)
       service: launchpad-strapi
       middlewares:
         - rate-limit
       tls:
         certResolver: myresolver
     nextjs:
-      rule: Host(`nextjs.{{ env "BASE_DOMAIN" }}`)
+      rule: Host(`launchpad.{{ env "BASE_DOMAIN" }}`)
       service: launchpad-nextjs
       middlewares:
         - rate-limit

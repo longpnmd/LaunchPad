@@ -17,7 +17,7 @@ services:
       - IMAGE_HOSTNAME=${NEXT_IMAGE_HOSTNAME}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.nextjs.rule=Host(`nextjs.${BASE_DOMAIN}`)"
+      - "traefik.http.routers.nextjs.rule=Host(`launchpad.${BASE_DOMAIN}`)"
       - "traefik.http.routers.nextjs.entrypoints=websecure"
       - "traefik.http.routers.nextjs.tls.certresolver=myresolver"
       - "traefik.http.services.nextjs.loadbalancer.server.port=${NEXT_PORT}"
@@ -52,7 +52,7 @@ services:
       - ADMIN_PATH=${STRAPI_ADMIN_PATH}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.strapi.rule=Host(`strapi.${BASE_DOMAIN}`)"
+      - "traefik.http.routers.strapi.rule=Host(`launchpad-admin.${BASE_DOMAIN}`)"
       - "traefik.http.routers.strapi.entrypoints=websecure"
       - "traefik.http.routers.strapi.tls.certresolver=myresolver"
       - "traefik.http.services.strapi.loadbalancer.server.port=${STRAPI_PORT}"
