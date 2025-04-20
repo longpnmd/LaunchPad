@@ -1,0 +1,39 @@
+http:
+  routers:
+    # Define a connection between requests and services
+    dashboard:
+      rule: (Host(`traefik.{{ env "BASE_DOMAIN" }}`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`)))
+      service: api@internal
+      middlewares:
+        - basic-auth
+      tls:
+        certResolver: myresolver
+    strapi:
+      rule: Host(`strapi.{{ env "BASE_DOMAIN" }}`)
+      service: strapi@docker
+      middlewares:
+        - rate-limit
+      tls:
+        certResolver: myresolver
+    nextjs:
+      rule: Host(`nextjs.{{ env "BASE_DOMAIN" }}`)
+      service: nextjs@docker
+      middlewares:
+        - rate-limit
+      tls:
+        certResolver: myresolver
+  middlewares:
+    basic-auth:
+      basicAuth:
+        usersFile: "/config/.htpasswd"
+        realm: "Traefik 2 Basic Auth"
+    rate-limit:
+      rateLimit:
+        average: 100
+        burst: 50
+    https-redirectscheme:
+      redirectScheme:
+        scheme: https
+        permanent: true
+    compress:
+      compress: {}
