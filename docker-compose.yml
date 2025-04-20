@@ -57,9 +57,8 @@ services:
       - "traefik.http.routers.strapi.tls.certresolver=myresolver"
       - "traefik.http.services.strapi.loadbalancer.server.port=${STRAPI_PORT}"
     volumes:
-      - ./strapi/data:/app/data
-      - ./strapi/uploads:/app/uploads
-      - ./strapi/.tmp:/app/.tmp
+      - ../uploads:/app/uploads
+      - ../.tmp:/app/.tmp
     restart: always
 
   traefik:
