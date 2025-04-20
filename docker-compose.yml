@@ -1,5 +1,6 @@
 services:
   nextjs:
+    container_name: launchpad-nextjs
     build:
       context: ./next
       dockerfile: Dockerfile
@@ -25,6 +26,7 @@ services:
     restart: always
 
   strapi:
+    container_name: launchpad-strapi
     build:
       context: ./strapi
       dockerfile: Dockerfile
@@ -58,15 +60,15 @@ services:
       - ./strapi/data:/app/data
     restart: always
 
-  traefik: # The official v2 Traefik docker image
-    image: traefik:v2.10
+  traefik:
     container_name: traefik
+    image: traefik:v2.10
     restart: always
     env_file:
       - .env
     environment:
       - TRAEFIK_CERTIFICATESRESOLVERS_LE_ACME_STORAGE=/letsencrypt/acme.json
-    command:  # Enables the web UI and tells Traefik to listen to docker
+    command:
       - --api.insecure=true
       - --api.dashboard=true
       - --entryPoints.web.address=:80

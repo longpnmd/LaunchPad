@@ -10,14 +10,14 @@ http:
         certResolver: myresolver
     strapi:
       rule: Host(`strapi.{{ env "BASE_DOMAIN" }}`)
-      service: strapi@docker
+      service: launchpad-strapi@docker
       middlewares:
         - rate-limit
       tls:
         certResolver: myresolver
     nextjs:
       rule: Host(`nextjs.{{ env "BASE_DOMAIN" }}`)
-      service: nextjs@docker
+      service: launchpad-nextjs@docker
       middlewares:
         - rate-limit
       tls:
