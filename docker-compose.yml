@@ -2,24 +2,49 @@ version: "3.8"
 services:
   nextjs:
     build:
-      context: .
-      dockerfile: ./next/Dockerfile
+      context: ./next
+      dockerfile: Dockerfile
+      args:
+        - RUN yarn install --frozen-lockfile && yarn cache clean
     ports:
-      - "3000:3000"
+      - "${NEXT_PORT}:${NEXT_PORT}"
     environment:
       - NODE_ENV=production
+      - PORT=${NEXT_PORT}
+      - WEBSITE_URL=${NEXT_WEBSITE_URL}
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+      - PREVIEW_SECRET=${NEXT_PREVIEW_SECRET}
+      - IMAGE_HOSTNAME=${NEXT_IMAGE_HOSTNAME}
     depends_on:
       - strapi
+    restart: always
 
   strapi:
     build:
-      context: .
-      dockerfile: ./strapi/Dockerfile
+      context: ./strapi
+      dockerfile: Dockerfile
+      args:
+        - RUN yarn install --frozen-lockfile && yarn cache clean
     ports:
-      - "1337:1337"
+      - "${STRAPI_PORT}:${STRAPI_PORT}"
     environment:
       - NODE_ENV=production
-      - DATABASE_CLIENT=sqlite
-      - DATABASE_FILENAME=./data.db
+      - HOST=${STRAPI_HOST}
+      - PORT=${STRAPI_PORT}
+      - APP_KEYS=${STRAPI_APP_KEYS}
+      - API_TOKEN_SALT=${STRAPI_API_TOKEN_SALT}
+      - TRANSFER_TOKEN_SALT=${STRAPI_TRANSFER_TOKEN_SALT}
+      - ADMIN_JWT_SECRET=${STRAPI_ADMIN_JWT_SECRET}
+      - JWT_SECRET=${STRAPI_JWT_SECRET}
+      - STRAPI_ADMIN_CLIENT_URL=${STRAPI_ADMIN_CLIENT_URL}
+      - STRAPI_ADMIN_CLIENT_PREVIEW_SECRET=${STRAPI_ADMIN_CLIENT_PREVIEW_SECRET}
+      - CLIENT_URL=${STRAPI_CLIENT_URL}
+      - PREVIEW_SECRET=${STRAPI_PREVIEW_SECRET}
     volumes:
       - ./strapi/data:/app/data
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "${STRAPI_HOST_URL}/_health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

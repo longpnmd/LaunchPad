@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,48 +23,42 @@ jobs:
         with:
           node-version: 18
 
-      # Install dependencies and set up both Strapi and Next.js
-      - name: Install dependencies and setup
+      # Create .env file for Docker Compose
+      - name: Set up environment variables
         run: |
-          yarn setup
+          echo "NEXT_WEBSITE_URL=${{ vars.NEXT_WEBSITE_URL }}" >> .env
+          echo "NEXT_PORT=${{ vars.NEXT_PORT }}" >> .env
+          echo "NEXT_PUBLIC_API_URL=${{ vars.NEXT_PUBLIC_API_URL }}" >> .env
+          echo "NEXT_IMAGE_HOSTNAME=${{ vars.NEXT_IMAGE_HOSTNAME }}" >> .env
+          echo "NEXT_PREVIEW_SECRET=${{ secrets.NEXT_PREVIEW_SECRET }}" >> .env
+          echo "STRAPI_HOST=${{ vars.STRAPI_HOST }}" >> .env
+          echo "STRAPI_PORT=${{ vars.STRAPI_PORT }}" >> .env
+          echo "STRAPI_APP_KEYS=${{ secrets.STRAPI_APP_KEYS }}" >> .env
+          echo "STRAPI_API_TOKEN_SALT=${{ secrets.STRAPI_API_TOKEN_SALT }}" >> .env
+          echo "STRAPI_TRANSFER_TOKEN_SALT=${{ secrets.STRAPI_TRANSFER_TOKEN_SALT }}" >> .env
+          echo "STRAPI_ADMIN_JWT_SECRET=${{ secrets.STRAPI_ADMIN_JWT_SECRET }}" >> .env
+          echo "STRAPI_JWT_SECRET=${{ secrets.STRAPI_JWT_SECRET }}" >> .env
+          echo "STRAPI_ADMIN_CLIENT_URL=${{ vars.STRAPI_ADMIN_CLIENT_URL }}" >> .env
+          echo "STRAPI_ADMIN_CLIENT_PREVIEW_SECRET=${{ secrets.STRAPI_ADMIN_CLIENT_PREVIEW_SECRET }}" >> .env
+          echo "STRAPI_CLIENT_URL=${{ vars.STRAPI_CLIENT_URL }}" >> .env
+          echo "STRAPI_PREVIEW_SECRET=${{ secrets.STRAPI_PREVIEW_SECRET }}" >> .env
 
-      # # Seed data for Strapi
-      # - name: Seed Strapi data
-      #   run: |
-      #     cd strapi
-      #     yarn seed
-
-      # Build and start Strapi
-      - name: Start Strapi
+      # Build and run Docker Compose
+      - name: Build and run Docker Compose
         run: |
-          yarn strapi &
-        env:
-          NODE_ENV: development
-          HOST: 0.0.0.0
-          PORT: 1337
-          PREVIEW_SECRET: ${{ secrets.STRAPI_PREVIEW_SECRET }}
-          APP_KEYS: ${{ secrets.APP_KEYS }}
-          API_TOKEN_SALT: ${{ secrets.API_TOKEN_SALT }}
-          TRANSFER_TOKEN_SALT: ${{ secrets.TRANSFER_TOKEN_SALT }}
-          ADMIN_JWT_SECRET: ${{ secrets.ADMIN_JWT_SECRET }}
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
-          STRAPI_ADMIN_CLIENT_PREVIEW_SECRET: ${{ vars.NEXT_PREVIEW_SECRET }}
-          STRAPI_ADMIN_CLIENT_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          docker-compose down || true
+          docker-compose up --build -d
 
-      # Wait for Strapi to be ready
-      # - name: Wait for Strapi
-      #   run: |
-      #     npx wait-on http://localhost:1337
+      # Check logs
+      - name: Check logs
+        run: |
+          docker-compose logs
 
-      # Build Next.js
-      - name: Build Next.js
+      # Verify health status
+      - name: Verify health status
         run: |
-          yarn next
-        env:
-          PREVIEW_SECRET: ${{ secrets.NEXT_PREVIEW_SECRET }}
-          STRAPI_ADMIN_CLIENT_URL: ${{ vars.STRAPI_ADMIN_CLIENT_URL }}
-      # Run tests (if any)
-      - name: Run tests
-        run: |
-          cd next
-          yarn test
+          docker inspect --format='{{json .State.Health.Status}}' strapi
+
+      # Debug .env file
+      - name: Debug .env file
+        run: cat .env
