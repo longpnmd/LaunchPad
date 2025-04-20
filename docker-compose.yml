@@ -58,6 +58,8 @@ services:
       - "traefik.http.services.strapi.loadbalancer.server.port=${STRAPI_PORT}"
     volumes:
       - ./strapi/data:/app/data
+      - ./strapi/uploads:/app/public/uploads
+      - ./strapi/.tmp:/app/.tmp
     restart: always
 
   traefik:
