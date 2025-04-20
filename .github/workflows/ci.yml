@@ -11,7 +11,7 @@ on:
 jobs:
   build-and-deploy:
     environment: RELEASE # Chỉ định Environment RELEASE
-    runs-on: ubuntu-latest
+    runs-on: self-hosted # Sử dụng self-hosted runner
 
     steps:
       # Checkout code
@@ -45,6 +45,9 @@ jobs:
           echo "STRAPI_ADMIN_CLIENT_PREVIEW_SECRET=${{ secrets.STRAPI_ADMIN_CLIENT_PREVIEW_SECRET }}" >> .env
           echo "STRAPI_CLIENT_URL=${{ vars.STRAPI_CLIENT_URL }}" >> .env
           echo "STRAPI_PREVIEW_SECRET=${{ secrets.STRAPI_PREVIEW_SECRET }}" >> .env
+          echo "STRAPI_ADMIN_BACKEND_URL=${{ vars.STRAPI_ADMIN_BACKEND_URL }}" >> .env
+          echo "STRAPI_TELEMETRY_DISABLED=${{ vars.STRAPI_TELEMETRY_DISABLED }}" >> .env
+          echo "STRAPI_ADMIN_PATH=${{ vars.STRAPI_ADMIN_PATH }}" >> .env
 
       # Build and run Docker Compose using run.sh
       - name: Build and run Docker Compose
