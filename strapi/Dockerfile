@@ -10,4 +10,5 @@ FROM node:18
 WORKDIR /app
 COPY --from=builder /app /app
 EXPOSE 1337
+USER node
 CMD ["yarn", "start"]
