@@ -1,6 +1,14 @@
+# Build container only if necessary
 docker compose build --compress --build-arg NODE_ENV=production
-docker compose down
+
+# Stop containers without removing them
+docker compose stop
+
+# Start containers with updated environment variables
 docker compose --env-file ./.env up -d
-docker container prune -f || true
-docker image prune -f || true
-docker system prune -f || true
+
+# Remove stopped containers older than 24 hours
+docker container prune --filter "until=24h" -f
+
+# Remove unused images older than 24 hours
+docker image prune --filter "until=24h" -f
