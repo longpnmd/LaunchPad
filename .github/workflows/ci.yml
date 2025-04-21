@@ -9,20 +9,78 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
-    environment: RELEASE # Chỉ định Environment RELEASE
-    runs-on: self-hosted # Sử dụng self-hosted runner
+  build:
+    runs-on: self-hosted
 
     steps:
       # Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Cache Node.js dependencies
+      - name: Cache Node.js modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       # Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+  test:
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+      # Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Run tests
+      - name: Run tests
+        run: npm test
+
+  docker-build:
+    runs-on: self-hosted
+    needs: build
+
+    steps:
+      # Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Cache Docker layers
+      - name: Cache Docker layers
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-docker-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-docker-
+
+      # Build Docker image
+      - name: Build Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: false
+          tags: my-app:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+
+      # Health check
+      - name: Verify health status
+        run: |
+          docker inspect --format='{{json .State.Health.Status}}' my-app
 
       # Create .env file for Docker Compose
       - name: Set up environment variables
