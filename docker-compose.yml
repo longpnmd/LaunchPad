@@ -61,7 +61,6 @@ services:
       - ../public/uploads:/app/public/uploads
       # for local development | template repo
       - ../.tmp/data.db:/app/.tmp/data.db
-    user: "node"
     restart: always
 
   traefik:
