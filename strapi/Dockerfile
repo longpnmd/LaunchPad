@@ -11,4 +11,13 @@ WORKDIR /app
 COPY --from=builder /app /app
 EXPOSE 1337
 USER node
-CMD ["yarn", "start"]
+
+# Start Strapi and run seed script
+CMD yarn start & \
+    echo "Waiting for Strapi to initialize..." && \
+    until curl -s http://localhost:1337/admin/init > /dev/null; do \
+      sleep 5; \
+    done && \
+    echo "Running seed script..." && \
+    yarn seed && \
+    wait
