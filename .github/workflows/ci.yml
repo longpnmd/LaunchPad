@@ -73,13 +73,25 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-docker-
 
-      # Build Docker image
-      - name: Build Docker image
+      # Build Docker image for Next.js
+      - name: Build Docker image for Next.js
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: ./next
+          file: ./next/Dockerfile
           push: false
-          tags: my-app:latest
+          tags: next-app:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+
+      # Build Docker image for Strapi
+      - name: Build Docker image for Strapi
+        uses: docker/build-push-action@v4
+        with:
+          context: ./strapi
+          file: ./strapi/Dockerfile
+          push: false
+          tags: strapi-app:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
