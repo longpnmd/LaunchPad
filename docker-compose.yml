@@ -60,6 +60,7 @@ services:
       - ../data:/app/data
       - ../public/uploads:/app/public/uploads
       - ../.tmp:/app/.tmp 
+    user: "node"
     restart: always
 
   traefik:

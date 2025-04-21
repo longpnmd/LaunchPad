@@ -49,6 +49,12 @@ jobs:
           echo "STRAPI_TELEMETRY_DISABLED=${{ vars.STRAPI_TELEMETRY_DISABLED }}" >> .env
           echo "STRAPI_ADMIN_PATH=${{ vars.STRAPI_ADMIN_PATH }}" >> .env
 
+      # Fix permissions for .tmp directory
+      - name: Fix permissions
+        run: |
+          sudo chown -R $(whoami):$(whoami) ./strapi/.tmp
+          chmod -R 775 ./strapi/.tmp
+
       # Build and run Docker Compose using run.sh
       - name: Build and run Docker Compose
         run: sh ./run.sh
