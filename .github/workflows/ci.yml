@@ -52,8 +52,10 @@ jobs:
       # Fix permissions for .tmp directory
       - name: Fix permissions
         run: |
-          sudo chown -R $(whoami):$(whoami) ./strapi/.tmp
-          chmod -R 775 ./strapi/.tmp
+          if [ -d ./strapi/.tmp ]; then
+            chown -R $(whoami):$(whoami) ./strapi/.tmp
+            chmod -R 775 ./strapi/.tmp
+          fi
 
       # Build and run Docker Compose using run.sh
       - name: Build and run Docker Compose
