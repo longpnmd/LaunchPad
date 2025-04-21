@@ -1,8 +1,9 @@
 # Stage 1: Build Next.js app
 FROM node:18 AS builder
 WORKDIR /app
-COPY . .
+COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile && yarn cache clean
+COPY . .
 RUN yarn build
 
 # Stage 2: Serve Next.js app

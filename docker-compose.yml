@@ -4,6 +4,11 @@ services:
     build:
       context: ./next
       dockerfile: Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2G
       args:
         - RUN yarn install --frozen-lockfile && yarn cache clean
     ports:
@@ -30,6 +35,11 @@ services:
     build:
       context: ./strapi
       dockerfile: Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2G
       args:
         - RUN yarn install --frozen-lockfile && yarn cache clean
     ports:

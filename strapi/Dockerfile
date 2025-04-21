@@ -1,8 +1,9 @@
 # Stage 1: Build Strapi app
 FROM node:18 AS builder
 WORKDIR /app
-COPY . .
+COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
+COPY . .
 RUN yarn build
 
 # Stage 2: Serve Strapi app

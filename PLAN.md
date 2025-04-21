@@ -62,6 +62,45 @@
 ### **4. Logging và Monitoring**
 - **Centralized Logging**:
   - Gửi logs đến dịch vụ tập trung như ELK Stack hoặc Fluentd.
+    - **ELK Stack**:
+      - **Thành phần**: Elasticsearch, Logstash, Kibana.
+      - **Ưu điểm**:
+        - Tìm kiếm logs mạnh mẽ với Elasticsearch.
+        - Trực quan hóa logs qua Kibana.
+        - Phân tích logs phức tạp.
+      - **Nhược điểm**:
+        - Yêu cầu tài nguyên cao.
+        - Chi phí triển khai lớn.
+
+    - **Fluentd + Loki**:
+      - **Thành phần**: Fluentd (hoặc Fluent Bit), Loki, Grafana.
+      - **Ưu điểm**:
+        - Nhẹ, phù hợp với hệ thống tài nguyên hạn chế.
+        - Tích hợp tốt với Prometheus/Grafana.
+        - Chi phí thấp hơn.
+      - **Nhược điểm**:
+        - Khả năng tìm kiếm logs hạn chế hơn ELK Stack.
+        - Trực quan hóa logs không mạnh bằng Kibana.
+
+    #### **Monitoring**
+    - **Prometheus và Grafana**:
+      - Thu thập số liệu hiệu suất từ container.
+      - Trực quan hóa dữ liệu và cung cấp cảnh báo theo thời gian thực.
+      - Tích hợp tốt với Fluentd + Loki.
+
+    #### **So sánh ELK Stack và Fluentd + Loki**
+    | **Tiêu chí**         | **ELK Stack**                  | **Fluentd + Loki**             |
+    |-----------------------|--------------------------------|---------------------------------|
+    | **Khả năng tìm kiếm** | Mạnh mẽ (Elasticsearch)       | Tốt nhưng không mạnh bằng ELK  |
+    | **Trực quan hóa**     | Kibana (rất mạnh)             | Grafana (tốt nhưng hạn chế hơn)|
+    | **Hiệu suất**         | Yêu cầu tài nguyên cao hơn    | Nhẹ hơn                        |
+    | **Khả năng mở rộng**  | Rất tốt                       | Tốt                            |
+    | **Chi phí triển khai**| Cao hơn                       | Thấp hơn                       |
+    | **Tích hợp Prometheus**| Không tích hợp sẵn           | Tích hợp tốt                   |
+
+    #### **Đề xuất**
+    - **ELK Stack**: Phù hợp với hệ thống cần phân tích logs phức tạp và có tài nguyên lớn.
+    - **Fluentd + Loki**: Phù hợp với hệ thống tài nguyên hạn chế hoặc cần tích hợp với Prometheus/Grafana. 
 - **Monitoring**:
   - Tích hợp Prometheus và Grafana để theo dõi hiệu suất container.
 
