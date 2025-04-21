@@ -59,7 +59,8 @@ services:
     volumes:
       - ../data:/app/data
       - ../public/uploads:/app/public/uploads
-      - ../.tmp:/app/.tmp 
+      # for local development | template repo
+      - ../.tmp/data.db:/app/.tmp/data.db
     user: "node"
     restart: always
 

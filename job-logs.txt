@@ -1,0 +1,886 @@
+﻿2025-04-21T04:39:51.5830504Z Current runner version: '2.323.0'
+2025-04-21T04:39:51.5850397Z Runner name: '50734'
+2025-04-21T04:39:51.5853786Z Machine name: '50734'
+2025-04-21T04:39:51.5868922Z ##[group]GITHUB_TOKEN Permissions
+2025-04-21T04:39:51.5876992Z Actions: write
+2025-04-21T04:39:51.5879912Z Attestations: write
+2025-04-21T04:39:51.5882468Z Checks: write
+2025-04-21T04:39:51.5885183Z Contents: write
+2025-04-21T04:39:51.5888002Z Deployments: write
+2025-04-21T04:39:51.5890685Z Discussions: write
+2025-04-21T04:39:51.5893403Z Issues: write
+2025-04-21T04:39:51.5896441Z Metadata: read
+2025-04-21T04:39:51.5898930Z Models: read
+2025-04-21T04:39:51.5901721Z Packages: write
+2025-04-21T04:39:51.5904086Z Pages: write
+2025-04-21T04:39:51.5906734Z PullRequests: write
+2025-04-21T04:39:51.5909607Z RepositoryProjects: write
+2025-04-21T04:39:51.5912340Z SecurityEvents: write
+2025-04-21T04:39:51.5915015Z Statuses: write
+2025-04-21T04:39:51.5917859Z ##[endgroup]
+2025-04-21T04:39:51.5925826Z Secret source: Actions
+2025-04-21T04:39:51.5929463Z Prepare workflow directory
+2025-04-21T04:39:51.7284644Z Prepare all required actions
+2025-04-21T04:39:51.7399638Z Getting action download info
+2025-04-21T04:39:52.7956334Z Download action repository 'actions/checkout@v3' (SHA:f43a0e5ff2bd294095638e18286ca9a3d1956744)
+2025-04-21T04:39:54.2281700Z Download action repository 'actions/setup-node@v3' (SHA:3235b876344d2a9aa001b8d1453c930bba69e610)
+2025-04-21T04:40:03.0239111Z Complete job name: build-and-deploy
+2025-04-21T04:40:03.1798989Z ##[group]Run actions/checkout@v3
+2025-04-21T04:40:03.1800575Z with:
+2025-04-21T04:40:03.1801081Z   repository: longpnmd/LaunchPad
+2025-04-21T04:40:03.1802362Z   token: ***
+2025-04-21T04:40:03.1802825Z   ssh-strict: true
+2025-04-21T04:40:03.1803627Z   persist-credentials: true
+2025-04-21T04:40:03.1804578Z   clean: true
+2025-04-21T04:40:03.1805389Z   sparse-checkout-cone-mode: true
+2025-04-21T04:40:03.1806813Z   fetch-depth: 1
+2025-04-21T04:40:03.1807620Z   fetch-tags: false
+2025-04-21T04:40:03.1808425Z   lfs: false
+2025-04-21T04:40:03.1809293Z   submodules: false
+2025-04-21T04:40:03.1810100Z   set-safe-directory: true
+2025-04-21T04:40:03.1811988Z ##[endgroup]
+2025-04-21T04:40:03.4657305Z Syncing repository: longpnmd/LaunchPad
+2025-04-21T04:40:03.4661613Z ##[group]Getting Git version info
+2025-04-21T04:40:03.4663532Z Working directory is '/home/longpn/actions-runner/_work/LaunchPad/LaunchPad'
+2025-04-21T04:40:03.4666619Z [command]/usr/bin/git version
+2025-04-21T04:40:03.4667840Z git version 2.43.0
+2025-04-21T04:40:03.4691318Z ##[endgroup]
+2025-04-21T04:40:03.4741813Z Temporarily overriding HOME='/home/longpn/actions-runner/_work/_temp/64b971b3-4b50-4922-8f19-025d2917f08f' before making global git config changes
+2025-04-21T04:40:03.4744943Z Adding repository directory to the temporary git global config as a safe directory
+2025-04-21T04:40:03.4753262Z [command]/usr/bin/git config --global --add safe.directory /home/longpn/actions-runner/_work/LaunchPad/LaunchPad
+2025-04-21T04:40:03.4838399Z Deleting the contents of '/home/longpn/actions-runner/_work/LaunchPad/LaunchPad'
+2025-04-21T04:40:03.4890633Z ##[group]Initializing the repository
+2025-04-21T04:40:03.4893436Z [command]/usr/bin/git init /home/longpn/actions-runner/_work/LaunchPad/LaunchPad
+2025-04-21T04:40:03.5076344Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-04-21T04:40:03.5080258Z hint: is subject to change. To configure the initial branch name to use in all
+2025-04-21T04:40:03.5083057Z hint: of your new repositories, which will suppress this warning, call:
+2025-04-21T04:40:03.5084578Z hint: 
+2025-04-21T04:40:03.5086108Z hint: 	git config --global init.defaultBranch <name>
+2025-04-21T04:40:03.5087431Z hint: 
+2025-04-21T04:40:03.5088614Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-04-21T04:40:03.5090442Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-04-21T04:40:03.5092237Z hint: 
+2025-04-21T04:40:03.5093185Z hint: 	git branch -m <name>
+2025-04-21T04:40:03.5095024Z Initialized empty Git repository in /home/longpn/actions-runner/_work/LaunchPad/LaunchPad/.git/
+2025-04-21T04:40:03.5135322Z [command]/usr/bin/git remote add origin https://github.com/longpnmd/LaunchPad
+2025-04-21T04:40:03.5243283Z ##[endgroup]
+2025-04-21T04:40:03.5297270Z ##[group]Disabling automatic garbage collection
+2025-04-21T04:40:03.5298977Z [command]/usr/bin/git config --local gc.auto 0
+2025-04-21T04:40:03.5312494Z ##[endgroup]
+2025-04-21T04:40:03.5314224Z ##[group]Setting up auth
+2025-04-21T04:40:03.5330498Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-04-21T04:40:03.5403906Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-04-21T04:40:03.5958537Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-04-21T04:40:03.6012081Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-04-21T04:40:03.6492898Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-04-21T04:40:03.6579195Z ##[endgroup]
+2025-04-21T04:40:03.6588568Z ##[group]Fetching the repository
+2025-04-21T04:40:03.6591123Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --progress --no-recurse-submodules --depth=1 origin +440696de85a8a4374915988eb0c55d4c4f8c98bc:refs/remotes/origin/main
+2025-04-21T04:40:04.5683996Z remote: Enumerating objects: 358, done.        
+2025-04-21T04:40:04.5686624Z remote: Counting objects:   0% (1/358)        
+2025-04-21T04:40:04.5687486Z remote: Counting objects:   1% (4/358)        
+2025-04-21T04:40:04.5688501Z remote: Counting objects:   2% (8/358)        
+2025-04-21T04:40:04.5689473Z remote: Counting objects:   3% (11/358)        
+2025-04-21T04:40:04.5690049Z remote: Counting objects:   4% (15/358)        
+2025-04-21T04:40:04.5690617Z remote: Counting objects:   5% (18/358)        
+2025-04-21T04:40:04.5691164Z remote: Counting objects:   6% (22/358)        
+2025-04-21T04:40:04.5691684Z remote: Counting objects:   7% (26/358)        
+2025-04-21T04:40:04.5692202Z remote: Counting objects:   8% (29/358)        
+2025-04-21T04:40:04.5692827Z remote: Counting objects:   9% (33/358)        
+2025-04-21T04:40:04.5693835Z remote: Counting objects:  10% (36/358)        
+2025-04-21T04:40:04.5694440Z remote: Counting objects:  11% (40/358)        
+2025-04-21T04:40:04.5694958Z remote: Counting objects:  12% (43/358)        
+2025-04-21T04:40:04.5696032Z remote: Counting objects:  13% (47/358)        
+2025-04-21T04:40:04.5696583Z remote: Counting objects:  14% (51/358)        
+2025-04-21T04:40:04.5697103Z remote: Counting objects:  15% (54/358)        
+2025-04-21T04:40:04.5697621Z remote: Counting objects:  16% (58/358)        
+2025-04-21T04:40:04.5698134Z remote: Counting objects:  17% (61/358)        
+2025-04-21T04:40:04.5698678Z remote: Counting objects:  18% (65/358)        
+2025-04-21T04:40:04.5699191Z remote: Counting objects:  19% (69/358)        
+2025-04-21T04:40:04.5700081Z remote: Counting objects:  20% (72/358)        
+2025-04-21T04:40:04.5700613Z remote: Counting objects:  21% (76/358)        
+2025-04-21T04:40:04.5701128Z remote: Counting objects:  22% (79/358)        
+2025-04-21T04:40:04.5701656Z remote: Counting objects:  23% (83/358)        
+2025-04-21T04:40:04.5702178Z remote: Counting objects:  24% (86/358)        
+2025-04-21T04:40:04.5702689Z remote: Counting objects:  25% (90/358)        
+2025-04-21T04:40:04.5703202Z remote: Counting objects:  26% (94/358)        
+2025-04-21T04:40:04.5703728Z remote: Counting objects:  27% (97/358)        
+2025-04-21T04:40:04.5704326Z remote: Counting objects:  28% (101/358)        
+2025-04-21T04:40:04.5704860Z remote: Counting objects:  29% (104/358)        
+2025-04-21T04:40:04.5705378Z remote: Counting objects:  30% (108/358)        
+2025-04-21T04:40:04.5707010Z remote: Counting objects:  31% (111/358)        
+2025-04-21T04:40:04.5707927Z remote: Counting objects:  32% (115/358)        
+2025-04-21T04:40:04.5708629Z remote: Counting objects:  33% (119/358)        
+2025-04-21T04:40:04.5709150Z remote: Counting objects:  34% (122/358)        
+2025-04-21T04:40:04.5709733Z remote: Counting objects:  35% (126/358)        
+2025-04-21T04:40:04.5710612Z remote: Counting objects:  36% (129/358)        
+2025-04-21T04:40:04.5711145Z remote: Counting objects:  37% (133/358)        
+2025-04-21T04:40:04.5711665Z remote: Counting objects:  38% (137/358)        
+2025-04-21T04:40:04.5712174Z remote: Counting objects:  39% (140/358)        
+2025-04-21T04:40:04.5712687Z remote: Counting objects:  40% (144/358)        
+2025-04-21T04:40:04.5713198Z remote: Counting objects:  41% (147/358)        
+2025-04-21T04:40:04.5713716Z remote: Counting objects:  42% (151/358)        
+2025-04-21T04:40:04.5714231Z remote: Counting objects:  43% (154/358)        
+2025-04-21T04:40:04.5714759Z remote: Counting objects:  44% (158/358)        
+2025-04-21T04:40:04.5715273Z remote: Counting objects:  45% (162/358)        
+2025-04-21T04:40:04.5717314Z remote: Counting objects:  46% (165/358)        
+2025-04-21T04:40:04.5718175Z remote: Counting objects:  47% (169/358)        
+2025-04-21T04:40:04.5718720Z remote: Counting objects:  48% (172/358)        
+2025-04-21T04:40:04.5719765Z remote: Counting objects:  49% (176/358)        
+2025-04-21T04:40:04.5722362Z remote: Counting objects:  50% (179/358)        
+2025-04-21T04:40:04.5722905Z remote: Counting objects:  51% (183/358)        
+2025-04-21T04:40:04.5723435Z remote: Counting objects:  52% (187/358)        
+2025-04-21T04:40:04.5723955Z remote: Counting objects:  53% (190/358)        
+2025-04-21T04:40:04.5730823Z remote: Counting objects:  54% (194/358)        
+2025-04-21T04:40:04.5731411Z remote: Counting objects:  55% (197/358)        
+2025-04-21T04:40:04.5731935Z remote: Counting objects:  56% (201/358)        
+2025-04-21T04:40:04.5732475Z remote: Counting objects:  57% (205/358)        
+2025-04-21T04:40:04.5732996Z remote: Counting objects:  58% (208/358)        
+2025-04-21T04:40:04.5733736Z remote: Counting objects:  59% (212/358)        
+2025-04-21T04:40:04.5736344Z remote: Counting objects:  60% (215/358)        
+2025-04-21T04:40:04.5737111Z remote: Counting objects:  61% (219/358)        
+2025-04-21T04:40:04.5741556Z remote: Counting objects:  62% (222/358)        
+2025-04-21T04:40:04.5742213Z remote: Counting objects:  63% (226/358)        
+2025-04-21T04:40:04.5742789Z remote: Counting objects:  64% (230/358)        
+2025-04-21T04:40:04.5743323Z remote: Counting objects:  65% (233/358)        
+2025-04-21T04:40:04.5743841Z remote: Counting objects:  66% (237/358)        
+2025-04-21T04:40:04.5744362Z remote: Counting objects:  67% (240/358)        
+2025-04-21T04:40:04.5746190Z remote: Counting objects:  68% (244/358)        
+2025-04-21T04:40:04.5746716Z remote: Counting objects:  69% (248/358)        
+2025-04-21T04:40:04.5747228Z remote: Counting objects:  70% (251/358)        
+2025-04-21T04:40:04.5747760Z remote: Counting objects:  71% (255/358)        
+2025-04-21T04:40:04.5748275Z remote: Counting objects:  72% (258/358)        
+2025-04-21T04:40:04.5748792Z remote: Counting objects:  73% (262/358)        
+2025-04-21T04:40:04.5749308Z remote: Counting objects:  74% (265/358)        
+2025-04-21T04:40:04.5749824Z remote: Counting objects:  75% (269/358)        
+2025-04-21T04:40:04.5750348Z remote: Counting objects:  76% (273/358)        
+2025-04-21T04:40:04.5751150Z remote: Counting objects:  77% (276/358)        
+2025-04-21T04:40:04.5751800Z remote: Counting objects:  78% (280/358)        
+2025-04-21T04:40:04.5752322Z remote: Counting objects:  79% (283/358)        
+2025-04-21T04:40:04.5752832Z remote: Counting objects:  80% (287/358)        
+2025-04-21T04:40:04.5753345Z remote: Counting objects:  81% (290/358)        
+2025-04-21T04:40:04.5753996Z remote: Counting objects:  82% (294/358)        
+2025-04-21T04:40:04.5754517Z remote: Counting objects:  83% (298/358)        
+2025-04-21T04:40:04.5755834Z remote: Counting objects:  84% (301/358)        
+2025-04-21T04:40:04.5756356Z remote: Counting objects:  85% (305/358)        
+2025-04-21T04:40:04.5756880Z remote: Counting objects:  86% (308/358)        
+2025-04-21T04:40:04.5757399Z remote: Counting objects:  87% (312/358)        
+2025-04-21T04:40:04.5757927Z remote: Counting objects:  88% (316/358)        
+2025-04-21T04:40:04.5758470Z remote: Counting objects:  89% (319/358)        
+2025-04-21T04:40:04.5759002Z remote: Counting objects:  90% (323/358)        
+2025-04-21T04:40:04.5759530Z remote: Counting objects:  91% (326/358)        
+2025-04-21T04:40:04.5760059Z remote: Counting objects:  92% (330/358)        
+2025-04-21T04:40:04.5760589Z remote: Counting objects:  93% (333/358)        
+2025-04-21T04:40:04.5761704Z remote: Counting objects:  94% (337/358)        
+2025-04-21T04:40:04.5762534Z remote: Counting objects:  95% (341/358)        
+2025-04-21T04:40:04.5763067Z remote: Counting objects:  96% (344/358)        
+2025-04-21T04:40:04.5763644Z remote: Counting objects:  97% (348/358)        
+2025-04-21T04:40:04.5764170Z remote: Counting objects:  98% (351/358)        
+2025-04-21T04:40:04.5764702Z remote: Counting objects:  99% (355/358)        
+2025-04-21T04:40:04.5765230Z remote: Counting objects: 100% (358/358)        
+2025-04-21T04:40:04.5765998Z remote: Counting objects: 100% (358/358), done.        
+2025-04-21T04:40:04.5767416Z remote: Compressing objects:   0% (1/218)        
+2025-04-21T04:40:04.5768152Z remote: Compressing objects:   1% (3/218)        
+2025-04-21T04:40:04.5769170Z remote: Compressing objects:   2% (5/218)        
+2025-04-21T04:40:04.5769938Z remote: Compressing objects:   3% (7/218)        
+2025-04-21T04:40:04.5770713Z remote: Compressing objects:   4% (9/218)        
+2025-04-21T04:40:04.5771402Z remote: Compressing objects:   5% (11/218)        
+2025-04-21T04:40:04.5772234Z remote: Compressing objects:   6% (14/218)        
+2025-04-21T04:40:04.5772907Z remote: Compressing objects:   7% (16/218)        
+2025-04-21T04:40:04.5773490Z remote: Compressing objects:   8% (18/218)        
+2025-04-21T04:40:04.5774047Z remote: Compressing objects:   9% (20/218)        
+2025-04-21T04:40:04.5774597Z remote: Compressing objects:  10% (22/218)        
+2025-04-21T04:40:04.5775146Z remote: Compressing objects:  11% (24/218)        
+2025-04-21T04:40:04.5776228Z remote: Compressing objects:  12% (27/218)        
+2025-04-21T04:40:04.5777213Z remote: Compressing objects:  13% (29/218)        
+2025-04-21T04:40:04.5778470Z remote: Compressing objects:  14% (31/218)        
+2025-04-21T04:40:04.5779322Z remote: Compressing objects:  15% (33/218)        
+2025-04-21T04:40:04.5779891Z remote: Compressing objects:  16% (35/218)        
+2025-04-21T04:40:04.5780443Z remote: Compressing objects:  17% (38/218)        
+2025-04-21T04:40:04.5781371Z remote: Compressing objects:  18% (40/218)        
+2025-04-21T04:40:04.5781943Z remote: Compressing objects:  19% (42/218)        
+2025-04-21T04:40:04.5782869Z remote: Compressing objects:  20% (44/218)        
+2025-04-21T04:40:04.5783458Z remote: Compressing objects:  21% (46/218)        
+2025-04-21T04:40:04.5784007Z remote: Compressing objects:  22% (48/218)        
+2025-04-21T04:40:04.5784564Z remote: Compressing objects:  23% (51/218)        
+2025-04-21T04:40:04.5785112Z remote: Compressing objects:  24% (53/218)        
+2025-04-21T04:40:04.5785995Z remote: Compressing objects:  25% (55/218)        
+2025-04-21T04:40:04.5786555Z remote: Compressing objects:  26% (57/218)        
+2025-04-21T04:40:04.5787104Z remote: Compressing objects:  27% (59/218)        
+2025-04-21T04:40:04.5787665Z remote: Compressing objects:  28% (62/218)        
+2025-04-21T04:40:04.5788217Z remote: Compressing objects:  29% (64/218)        
+2025-04-21T04:40:04.5788763Z remote: Compressing objects:  30% (66/218)        
+2025-04-21T04:40:04.5789309Z remote: Compressing objects:  31% (68/218)        
+2025-04-21T04:40:04.5789855Z remote: Compressing objects:  32% (70/218)        
+2025-04-21T04:40:04.5791009Z remote: Compressing objects:  33% (72/218)        
+2025-04-21T04:40:04.5791919Z remote: Compressing objects:  34% (75/218)        
+2025-04-21T04:40:04.5792583Z remote: Compressing objects:  35% (77/218)        
+2025-04-21T04:40:04.5793417Z remote: Compressing objects:  36% (79/218)        
+2025-04-21T04:40:04.5794382Z remote: Compressing objects:  37% (81/218)        
+2025-04-21T04:40:04.5795256Z remote: Compressing objects:  38% (83/218)        
+2025-04-21T04:40:04.5796057Z remote: Compressing objects:  39% (86/218)        
+2025-04-21T04:40:04.5796614Z remote: Compressing objects:  40% (88/218)        
+2025-04-21T04:40:04.5797162Z remote: Compressing objects:  41% (90/218)        
+2025-04-21T04:40:04.5797763Z remote: Compressing objects:  42% (92/218)        
+2025-04-21T04:40:04.5798342Z remote: Compressing objects:  43% (94/218)        
+2025-04-21T04:40:04.5798892Z remote: Compressing objects:  44% (96/218)        
+2025-04-21T04:40:04.5799439Z remote: Compressing objects:  45% (99/218)        
+2025-04-21T04:40:04.5800010Z remote: Compressing objects:  46% (101/218)        
+2025-04-21T04:40:04.5800571Z remote: Compressing objects:  47% (103/218)        
+2025-04-21T04:40:04.5801132Z remote: Compressing objects:  48% (105/218)        
+2025-04-21T04:40:04.5802355Z remote: Compressing objects:  49% (107/218)        
+2025-04-21T04:40:04.5803169Z remote: Compressing objects:  50% (109/218)        
+2025-04-21T04:40:04.5804409Z remote: Compressing objects:  51% (112/218)        
+2025-04-21T04:40:04.5805046Z remote: Compressing objects:  52% (114/218)        
+2025-04-21T04:40:04.5805784Z remote: Compressing objects:  53% (116/218)        
+2025-04-21T04:40:04.5806357Z remote: Compressing objects:  54% (118/218)        
+2025-04-21T04:40:04.5806917Z remote: Compressing objects:  55% (120/218)        
+2025-04-21T04:40:04.5807470Z remote: Compressing objects:  56% (123/218)        
+2025-04-21T04:40:04.5808020Z remote: Compressing objects:  57% (125/218)        
+2025-04-21T04:40:04.5808571Z remote: Compressing objects:  58% (127/218)        
+2025-04-21T04:40:04.5860699Z remote: Compressing objects:  59% (129/218)        
+2025-04-21T04:40:04.5862114Z remote: Compressing objects:  60% (131/218)        
+2025-04-21T04:40:04.5862940Z remote: Compressing objects:  61% (133/218)        
+2025-04-21T04:40:04.5866311Z remote: Compressing objects:  62% (136/218)        
+2025-04-21T04:40:04.5867645Z remote: Compressing objects:  63% (138/218)        
+2025-04-21T04:40:04.5868327Z remote: Compressing objects:  64% (140/218)        
+2025-04-21T04:40:04.5868901Z remote: Compressing objects:  65% (142/218)        
+2025-04-21T04:40:04.5869760Z remote: Compressing objects:  66% (144/218)        
+2025-04-21T04:40:04.5870745Z remote: Compressing objects:  67% (147/218)        
+2025-04-21T04:40:04.5871314Z remote: Compressing objects:  68% (149/218)        
+2025-04-21T04:40:04.5871869Z remote: Compressing objects:  69% (151/218)        
+2025-04-21T04:40:04.5872423Z remote: Compressing objects:  70% (153/218)        
+2025-04-21T04:40:04.5872991Z remote: Compressing objects:  71% (155/218)        
+2025-04-21T04:40:04.5873539Z remote: Compressing objects:  72% (157/218)        
+2025-04-21T04:40:04.5874090Z remote: Compressing objects:  73% (160/218)        
+2025-04-21T04:40:04.5875249Z remote: Compressing objects:  74% (162/218)        
+2025-04-21T04:40:04.5876129Z remote: Compressing objects:  75% (164/218)        
+2025-04-21T04:40:04.5876708Z remote: Compressing objects:  76% (166/218)        
+2025-04-21T04:40:04.5877262Z remote: Compressing objects:  77% (168/218)        
+2025-04-21T04:40:04.5878135Z remote: Compressing objects:  78% (171/218)        
+2025-04-21T04:40:04.5878692Z remote: Compressing objects:  79% (173/218)        
+2025-04-21T04:40:04.5879242Z remote: Compressing objects:  80% (175/218)        
+2025-04-21T04:40:04.5880044Z remote: Compressing objects:  81% (177/218)        
+2025-04-21T04:40:04.5881034Z remote: Compressing objects:  82% (179/218)        
+2025-04-21T04:40:04.5882319Z remote: Compressing objects:  83% (181/218)        
+2025-04-21T04:40:04.5883448Z remote: Compressing objects:  84% (184/218)        
+2025-04-21T04:40:04.5883999Z remote: Compressing objects:  85% (186/218)        
+2025-04-21T04:40:04.5885011Z remote: Compressing objects:  86% (188/218)        
+2025-04-21T04:40:04.5885768Z remote: Compressing objects:  87% (190/218)        
+2025-04-21T04:40:04.5886343Z remote: Compressing objects:  88% (192/218)        
+2025-04-21T04:40:04.5886910Z remote: Compressing objects:  89% (195/218)        
+2025-04-21T04:40:04.5887537Z remote: Compressing objects:  90% (197/218)        
+2025-04-21T04:40:04.5888085Z remote: Compressing objects:  91% (199/218)        
+2025-04-21T04:40:04.5888639Z remote: Compressing objects:  92% (201/218)        
+2025-04-21T04:40:04.5889199Z remote: Compressing objects:  93% (203/218)        
+2025-04-21T04:40:04.5889754Z remote: Compressing objects:  94% (205/218)        
+2025-04-21T04:40:04.5890737Z remote: Compressing objects:  95% (208/218)        
+2025-04-21T04:40:04.5891586Z remote: Compressing objects:  96% (210/218)        
+2025-04-21T04:40:04.5892163Z remote: Compressing objects:  97% (212/218)        
+2025-04-21T04:40:04.5892718Z remote: Compressing objects:  98% (214/218)        
+2025-04-21T04:40:04.5893521Z remote: Compressing objects:  99% (216/218)        
+2025-04-21T04:40:04.5894085Z remote: Compressing objects: 100% (218/218)        
+2025-04-21T04:40:04.5894938Z remote: Compressing objects: 100% (218/218), done.        
+2025-04-21T04:40:04.6150277Z Receiving objects:   0% (1/358)
+2025-04-21T04:40:04.6156914Z Receiving objects:   1% (4/358)
+2025-04-21T04:40:04.6157988Z Receiving objects:   2% (8/358)
+2025-04-21T04:40:04.6589291Z Receiving objects:   3% (11/358)
+2025-04-21T04:40:04.6954000Z Receiving objects:   4% (15/358)
+2025-04-21T04:40:04.6954574Z Receiving objects:   5% (18/358)
+2025-04-21T04:40:04.6955064Z Receiving objects:   6% (22/358)
+2025-04-21T04:40:04.6955875Z Receiving objects:   7% (26/358)
+2025-04-21T04:40:04.6956565Z Receiving objects:   8% (29/358)
+2025-04-21T04:40:04.6957035Z Receiving objects:   9% (33/358)
+2025-04-21T04:40:04.6957747Z Receiving objects:  10% (36/358)
+2025-04-21T04:40:04.6958488Z Receiving objects:  11% (40/358)
+2025-04-21T04:40:04.6959055Z Receiving objects:  12% (43/358)
+2025-04-21T04:40:04.6959478Z Receiving objects:  13% (47/358)
+2025-04-21T04:40:04.6959968Z Receiving objects:  14% (51/358)
+2025-04-21T04:40:04.6960622Z Receiving objects:  15% (54/358)
+2025-04-21T04:40:04.6961663Z Receiving objects:  16% (58/358)
+2025-04-21T04:40:04.6962146Z Receiving objects:  17% (61/358)
+2025-04-21T04:40:04.6964792Z Receiving objects:  18% (65/358)
+2025-04-21T04:40:04.6966845Z Receiving objects:  19% (69/358)
+2025-04-21T04:40:04.6970111Z Receiving objects:  20% (72/358)
+2025-04-21T04:40:04.6973690Z Receiving objects:  21% (76/358)
+2025-04-21T04:40:04.6998401Z Receiving objects:  22% (79/358)
+2025-04-21T04:40:04.7004797Z Receiving objects:  23% (83/358)
+2025-04-21T04:40:04.7010177Z Receiving objects:  24% (86/358)
+2025-04-21T04:40:04.7013489Z Receiving objects:  25% (90/358)
+2025-04-21T04:40:04.7014397Z Receiving objects:  26% (94/358)
+2025-04-21T04:40:04.7014865Z Receiving objects:  27% (97/358)
+2025-04-21T04:40:04.7131990Z Receiving objects:  28% (101/358)
+2025-04-21T04:40:04.7136388Z Receiving objects:  29% (104/358)
+2025-04-21T04:40:04.7137101Z Receiving objects:  30% (108/358)
+2025-04-21T04:40:04.7137706Z Receiving objects:  31% (111/358)
+2025-04-21T04:40:04.7140808Z Receiving objects:  32% (115/358)
+2025-04-21T04:40:04.7637518Z Receiving objects:  33% (119/358)
+2025-04-21T04:40:04.7795264Z Receiving objects:  34% (122/358)
+2025-04-21T04:40:04.7797201Z Receiving objects:  35% (126/358)
+2025-04-21T04:40:04.7798276Z Receiving objects:  36% (129/358)
+2025-04-21T04:40:04.7799517Z Receiving objects:  37% (133/358)
+2025-04-21T04:40:04.7800479Z Receiving objects:  38% (137/358)
+2025-04-21T04:40:04.7801938Z Receiving objects:  39% (140/358)
+2025-04-21T04:40:04.7802931Z Receiving objects:  40% (144/358)
+2025-04-21T04:40:05.3772500Z Receiving objects:  41% (147/358)
+2025-04-21T04:40:05.3781361Z Receiving objects:  42% (151/358), 396.00 KiB | 516.00 KiB/s
+2025-04-21T04:40:05.3782898Z Receiving objects:  43% (154/358), 396.00 KiB | 516.00 KiB/s
+2025-04-21T04:40:05.3784547Z Receiving objects:  44% (158/358), 396.00 KiB | 516.00 KiB/s
+2025-04-21T04:40:05.3837535Z Receiving objects:  45% (162/358), 396.00 KiB | 516.00 KiB/s
+2025-04-21T04:40:05.9378747Z Receiving objects:  46% (165/358), 396.00 KiB | 516.00 KiB/s
+2025-04-21T04:40:06.9443613Z Receiving objects:  46% (167/358), 1.36 MiB | 1.03 MiB/s    
+2025-04-21T04:40:07.9645206Z Receiving objects:  46% (167/358), 3.28 MiB | 1.41 MiB/s
+2025-04-21T04:40:08.9717448Z Receiving objects:  46% (167/358), 4.80 MiB | 1.43 MiB/s
+2025-04-21T04:40:09.9784916Z Receiving objects:  46% (167/358), 6.29 MiB | 1.44 MiB/s
+2025-04-21T04:40:10.9789228Z Receiving objects:  46% (167/358), 7.60 MiB | 1.57 MiB/s
+2025-04-21T04:40:11.9818601Z Receiving objects:  46% (167/358), 8.85 MiB | 1.40 MiB/s
+2025-04-21T04:40:12.9852946Z Receiving objects:  46% (167/358), 10.47 MiB | 1.42 MiB/s
+2025-04-21T04:40:14.0111429Z Receiving objects:  46% (167/358), 12.28 MiB | 1.50 MiB/s
+2025-04-21T04:40:15.0210217Z Receiving objects:  46% (167/358), 13.89 MiB | 1.50 MiB/s
+2025-04-21T04:40:16.0244295Z Receiving objects:  46% (167/358), 14.82 MiB | 1.47 MiB/s
+2025-04-21T04:40:17.0350415Z Receiving objects:  46% (167/358), 15.88 MiB | 1.38 MiB/s
+2025-04-21T04:40:18.0459268Z Receiving objects:  46% (167/358), 17.35 MiB | 1.29 MiB/s
+2025-04-21T04:40:19.0543986Z Receiving objects:  46% (167/358), 19.18 MiB | 1.32 MiB/s
+2025-04-21T04:40:20.0620408Z Receiving objects:  46% (167/358), 20.82 MiB | 1.42 MiB/s
+2025-04-21T04:40:20.2076034Z Receiving objects:  46% (167/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2081310Z Receiving objects:  47% (169/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2083560Z Receiving objects:  48% (172/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2086342Z Receiving objects:  49% (176/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2088647Z Receiving objects:  50% (179/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2090275Z Receiving objects:  51% (183/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2091663Z Receiving objects:  52% (187/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2093379Z Receiving objects:  53% (190/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2159103Z Receiving objects:  54% (194/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2162966Z Receiving objects:  55% (197/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2166349Z Receiving objects:  56% (201/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2167148Z Receiving objects:  57% (205/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2167930Z Receiving objects:  58% (208/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2168801Z Receiving objects:  59% (212/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2169744Z Receiving objects:  60% (215/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2170843Z Receiving objects:  61% (219/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2172023Z Receiving objects:  62% (222/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2173223Z Receiving objects:  63% (226/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2173939Z Receiving objects:  64% (230/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2174666Z Receiving objects:  65% (233/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2175413Z Receiving objects:  66% (237/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2176477Z Receiving objects:  67% (240/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2177230Z Receiving objects:  68% (244/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2178003Z Receiving objects:  69% (248/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2178734Z Receiving objects:  70% (251/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2179469Z Receiving objects:  71% (255/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2180596Z Receiving objects:  72% (258/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2181554Z Receiving objects:  73% (262/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2183825Z Receiving objects:  74% (265/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2184641Z Receiving objects:  75% (269/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2185384Z Receiving objects:  76% (273/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2186439Z Receiving objects:  77% (276/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2187084Z Receiving objects:  78% (280/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2187782Z Receiving objects:  79% (283/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2189304Z Receiving objects:  80% (287/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2190000Z Receiving objects:  81% (290/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2190604Z Receiving objects:  82% (294/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2191537Z Receiving objects:  83% (298/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2192180Z Receiving objects:  84% (301/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2193258Z Receiving objects:  85% (305/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2194236Z Receiving objects:  86% (308/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2194817Z Receiving objects:  87% (312/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2195379Z Receiving objects:  88% (316/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2196369Z Receiving objects:  89% (319/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2197508Z Receiving objects:  90% (323/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2198316Z Receiving objects:  91% (326/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2199338Z Receiving objects:  92% (330/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2200095Z Receiving objects:  93% (333/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2200670Z Receiving objects:  94% (337/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2201883Z Receiving objects:  95% (341/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2202918Z Receiving objects:  96% (344/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2204229Z Receiving objects:  97% (348/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2205003Z Receiving objects:  98% (351/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2905826Z Receiving objects:  99% (355/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2907401Z remote: Total 358 (delta 66), reused 246 (delta 56), pack-reused 0 (from 0)        
+2025-04-21T04:40:20.2908916Z Receiving objects: 100% (358/358), 22.81 MiB | 1.65 MiB/s
+2025-04-21T04:40:20.2914751Z Receiving objects: 100% (358/358), 23.36 MiB | 1.49 MiB/s, done.
+2025-04-21T04:40:20.2915869Z Resolving deltas:   0% (0/66)
+2025-04-21T04:40:20.2916508Z Resolving deltas:   1% (1/66)
+2025-04-21T04:40:20.2917073Z Resolving deltas:   3% (2/66)
+2025-04-21T04:40:20.2917654Z Resolving deltas:   4% (3/66)
+2025-04-21T04:40:20.2918214Z Resolving deltas:   6% (4/66)
+2025-04-21T04:40:20.2918777Z Resolving deltas:   7% (5/66)
+2025-04-21T04:40:20.2919882Z Resolving deltas:   9% (6/66)
+2025-04-21T04:40:20.2920964Z Resolving deltas:  10% (7/66)
+2025-04-21T04:40:20.2922161Z Resolving deltas:  12% (8/66)
+2025-04-21T04:40:20.2923091Z Resolving deltas:  15% (10/66)
+2025-04-21T04:40:20.2923681Z Resolving deltas:  16% (11/66)
+2025-04-21T04:40:20.2924247Z Resolving deltas:  18% (12/66)
+2025-04-21T04:40:20.2924830Z Resolving deltas:  19% (13/66)
+2025-04-21T04:40:20.2925420Z Resolving deltas:  21% (14/66)
+2025-04-21T04:40:20.2926366Z Resolving deltas:  22% (15/66)
+2025-04-21T04:40:20.2926954Z Resolving deltas:  24% (16/66)
+2025-04-21T04:40:20.2927475Z Resolving deltas:  28% (19/66)
+2025-04-21T04:40:20.2928065Z Resolving deltas:  30% (20/66)
+2025-04-21T04:40:20.2928645Z Resolving deltas:  31% (21/66)
+2025-04-21T04:40:20.2929219Z Resolving deltas:  33% (22/66)
+2025-04-21T04:40:20.2929780Z Resolving deltas:  34% (23/66)
+2025-04-21T04:40:20.2930342Z Resolving deltas:  36% (24/66)
+2025-04-21T04:40:20.2930894Z Resolving deltas:  37% (25/66)
+2025-04-21T04:40:20.2931471Z Resolving deltas:  39% (26/66)
+2025-04-21T04:40:20.2932048Z Resolving deltas:  40% (27/66)
+2025-04-21T04:40:20.2933134Z Resolving deltas:  42% (28/66)
+2025-04-21T04:40:20.2934266Z Resolving deltas:  43% (29/66)
+2025-04-21T04:40:20.2934834Z Resolving deltas:  45% (30/66)
+2025-04-21T04:40:20.2935401Z Resolving deltas:  46% (31/66)
+2025-04-21T04:40:20.2936269Z Resolving deltas:  48% (32/66)
+2025-04-21T04:40:20.2936845Z Resolving deltas:  50% (33/66)
+2025-04-21T04:40:20.2937512Z Resolving deltas:  51% (34/66)
+2025-04-21T04:40:20.2938287Z Resolving deltas:  53% (35/66)
+2025-04-21T04:40:20.2938885Z Resolving deltas:  54% (36/66)
+2025-04-21T04:40:20.2940014Z Resolving deltas:  56% (37/66)
+2025-04-21T04:40:20.2941111Z Resolving deltas:  57% (38/66)
+2025-04-21T04:40:20.2941745Z Resolving deltas:  59% (39/66)
+2025-04-21T04:40:20.2942316Z Resolving deltas:  60% (40/66)
+2025-04-21T04:40:20.2942893Z Resolving deltas:  62% (41/66)
+2025-04-21T04:40:20.2943474Z Resolving deltas:  63% (42/66)
+2025-04-21T04:40:20.2944319Z Resolving deltas:  65% (43/66)
+2025-04-21T04:40:20.2945655Z Resolving deltas:  66% (44/66)
+2025-04-21T04:40:20.2946369Z Resolving deltas:  68% (45/66)
+2025-04-21T04:40:20.2947371Z Resolving deltas:  69% (46/66)
+2025-04-21T04:40:20.2948187Z Resolving deltas:  71% (47/66)
+2025-04-21T04:40:20.2948813Z Resolving deltas:  72% (48/66)
+2025-04-21T04:40:20.2949407Z Resolving deltas:  74% (49/66)
+2025-04-21T04:40:20.2949940Z Resolving deltas:  75% (50/66)
+2025-04-21T04:40:20.2950532Z Resolving deltas:  77% (51/66)
+2025-04-21T04:40:20.2951117Z Resolving deltas:  78% (52/66)
+2025-04-21T04:40:20.2952203Z Resolving deltas:  80% (53/66)
+2025-04-21T04:40:20.2953476Z Resolving deltas:  81% (54/66)
+2025-04-21T04:40:20.2954291Z Resolving deltas:  83% (55/66)
+2025-04-21T04:40:20.2955016Z Resolving deltas:  84% (56/66)
+2025-04-21T04:40:20.2956079Z Resolving deltas:  86% (57/66)
+2025-04-21T04:40:20.2956819Z Resolving deltas:  87% (58/66)
+2025-04-21T04:40:20.2957544Z Resolving deltas:  89% (59/66)
+2025-04-21T04:40:20.2958232Z Resolving deltas:  92% (61/66)
+2025-04-21T04:40:20.2959084Z Resolving deltas:  93% (62/66)
+2025-04-21T04:40:20.2960065Z Resolving deltas:  95% (63/66)
+2025-04-21T04:40:20.2960947Z Resolving deltas:  96% (64/66)
+2025-04-21T04:40:20.2976915Z Resolving deltas:  98% (65/66)
+2025-04-21T04:40:20.2977993Z Resolving deltas: 100% (66/66)
+2025-04-21T04:40:20.2979707Z Resolving deltas: 100% (66/66), done.
+2025-04-21T04:40:20.3540847Z From https://github.com/longpnmd/LaunchPad
+2025-04-21T04:40:20.3542464Z  * [new ref]         440696de85a8a4374915988eb0c55d4c4f8c98bc -> origin/main
+2025-04-21T04:40:20.3612695Z ##[endgroup]
+2025-04-21T04:40:20.3614176Z ##[group]Determining the checkout info
+2025-04-21T04:40:20.3616654Z ##[endgroup]
+2025-04-21T04:40:20.3618751Z ##[group]Checking out the ref
+2025-04-21T04:40:20.3628741Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-04-21T04:40:20.5117898Z Switched to a new branch 'main'
+2025-04-21T04:40:20.5119234Z branch 'main' set up to track 'origin/main'.
+2025-04-21T04:40:20.5147419Z ##[endgroup]
+2025-04-21T04:40:20.5212442Z [command]/usr/bin/git log -1 --format='%H'
+2025-04-21T04:40:20.5246018Z '440696de85a8a4374915988eb0c55d4c4f8c98bc'
+2025-04-21T04:40:20.5730796Z ##[group]Run actions/setup-node@v3
+2025-04-21T04:40:20.5731505Z with:
+2025-04-21T04:40:20.5732015Z   node-version: 18
+2025-04-21T04:40:20.5732533Z   always-auth: false
+2025-04-21T04:40:20.5733093Z   check-latest: false
+2025-04-21T04:40:20.5733924Z   token: ***
+2025-04-21T04:40:20.5734445Z ##[endgroup]
+2025-04-21T04:40:21.0588939Z Found in cache @ /home/longpn/actions-runner/_work/_tool/node/18.20.8/x64
+2025-04-21T04:40:21.0590464Z ##[group]Environment details
+2025-04-21T04:40:21.4729846Z node: v18.20.8
+2025-04-21T04:40:21.4737382Z npm: 10.8.2
+2025-04-21T04:40:21.4737909Z yarn: 
+2025-04-21T04:40:21.4739877Z ##[endgroup]
+2025-04-21T04:40:21.5046708Z ##[group]Run echo "BASE_DOMAIN=swiftsync.tech" >> .env
+2025-04-21T04:40:21.5048668Z [36;1mecho "BASE_DOMAIN=swiftsync.tech" >> .env[0m
+2025-04-21T04:40:21.5050267Z [36;1mecho "CER_ACME_EMAIL=longpn.md@gmail.com" >> .env[0m
+2025-04-21T04:40:21.5052070Z [36;1mecho "NEXT_WEBSITE_URL=https://launchpad.swiftsync.tech" >> .env[0m
+2025-04-21T04:40:21.5054706Z [36;1mecho "NEXT_PORT=3000" >> .env[0m
+2025-04-21T04:40:21.5056438Z [36;1mecho "NEXT_PUBLIC_API_URL=https://launchpad-admin.swiftsync.tech" >> .env[0m
+2025-04-21T04:40:21.5058290Z [36;1mecho "NEXT_IMAGE_HOSTNAME=launchpad-admin.swiftsync.tech" >> .env[0m
+2025-04-21T04:40:21.5060249Z [36;1mecho "NEXT_PREVIEW_SECRET=***" >> .env[0m
+2025-04-21T04:40:21.5061453Z [36;1mecho "STRAPI_HOST=0.0.0.0" >> .env[0m
+2025-04-21T04:40:21.5062357Z [36;1mecho "STRAPI_PORT=1337" >> .env[0m
+2025-04-21T04:40:21.5064003Z [36;1mecho "STRAPI_APP_KEYS=***" >> .env[0m
+2025-04-21T04:40:21.5066277Z [36;1mecho "STRAPI_API_TOKEN_SALT=***" >> .env[0m
+2025-04-21T04:40:21.5068077Z [36;1mecho "STRAPI_TRANSFER_TOKEN_SALT=***" >> .env[0m
+2025-04-21T04:40:21.5069530Z [36;1mecho "STRAPI_ADMIN_JWT_SECRET=***" >> .env[0m
+2025-04-21T04:40:21.5070830Z [36;1mecho "STRAPI_JWT_SECRET=***" >> .env[0m
+2025-04-21T04:40:21.5072140Z [36;1mecho "STRAPI_ADMIN_CLIENT_URL=https://launchpad.swiftsync.tech" >> .env[0m
+2025-04-21T04:40:21.5073837Z [36;1mecho "STRAPI_ADMIN_CLIENT_PREVIEW_SECRET=***" >> .env[0m
+2025-04-21T04:40:21.5075285Z [36;1mecho "STRAPI_CLIENT_URL=https://launchpad.swiftsync.tech" >> .env[0m
+2025-04-21T04:40:21.5077416Z [36;1mecho "STRAPI_PREVIEW_SECRET=***" >> .env[0m
+2025-04-21T04:40:21.5078977Z [36;1mecho "STRAPI_ADMIN_BACKEND_URL=https://launchpad-admin.swiftsync.tech" >> .env[0m
+2025-04-21T04:40:21.5080487Z [36;1mecho "STRAPI_TELEMETRY_DISABLED=true" >> .env[0m
+2025-04-21T04:40:21.5081545Z [36;1mecho "STRAPI_ADMIN_PATH=/admin" >> .env[0m
+2025-04-21T04:40:21.5145011Z shell: /usr/bin/bash -e {0}
+2025-04-21T04:40:21.5146275Z ##[endgroup]
+2025-04-21T04:40:21.5547611Z ##[group]Run if [ -d ./strapi/.tmp ]; then
+2025-04-21T04:40:21.5548361Z [36;1mif [ -d ./strapi/.tmp ]; then[0m
+2025-04-21T04:40:21.5548864Z [36;1m  chown -R $(whoami):$(whoami) ./strapi/.tmp[0m
+2025-04-21T04:40:21.5549355Z [36;1m  chmod -R 775 ./strapi/.tmp[0m
+2025-04-21T04:40:21.5549785Z [36;1mfi[0m
+2025-04-21T04:40:21.5571374Z shell: /usr/bin/bash -e {0}
+2025-04-21T04:40:21.5572017Z ##[endgroup]
+2025-04-21T04:40:21.5688577Z ##[group]Run sh ./run.sh
+2025-04-21T04:40:21.5689052Z [36;1msh ./run.sh[0m
+2025-04-21T04:40:21.5707552Z shell: /usr/bin/bash -e {0}
+2025-04-21T04:40:21.5707966Z ##[endgroup]
+2025-04-21T04:40:22.0133028Z Compose can now delegate builds to bake for better performance.
+2025-04-21T04:40:22.0134377Z  To do so, set COMPOSE_BAKE=true.
+2025-04-21T04:40:22.3343320Z #0 building with "default" instance using docker driver
+2025-04-21T04:40:22.3344418Z 
+2025-04-21T04:40:22.3346405Z #1 [strapi internal] load build definition from Dockerfile
+2025-04-21T04:40:22.3347784Z #1 transferring dockerfile: 543B done
+2025-04-21T04:40:22.3348671Z #1 DONE 0.0s
+2025-04-21T04:40:22.3349063Z 
+2025-04-21T04:40:22.3349706Z #2 [strapi internal] load metadata for docker.io/library/node:18
+2025-04-21T04:40:24.3371709Z #2 DONE 2.2s
+2025-04-21T04:40:24.4737760Z 
+2025-04-21T04:40:24.4740078Z #3 [strapi internal] load .dockerignore
+2025-04-21T04:40:24.4742247Z #3 transferring context: 2B done
+2025-04-21T04:40:24.4747631Z #3 DONE 0.0s
+2025-04-21T04:40:24.4748087Z 
+2025-04-21T04:40:24.4750011Z #4 [strapi builder 1/5] FROM docker.io/library/node:18@sha256:df9fa4e0e39c9b97e30240b5bb1d99bdb861573a82002b2c52ac7d6b8d6d773e
+2025-04-21T04:40:24.4751830Z #4 DONE 0.0s
+2025-04-21T04:40:24.4752220Z 
+2025-04-21T04:40:24.4752849Z #5 [strapi internal] load build context
+2025-04-21T04:40:24.8956391Z #5 transferring context: 24.46MB 0.4s done
+2025-04-21T04:40:24.8957142Z #5 DONE 0.4s
+2025-04-21T04:40:24.8957340Z 
+2025-04-21T04:40:24.8957605Z #6 [strapi builder 2/5] WORKDIR /app
+2025-04-21T04:40:24.8958031Z #6 CACHED
+2025-04-21T04:40:24.8958683Z 
+2025-04-21T04:40:24.8958952Z #7 [strapi builder 3/5] COPY . .
+2025-04-21T04:40:24.8959883Z #7 CACHED
+2025-04-21T04:40:24.8960055Z 
+2025-04-21T04:40:24.8960928Z #8 [strapi builder 4/5] RUN yarn install --frozen-lockfile
+2025-04-21T04:40:24.8961893Z #8 CACHED
+2025-04-21T04:40:24.8964056Z 
+2025-04-21T04:40:24.8964964Z #9 [strapi builder 5/5] RUN yarn build
+2025-04-21T04:40:25.3884519Z #9 0.643 yarn run v1.22.22
+2025-04-21T04:40:25.5927359Z #9 0.696 $ strapi build
+2025-04-21T04:40:30.9868581Z #9 6.240 - Compiling TS
+2025-04-21T04:40:37.2686347Z #9 12.52 ✔ Compiling TS (6286ms)
+2025-04-21T04:40:37.4170235Z #9 12.52 - Building build context
+2025-04-21T04:40:37.4170993Z #9 12.52 
+2025-04-21T04:40:37.4172138Z #9 12.67 [INFO] Including the following ENV variables as part of the JS bundle:
+2025-04-21T04:40:37.4173144Z #9 12.67     - ADMIN_PATH
+2025-04-21T04:40:37.4174492Z #9 12.67     - STRAPI_ADMIN_BACKEND_URL
+2025-04-21T04:40:37.4175247Z #9 12.67     - STRAPI_TELEMETRY_DISABLED
+2025-04-21T04:40:37.6658530Z #9 12.92 ✔ Building build context (399ms)
+2025-04-21T04:40:37.8166144Z #9 12.92 - Building admin panel
+2025-04-21T04:40:37.8168967Z #9 12.92 
+2025-04-21T04:41:36.9813936Z #9 72.23 ✔ Building admin panel (59312ms)
+2025-04-21T04:41:37.2830643Z #9 72.54 Done in 71.91s.
+2025-04-21T04:41:37.4161243Z #9 DONE 72.7s
+2025-04-21T04:42:24.9401582Z 
+2025-04-21T04:42:24.9404823Z #6 [strapi builder 2/5] WORKDIR /app
+2025-04-21T04:42:25.0902865Z #6 CACHED
+2025-04-21T04:42:25.0904547Z 
+2025-04-21T04:42:25.0906800Z #10 [strapi stage-1 3/3] COPY --from=builder /app /app
+2025-04-21T04:42:47.4909026Z #10 DONE 22.5s
+2025-04-21T04:42:47.6618647Z 
+2025-04-21T04:42:47.6620830Z #11 [strapi] exporting to image
+2025-04-21T04:42:47.6622386Z #11 exporting layers
+2025-04-21T04:43:20.5479093Z #11 exporting layers 33.0s done
+2025-04-21T04:43:20.6814379Z #11 writing image sha256:6683c4207acaf359b8425e2b059c97fafc1c0aaa1eb3caafd4b1904331e4c0be done
+2025-04-21T04:43:20.6817007Z #11 naming to docker.io/library/launchpad-strapi 0.0s done
+2025-04-21T04:43:20.6829260Z #11 DONE 33.1s
+2025-04-21T04:43:20.6839454Z 
+2025-04-21T04:43:20.6841327Z #12 [strapi] resolving provenance for metadata file
+2025-04-21T04:43:20.8625320Z #12 DONE 0.0s
+2025-04-21T04:43:21.1023271Z 
+2025-04-21T04:43:21.1027706Z #13 [nextjs internal] load build definition from Dockerfile
+2025-04-21T04:43:21.1030450Z #13 transferring dockerfile: 328B done
+2025-04-21T04:43:21.1038309Z #13 DONE 0.0s
+2025-04-21T04:43:21.1039095Z 
+2025-04-21T04:43:21.1040020Z #2 [nextjs internal] load metadata for docker.io/library/node:18
+2025-04-21T04:43:21.8804231Z #2 DONE 3.1s
+2025-04-21T04:43:21.9940480Z 
+2025-04-21T04:43:21.9942147Z #14 [nextjs internal] load .dockerignore
+2025-04-21T04:43:21.9943467Z #14 transferring context: 2B done
+2025-04-21T04:43:21.9944321Z #14 DONE 0.0s
+2025-04-21T04:43:21.9944868Z 
+2025-04-21T04:43:21.9947212Z #4 [nextjs builder 1/5] FROM docker.io/library/node:18@sha256:df9fa4e0e39c9b97e30240b5bb1d99bdb861573a82002b2c52ac7d6b8d6d773e
+2025-04-21T04:43:21.9948319Z #4 DONE 0.0s
+2025-04-21T04:43:21.9948645Z 
+2025-04-21T04:43:21.9948959Z #15 [nextjs internal] load build context
+2025-04-21T04:43:21.9951202Z #15 transferring context: 1.03MB 0.1s done
+2025-04-21T04:43:22.0924845Z #15 DONE 0.1s
+2025-04-21T04:43:22.0925813Z 
+2025-04-21T04:43:22.0926957Z #16 [nextjs builder 4/5] RUN yarn install --frozen-lockfile && yarn cache clean
+2025-04-21T04:43:22.0928983Z #16 CACHED
+2025-04-21T04:43:22.0929485Z 
+2025-04-21T04:43:22.0930136Z #17 [nextjs builder 5/5] RUN yarn build
+2025-04-21T04:43:22.0931258Z #17 CACHED
+2025-04-21T04:43:22.0931662Z 
+2025-04-21T04:43:22.0932338Z #6 [nextjs builder 2/5] WORKDIR /app
+2025-04-21T04:43:22.0933409Z #6 CACHED
+2025-04-21T04:43:22.0933846Z 
+2025-04-21T04:43:22.0934421Z #18 [nextjs builder 3/5] COPY . .
+2025-04-21T04:43:22.0935405Z #18 CACHED
+2025-04-21T04:43:22.0945761Z 
+2025-04-21T04:43:22.0946834Z #19 [nextjs stage-1 3/4] COPY --from=builder /app /app
+2025-04-21T04:43:22.0948168Z #19 CACHED
+2025-04-21T04:43:22.0948715Z 
+2025-04-21T04:43:22.0949381Z #20 [nextjs stage-1 4/4] RUN yarn global add next
+2025-04-21T04:43:22.0950552Z #20 CACHED
+2025-04-21T04:43:22.0951065Z 
+2025-04-21T04:43:22.0951576Z #21 [nextjs] exporting to image
+2025-04-21T04:43:22.0952706Z #21 exporting layers done
+2025-04-21T04:43:22.0954708Z #21 writing image sha256:5995734582e6e9445b619a18c1c4b5fa850cea6d939f84d33f87e4a6b09d296c done
+2025-04-21T04:43:22.0958191Z #21 naming to docker.io/library/launchpad-nextjs done
+2025-04-21T04:43:22.0959434Z #21 DONE 0.0s
+2025-04-21T04:43:22.0959890Z 
+2025-04-21T04:43:22.0960682Z #22 [nextjs] resolving provenance for metadata file
+2025-04-21T04:43:22.0961904Z #22 DONE 0.0s
+2025-04-21T04:43:22.0969454Z  nextjs  Built
+2025-04-21T04:43:22.0970389Z  strapi  Built
+2025-04-21T04:43:22.3899790Z  Container traefik  Stopping
+2025-04-21T04:43:22.3901702Z  Container launchpad-nextjs  Stopping
+2025-04-21T04:43:22.9378989Z  Container traefik  Stopped
+2025-04-21T04:43:22.9535863Z  Container launchpad-nextjs  Stopped
+2025-04-21T04:43:22.9540680Z  Container launchpad-strapi  Stopping
+2025-04-21T04:43:23.2036283Z  Container launchpad-strapi  Stopped
+2025-04-21T04:43:23.4020692Z  Container traefik  Created
+2025-04-21T04:43:23.4022793Z  Container launchpad-strapi  Recreate
+2025-04-21T04:43:23.5314294Z  Container launchpad-strapi  Recreated
+2025-04-21T04:43:23.5321556Z  Container launchpad-nextjs  Created
+2025-04-21T04:43:23.5354397Z  Container launchpad-strapi  Starting
+2025-04-21T04:43:23.5355958Z  Container traefik  Starting
+2025-04-21T04:43:23.8580697Z  Container launchpad-strapi  Started
+2025-04-21T04:43:23.8582274Z  Container launchpad-nextjs  Starting
+2025-04-21T04:43:24.0016279Z  Container traefik  Started
+2025-04-21T04:43:24.1832907Z  Container launchpad-nextjs  Started
+2025-04-21T04:43:24.2483576Z Total reclaimed space: 0B
+2025-04-21T04:43:24.3002842Z Total reclaimed space: 0B
+2025-04-21T04:43:24.3279562Z ##[group]Run docker compose logs
+2025-04-21T04:43:24.3280932Z [36;1mdocker compose logs[0m
+2025-04-21T04:43:24.3363897Z shell: /usr/bin/bash -e {0}
+2025-04-21T04:43:24.3365056Z ##[endgroup]
+2025-04-21T04:43:24.6058097Z traefik           | time="2025-04-20T20:08:18Z" level=info msg="Configuration loaded from flags."
+2025-04-21T04:43:24.6060553Z traefik           | time="2025-04-20T20:08:18Z" level=error msg="the service \"nextjs@docker\" does not exist" entryPointName=web routerName=nextjs@file
+2025-04-21T04:43:24.6063221Z traefik           | time="2025-04-20T20:08:18Z" level=error msg="the service \"strapi@docker\" does not exist" entryPointName=web routerName=strapi@file
+2025-04-21T04:43:24.6065061Z launchpad-nextjs  | yarn run v1.22.22
+2025-04-21T04:43:24.6066560Z launchpad-nextjs  | $ next start
+2025-04-21T04:43:24.6102662Z launchpad-nextjs  |   ▲ Next.js 14.2.5
+2025-04-21T04:43:24.6104162Z launchpad-nextjs  |   - Local:        http://localhost:3000
+2025-04-21T04:43:24.6105329Z launchpad-nextjs  | 
+2025-04-21T04:43:24.6106480Z launchpad-nextjs  |  ✓ Starting...
+2025-04-21T04:43:24.6107797Z launchpad-nextjs  |  ✓ Ready in 869ms
+2025-04-21T04:43:24.6108531Z launchpad-nextjs  | yarn run v1.22.22
+2025-04-21T04:43:24.6109196Z launchpad-nextjs  | $ next start
+2025-04-21T04:43:24.6110303Z launchpad-nextjs  |   ▲ Next.js 14.2.5
+2025-04-21T04:43:24.6111228Z launchpad-nextjs  |   - Local:        http://localhost:3000
+2025-04-21T04:43:24.6112197Z launchpad-nextjs  | 
+2025-04-21T04:43:24.6113015Z launchpad-nextjs  |  ✓ Starting...
+2025-04-21T04:43:24.6113827Z launchpad-nextjs  |  ✓ Ready in 971ms
+2025-04-21T04:43:24.6114723Z launchpad-nextjs  | RangeError: Incorrect locale information provided
+2025-04-21T04:43:24.6128686Z launchpad-nextjs  |     at Intl.getCanonicalLocales (<anonymous>)
+2025-04-21T04:43:24.6130364Z traefik           | time="2025-04-20T20:08:18Z" level=error msg="the service \"nextjs@docker\" does not exist" entryPointName=websecure routerName=nextjs@file
+2025-04-21T04:43:24.6132158Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:57718
+2025-04-21T04:43:24.6133629Z traefik           | time="2025-04-20T20:08:18Z" level=error msg="the service \"strapi@docker\" does not exist" entryPointName=websecure routerName=strapi@file
+2025-04-21T04:43:24.6135098Z launchpad-nextjs  |     at Object.eY [as handler] (/app/.next/server/middleware.js:13:57803)
+2025-04-21T04:43:24.6149175Z traefik           | time="2025-04-20T20:21:05Z" level=info msg="Configuration loaded from flags."
+2025-04-21T04:43:24.6151930Z traefik           | time="2025-04-21T01:37:24Z" level=error msg="the service \"strapi@docker\" does not exist" entryPointName=web routerName=strapi@file
+2025-04-21T04:43:24.6153770Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24847
+2025-04-21T04:43:24.6155939Z traefik           | time="2025-04-21T01:37:24Z" level=error msg="the service \"strapi@docker\" does not exist" entryPointName=websecure routerName=strapi@file
+2025-04-21T04:43:24.6158298Z traefik           | time="2025-04-21T03:50:37Z" level=info msg="Configuration loaded from flags."
+2025-04-21T04:43:24.6160669Z traefik           | time="2025-04-21T03:50:37Z" level=error msg="the service \"nextjs@docker\" does not exist" entryPointName=websecure routerName=nextjs@file
+2025-04-21T04:43:24.6163278Z traefik           | time="2025-04-21T03:50:37Z" level=error msg="the service \"strapi@docker\" does not exist" routerName=strapi@file entryPointName=websecure
+2025-04-21T04:43:24.6165163Z traefik           | time="2025-04-21T03:50:37Z" level=error msg="the service \"nextjs@docker\" does not exist" routerName=nextjs@file entryPointName=web
+2025-04-21T04:43:24.6219911Z traefik           | time="2025-04-21T03:50:37Z" level=error msg="the service \"strapi@docker\" does not exist" routerName=strapi@file entryPointName=web
+2025-04-21T04:43:24.6221451Z traefik           | time="2025-04-21T04:24:14Z" level=info msg="Configuration loaded from flags."
+2025-04-21T04:43:24.6227136Z traefik           | time="2025-04-21T04:43:22Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
+2025-04-21T04:43:24.6229889Z traefik           | time="2025-04-21T04:43:22Z" level=error msg="Error while starting server: accept tcp [::]:443: use of closed network connection" entryPointName=websecure
+2025-04-21T04:43:24.6231955Z traefik           | time="2025-04-21T04:43:22Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
+2025-04-21T04:43:24.6233840Z traefik           | time="2025-04-21T04:43:22Z" level=error msg="Error while starting server: accept tcp [::]:80: use of closed network connection" entryPointName=web
+2025-04-21T04:43:24.6278305Z traefik           | time="2025-04-21T04:43:22Z" level=error msg="accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
+2025-04-21T04:43:24.6280766Z traefik           | time="2025-04-21T04:43:22Z" level=error msg="Error while starting server: accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
+2025-04-21T04:43:24.6282305Z traefik           | time="2025-04-21T04:43:24Z" level=info msg="Configuration loaded from flags."
+2025-04-21T04:43:24.6283350Z launchpad-strapi  | Waiting for Strapi to initialize...
+2025-04-21T04:43:24.6284368Z launchpad-nextjs  |     at AsyncLocalStorage.run (node:async_hooks:338:14)
+2025-04-21T04:43:24.6286037Z launchpad-nextjs  |     at Object.wrap (/app/.next/server/middleware.js:13:22131)
+2025-04-21T04:43:24.6287032Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24660
+2025-04-21T04:43:24.6288281Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:19435
+2025-04-21T04:43:24.6289318Z launchpad-nextjs  |     at a.with (/app/.next/server/middleware.js:19:17635)
+2025-04-21T04:43:24.6290434Z launchpad-nextjs  |     at d.with (/app/.next/server/middleware.js:19:11835)
+2025-04-21T04:43:24.6291560Z launchpad-nextjs  | RangeError: Incorrect locale information provided
+2025-04-21T04:43:24.6292602Z launchpad-nextjs  |     at Intl.getCanonicalLocales (<anonymous>)
+2025-04-21T04:43:24.6293641Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:57718
+2025-04-21T04:43:24.6294712Z launchpad-nextjs  |     at Object.eY [as handler] (/app/.next/server/middleware.js:13:57803)
+2025-04-21T04:43:24.6318432Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24847
+2025-04-21T04:43:24.6319437Z launchpad-nextjs  |     at AsyncLocalStorage.run (node:async_hooks:338:14)
+2025-04-21T04:43:24.6320561Z launchpad-nextjs  |     at Object.wrap (/app/.next/server/middleware.js:13:22131)
+2025-04-21T04:43:24.6322323Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24660
+2025-04-21T04:43:24.6323312Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:19435
+2025-04-21T04:43:24.6324579Z launchpad-nextjs  |     at a.with (/app/.next/server/middleware.js:19:17635)
+2025-04-21T04:43:24.6325820Z launchpad-nextjs  |     at d.with (/app/.next/server/middleware.js:19:11835)
+2025-04-21T04:43:24.6327497Z launchpad-nextjs  | RangeError: Incorrect locale information provided
+2025-04-21T04:43:24.6329016Z launchpad-nextjs  |     at Intl.getCanonicalLocales (<anonymous>)
+2025-04-21T04:43:24.6330086Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:57718
+2025-04-21T04:43:24.6331223Z launchpad-nextjs  |     at Object.eY [as handler] (/app/.next/server/middleware.js:13:57803)
+2025-04-21T04:43:24.6332602Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24847
+2025-04-21T04:43:24.6333691Z launchpad-nextjs  |     at AsyncLocalStorage.run (node:async_hooks:338:14)
+2025-04-21T04:43:24.6335140Z launchpad-nextjs  |     at Object.wrap (/app/.next/server/middleware.js:13:22131)
+2025-04-21T04:43:24.6340071Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24660
+2025-04-21T04:43:24.6342105Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:19435
+2025-04-21T04:43:24.6344144Z launchpad-nextjs  |     at a.with (/app/.next/server/middleware.js:19:17635)
+2025-04-21T04:43:24.6347585Z launchpad-nextjs  |     at d.with (/app/.next/server/middleware.js:19:11835)
+2025-04-21T04:43:24.6349955Z launchpad-nextjs  | RangeError: Incorrect locale information provided
+2025-04-21T04:43:24.6351131Z launchpad-nextjs  |     at Intl.getCanonicalLocales (<anonymous>)
+2025-04-21T04:43:24.6352141Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:57718
+2025-04-21T04:43:24.6353010Z launchpad-strapi  | yarn run v1.22.22
+2025-04-21T04:43:24.6354039Z launchpad-nextjs  |     at Object.eY [as handler] (/app/.next/server/middleware.js:13:57803)
+2025-04-21T04:43:24.6355160Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24847
+2025-04-21T04:43:24.6356620Z launchpad-nextjs  |     at AsyncLocalStorage.run (node:async_hooks:338:14)
+2025-04-21T04:43:24.6358184Z launchpad-nextjs  |     at Object.wrap (/app/.next/server/middleware.js:13:22131)
+2025-04-21T04:43:24.6359344Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24660
+2025-04-21T04:43:24.6360333Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:19435
+2025-04-21T04:43:24.6361728Z launchpad-nextjs  |     at a.with (/app/.next/server/middleware.js:19:17635)
+2025-04-21T04:43:24.6362858Z launchpad-nextjs  |     at d.with (/app/.next/server/middleware.js:19:11835)
+2025-04-21T04:43:24.6364921Z launchpad-nextjs  | RangeError: Incorrect locale information provided
+2025-04-21T04:43:24.6368396Z launchpad-nextjs  |     at Intl.getCanonicalLocales (<anonymous>)
+2025-04-21T04:43:24.6370120Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:57718
+2025-04-21T04:43:24.6371299Z launchpad-nextjs  |     at Object.eY [as handler] (/app/.next/server/middleware.js:13:57803)
+2025-04-21T04:43:24.6372378Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24847
+2025-04-21T04:43:24.6373431Z launchpad-nextjs  |     at AsyncLocalStorage.run (node:async_hooks:338:14)
+2025-04-21T04:43:24.6374560Z launchpad-nextjs  |     at Object.wrap (/app/.next/server/middleware.js:13:22131)
+2025-04-21T04:43:24.6376088Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24660
+2025-04-21T04:43:24.6377073Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:19435
+2025-04-21T04:43:24.6378136Z launchpad-nextjs  |     at a.with (/app/.next/server/middleware.js:19:17635)
+2025-04-21T04:43:24.6379249Z launchpad-nextjs  |     at d.with (/app/.next/server/middleware.js:19:11835)
+2025-04-21T04:43:24.6380899Z launchpad-nextjs  | FetchContentTypeError Error: Failed to fetch data from Strapi (url=https://launchpad-admin.swiftsync.tech/api/pages, status=403)
+2025-04-21T04:43:24.6385194Z launchpad-nextjs  |     at n (/app/.next/server/chunks/394.js:1:15269)
+2025-04-21T04:43:24.6387811Z launchpad-nextjs  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-04-21T04:43:24.6389654Z launchpad-nextjs  |     at async d (/app/.next/server/app/[locale]/(marketing)/[slug]/page.js:1:3960)
+2025-04-21T04:43:24.6390941Z launchpad-nextjs  | TypeError: Cannot read properties of undefined (reading 'localizations')
+2025-04-21T04:43:24.6392308Z launchpad-nextjs  |     at d (/app/.next/server/app/[locale]/(marketing)/[slug]/page.js:1:4030)
+2025-04-21T04:43:24.6393734Z launchpad-nextjs  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-04-21T04:43:24.6395208Z launchpad-nextjs  |   digest: '2082031277'
+2025-04-21T04:43:24.6396168Z launchpad-nextjs  | }
+2025-04-21T04:43:24.6397829Z launchpad-nextjs  | FetchContentTypeError Error: Failed to fetch data from Strapi (url=https://launchpad-admin.swiftsync.tech/api/global, status=403)
+2025-04-21T04:43:24.6400044Z launchpad-nextjs  |     at n (/app/.next/server/chunks/394.js:1:15269)
+2025-04-21T04:43:24.6401338Z launchpad-nextjs  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-04-21T04:43:24.6402661Z launchpad-nextjs  |     at async P (/app/.next/server/chunks/394.js:1:12951)
+2025-04-21T04:43:24.6403814Z launchpad-nextjs  | TypeError: Cannot read properties of undefined (reading 'navbar')
+2025-04-21T04:43:24.6405295Z launchpad-nextjs  |     at P (/app/.next/server/chunks/394.js:1:13193)
+2025-04-21T04:43:24.6407595Z launchpad-nextjs  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-04-21T04:43:24.6408747Z launchpad-nextjs  |   digest: '1813247820'
+2025-04-21T04:43:24.6409403Z launchpad-nextjs  | }
+2025-04-21T04:43:24.6410754Z launchpad-nextjs  | FetchContentTypeError Error: Failed to fetch data from Strapi (url=https://launchpad-admin.swiftsync.tech/api/pages, status=403)
+2025-04-21T04:43:24.6412255Z launchpad-nextjs  |     at n (/app/.next/server/chunks/394.js:1:15269)
+2025-04-21T04:43:24.6413520Z launchpad-nextjs  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-04-21T04:43:24.6415244Z launchpad-nextjs  |     at async Module.o (/app/.next/server/app/[locale]/(marketing)/[slug]/page.js:1:3808)
+2025-04-21T04:43:24.6417225Z launchpad-nextjs  | FetchContentTypeError Error: Failed to fetch data from Strapi (url=https://launchpad-admin.swiftsync.tech/api/global, status=403)
+2025-04-21T04:43:24.6418790Z launchpad-nextjs  |     at n (/app/.next/server/chunks/394.js:1:15269)
+2025-04-21T04:43:24.6420402Z launchpad-nextjs  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-04-21T04:43:24.6421691Z launchpad-nextjs  |     at async Module.N (/app/.next/server/chunks/394.js:1:12790)
+2025-04-21T04:43:24.6422870Z launchpad-nextjs  | TypeError: Cannot read properties of undefined (reading 'navbar')
+2025-04-21T04:43:24.6423996Z launchpad-nextjs  |     at P (/app/.next/server/chunks/394.js:1:13193)
+2025-04-21T04:43:24.6425258Z launchpad-nextjs  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+2025-04-21T04:43:24.6426505Z launchpad-nextjs  |   digest: '1813247820'
+2025-04-21T04:43:24.6427133Z launchpad-nextjs  | }
+2025-04-21T04:43:24.6428475Z launchpad-nextjs  | FetchContentTypeError Error: Failed to fetch data from Strapi (url=https://launchpad-admin.swiftsync.tech/api/global, status=403)
+2025-04-21T04:43:24.6430349Z launchpad-nextjs  |     at n (/app/.next/server/chunks/394.js:1:15269)
+2025-04-21T04:43:24.6431632Z launchpad-nextjs  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-04-21T04:43:24.6433236Z launchpad-nextjs  |     at async Module.N (/app/.next/server/chunks/394.js:1:12790)
+2025-04-21T04:43:24.6435171Z launchpad-nextjs  | FetchContentTypeError Error: Failed to fetch data from Strapi (url=https://launchpad-admin.swiftsync.tech/api/pages, status=403)
+2025-04-21T04:43:24.6438085Z launchpad-nextjs  |     at n (/app/.next/server/chunks/394.js:1:15269)
+2025-04-21T04:43:24.6439377Z launchpad-nextjs  |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-04-21T04:43:24.6441261Z launchpad-nextjs  |     at async Module.o (/app/.next/server/app/[locale]/(marketing)/[slug]/page.js:1:3808)
+2025-04-21T04:43:24.6442497Z launchpad-nextjs  | RangeError: Incorrect locale information provided
+2025-04-21T04:43:24.6443610Z launchpad-nextjs  |     at Intl.getCanonicalLocales (<anonymous>)
+2025-04-21T04:43:24.6444650Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:57718
+2025-04-21T04:43:24.6445985Z launchpad-nextjs  |     at Object.eY [as handler] (/app/.next/server/middleware.js:13:57803)
+2025-04-21T04:43:24.6447230Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24847
+2025-04-21T04:43:24.6448320Z launchpad-nextjs  |     at AsyncLocalStorage.run (node:async_hooks:338:14)
+2025-04-21T04:43:24.6449479Z launchpad-nextjs  |     at Object.wrap (/app/.next/server/middleware.js:13:22131)
+2025-04-21T04:43:24.6451009Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24660
+2025-04-21T04:43:24.6452048Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:19435
+2025-04-21T04:43:24.6453089Z launchpad-nextjs  |     at a.with (/app/.next/server/middleware.js:19:17635)
+2025-04-21T04:43:24.6454172Z launchpad-nextjs  |     at d.with (/app/.next/server/middleware.js:19:11835)
+2025-04-21T04:43:24.6456115Z launchpad-nextjs  | RangeError: Incorrect locale information provided
+2025-04-21T04:43:24.6457545Z launchpad-nextjs  |     at Intl.getCanonicalLocales (<anonymous>)
+2025-04-21T04:43:24.6458643Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:57718
+2025-04-21T04:43:24.6461080Z launchpad-nextjs  |     at Object.eY [as handler] (/app/.next/server/middleware.js:13:57803)
+2025-04-21T04:43:24.6463036Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24847
+2025-04-21T04:43:24.6465064Z launchpad-nextjs  |     at AsyncLocalStorage.run (node:async_hooks:338:14)
+2025-04-21T04:43:24.6466821Z launchpad-nextjs  |     at Object.wrap (/app/.next/server/middleware.js:13:22131)
+2025-04-21T04:43:24.6468243Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24660
+2025-04-21T04:43:24.6469234Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:19435
+2025-04-21T04:43:24.6470206Z launchpad-nextjs  |     at a.with (/app/.next/server/middleware.js:19:17635)
+2025-04-21T04:43:24.6471710Z launchpad-nextjs  |     at d.with (/app/.next/server/middleware.js:19:11835)
+2025-04-21T04:43:24.6472805Z launchpad-nextjs  | RangeError: Incorrect locale information provided
+2025-04-21T04:43:24.6474116Z launchpad-nextjs  |     at Intl.getCanonicalLocales (<anonymous>)
+2025-04-21T04:43:24.6475762Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:57718
+2025-04-21T04:43:24.6477339Z launchpad-nextjs  |     at Object.eY [as handler] (/app/.next/server/middleware.js:13:57803)
+2025-04-21T04:43:24.6478507Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24847
+2025-04-21T04:43:24.6479570Z launchpad-nextjs  |     at AsyncLocalStorage.run (node:async_hooks:338:14)
+2025-04-21T04:43:24.6480635Z launchpad-nextjs  |     at Object.wrap (/app/.next/server/middleware.js:13:22131)
+2025-04-21T04:43:24.6482037Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24660
+2025-04-21T04:43:24.6483286Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:19435
+2025-04-21T04:43:24.6484414Z launchpad-nextjs  |     at a.with (/app/.next/server/middleware.js:19:17635)
+2025-04-21T04:43:24.6486201Z launchpad-nextjs  |     at d.with (/app/.next/server/middleware.js:19:11835)
+2025-04-21T04:43:24.6487724Z launchpad-nextjs  | yarn run v1.22.22
+2025-04-21T04:43:24.6488440Z launchpad-nextjs  | $ next start
+2025-04-21T04:43:24.6489522Z launchpad-nextjs  |   ▲ Next.js 14.2.5
+2025-04-21T04:43:24.6490782Z launchpad-nextjs  |   - Local:        http://localhost:3000
+2025-04-21T04:43:24.6491882Z launchpad-nextjs  | 
+2025-04-21T04:43:24.6493501Z launchpad-nextjs  |  ✓ Starting...
+2025-04-21T04:43:24.6494308Z launchpad-nextjs  |  ✓ Ready in 1009ms
+2025-04-21T04:43:24.6495048Z launchpad-nextjs  | yarn run v1.22.22
+2025-04-21T04:43:24.6496490Z launchpad-nextjs  | $ next start
+2025-04-21T04:43:24.6497791Z launchpad-nextjs  |   ▲ Next.js 14.2.5
+2025-04-21T04:43:24.6498675Z launchpad-nextjs  |   - Local:        http://localhost:3000
+2025-04-21T04:43:24.6499480Z launchpad-nextjs  | 
+2025-04-21T04:43:24.6500647Z launchpad-nextjs  |  ✓ Starting...
+2025-04-21T04:43:24.6501470Z launchpad-nextjs  |  ✓ Ready in 1058ms
+2025-04-21T04:43:24.6503166Z launchpad-nextjs  | RangeError: Incorrect locale information provided
+2025-04-21T04:43:24.6504643Z launchpad-nextjs  |     at Intl.getCanonicalLocales (<anonymous>)
+2025-04-21T04:43:24.6506429Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:57718
+2025-04-21T04:43:24.6508196Z launchpad-nextjs  |     at Object.eY [as handler] (/app/.next/server/middleware.js:13:57803)
+2025-04-21T04:43:24.6509403Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24847
+2025-04-21T04:43:24.6510502Z launchpad-nextjs  |     at AsyncLocalStorage.run (node:async_hooks:338:14)
+2025-04-21T04:43:24.6511672Z launchpad-nextjs  |     at Object.wrap (/app/.next/server/middleware.js:13:22131)
+2025-04-21T04:43:24.6513119Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:24660
+2025-04-21T04:43:24.6514160Z launchpad-nextjs  |     at /app/.next/server/middleware.js:13:19435
+2025-04-21T04:43:24.6515756Z launchpad-nextjs  |     at a.with (/app/.next/server/middleware.js:19:17635)
+2025-04-21T04:43:24.6516936Z launchpad-nextjs  |     at d.with (/app/.next/server/middleware.js:19:11835)
+2025-04-21T04:43:24.6564781Z ##[group]Run cat .env
+2025-04-21T04:43:24.6565273Z [36;1mcat .env[0m
+2025-04-21T04:43:24.6585072Z shell: /usr/bin/bash -e {0}
+2025-04-21T04:43:24.6585768Z ##[endgroup]
+2025-04-21T04:43:24.6668491Z BASE_DOMAIN=swiftsync.tech
+2025-04-21T04:43:24.6671772Z CER_ACME_EMAIL=longpn.md@gmail.com
+2025-04-21T04:43:24.6675581Z NEXT_WEBSITE_URL=https://launchpad.swiftsync.tech
+2025-04-21T04:43:24.6678706Z NEXT_PORT=3000
+2025-04-21T04:43:24.6682142Z NEXT_PUBLIC_API_URL=https://launchpad-admin.swiftsync.tech
+2025-04-21T04:43:24.6685981Z NEXT_IMAGE_HOSTNAME=launchpad-admin.swiftsync.tech
+2025-04-21T04:43:24.6691497Z NEXT_PREVIEW_SECRET=***
+2025-04-21T04:43:24.6704292Z STRAPI_HOST=0.0.0.0
+2025-04-21T04:43:24.6704674Z STRAPI_PORT=1337
+2025-04-21T04:43:24.6706468Z STRAPI_APP_KEYS=***
+2025-04-21T04:43:24.6707123Z STRAPI_API_TOKEN_SALT=***
+2025-04-21T04:43:24.6707766Z STRAPI_TRANSFER_TOKEN_SALT=***
+2025-04-21T04:43:24.6733256Z STRAPI_ADMIN_JWT_SECRET=***
+2025-04-21T04:43:24.6734535Z STRAPI_JWT_SECRET=***
+2025-04-21T04:43:24.6735671Z STRAPI_ADMIN_CLIENT_URL=https://launchpad.swiftsync.tech
+2025-04-21T04:43:24.6737264Z STRAPI_ADMIN_CLIENT_PREVIEW_SECRET=***
+2025-04-21T04:43:24.6738280Z STRAPI_CLIENT_URL=https://launchpad.swiftsync.tech
+2025-04-21T04:43:24.6738984Z STRAPI_PREVIEW_SECRET=***
+2025-04-21T04:43:24.6740338Z STRAPI_ADMIN_BACKEND_URL=https://launchpad-admin.swiftsync.tech
+2025-04-21T04:43:24.6741069Z STRAPI_TELEMETRY_DISABLED=true
+2025-04-21T04:43:24.6741507Z STRAPI_ADMIN_PATH=/admin
+2025-04-21T04:43:24.6898192Z Post job cleanup.
+2025-04-21T04:43:25.5513737Z Post job cleanup.
+2025-04-21T04:43:25.7351777Z [command]/usr/bin/git version
+2025-04-21T04:43:25.7397477Z git version 2.43.0
+2025-04-21T04:43:25.7864785Z Temporarily overriding HOME='/home/longpn/actions-runner/_work/_temp/fceefa02-3efd-4afb-8735-e7f62b537f90' before making global git config changes
+2025-04-21T04:43:25.7866497Z Adding repository directory to the temporary git global config as a safe directory
+2025-04-21T04:43:25.7888056Z [command]/usr/bin/git config --global --add safe.directory /home/longpn/actions-runner/_work/LaunchPad/LaunchPad
+2025-04-21T04:43:25.7985160Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-04-21T04:43:25.8060722Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-04-21T04:43:25.8897348Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-04-21T04:43:25.8976290Z http.https://github.com/.extraheader
+2025-04-21T04:43:25.9009727Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-04-21T04:43:25.9427887Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-04-21T04:43:26.0347057Z Cleaning up orphan processes
