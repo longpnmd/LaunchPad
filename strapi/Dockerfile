@@ -10,7 +10,6 @@ FROM node:18
 WORKDIR /app
 COPY --from=builder /app /app
 EXPOSE 1337
-USER node
 
 # Start Strapi and run seed script
 CMD yarn start & \
