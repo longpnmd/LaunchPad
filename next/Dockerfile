@@ -2,6 +2,7 @@
 FROM node:18 AS builder
 WORKDIR /app
 COPY package.json yarn.lock ./
+COPY scripts/ ./scripts/
 RUN yarn install --frozen-lockfile && yarn cache clean
 COPY . .
 RUN yarn build
