@@ -3,7 +3,7 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 
 # Set memory limits for Node.js
-ENV NODE_OPTIONS="--max-old-space-size=1024"
+ENV NODE_OPTIONS="--max-old-space-size=2048"
 
 # Copy only package files first to leverage Docker caching
 COPY package.json yarn.lock ./
@@ -17,12 +17,7 @@ RUN yarn install --frozen-lockfile --network-timeout 600000 \
     && yarn cache clean
 
 # Copy only necessary files
-COPY ./src ./src
-COPY ./public ./public
-COPY ./config ./config
-COPY ./.env* ./
-COPY ./database ./database
-COPY ./*.js ./
+COPY . .
 
 # Run any needed scripts manually that were skipped with --ignore-scripts
 # RUN node ./scripts/updateUuid.js || echo "Script not found or failed"
@@ -35,7 +30,7 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Set memory limits for production
-ENV NODE_OPTIONS="--max-old-space-size=512"
+ENV NODE_OPTIONS="--max-old-space-size=1024"
 
 # Install production dependencies only with memory optimization
 COPY --from=builder /app/package.json /app/yarn.lock ./
@@ -45,13 +40,7 @@ RUN yarn install --production --frozen-lockfile --network-timeout 300000 \
     && yarn cache clean
 
 # Copy build from builder stage
-COPY --from=builder /app/build ./build
-COPY --from=builder /app/config ./config
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/scripts ./scripts
-COPY --from=builder /app/database ./database
-COPY --from=builder /app/.env* ./
-COPY --from=builder /app/*.js ./
+COPY --from=builder /app/ ./
 
 EXPOSE 1337
 
