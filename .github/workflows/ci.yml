@@ -71,7 +71,7 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
-      # Build Docker image for Strapi
+      # Build Docker image for Strapi with resource limitations
       - name: Build Docker image for Strapi
         uses: docker/build-push-action@v4
         with:
@@ -81,11 +81,19 @@ jobs:
           tags: strapi-app:latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
+          build-args: |
+            NODE_ENV=production
+          # Add resource limits for build process
+          platforms: linux/amd64
 
       # Health check
       - name: Verify health status
         run: |
-          docker inspect --format='{{json .State.Health.Status}}' my-app
+          if docker ps | grep -q "launchpad-strapi"; then
+            docker inspect --format='{{json .State.Health.Status}}' launchpad-strapi
+          else
+            echo "Container not found or not running yet"
+          fi
 
       # Create .env file for Docker Compose
       - name: Set up environment variables

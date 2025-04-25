@@ -1,14 +1,10 @@
-# Build container only if necessary
-docker compose build --compress --build-arg NODE_ENV=production
-
-# Stop containers without removing them
-docker compose stop
+# Build frontend and backend separately with resource limits
+docker build --memory=2g --cpu-quota=200000 -t next-app:latest ./next
+docker build --memory=2g --cpu-quota=200000 -t strapi-app:latest ./strapi
 
 # Start containers with updated environment variables
 docker compose --env-file ./.env up -d
 
-# Remove stopped containers older than 24 hours
+# Container and image cleanup as before
 docker container prune --filter "until=24h" -f
-
-# Remove unused images older than 24 hours
 docker image prune --filter "until=24h" -f
