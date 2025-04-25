@@ -7,6 +7,7 @@ ENV NODE_OPTIONS="--max-old-space-size=2048"
 
 WORKDIR /opt/
 COPY package.json yarn.lock ./
+COPY scripts/ ./scripts/
 RUN yarn global add node-gyp
 RUN yarn config set network-timeout 600000 -g && yarn install --production
 ENV PATH=/opt/node_modules/.bin:$PATH
