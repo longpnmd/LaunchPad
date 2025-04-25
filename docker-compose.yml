@@ -76,7 +76,7 @@ services:
      - ./data:/opt/app/data
       # move out of the container and repo
      - ../public/uploads:/opt/app/public/uploads
-     - ../.tmp/data.db:/app/.tmp/data.db
+     - ../.tmp/data.db:/opt/app/.tmp/data.db
     restart: unless-stopped
 
   traefik:
