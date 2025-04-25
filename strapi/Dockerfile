@@ -2,14 +2,21 @@
 FROM node:18-alpine AS builder
 WORKDIR /app
 
+# Set memory limits for Node.js
+ENV NODE_OPTIONS="--max-old-space-size=1024"
+
 # Copy only package files first to leverage Docker caching
 COPY package.json yarn.lock ./
 COPY scripts/ ./scripts/
 
-# Install dependencies with explicit resource control
-RUN yarn install --frozen-lockfile --network-timeout 600000 && yarn cache clean
+# Install dependencies with memory-optimized settings
+RUN yarn install --frozen-lockfile --network-timeout 600000 \
+    --prefer-offline \
+    --production=false \
+    --ignore-scripts \
+    && yarn cache clean
 
-# Copy only necessary files (exclude node_modules, tests, etc)
+# Copy only necessary files
 COPY ./src ./src
 COPY ./public ./public
 COPY ./config ./config
@@ -17,16 +24,25 @@ COPY ./.env* ./
 COPY ./database ./database
 COPY ./*.js ./
 
-# Build with production optimization
+# Run any needed scripts manually that were skipped with --ignore-scripts
+# RUN node ./scripts/updateUuid.js || echo "Script not found or failed"
+
+# Build with production optimization and memory limits
 RUN NODE_ENV=production yarn build
 
 # Stage 2: Serve Strapi app
 FROM node:18-alpine
 WORKDIR /app
 
-# Install production dependencies only
+# Set memory limits for production
+ENV NODE_OPTIONS="--max-old-space-size=512"
+
+# Install production dependencies only with memory optimization
 COPY --from=builder /app/package.json /app/yarn.lock ./
-RUN yarn install --production --frozen-lockfile && yarn cache clean
+RUN yarn install --production --frozen-lockfile --network-timeout 300000 \
+    --prefer-offline \
+    --ignore-optional \
+    && yarn cache clean
 
 # Copy build from builder stage
 COPY --from=builder /app/build ./build
