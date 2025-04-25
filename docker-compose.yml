@@ -32,6 +32,7 @@ services:
 
   strapi:
     container_name: launchpad-strapi
+    env_file: .env
     build:
       context: ./strapi
       dockerfile: Dockerfile
@@ -67,11 +68,16 @@ services:
       - "traefik.http.routers.strapi.tls.certresolver=myresolver"
       - "traefik.http.services.strapi.loadbalancer.server.port=${STRAPI_PORT}"
     volumes:
-      - ../data:/app/data
+      - ./config:/app/config
+      - ./src:/app/src
+      - ./package.json:/package.json
+      - ./yarn.lock:/yarn.lock
+      - ./.env:/app/.env
+      # move out of the container and repo 
       - ../public/uploads:/app/public/uploads
-      # for local development | template repo
+      - ../data:/app/data
       - ../.tmp/data.db:/app/.tmp/data.db
-    restart: always
+    restart: unless-stopped
 
   traefik:
     container_name: traefik

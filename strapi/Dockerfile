@@ -1,52 +1,32 @@
-# Stage 1: Build Strapi app
-FROM node:18-alpine AS builder
-WORKDIR /app
-
-# Set memory limits for Node.js
+# Creating multi-stage build for production
+FROM node:18-alpine AS build
+RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git > /dev/null 2>&1
+ARG NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
 ENV NODE_OPTIONS="--max-old-space-size=2048"
 
-# Copy only package files first to leverage Docker caching
+WORKDIR /opt/
 COPY package.json yarn.lock ./
-COPY scripts/ ./scripts/
-
-# Install dependencies with memory-optimized settings
-RUN yarn install --frozen-lockfile --network-timeout 600000 \
-    --prefer-offline \
-    --production=false \
-    --ignore-scripts \
-    && yarn cache clean
-
-# Copy only necessary files
+RUN yarn global add node-gyp
+RUN yarn config set network-timeout 600000 -g && yarn install --production
+ENV PATH=/opt/node_modules/.bin:$PATH
+WORKDIR /opt/app
 COPY . .
+RUN yarn build
 
-# Run any needed scripts manually that were skipped with --ignore-scripts
-# RUN node ./scripts/updateUuid.js || echo "Script not found or failed"
-
-# Build with production optimization and memory limits
-RUN NODE_ENV=production yarn build
-
-# Stage 2: Serve Strapi app
+# Creating final production image
 FROM node:18-alpine
-WORKDIR /app
-
-# Set memory limits for production
+RUN apk add --no-cache vips-dev
+ENV NODE_ENV=production
+ENV NODE_ENV=${NODE_ENV}
 ENV NODE_OPTIONS="--max-old-space-size=1024"
+WORKDIR /opt/
+COPY --from=build /opt/node_modules ./node_modules
+WORKDIR /opt/app
+COPY --from=build /opt/app ./
+ENV PATH=/opt/node_modules/.bin:$PATH
 
-# Install production dependencies only with memory optimization
-COPY --from=builder /app/package.json /app/yarn.lock ./
-RUN yarn install --production --frozen-lockfile --network-timeout 300000 \
-    --prefer-offline \
-    --ignore-optional \
-    && yarn cache clean
-
-# Copy build from builder stage
-COPY --from=builder /app/ ./
-
+RUN chown -R node:node /opt/app
+USER node
 EXPOSE 1337
-
-# Use a healthcheck to improve container monitoring
-HEALTHCHECK --interval=30s --timeout=30s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:1337/admin/init || exit 1
-
-# Start Strapi and run seed script
-CMD ["sh", "-c", "yarn start & echo \"Waiting for Strapi to initialize...\" && until curl -s http://localhost:1337/admin/init > /dev/null; do sleep 5; done && echo \"Running seed script...\" && yarn seed && wait"]
+CMD ["yarn", "start"]
