@@ -1,6 +1,6 @@
 # Creating multi-stage build for production
 FROM node:18-alpine AS build
-RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git > /dev/null 2>&1
+RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git python3 > /dev/null 2>&1
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 ENV NODE_OPTIONS="--max-old-space-size=2048"
@@ -8,8 +8,17 @@ ENV NODE_OPTIONS="--max-old-space-size=2048"
 WORKDIR /opt/
 COPY package.json yarn.lock ./
 COPY scripts/ ./scripts/
+
+# Tăng cường độ ổn định khi cài đặt packages
 RUN yarn global add node-gyp
-RUN yarn config set network-timeout 600000 -g && yarn install --production
+RUN yarn config set network-timeout 900000 -g
+RUN yarn config set registry https://registry.npmjs.org/
+
+# Thử sử dụng flag --network-timeout trực tiếp khi cài đặt
+RUN yarn install --production --network-timeout 900000 --non-interactive || \
+    (sleep 3 && yarn install --production --network-timeout 900000 --non-interactive) || \
+    (sleep 5 && yarn install --production --network-timeout 900000 --non-interactive)
+
 ENV PATH=/opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY . .
@@ -19,7 +28,6 @@ RUN yarn build
 FROM node:18-alpine
 RUN apk add --no-cache vips-dev
 ENV NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
 ENV NODE_OPTIONS="--max-old-space-size=1024"
 WORKDIR /opt/
 COPY --from=build /opt/node_modules ./node_modules
