@@ -1,6 +1,6 @@
-# Build frontend and backend separately with resource limits
-docker build --memory=2g --cpu-quota=200000 -t next-app:latest ./next
-docker build --memory=2g --cpu-quota=200000 -t strapi-app:latest ./strapi
+# Build frontend and backend separately with resource limits and platform specification
+docker build --platform linux/amd64 --memory=2g --cpu-quota=200000 -t next-app:latest ./next
+docker build --platform linux/amd64 --memory=2g --cpu-quota=200000 -t strapi-app:latest ./strapi
 
 # Start containers with updated environment variables
 docker compose --env-file ./.env up -d

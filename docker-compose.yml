@@ -4,13 +4,13 @@ services:
     build:
       context: ./next
       dockerfile: Dockerfile
+      args:
+        - RUN yarn install --frozen-lockfile && yarn cache clean
     deploy:
       resources:
         limits:
           cpus: "2"
           memory: 2G
-      args:
-        - RUN yarn install --frozen-lockfile && yarn cache clean
     ports:
       - "${NEXT_PORT}:${NEXT_PORT}"
     environment:
@@ -36,13 +36,13 @@ services:
     build:
       context: ./strapi
       dockerfile: Dockerfile
+      args:
+        - RUN yarn install --frozen-lockfile && yarn cache clean
     deploy:
       resources:
         limits:
           cpus: "2"
           memory: 2G
-      args:
-        - RUN yarn install --frozen-lockfile && yarn cache clean
     ports:
       - "${STRAPI_PORT}:${STRAPI_PORT}"
     environment:
@@ -74,9 +74,8 @@ services:
      - ./yarn.lock:/opt/yarn.lock
      - ./.env:/opt/app/.env
      - ./data:/opt/app/data
-      # move out of the container and repo
-     - ../public/uploads:/opt/app/public/uploads
-     - ../.tmp/data.db:/opt/app/.tmp/data.db
+     - ./public/uploads:/opt/app/public/uploads
+     - ./.tmp:/opt/app/.tmp
     restart: unless-stopped
 
   traefik:
@@ -112,4 +111,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./config/traefik.yaml:/config/traefik.yaml
       - ./config/.htpasswd:/config/.htpasswd
-      - ../letsencrypt:/letsencrypt
+      - ./letsencrypt:/letsencrypt
