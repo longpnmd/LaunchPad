@@ -10,14 +10,17 @@ COPY package.json yarn.lock ./
 COPY scripts/ ./scripts/
 
 # Tăng cường độ ổn định khi cài đặt packages
-RUN yarn global add node-gyp
+RUN yarn global add node-gyp esbuild
 RUN yarn config set network-timeout 900000 -g
 RUN yarn config set registry https://registry.npmjs.org/
 
-# Thử sử dụng flag --network-timeout trực tiếp khi cài đặt
-RUN yarn install --production --network-timeout 900000 --non-interactive || \
-    (sleep 3 && yarn install --production --network-timeout 900000 --non-interactive) || \
-    (sleep 5 && yarn install --production --network-timeout 900000 --non-interactive)
+# Thử sử dụng flag --network-timeout và --legacy-peer-deps
+RUN yarn install --production --network-timeout 900000 --non-interactive --legacy-peer-deps || \
+    (sleep 3 && yarn install --production --network-timeout 900000 --non-interactive --legacy-peer-deps) || \
+    (sleep 5 && yarn install --production --network-timeout 900000 --non-interactive --legacy-peer-deps)
+
+# Add explicit rebuild of native modules if needed
+RUN if [ -d "/opt/node_modules/better-sqlite3" ]; then cd /opt/node_modules/better-sqlite3 && yarn rebuild; fi
 
 ENV PATH=/opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
