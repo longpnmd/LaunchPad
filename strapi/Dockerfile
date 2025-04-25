@@ -2,8 +2,9 @@
 FROM node:18 AS builder
 WORKDIR /app
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+# Copy the scripts directory before installing dependencies
 COPY scripts/ ./scripts/
+RUN yarn install --frozen-lockfile && yarn cache clean
 COPY . .
 RUN yarn build
 
@@ -14,11 +15,4 @@ COPY --from=builder /app /app
 EXPOSE 1337
 
 # Start Strapi and run seed script
-CMD yarn start & \
-    echo "Waiting for Strapi to initialize..." && \
-    until curl -s http://localhost:1337/admin/init > /dev/null; do \
-      sleep 5; \
-    done && \
-    echo "Running seed script..." && \
-    yarn seed && \
-    wait
+CMD ["sh", "-c", "yarn start & echo \"Waiting for Strapi to initialize...\" && until curl -s http://localhost:1337/admin/init > /dev/null; do sleep 5; done && echo \"Running seed script...\" && yarn seed && wait"]
