@@ -4,8 +4,6 @@ services:
     build:
       context: ./next
       dockerfile: Dockerfile
-      args:
-        - RUN yarn install --frozen-lockfile && yarn cache clean
     deploy:
       resources:
         limits:
@@ -36,8 +34,6 @@ services:
     build:
       context: ./strapi
       dockerfile: Dockerfile
-      args:
-        - RUN yarn install --frozen-lockfile && yarn cache clean
     deploy:
       resources:
         limits:

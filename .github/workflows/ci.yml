@@ -59,7 +59,8 @@ jobs:
           key: ${{ runner.os }}-docker-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-docker-
-       # Create .env file for Docker Compose
+
+      # Create .env file for Docker Compose
       - name: Set up environment variables
         run: |
           echo "BASE_DOMAIN=${{ vars.BASE_DOMAIN }}" >> .env
@@ -83,40 +84,41 @@ jobs:
           echo "STRAPI_ADMIN_BACKEND_URL=${{ vars.STRAPI_ADMIN_BACKEND_URL }}" >> .env
           echo "STRAPI_TELEMETRY_DISABLED=${{ vars.STRAPI_TELEMETRY_DISABLED }}" >> .env
           echo "STRAPI_ADMIN_PATH=${{ vars.STRAPI_ADMIN_PATH }}" >> .env
-      # Build Docker image for Next.js
-      - name: Build Docker image for Next.js
-        uses: docker/build-push-action@v4
-        with:
-          context: ./next
-          file: ./next/Dockerfile
-          push: false
-          tags: next-app:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
-      
-      # Build Docker image for Strapi
-      - name: Build Docker image for Strapi
-        uses: docker/build-push-action@v4
-        with:
-          context: ./strapi
-          file: ./strapi/Dockerfile
-          push: false
-          tags: strapi-app:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
-          build-args: |
-            NODE_ENV=production
-          # Add resource limits for build process
-          platforms: linux/amd64
 
-      # Health check
+      # Build and run using run.sh script
+      - name: Build and run using run.sh
+        run: |
+          chmod +x ./run.sh
+          ./run.sh
+
+      # Health check with retry and timeout
       - name: Verify health status
         run: |
-          if docker ps | grep -q "launchpad-strapi"; then
-            docker inspect --format='{{json .State.Health.Status}}' launchpad-strapi
-          else
-            echo "Container not found or not running yet"
-          fi
+          MAX_RETRIES=5
+          RETRY_DELAY=10
+          
+          for i in $(seq 1 $MAX_RETRIES); do
+            echo "Health check attempt $i of $MAX_RETRIES"
+            if docker ps | grep -q "launchpad-strapi"; then
+              STATUS=$(docker inspect --format='{{json .State.Health.Status}}' launchpad-strapi)
+              echo "Container health status: $STATUS"
+              
+              if [ "$STATUS" = '"healthy"' ]; then
+                echo "Container is healthy!"
+                exit 0
+              fi
+            else
+              echo "Container not running yet"
+            fi
+            
+            echo "Waiting ${RETRY_DELAY}s before next check"
+            sleep $RETRY_DELAY
+          done
+          
+          echo "Health check failed after $MAX_RETRIES attempts"
+          docker compose logs
+          exit 1
+
       # Fix permissions for .tmp directory
       - name: Fix permissions
         run: |
@@ -125,23 +127,17 @@ jobs:
             chmod -R 775 ./strapi/.tmp
           fi
 
-
-      # Check Docker status
-      - name: Check Docker status
+      # Check Docker status and logs
+      - name: Check Docker status and logs
         run: |
           docker info
           docker ps
+          docker compose logs --tail 50
 
-      # # Check logs
-      # - name: Check logs
-      #   run: |
-      #     docker compose logs
-
-      # Verify health status
-      # - name: Verify health status
-      #   run: |
-      #     docker inspect --format='{{json .State.Health.Status}}' strapi
-
-      # Debug .env file
-      # - name: Debug .env file
-      #   run: cat .env
+      # Capture artifacts for logging and monitoring
+      - name: Capture logs as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: container-logs
+          path: ./job-logs.txt
+          retention-days: 5
