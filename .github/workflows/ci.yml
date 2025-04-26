@@ -135,9 +135,10 @@ jobs:
           docker compose logs --tail 50
 
       # Capture artifacts for logging and monitoring
-      - name: Capture logs as artifacts
-        uses: actions/upload-artifact@v3
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
         with:
-          name: container-logs
-          path: ./job-logs.txt
-          retention-days: 5
+          name: build-artifacts
+          path: |
+            job-logs.txt
+            # Thêm các đường dẫn khác cần upload

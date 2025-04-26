@@ -1,9 +1,11 @@
 # Creating multi-stage build for production
 FROM node:18-alpine AS build
-RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git python3 > /dev/null 2>&1
+# Cài đặt các công cụ cần thiết và sqlite
+RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git python3 sqlite sqlite-dev > /dev/null 2>&1
 ARG NODE_ENV=production
+ARG REBUILD_NATIVE=false
 ENV NODE_ENV=${NODE_ENV}
-ENV NODE_OPTIONS="--max-old-space-size=2048"
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 
 WORKDIR /opt/
 COPY package.json yarn.lock ./
@@ -11,24 +13,35 @@ COPY scripts/ ./scripts/
 
 # Tăng cường độ ổn định khi cài đặt packages
 RUN yarn global add node-gyp esbuild
-RUN yarn config set network-timeout 900000 -g
+RUN yarn config set network-timeout 1800000 -g # Tăng timeout lên 30 phút
 RUN yarn config set registry https://registry.npmjs.org/
 
-# Thử sử dụng flag --network-timeout và --legacy-peer-deps
-RUN yarn install --production --network-timeout 900000 --non-interactive --legacy-peer-deps || \
-    (sleep 3 && yarn install --production --network-timeout 900000 --non-interactive --legacy-peer-deps) || \
-    (sleep 5 && yarn install --production --network-timeout 900000 --non-interactive --legacy-peer-deps)
+# Cài đặt dependencies với chiến lược tối ưu
+RUN yarn install --network-timeout 1800000 --non-interactive || \
+    (sleep 5 && yarn install --network-timeout 1800000 --non-interactive) || \
+    (sleep 10 && yarn install --network-timeout 1800000 --non-interactive --legacy-peer-deps)
+
+# Biên dịch lại better-sqlite3 nếu cần
+RUN if [ "$REBUILD_NATIVE" = "true" ]; then \
+        echo "Rebuilding better-sqlite3 for current architecture" && \
+        cd node_modules/better-sqlite3 && \
+        npm rebuild && \
+        node-gyp clean && \
+        node-gyp configure && \
+        node-gyp rebuild --release; \
+    fi
 
 ENV PATH=/opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY . .
-RUN yarn build
+# Sửa lại lệnh build để không truyền tham số network-timeout trực tiếp vào strapi build
+RUN yarn config set network-timeout 1800000 && yarn build
 
 # Creating final production image
 FROM node:18-alpine
-RUN apk add --no-cache vips-dev
+RUN apk add --no-cache vips-dev sqlite curl
 ENV NODE_ENV=production
-ENV NODE_OPTIONS="--max-old-space-size=1024"
+ENV NODE_OPTIONS="--max-old-space-size=2048"
 WORKDIR /opt/
 COPY --from=build /opt/node_modules ./node_modules
 WORKDIR /opt/app
