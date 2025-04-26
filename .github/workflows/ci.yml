@@ -59,43 +59,7 @@ jobs:
           key: ${{ runner.os }}-docker-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-docker-
-
-      # Build Docker image for Next.js
-      - name: Build Docker image for Next.js
-        uses: docker/build-push-action@v4
-        with:
-          context: ./next
-          file: ./next/Dockerfile
-          push: false
-          tags: next-app:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
-
-      # Build Docker image for Strapi with resource limitations
-      - name: Build Docker image for Strapi
-        uses: docker/build-push-action@v4
-        with:
-          context: ./strapi
-          file: ./strapi/Dockerfile
-          push: false
-          tags: strapi-app:latest
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
-          build-args: |
-            NODE_ENV=production
-          # Add resource limits for build process
-          platforms: linux/amd64
-
-      # Health check
-      - name: Verify health status
-        run: |
-          if docker ps | grep -q "launchpad-strapi"; then
-            docker inspect --format='{{json .State.Health.Status}}' launchpad-strapi
-          else
-            echo "Container not found or not running yet"
-          fi
-
-      # Create .env file for Docker Compose
+       # Create .env file for Docker Compose
       - name: Set up environment variables
         run: |
           echo "BASE_DOMAIN=${{ vars.BASE_DOMAIN }}" >> .env
@@ -119,7 +83,40 @@ jobs:
           echo "STRAPI_ADMIN_BACKEND_URL=${{ vars.STRAPI_ADMIN_BACKEND_URL }}" >> .env
           echo "STRAPI_TELEMETRY_DISABLED=${{ vars.STRAPI_TELEMETRY_DISABLED }}" >> .env
           echo "STRAPI_ADMIN_PATH=${{ vars.STRAPI_ADMIN_PATH }}" >> .env
+      # Build Docker image for Next.js
+      - name: Build Docker image for Next.js
+        uses: docker/build-push-action@v4
+        with:
+          context: ./next
+          file: ./next/Dockerfile
+          push: false
+          tags: next-app:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+      
+      # Build Docker image for Strapi
+      - name: Build Docker image for Strapi
+        uses: docker/build-push-action@v4
+        with:
+          context: ./strapi
+          file: ./strapi/Dockerfile
+          push: false
+          tags: strapi-app:latest
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+          build-args: |
+            NODE_ENV=production
+          # Add resource limits for build process
+          platforms: linux/amd64
 
+      # Health check
+      - name: Verify health status
+        run: |
+          if docker ps | grep -q "launchpad-strapi"; then
+            docker inspect --format='{{json .State.Health.Status}}' launchpad-strapi
+          else
+            echo "Container not found or not running yet"
+          fi
       # Fix permissions for .tmp directory
       - name: Fix permissions
         run: |
@@ -128,14 +125,17 @@ jobs:
             chmod -R 775 ./strapi/.tmp
           fi
 
-      # Build and run Docker Compose using run.sh
-      - name: Build and run Docker Compose
-        run: sh ./run.sh
 
-      # Check logs
-      - name: Check logs
+      # Check Docker status
+      - name: Check Docker status
         run: |
-          docker compose logs
+          docker info
+          docker ps
+
+      # # Check logs
+      # - name: Check logs
+      #   run: |
+      #     docker compose logs
 
       # Verify health status
       # - name: Verify health status
@@ -143,5 +143,5 @@ jobs:
       #     docker inspect --format='{{json .State.Health.Status}}' strapi
 
       # Debug .env file
-      - name: Debug .env file
-        run: cat .env
+      # - name: Debug .env file
+      #   run: cat .env
