@@ -55,9 +55,6 @@ BUILD_NICE=10  # Độ ưu tiên (nice level), cao hơn = ít ưu tiên hơn
 echo "=== Building Next.js container ==="
 nice -n $BUILD_NICE docker build \
     --platform $BUILD_PLATFORM \
-    --memory=2g \
-    --cpu-quota=150000 \
-    --cpu-period=200000 \
     -t next-app:latest ./next
 
 if [ $? -ne 0 ]; then
@@ -69,9 +66,6 @@ fi
 echo "=== Building Strapi container ==="
 nice -n $BUILD_NICE docker build \
     --platform $BUILD_PLATFORM \
-    --memory=2g \
-    --cpu-quota=150000 \
-    --cpu-period=200000 \
     $ADDITIONAL_ARGS \
     -t strapi-app:latest ./strapi
 
