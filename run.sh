@@ -4,35 +4,34 @@ set -e  # Exit on error
 echo "=== Starting LaunchPad deployment ==="
 echo "$(date): Deployment initiated"
 
-# Chuẩn bị thư mục và thiết lập quyền truy cập
-echo "=== Setting up directories and permissions ==="
+# # Chuẩn bị thư mục và thiết lập quyền truy cập
+# echo "=== Setting up directories and permissions ==="
 
-# Lấy UID và GID hiện tại
-export UID=$(id -u)
-export GID=$(id -g)
-echo "Using UID:GID = $UID:$GID"
+# # Lấy UID và GID hiện tại
+# export USER_ID=$(id -u)
+# export GROUP_ID=$(id -g)
+# echo "Using UID:GID = $USER_ID:$GROUP_ID"
 
-# Tạo thư mục cần thiết
-mkdir -p ./n8n_data
-mkdir -p ./postgres/init
-mkdir -p ./letsencrypt
-mkdir -p ./config
+# # Tạo thư mục cần thiết
+# mkdir -p ./n8n_data
+# mkdir -p ./postgres/init
+# mkdir -p ./letsencrypt
+# mkdir -p ./config
 
-# Cài đặt quyền cho các thư mục
-sudo chown -R $UID:$GID ./n8n_data
-sudo chown -R $UID:$GID ./postgres
-sudo chown -R $UID:$GID ./letsencrypt
-sudo chown -R $UID:$GID ./config
+# # Cài đặt quyền cho các thư mục
+# sudo chown -R $USER_ID:$GROUP_ID ./n8n_data
+# sudo chown -R $USER_ID:$GROUP_ID ./postgres
+# sudo chown -R $USER_ID:$GROUP_ID ./letsencrypt
+# sudo chown -R $USER_ID:$GROUP_ID ./config
 
-# Đặc biệt xử lý file acme.json
-if [ -f "./letsencrypt/acme.json" ]; then
-    sudo chown $UID:$GID ./letsencrypt/acme.json
-    chmod 600 ./letsencrypt/acme.json
-else
-    touch ./letsencrypt/acme.json
-    chmod 600 ./letsencrypt/acme.json
-fi
-
+# # Đặc biệt xử lý file acme.json
+# if [ -f "./letsencrypt/acme.json" ]; then
+#     sudo chown $USER_ID:$GROUP_ID ./letsencrypt/acme.json
+#     chmod 600 ./letsencrypt/acme.json
+# else
+#     touch ./letsencrypt/acme.json
+#     chmod 600 ./letsencrypt/acme.json
+# fi
 
 # Tự động phát hiện nền tảng
 if [[ $(uname -m) == "arm64" ]]; then
