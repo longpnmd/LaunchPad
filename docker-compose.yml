@@ -1,6 +1,7 @@
 services:
   nextjs:
     container_name: launchpad-nextjs
+    env_file: .env
     build:
       context: ./next
       dockerfile: Dockerfile
@@ -64,14 +65,14 @@ services:
       - "traefik.http.routers.strapi.tls.certresolver=myresolver"
       - "traefik.http.services.strapi.loadbalancer.server.port=${STRAPI_PORT}"
     volumes:
-     - ./strapi/config:/opt/app/config
-     - ./strapi/src:/opt/app/src
-     - ./strapi/package.json:/opt/package.json
-     - ./strapi/yarn.lock:/opt/yarn.lock
-     - ./strapi/.env:/opt/app/.env
-     - ./strapi/data:/opt/app/data
-     - ./strapi/public/uploads:/opt/app/public/uploads
-     - ./strapi/.tmp:/opt/app/.tmp
+      - ./strapi/config:/opt/app/config
+      - ./strapi/src:/opt/app/src
+      - ./strapi/package.json:/opt/package.json
+      - ./strapi/yarn.lock:/opt/yarn.lock
+      - ./strapi/.env:/opt/app/.env
+      - ./strapi/data:/opt/app/data
+      - ./strapi/public/uploads:/opt/app/public/uploads
+      - ./strapi/.tmp:/opt/app/.tmp
     restart: unless-stopped
 
   traefik:
