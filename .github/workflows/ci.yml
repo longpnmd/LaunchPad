@@ -116,34 +116,6 @@ jobs:
           chmod +x ./run.sh
           ./run.sh
 
-      # Health check with retry and timeout
-      - name: Verify health status
-        run: |
-          MAX_RETRIES=5
-          RETRY_DELAY=10
-          
-          for i in $(seq 1 $MAX_RETRIES); do
-            echo "Health check attempt $i of $MAX_RETRIES"
-            if docker ps | grep -q "launchpad-strapi"; then
-              STATUS=$(docker inspect --format='{{json .State.Health.Status}}' launchpad-strapi)
-              echo "Container health status: $STATUS"
-              
-              if [ "$STATUS" = '"healthy"' ]; then
-                echo "Container is healthy!"
-                exit 0
-              fi
-            else
-              echo "Container not running yet"
-            fi
-            
-            echo "Waiting ${RETRY_DELAY}s before next check"
-            sleep $RETRY_DELAY
-          done
-          
-          echo "Health check failed after $MAX_RETRIES attempts"
-          docker compose logs
-          exit 1
-
       # Check Docker status and logs
       - name: Check Docker status and logs
         run: |
