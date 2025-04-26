@@ -15,7 +15,7 @@ jobs:
     steps:
       # Checkout code
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Updated from v3
 
       # Cache Node.js dependencies
       - name: Cache Node.js modules
@@ -43,7 +43,7 @@ jobs:
     steps:
       # Checkout code
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Updated from v3
 
       # Set up Docker Buildx
       - name: Set up Docker Buildx
@@ -135,10 +135,10 @@ jobs:
           docker compose logs --tail 50
 
       # Capture artifacts for logging and monitoring
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artifacts
-          path: |
-            job-logs.txt
-            # Thêm các đường dẫn khác cần upload
+      # - name: Upload artifacts
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: build-artifacts
+      #     path: |
+      #       job-logs.txt
+      #       # Thêm các đường dẫn khác cần upload
