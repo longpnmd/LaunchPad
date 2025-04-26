@@ -6,9 +6,10 @@ echo "$(date): Deployment initiated"
 
 # Chuẩn bị thư mục và quyền cho n8n và PostgreSQL
 echo "=== Setting up directories and permissions ==="
-mkdir -p ./postgres/init
 mkdir -p ./n8n_data
 chmod -R 777 ./n8n_data  # Đảm bảo n8n có thể ghi vào thư mục
+mkdir -p ./letsencrypt
+chmod -R 777 ./letsencrypt  # Đảm bảo letsencrypt có thể ghi vào thư mục
 
 # Tự động phát hiện nền tảng
 if [[ $(uname -m) == "arm64" ]]; then
