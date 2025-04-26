@@ -4,12 +4,34 @@ set -e  # Exit on error
 echo "=== Starting LaunchPad deployment ==="
 echo "$(date): Deployment initiated"
 
-# Chuẩn bị thư mục và quyền cho n8n và PostgreSQL
+# Chuẩn bị thư mục và thiết lập quyền truy cập
 echo "=== Setting up directories and permissions ==="
+
+# Lấy UID và GID hiện tại
+export UID=$(id -u)
+export GID=$(id -g)
+echo "Using UID:GID = $UID:$GID"
+
+# Tạo thư mục cần thiết
 mkdir -p ./n8n_data
-chmod -R 777 ./n8n_data  # Đảm bảo n8n có thể ghi vào thư mục
 mkdir -p ./letsencrypt
-chmod -R 777 ./letsencrypt  # Đảm bảo letsencrypt có thể ghi vào thư mục
+mkdir -p ./config
+
+# Cài đặt quyền cho các thư mục
+sudo chown -R $UID:$GID ./n8n_data
+sudo chown -R $UID:$GID ./postgres
+sudo chown -R $UID:$GID ./letsencrypt
+sudo chown -R $UID:$GID ./config
+
+# Đặc biệt xử lý file acme.json
+if [ -f "./letsencrypt/acme.json" ]; then
+    sudo chown $UID:$GID ./letsencrypt/acme.json
+    chmod 600 ./letsencrypt/acme.json
+else
+    touch ./letsencrypt/acme.json
+    chmod 600 ./letsencrypt/acme.json
+fi
+
 
 # Tự động phát hiện nền tảng
 if [[ $(uname -m) == "arm64" ]]; then
