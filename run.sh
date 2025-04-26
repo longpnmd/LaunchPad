@@ -14,6 +14,7 @@ echo "Using UID:GID = $UID:$GID"
 
 # Tạo thư mục cần thiết
 mkdir -p ./n8n_data
+mkdir -p ./postgres/init
 mkdir -p ./letsencrypt
 mkdir -p ./config
 
