@@ -33,17 +33,17 @@ echo "$(date): Deployment initiated"
 #     chmod 600 ./letsencrypt/acme.json
 # fi
 
-# # Tự động phát hiện nền tảng
-# if [[ $(uname -m) == "arm64" ]]; then
-#     BUILD_PLATFORM="linux/arm64"
-#     # Thêm các biến môi trường đặc biệt cho ARM64
-#     ADDITIONAL_ARGS="--build-arg REBUILD_NATIVE=true"
-#     echo "Detected ARM64 architecture, using $BUILD_PLATFORM platform"
-# else
-#     BUILD_PLATFORM="linux/amd64"
-#     ADDITIONAL_ARGS=""
-#     echo "Detected AMD64 architecture, using $BUILD_PLATFORM platform"
-# fi
+# Tự động phát hiện nền tảng
+if [[ $(uname -m) == "arm64" ]]; then
+    BUILD_PLATFORM="linux/arm64"
+    # Thêm các biến môi trường đặc biệt cho ARM64
+    ADDITIONAL_ARGS="--build-arg REBUILD_NATIVE=true"
+    echo "Detected ARM64 architecture, using $BUILD_PLATFORM platform"
+else
+    BUILD_PLATFORM="linux/amd64"
+    ADDITIONAL_ARGS=""
+    echo "Detected AMD64 architecture, using $BUILD_PLATFORM platform"
+fi
 
 # Thiết lập giới hạn tài nguyên
 # Giảm số lượng jobs song song và giới hạn CPU bằng cpulimit hoặc nice
@@ -55,6 +55,9 @@ BUILD_NICE=10  # Độ ưu tiên (nice level), cao hơn = ít ưu tiên hơn
 echo "=== Building Next.js container ==="
 nice -n $BUILD_NICE docker build \
     --platform $BUILD_PLATFORM \
+    --memory=2g \
+    --cpu-quota=150000 \
+    --cpu-period=200000 \
     -t next-app:latest ./next
 
 if [ $? -ne 0 ]; then
@@ -66,6 +69,9 @@ fi
 echo "=== Building Strapi container ==="
 nice -n $BUILD_NICE docker build \
     --platform $BUILD_PLATFORM \
+    --memory=2g \
+    --cpu-quota=150000 \
+    --cpu-period=200000 \
     $ADDITIONAL_ARGS \
     -t strapi-app:latest ./strapi
 
