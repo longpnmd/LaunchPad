@@ -65,11 +65,13 @@ jobs:
         run: |
           echo "BASE_DOMAIN=${{ vars.BASE_DOMAIN }}" >> .env
           echo "CER_ACME_EMAIL=${{ vars.CER_ACME_EMAIL }}" >> .env
+          # Next config
           echo "NEXT_WEBSITE_URL=${{ vars.NEXT_WEBSITE_URL }}" >> .env
           echo "NEXT_PORT=${{ vars.NEXT_PORT }}" >> .env
           echo "NEXT_PUBLIC_API_URL=${{ vars.NEXT_PUBLIC_API_URL }}" >> .env
           echo "NEXT_IMAGE_HOSTNAME=${{ vars.NEXT_IMAGE_HOSTNAME }}" >> .env
           echo "NEXT_PREVIEW_SECRET=${{ secrets.NEXT_PREVIEW_SECRET }}" >> .env
+          # Strapi config
           echo "STRAPI_HOST=${{ vars.STRAPI_HOST }}" >> .env
           echo "STRAPI_PORT=${{ vars.STRAPI_PORT }}" >> .env
           echo "STRAPI_APP_KEYS=${{ secrets.STRAPI_APP_KEYS }}" >> .env
@@ -84,6 +86,29 @@ jobs:
           echo "STRAPI_ADMIN_BACKEND_URL=${{ vars.STRAPI_ADMIN_BACKEND_URL }}" >> .env
           echo "STRAPI_TELEMETRY_DISABLED=${{ vars.STRAPI_TELEMETRY_DISABLED }}" >> .env
           echo "STRAPI_ADMIN_PATH=${{ vars.STRAPI_ADMIN_PATH }}" >> .env
+          
+          # Database config
+          echo "DATABASE_CLIENT=${{ vars.DATABASE_CLIENT || 'postgres' }}" >> .env
+          echo "DATABASE_HOST=${{ vars.DATABASE_HOST || 'postgres' }}" >> .env
+          echo "DATABASE_PORT=${{ vars.DATABASE_PORT || '5432' }}" >> .env
+          echo "DATABASE_NAME=${{ vars.DATABASE_NAME || 'strapi' }}" >> .env
+          echo "DATABASE_USERNAME=${{ vars.DATABASE_USERNAME || 'postgres' }}" >> .env
+          echo "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}" >> .env
+          
+          # n8n config
+          echo "N8N_PORT=${{ vars.N8N_PORT || '5678' }}" >> .env
+          echo "N8N_HOST=n8n.${{ vars.BASE_DOMAIN }}" >> .env
+          echo "N8N_PROTOCOL=${{ vars.N8N_PROTOCOL || 'https' }}" >> .env
+          echo "N8N_WEBHOOK_URL=https://n8n.${{ vars.BASE_DOMAIN }}/" >> .env
+          echo "N8N_DB_NAME=${{ vars.N8N_DB_NAME || 'n8n' }}" >> .env
+          echo "N8N_ENCRYPTION_KEY=${{ secrets.N8N_ENCRYPTION_KEY }}" >> .env
+          
+          # n8n SMTP settings
+          echo "N8N_SMTP_HOST=${{ vars.N8N_SMTP_HOST || 'smtp.example.com' }}" >> .env
+          echo "N8N_SMTP_PORT=${{ vars.N8N_SMTP_PORT || '587' }}" >> .env
+          echo "N8N_SMTP_USER=${{ vars.N8N_SMTP_USER }}" >> .env
+          echo "N8N_SMTP_PASS=${{ secrets.N8N_SMTP_PASS }}" >> .env
+          echo "N8N_SMTP_SENDER=${{ vars.N8N_SMTP_SENDER }}" >> .env
 
       # Build and run using run.sh script
       - name: Build and run using run.sh
@@ -118,14 +143,6 @@ jobs:
           echo "Health check failed after $MAX_RETRIES attempts"
           docker compose logs
           exit 1
-
-      # Fix permissions for .tmp directory
-      - name: Fix permissions
-        run: |
-          if [ -d ./strapi/.tmp ]; then
-            chown -R $(whoami):$(whoami) ./strapi/.tmp
-            chmod -R 775 ./strapi/.tmp
-          fi
 
       # Check Docker status and logs
       - name: Check Docker status and logs

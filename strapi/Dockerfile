@@ -3,7 +3,7 @@ FROM node:18-alpine AS build
 # Cài đặt các công cụ cần thiết và sqlite
 RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git python3 sqlite sqlite-dev > /dev/null 2>&1
 ARG NODE_ENV=production
-ARG REBUILD_NATIVE=true
+ARG REBUILD_NATIVE=false
 ENV NODE_ENV=${NODE_ENV}
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 

@@ -4,3 +4,4 @@ node_modules
 .env
 /letsencrypt
 job-logs.txt
+/n8n_data

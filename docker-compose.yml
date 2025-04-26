@@ -11,7 +11,7 @@ services:
           cpus: "2"
           memory: 2G
     ports:
-      - "${NEXT_PORT}:${NEXT_PORT}"
+      - "${NEXT_PORT:-3000}:3000"
     environment:
       - NODE_ENV=production
       - PORT=${NEXT_PORT}
@@ -28,6 +28,8 @@ services:
     depends_on:
       - strapi
     restart: always
+    networks:
+      - web
 
   strapi:
     container_name: launchpad-strapi
@@ -41,7 +43,7 @@ services:
           cpus: "2"
           memory: 2G
     ports:
-      - "${STRAPI_PORT}:${STRAPI_PORT}"
+      - "${STRAPI_PORT:-1337}:1337"
     environment:
       - NODE_ENV=production
       - HOST=${STRAPI_HOST}
@@ -58,6 +60,12 @@ services:
       - STRAPI_ADMIN_BACKEND_URL=${STRAPI_ADMIN_BACKEND_URL}
       - STRAPI_TELEMETRY_DISABLED=${STRAPI_TELEMETRY_DISABLED}
       - ADMIN_PATH=${STRAPI_ADMIN_PATH}
+      - DATABASE_CLIENT=${DATABASE_CLIENT}
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_PORT=${DATABASE_PORT}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.strapi.rule=Host(`launchpad-admin.${BASE_DOMAIN}`)"
@@ -74,6 +82,8 @@ services:
       - ./strapi/public/uploads:/opt/app/public/uploads
       - ./strapi/.tmp:/opt/app/.tmp
     restart: unless-stopped
+    networks:
+      - web
 
   traefik:
     container_name: traefik
@@ -109,3 +119,74 @@ services:
       - ./config/traefik.yaml:/config/traefik.yaml
       - ./config/.htpasswd:/config/.htpasswd
       - ./letsencrypt:/letsencrypt
+    networks:
+      - web
+  postgres:
+    container_name: launchpad-postgres
+    image: postgres:14-alpine
+    env_file: .env
+    ports:
+      - "${DATABASE_PORT:-5432}:5432"
+    environment:
+      - POSTGRES_DB=${DATABASE_NAME:-postgres}
+      - POSTGRES_USER=${DATABASE_USERNAME:-postgres}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_MULTIPLE_DATABASES=${N8N_DB_NAME:-n8n}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    restart: unless-stopped
+    networks:
+      - web
+
+  n8n:
+    container_name: launchpad-n8n
+    image: n8nio/n8n:latest
+    env_file: .env
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 1G
+    ports:
+      - "${N8N_PORT:-5678}:5678"
+    environment:
+      - N8N_HOST=${N8N_HOST:-n8n.${BASE_DOMAIN}}
+      - N8N_PORT=${N8N_PORT:-5678}
+      - N8N_PROTOCOL=${N8N_PROTOCOL:-https}
+      - NODE_ENV=production
+      - WEBHOOK_URL=https://${N8N_HOST:-n8n.${BASE_DOMAIN}}/
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=${DATABASE_HOST:-postgres}
+      - DB_POSTGRESDB_PORT=${DATABASE_PORT:-5432}
+      - DB_POSTGRESDB_DATABASE=${N8N_DB_NAME:-n8n}
+      - DB_POSTGRESDB_USER=${DATABASE_USERNAME:-postgres}
+      - DB_POSTGRESDB_PASSWORD=${DATABASE_PASSWORD}
+      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
+      - EXECUTIONS_PROCESS=main
+      - N8N_EMAIL_MODE=smtp
+      - N8N_SMTP_HOST=${N8N_SMTP_HOST}
+      - N8N_SMTP_PORT=${N8N_SMTP_PORT:-587}
+      - N8N_SMTP_USER=${N8N_SMTP_USER}
+      - N8N_SMTP_PASS=${N8N_SMTP_PASS}
+      - N8N_SMTP_SENDER=${N8N_SMTP_SENDER}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.n8n.rule=Host(`n8n.${BASE_DOMAIN}`)"
+      - "traefik.http.routers.n8n.entrypoints=websecure"
+      - "traefik.http.routers.n8n.tls.certresolver=myresolver"
+      - "traefik.http.services.n8n.loadbalancer.server.port=${N8N_PORT:-5678}"
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    networks:
+      - web
+
+networks:
+  web:
+    external: false
+
+volumes:
+  postgres-data:
