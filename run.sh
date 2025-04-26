@@ -16,17 +16,36 @@ else
     echo "Detected AMD64 architecture, using $BUILD_PLATFORM platform"
 fi
 
-# Build Next.js container
+# Thiết lập giới hạn tài nguyên
+# Giảm số lượng jobs song song và giới hạn CPU bằng cpulimit hoặc nice
+CPU_LIMIT=75  # Giới hạn 75% CPU
+PARALLEL_JOBS=1  # Số lượng công việc chạy song song
+BUILD_NICE=10  # Độ ưu tiên (nice level), cao hơn = ít ưu tiên hơn
+
+# Build Next.js container with resource limits
 echo "=== Building Next.js container ==="
-docker build --platform $BUILD_PLATFORM --memory=2g --cpu-quota=200000 -t next-app:latest ./next
+nice -n $BUILD_NICE docker build \
+    --platform $BUILD_PLATFORM \
+    --memory=2g \
+    --cpu-quota=150000 \
+    --cpu-period=200000 \
+    -t next-app:latest ./next
+
 if [ $? -ne 0 ]; then
     echo "ERROR: Next.js build failed"
     exit 1
 fi
 
-# Build Strapi container
+# Build Strapi container with resource limits
 echo "=== Building Strapi container ==="
-docker build --platform $BUILD_PLATFORM --memory=2g --cpu-quota=200000 $ADDITIONAL_ARGS -t strapi-app:latest ./strapi
+nice -n $BUILD_NICE docker build \
+    --platform $BUILD_PLATFORM \
+    --memory=2g \
+    --cpu-quota=150000 \
+    --cpu-period=200000 \
+    $ADDITIONAL_ARGS \
+    -t strapi-app:latest ./strapi
+
 if [ $? -ne 0 ]; then
     echo "ERROR: Strapi build failed"
     exit 1
@@ -40,14 +59,19 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Verify container status
+# Verify container status - thêm thời gian chờ giữa các lần kiểm tra
 echo "=== Checking container status ==="
+sleep 2
 docker ps
+sleep 1
 docker compose ps
 
-# Container and image cleanup
+# Container and image cleanup - thực hiện tuần tự để giảm tải
 echo "=== Cleaning up old containers and images ==="
+echo "Cleaning unused containers..."
 docker container prune --filter "until=24h" -f
+sleep 2
+echo "Cleaning unused images..."
 docker image prune --filter "until=24h" -f
 
 echo "=== Deployment completed successfully ==="

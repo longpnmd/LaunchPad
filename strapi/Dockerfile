@@ -25,10 +25,7 @@ RUN yarn install --network-timeout 1800000 --non-interactive || \
 RUN if [ "$REBUILD_NATIVE" = "true" ]; then \
         echo "Rebuilding better-sqlite3 for current architecture" && \
         cd node_modules/better-sqlite3 && \
-        npm rebuild && \
-        node-gyp clean && \
-        node-gyp configure && \
-        node-gyp rebuild --release; \
+        yarn install;\
     fi
 
 ENV PATH=/opt/node_modules/.bin:$PATH

@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'standalone',
   images: {
     remotePatterns: [{ hostname: process.env.IMAGE_HOSTNAME || "launchpad-admin.swiftsync.tech" }],
     domains: [process.env.IMAGE_HOSTNAME || "launchpad-admin.swiftsync.tech" ],
