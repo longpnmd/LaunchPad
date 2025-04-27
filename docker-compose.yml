@@ -95,6 +95,7 @@ services:
       - .env
     environment:
       - TRAEFIK_CERTIFICATESRESOLVERS_LE_ACME_STORAGE=/letsencrypt/acme.json
+      - BASE_DOMAIN=${BASE_DOMAIN:-localhost.dev}
     command:
       - --api.insecure=true
       - --api.dashboard=true
