@@ -63,6 +63,7 @@ jobs:
       # Create .env file for Docker Compose
       - name: Set up environment variables
         run: |
+          touch .env
           echo "BASE_DOMAIN=${{ vars.BASE_DOMAIN }}" >> .env
           echo "CER_ACME_EMAIL=${{ vars.CER_ACME_EMAIL }}" >> .env
           # Next config

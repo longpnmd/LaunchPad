@@ -3,7 +3,8 @@ version: '3.8'
 services:
   nextjs:
     container_name: launchpad-nextjs
-    env_file: .env
+    env_file:
+      - .env
     build:
       context: ./next
       dockerfile: Dockerfile
@@ -35,7 +36,8 @@ services:
 
   strapi:
     container_name: launchpad-strapi
-    env_file: .env
+    env_file:
+      - .env
     build:
       context: ./strapi
       dockerfile: Dockerfile
@@ -128,7 +130,8 @@ services:
   postgres:
     container_name: launchpad-postgres
     image: postgres:14-alpine
-    env_file: .env
+    env_file:
+      - .env
     ports:
       - "${DATABASE_PORT:-5432}:5432"
     environment:
@@ -146,7 +149,8 @@ services:
   n8n:
     container_name: launchpad-n8n
     image: n8nio/n8n:latest
-    env_file: .env
+    env_file:
+      - .env
     deploy:
       resources:
         limits:
