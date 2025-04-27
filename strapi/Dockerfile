@@ -21,13 +21,6 @@ RUN yarn install --network-timeout 1800000 --non-interactive || \
     (sleep 5 && yarn install --network-timeout 1800000 --non-interactive) || \
     (sleep 10 && yarn install --network-timeout 1800000 --non-interactive --legacy-peer-deps)
 
-# Biên dịch lại better-sqlite3 nếu cần
-RUN if [ "$REBUILD_NATIVE" = "true" ]; then \
-        echo "Rebuilding better-sqlite3 for current architecture" && \
-        cd node_modules/better-sqlite3 && \
-        yarn install;\
-    fi
-
 ENV PATH=/opt/node_modules/.bin:$PATH
 WORKDIR /opt/app
 COPY . .
