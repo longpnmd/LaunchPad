@@ -1,13 +1,12 @@
-launchpad-strapi    | yarn run v1.22.22
-launchpad-strapi    | $ strapi start
-launchpad-strapi    | 
-launchpad-strapi    |  Project information
-launchpad-strapi    | 
-launchpad-strapi    | ┌────────────────────┬──────────────────────────────────────────────────┐
-launchpad-strapi    | │ Time               │ Sun Apr 27 2025 05:53:01 GMT+0000 (Coordinated … │
-launchpad-strapi    | │ Launched in        │ 1405 ms                                          │
-launchpad-strapi    | │ Environment        │ production                                       │
-launchpad-strapi    | │ Process PID        │ 28                                               │
+traefik           | time="2025-04-27T07:38:03Z" level=info msg="Configuration loaded from flags."
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="HTTP challenge is not enabled" entryPointName=web routerName=acme-http@internal
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the service \"strapi@docker\" does not exist" entryPointName=web routerName=strapi@file
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the service \"n8n@docker\" does not exist" entryPointName=web routerName=n8n@file
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the service \"nextjs@docker\" does not exist" entryPointName=web routerName=nextjs@file
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the service \"nextjs@docker\" does not exist" entryPointName=websecure routerName=nextjs@file
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the service \"strapi@docker\" does not exist" entryPointName=websecure routerName=strapi@file
+launchpad-postgres  | 
 launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
 launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
 launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
@@ -15,43 +14,55 @@ launchpad-n8n       | Initializing n8n process
 launchpad-n8n       | n8n ready on 0.0.0.0, port 5678
 launchpad-n8n       | 
 launchpad-n8n       | There is a deprecation related to your environment variables. Please take the recommended actions to update your configuration:
-launchpad-n8n       |  - N8N_RUNNERS_ENABLED -> Running n8n without task runners is deprecated. Task runners will be turned on by default in a future version. Please set `N8N_RUNNERS_ENABLED=true` to enable task runners now and avoid potential issues in the future. Learn more: https://docs.n8n.io/hosting/configuration/task-runners/
-launchpad-n8n       | 
+launchpad-postgres  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+launchpad-postgres  | 
+launchpad-nextjs    | yarn run v1.22.22
+launchpad-strapi    | yarn run v1.22.22
+launchpad-strapi    | $ strapi start
+launchpad-strapi    | 
+launchpad-strapi    |  Project information
+launchpad-strapi    | 
+launchpad-strapi    | ┌────────────────────┬──────────────────────────────────────────────────┐
+launchpad-strapi    | │ Time               │ Sun Apr 27 2025 07:38:08 GMT+0000 (Coordinated … │
+launchpad-strapi    | │ Launched in        │ 1708 ms                                          │
+launchpad-strapi    | │ Environment        │ production                                       │
+launchpad-strapi    | │ Process PID        │ 28                                               │
 launchpad-strapi    | │ Version            │ 5.12.4 (node v18.20.8)                           │
+launchpad-postgres  | 2025-04-27 07:38:02.998 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+launchpad-postgres  | 2025-04-27 07:38:02.998 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+launchpad-postgres  | 2025-04-27 07:38:02.998 UTC [1] LOG:  listening on IPv6 address "::", port 5432
 launchpad-strapi    | │ Edition            │ Community                                        │
 launchpad-strapi    | │ Database           │ postgres                                         │
 launchpad-strapi    | │ Database name      │ strapi                                           │
-launchpad-n8n       | Version: 1.89.2
-launchpad-n8n       | 
-launchpad-n8n       | Editor is now accessible via:
-launchpad-n8n       | https://n8n.swiftsync.tech
-launchpad-nextjs    | yarn run v1.22.22
-launchpad-nextjs    | $ next start
-launchpad-nextjs    |   ▲ Next.js 14.2.5
-launchpad-nextjs    |   - Local:        http://localhost:3000
-launchpad-nextjs    | 
-launchpad-nextjs    |  ✓ Starting...
-launchpad-nextjs    |  ✓ Ready in 203ms
-launchpad-nextjs    | yarn run v1.22.22
-launchpad-nextjs    | $ next start
-launchpad-nextjs    |   ▲ Next.js 14.2.5
-launchpad-nextjs    |   - Local:        http://localhost:3000
-launchpad-postgres  | 
-launchpad-postgres  | PostgreSQL Database directory appears to contain a database; Skipping initialization
-launchpad-postgres  | 
-launchpad-postgres  | 2025-04-26 17:52:36.669 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
-launchpad-postgres  | 2025-04-26 17:52:36.669 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-launchpad-postgres  | 2025-04-26 17:52:36.669 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-launchpad-postgres  | 2025-04-26 17:52:36.678 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-launchpad-postgres  | 2025-04-26 17:52:36.692 UTC [26] LOG:  database system was shut down at 2025-04-26 17:52:35 UTC
 launchpad-strapi    | │ Database schema    │ public                                           │
 launchpad-strapi    | └────────────────────┴──────────────────────────────────────────────────┘
+launchpad-nextjs    | $ next start
+launchpad-nextjs    |   ▲ Next.js 14.2.5
+launchpad-n8n       |  - N8N_RUNNERS_ENABLED -> Running n8n without task runners is deprecated. Task runners will be turned on by default in a future version. Please set `N8N_RUNNERS_ENABLED=true` to enable task runners now and avoid potential issues in the future. Learn more: https://docs.n8n.io/hosting/configuration/task-runners/
+launchpad-n8n       | 
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the service \"n8n@docker\" does not exist" routerName=n8n@file entryPointName=websecure
 launchpad-strapi    | 
+launchpad-postgres  | 2025-04-27 07:38:03.006 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+launchpad-postgres  | 2025-04-27 07:38:03.012 UTC [27] LOG:  database system was shut down at 2025-04-27 07:38:02 UTC
+launchpad-postgres  | 2025-04-27 07:38:03.023 UTC [1] LOG:  database system is ready to accept connections
+launchpad-nextjs    |   - Local:        http://localhost:3000
 launchpad-strapi    |  Actions available
 launchpad-strapi    | 
 launchpad-nextjs    | 
 launchpad-nextjs    |  ✓ Starting...
-launchpad-nextjs    |  ✓ Ready in 457ms
+launchpad-nextjs    |  ✓ Ready in 436ms
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the router strapi@file uses a non-existent resolver: myresolver"
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the router dashboard@file uses a non-existent resolver: myresolver"
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the router n8n@file uses a non-existent resolver: myresolver"
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the router nextjs@file uses a non-existent resolver: myresolver"
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="HTTP challenge is not enabled" entryPointName=web routerName=acme-http@internal
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the router nextjs@docker uses a non-existent resolver: myresolver"
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the router n8n@file uses a non-existent resolver: myresolver"
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the router n8n@docker uses a non-existent resolver: myresolver"
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the router strapi@file uses a non-existent resolver: myresolver"
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the router strapi@docker uses a non-existent resolver: myresolver"
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the router nextjs@file uses a non-existent resolver: myresolver"
+traefik             | time="2025-04-27T07:38:03Z" level=error msg="the router dashboard@file uses a non-existent resolver: myresolver"
 launchpad-strapi    | Welcome back!
 launchpad-strapi    | To manage your project 🚀, go to the administration panel at:
 launchpad-strapi    | http://0.0.0.0:1337/admin
@@ -59,35 +70,4 @@ launchpad-strapi    |
 launchpad-strapi    | To access the server ⚡️, go to:
 launchpad-strapi    | http://0.0.0.0:1337
 launchpad-strapi    | 
-launchpad-strapi    | [2025-04-27 05:53:01.375] [32minfo[39m: Strapi started successfully
-traefik             | time="2025-04-26T19:49:56Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-26T19:49:56Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | time="2025-04-26T19:49:56Z" level=error msg="HTTP challenge is not enabled" entryPointName=web routerName=acme-http@internal
-launchpad-postgres  | 2025-04-26 17:52:36.719 UTC [1] LOG:  database system is ready to accept connections
-traefik             | time="2025-04-26T19:49:56Z" level=error msg="HTTP challenge is not enabled" entryPointName=web routerName=acme-http@internal
-traefik             | time="2025-04-26T19:49:56Z" level=error msg="the router dashboard@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-26T19:49:56Z" level=error msg="the router n8n@docker uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-26T19:49:56Z" level=error msg="the router nextjs@docker uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-26T19:49:56Z" level=error msg="the router nextjs@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-26T19:49:56Z" level=error msg="the router n8n@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-26T19:49:56Z" level=error msg="the router strapi@docker uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-26T19:49:56Z" level=error msg="the router strapi@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-27T05:52:56Z" level=error msg="HTTP challenge is not enabled" entryPointName=web routerName=acme-http@internal
-traefik             | time="2025-04-27T05:52:56Z" level=error msg="the service \"n8n@docker\" does not exist" entryPointName=web routerName=n8n@file
-traefik             | time="2025-04-27T05:52:56Z" level=error msg="the service \"strapi@docker\" does not exist" entryPointName=web routerName=strapi@file
-traefik             | time="2025-04-27T05:52:56Z" level=error msg="the service \"nextjs@docker\" does not exist" routerName=nextjs@file entryPointName=web
-traefik             | time="2025-04-27T05:52:56Z" level=error msg="the service \"strapi@docker\" does not exist" routerName=strapi@file entryPointName=websecure
-traefik             | time="2025-04-27T05:52:56Z" level=error msg="the service \"nextjs@docker\" does not exist" routerName=nextjs@file entryPointName=websecure
-traefik             | time="2025-04-27T05:52:56Z" level=error msg="the service \"n8n@docker\" does not exist" entryPointName=websecure routerName=n8n@file
-traefik             | time="2025-04-27T05:52:56Z" level=error msg="the router nextjs@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-27T05:52:56Z" level=error msg="the router n8n@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-27T05:52:56Z" level=error msg="the router strapi@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-27T05:52:56Z" level=error msg="the router dashboard@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-27T05:52:58Z" level=error msg="HTTP challenge is not enabled" routerName=acme-http@internal entryPointName=web
-traefik             | time="2025-04-27T05:52:58Z" level=error msg="the router n8n@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-27T05:52:58Z" level=error msg="the router nextjs@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-27T05:52:58Z" level=error msg="the router strapi@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-27T05:52:58Z" level=error msg="the router nextjs@docker uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-27T05:52:58Z" level=error msg="the router n8n@docker uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-27T05:52:58Z" level=error msg="the router dashboard@file uses a non-existent resolver: myresolver"
-traefik             | time="2025-04-27T05:52:58Z" level=error msg="the router strapi@docker uses a non-existent resolver: myresolver"
+launchpad-strapi    | [2025-04-27 07:38:08.114] [32minfo[39m: Strapi started successfully
