@@ -3,5 +3,5 @@ node_modules
 .vscode
 .env
 /letsencrypt
-job-logs.txt
+/job-logs.*
 /n8n_data
