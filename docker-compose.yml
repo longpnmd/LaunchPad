@@ -85,6 +85,7 @@ services:
       - ./strapi/data:/opt/app/data
       - ./strapi/public/uploads:/opt/app/public/uploads
       - ./strapi/.tmp:/opt/app/.tmp
+    user: "${UID:-1000}:${GID:-1000}"
     restart: unless-stopped
     networks:
       - web
@@ -186,6 +187,7 @@ services:
       - "traefik.http.services.n8n.loadbalancer.server.port=${N8N_PORT:-5678}"
     volumes:
       - ./n8n_data:/home/node/.n8n
+    user: "${UID:-1000}:${GID:-1000}"
     restart: unless-stopped
     depends_on:
       - postgres
