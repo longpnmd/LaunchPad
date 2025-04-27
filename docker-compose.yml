@@ -178,6 +178,8 @@ services:
       - N8N_SMTP_USER=${N8N_SMTP_USER}
       - N8N_SMTP_PASS=${N8N_SMTP_PASS}
       - N8N_SMTP_SENDER=${N8N_SMTP_SENDER}
+      - N8N_ALLOW_CUSTOM_NODES=true
+      - N8N_ALLOW_COMMUNITY_NODES=true
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.n8n.rule=Host(`n8n.${BASE_DOMAIN}`)"
