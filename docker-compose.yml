@@ -25,7 +25,7 @@ services:
       - IMAGE_HOSTNAME=${NEXT_IMAGE_HOSTNAME}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.nextjs.rule=Host(`launchpad.${BASE_DOMAIN}`)"
+      - "traefik.http.routers.nextjs.rule=Host(`beta.${BASE_DOMAIN}`)"
       - "traefik.http.routers.nextjs.entrypoints=websecure"
       - "traefik.http.routers.nextjs.tls.certresolver=myresolver"
       - "traefik.http.services.nextjs.loadbalancer.server.port=${NEXT_PORT}"
@@ -73,7 +73,7 @@ services:
       - DATABASE_PASSWORD=${DATABASE_PASSWORD}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.strapi.rule=Host(`launchpad-admin.${BASE_DOMAIN}`)"
+      - "traefik.http.routers.strapi.rule=Host(`beta-admin.${BASE_DOMAIN}`)"
       - "traefik.http.routers.strapi.entrypoints=websecure"
       - "traefik.http.routers.strapi.tls.certresolver=myresolver"
       - "traefik.http.services.strapi.loadbalancer.server.port=${STRAPI_PORT}"
@@ -101,6 +101,7 @@ services:
     command:
       - --api.insecure=true
       - --api.dashboard=true
+      - --api.debug=true
       - --entryPoints.web.address=:80
       - --entrypoints.websecure.address=:443
       - --entrypoints.web.http.redirections.entryPoint.to=websecure
@@ -115,8 +116,10 @@ services:
       - --certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json
       - --certificatesresolvers.myresolver.acme.httpchallenge=true
       - --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
+      - --entrypoints.dashboard.address=:8080
+      - --entrypoints.dashboard.auth.basic.users=admin:$(htpasswd -nb admin password)
       # TODO : Use Staging Environment for Testing
-      #- --certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+      - --certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
     ports:
       - "80:80"
       - "443:443"
@@ -185,14 +188,33 @@ services:
       - N8N_ALLOW_COMMUNITY_NODES=true
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.n8n.rule=Host(`n8n.${BASE_DOMAIN}`)"
+      - "traefik.http.routers.n8n.rule=Host(`n8n-beta.${BASE_DOMAIN}`)"
       - "traefik.http.routers.n8n.entrypoints=websecure"
       - "traefik.http.routers.n8n.tls.certresolver=myresolver"
       - "traefik.http.services.n8n.loadbalancer.server.port=${N8N_PORT:-5678}"
+      - "traefik.http.middlewares.n8n-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.n8n.middlewares=n8n-redirect"
     volumes:
       - ./n8n_data:/home/node/.n8n
     depends_on:
       - postgres
+    networks:
+      - web
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:latest
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.${BASE_DOMAIN}`)"
+      - "traefik.http.routers.portainer.entrypoints=websecure"
+      - "traefik.http.routers.portainer.tls.certresolver=myresolver"
     networks:
       - web
 
@@ -203,3 +225,4 @@ networks:
 
 volumes:
   postgres-data:
+  portainer_data:

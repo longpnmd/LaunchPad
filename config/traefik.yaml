@@ -9,21 +9,21 @@ http:
       tls:
         certResolver: myresolver
     strapi:
-      rule: Host(`launchpad-admin.{{ env "BASE_DOMAIN" }}`)
+      rule: Host(`beta-admin.{{ env "BASE_DOMAIN" }}`)
       service: strapi@docker
       middlewares:
         - rate-limit
       tls:
         certResolver: myresolver
     nextjs:
-      rule: Host(`launchpad.{{ env "BASE_DOMAIN" }}`)
+      rule: Host(`beta.{{ env "BASE_DOMAIN" }}`)
       service: nextjs@docker
       middlewares:
         - rate-limit
       tls:
         certResolver: myresolver
     n8n:
-      rule: Host(`n8n.{{ env "BASE_DOMAIN" }}`)
+      rule: Host(`n8n-beta.{{ env "BASE_DOMAIN" }}`)
       service: n8n@docker
       middlewares:
         - rate-limit
