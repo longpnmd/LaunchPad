@@ -1,119 +1,123 @@
-# Kế hoạch tối ưu hóa CI/CD và Docker
+# Kế hoạch triển khai tự động hóa cho VPS mới
 
-## **Phân tích hiện tại**
-### **Workflow GitHub Actions**
-1. **Trigger**:
-   - Kích hoạt khi có `push` hoặc `pull_request` trên nhánh `main`.
-
-2. **Runner**:
-   - Sử dụng `self-hosted` runner.
-
-3. **Các bước chính**:
-   - **Checkout code**: Sử dụng `actions/checkout@v3`.
-   - **Cài đặt Node.js**: Sử dụng `actions/setup-node@v3` với Node.js 18.
-   - **Tạo file `.env`**: Tạo từ các biến môi trường và secrets.
-   - **Sửa quyền thư mục `.tmp`**: Đảm bảo quyền truy cập đúng.
-   - **Build và chạy Docker Compose**: Chạy script `run.sh`.
-   - **Kiểm tra logs**: Sử dụng `docker compose logs`.
-   - **Debug file `.env`**: In nội dung file `.env`.
-
-4. **Chưa có bước kiểm tra sức khỏe (health check)**:
-   - Phần kiểm tra sức khỏe container (`docker inspect`) đã bị comment.
-
-### **Script `run.sh`**
-1. **Build container**:
-   - Sử dụng `docker compose build` với `--compress` và `--build-arg NODE_ENV=production`.
-
-2. **Dừng container**:
-   - Lệnh `docker compose stop`.
-
-3. **Khởi động container**:
-   - Sử dụng `docker compose --env-file ./.env up -d`.
-
-4. **Dọn dẹp container cũ**:
-   - Lệnh `docker container prune` xóa container đã dừng hơn 24 giờ.
-
-5. **Dọn dẹp image không sử dụng**:
-   - Lệnh `docker image prune` xóa image không sử dụng hơn 24 giờ.
+## **Mục tiêu**
+- Tạo một bản build chuẩn cho 2 dịch vụ chính:
+  1. **Website doanh nghiệp**: Có khả năng tự chủ, dễ dàng triển khai.
+  2. **n8n**: Workflow automation, giảm chi phí vận hành.
+- Đơn giản hóa quy trình triển khai: Chỉ cần chạy một script `.sh` để launch toàn bộ hệ thống.
 
 ---
 
-## **Kế hoạch tối ưu hóa**
-### **1. Tối ưu hóa Workflow GitHub Actions**
+## **Chi tiết kế hoạch**
+
+### **1. Chuẩn bị môi trường**
+1. **Mua VPS**:
+   - Lựa chọn VPS phù hợp với tài nguyên cần thiết (CPU, RAM, dung lượng).
+2. **Cài đặt hệ điều hành**:
+   - Hỗ trợ các hệ điều hành Linux phổ biến: **Ubuntu**, **Rocky**, **CentOS**.
+3. **Cài đặt Docker**:
+   - Cài đặt Docker và Docker Compose để quản lý container.
+
+---
+
+### **2. Cấu hình dịch vụ**
+#### **Website doanh nghiệp (Next.js)**
+- **Dockerfile**:
+  - Build ứng dụng Next.js với các bước tối ưu hóa layer.
+- **docker-compose.yml**:
+  - Cấu hình cổng, biến môi trường (`NEXT_PUBLIC_API_URL`, `NEXT_WEBSITE_URL`).
+  - Giới hạn tài nguyên (CPU, RAM).
+
+#### **n8n**
+- **Dockerfile**:
+  - Sử dụng image chính thức của n8n.
+- **docker-compose.yml**:
+  - Cấu hình webhook, cơ sở dữ liệu PostgreSQL.
+  - Tích hợp SMTP để gửi email.
+
+---
+
+### **3. Tự động hóa triển khai**
+#### **Script `run.sh`**
+- **Chức năng**:
+  1. Cài đặt Docker nếu chưa có.
+  2. Build và chạy các container từ `docker-compose.yml`.
+  3. Kiểm tra logs và trạng thái container.
+- **Cấu trúc**:
+  ```bash
+  #!/bin/bash
+  echo "Cài đặt Docker..."
+  # Cài đặt Docker nếu chưa có
+  if ! [ -x "$(command -v docker)" ]; then
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sh get-docker.sh
+  fi
+
+  echo "Khởi động dịch vụ..."
+  docker compose up -d --build
+
+  echo "Kiểm tra trạng thái container..."
+  docker ps
+  ```
+
+---
+
+### **4. Seed dữ liệu**
+#### **Strapi**
+- **Script `check-and-seed.js`**:
+  - Kiểm tra dữ liệu qua API `/api/global`.
+  - Nếu không có dữ liệu, seed từ file backup:
+    ```bash
+    yarn strapi import -f ./data/export_20250116105447.tar.gz --force
+    ```
+- **Tích hợp vào `run.sh`**:
+  - Thêm bước chạy script seed sau khi khởi động container.
+
+---
+
+### **5. Tối ưu hóa**
 - **Caching**:
-  - Thêm cache dependencies Node.js (`node_modules`) và Docker layers.
-- **Parallelism**:
-  - Chạy các bước build và test song song.
-- **Health Check**:
-  - Kích hoạt lại bước kiểm tra sức khỏe container (`docker inspect`).
-
-### **2. Tối ưu hóa Docker**
-- **Caching Docker Layers**:
-  - Sử dụng các lệnh `COPY` và `RUN` hợp lý trong Dockerfile.
-- **Resource Limits**:
-  - Thêm giới hạn tài nguyên (`cpu`, `memory`) trong `docker-compose.yml`.
-
-### **3. Tăng cường bảo mật**
-- **Secrets Management**:
-  - Đảm bảo các secrets được mã hóa.
-- **Image Scanning**:
-  - Sử dụng công cụ như Trivy để quét lỗ hổng bảo mật.
-
-### **4. Logging và Monitoring**
-- **Centralized Logging**:
-  - Gửi logs đến dịch vụ tập trung như ELK Stack hoặc Fluentd.
-    - **ELK Stack**:
-      - **Thành phần**: Elasticsearch, Logstash, Kibana.
-      - **Ưu điểm**:
-        - Tìm kiếm logs mạnh mẽ với Elasticsearch.
-        - Trực quan hóa logs qua Kibana.
-        - Phân tích logs phức tạp.
-      - **Nhược điểm**:
-        - Yêu cầu tài nguyên cao.
-        - Chi phí triển khai lớn.
-
-    - **Fluentd + Loki**:
-      - **Thành phần**: Fluentd (hoặc Fluent Bit), Loki, Grafana.
-      - **Ưu điểm**:
-        - Nhẹ, phù hợp với hệ thống tài nguyên hạn chế.
-        - Tích hợp tốt với Prometheus/Grafana.
-        - Chi phí thấp hơn.
-      - **Nhược điểm**:
-        - Khả năng tìm kiếm logs hạn chế hơn ELK Stack.
-        - Trực quan hóa logs không mạnh bằng Kibana.
-
-    #### **Monitoring**
-    - **Prometheus và Grafana**:
-      - Thu thập số liệu hiệu suất từ container.
-      - Trực quan hóa dữ liệu và cung cấp cảnh báo theo thời gian thực.
-      - Tích hợp tốt với Fluentd + Loki.
-
-    #### **So sánh ELK Stack và Fluentd + Loki**
-    | **Tiêu chí**         | **ELK Stack**                  | **Fluentd + Loki**             |
-    |-----------------------|--------------------------------|---------------------------------|
-    | **Khả năng tìm kiếm** | Mạnh mẽ (Elasticsearch)       | Tốt nhưng không mạnh bằng ELK  |
-    | **Trực quan hóa**     | Kibana (rất mạnh)             | Grafana (tốt nhưng hạn chế hơn)|
-    | **Hiệu suất**         | Yêu cầu tài nguyên cao hơn    | Nhẹ hơn                        |
-    | **Khả năng mở rộng**  | Rất tốt                       | Tốt                            |
-    | **Chi phí triển khai**| Cao hơn                       | Thấp hơn                       |
-    | **Tích hợp Prometheus**| Không tích hợp sẵn           | Tích hợp tốt                   |
-
-    #### **Đề xuất**
-    - **ELK Stack**: Phù hợp với hệ thống cần phân tích logs phức tạp và có tài nguyên lớn.
-    - **Fluentd + Loki**: Phù hợp với hệ thống tài nguyên hạn chế hoặc cần tích hợp với Prometheus/Grafana. 
-- **Monitoring**:
-  - Tích hợp Prometheus và Grafana để theo dõi hiệu suất container.
+  - Cache Docker layers để tăng tốc độ build.
+- **Giới hạn tài nguyên**:
+  - Đặt giới hạn CPU, RAM trong `docker-compose.yml`.
+- **Bảo mật**:
+  - Mã hóa secrets và quét lỗ hổng bảo mật với Trivy.
 
 ---
 
-## **Sơ đồ kế hoạch**
+### **6. Kiểm tra và giám sát**
+- **Health Check**:
+  - Thêm bước kiểm tra sức khỏe container (`docker inspect`).
+- **Logging**:
+  - Tích hợp Fluentd + Loki để quản lý logs.
+- **Monitoring**:
+  - Sử dụng Prometheus và Grafana để theo dõi hiệu suất.
+
+---
+
+### **Sơ đồ triển khai**
 ```mermaid
 graph TD
-    A[GitHub Actions Trigger] --> B[Checkout Code]
-    B --> C[Set up Node.js]
-    C --> D[Set up Environment Variables]
-    D --> E[Build Docker Containers]
-    E --> F[Run Containers]
-    F --> G[Health Check]
-    G --> H[Log Monitoring]
-    H --> I[Performance Optimization]
+    A[Mua VPS] --> B[Cài đặt OS]
+    B --> C[Cài đặt Docker]
+    C --> D[Chạy script run.sh]
+    D --> E[Khởi động dịch vụ]
+    E --> F[Seed dữ liệu]
+    F --> G[Kiểm tra logs]
+    G --> H[Giám sát hiệu suất]
+```
+
+---
+
+## **Hướng dẫn sử dụng**
+1. SSH vào VPS mới.
+2. Clone repo:
+   ```bash
+   git clone <repo-url>
+   cd <repo-folder>
+   ```
+3. Chạy script:
+   ```bash
+   bash run.sh
+   ```
+4. Truy cập website tại `http://<IP-VPS>`.
