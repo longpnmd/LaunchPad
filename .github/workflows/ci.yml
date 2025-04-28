@@ -11,6 +11,7 @@ on:
 jobs:
   build:
     runs-on: self-hosted
+    timeout-minutes: 120  # tăng lên 2 tiếng nếu cần
 
     steps:
       # Checkout code
