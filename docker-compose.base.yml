@@ -1,0 +1,86 @@
+services:
+  traefik:
+    container_name: traefik
+    image: traefik:v2.10
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - TRAEFIK_CERTIFICATESRESOLVERS_LE_ACME_STORAGE=/letsencrypt/acme.json
+      - BASE_DOMAIN=${BASE_DOMAIN:-localhost.dev}
+    command:
+      - --api.insecure=true
+      - --api.dashboard=true
+      - --api.debug=true
+      - --entryPoints.web.address=:80
+      - --entrypoints.websecure.address=:443
+      - --entrypoints.web.http.redirections.entryPoint.to=websecure
+      - --entrypoints.web.http.redirections.entryPoint.scheme=https
+      - --entrypoints.web.http.redirections.entrypoint.permanent=true
+      - --providers.docker=true
+      - --providers.docker.watch=true
+      - --providers.docker.network=web
+      - --providers.file.watch=true
+      - --providers.file.directory=/config/
+      - --certificatesresolvers.myresolver.acme.email=${CER_ACME_EMAIL}
+      - --certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json
+      - --certificatesresolvers.myresolver.acme.httpchallenge=true
+      - --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
+      - --entrypoints.dashboard.address=:8080
+      # - --entrypoints.dashboard.auth.basic.users=admin:$(htpasswd -nb admin password)
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./config/traefik.yaml:/config/traefik.yaml
+      - ./config/.htpasswd:/config/.htpasswd
+      - ./letsencrypt:/letsencrypt
+    networks:
+      - web
+
+  postgres:
+    container_name: launchpad-postgres
+    image: postgres:14-alpine
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "${DATABASE_PORT:-5432}:5432"
+    environment:
+      - POSTGRES_DB=${DATABASE_NAME:-postgres}
+      - POSTGRES_USER=${DATABASE_USERNAME:-postgres}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_MULTIPLE_DATABASES=${N8N_DB_NAME:-n8n}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - web
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:latest
+    restart: always
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.${BASE_DOMAIN}`)"
+      - "traefik.http.routers.portainer.entrypoints=websecure"
+      - "traefik.http.routers.portainer.tls.certresolver=myresolver"
+    networks:
+      - web
+
+networks:
+  web:
+    name: web
+    external: false
+
+volumes:
+  postgres-data:
+  portainer_data:

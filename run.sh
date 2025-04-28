@@ -24,12 +24,7 @@ BUILD_NICE=10  # Độ ưu tiên (nice level), cao hơn = ít ưu tiên hơn
 
 # Build Next.js container with resource limits
 echo "=== Building Next.js container ==="
-nice -n $BUILD_NICE docker build \
-    --platform $BUILD_PLATFORM \
-    --memory=2g \
-    --cpu-quota=150000 \
-    --cpu-period=200000 \
-    -t next-app:latest ./next
+nice -n $BUILD_NICE docker compose -f docker-compose.services.yml build nextjs
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Next.js build failed"
@@ -38,13 +33,7 @@ fi
 
 # Build Strapi container with resource limits
 echo "=== Building Strapi container ==="
-nice -n $BUILD_NICE docker build \
-    --platform $BUILD_PLATFORM \
-    --memory=2g \
-    --cpu-quota=150000 \
-    --cpu-period=200000 \
-    $ADDITIONAL_ARGS \
-    -t strapi-app:latest ./strapi
+nice -n $BUILD_NICE docker compose -f docker-compose.services.yml build strapi
 
 if [ $? -ne 0 ]; then
     echo "ERROR: Strapi build failed"
@@ -53,7 +42,19 @@ fi
 
 # Start containers with updated environment variables
 echo "=== Starting containers ==="
-docker compose --env-file ./.env up -d
+echo "=== Starting base services ==="
+docker compose -f docker-compose.base.yml --env-file ./.env up -d --remove-orphans
+if [ $? -ne 0 ]; then
+    echo "ERROR: Failed to start base services"
+    exit 1
+fi
+
+echo "=== Starting application services ==="
+docker compose -f docker-compose.services.yml --env-file ./.env up -d --remove-orphans
+if [ $? -ne 0 ]; then
+    echo "ERROR: Failed to start application services"
+    exit 1
+fi
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to start containers"
     exit 1
