@@ -44,7 +44,7 @@ jobs:
     steps:
       # Checkout code
       - name: Checkout code
-        uses: actions/checkout@v4  # Updated from v3
+        uses: actions/checkout@v4
 
       # Set up Docker Buildx
       - name: Set up Docker Buildx
@@ -52,13 +52,18 @@ jobs:
         with:
           install: true
 
+      # Verify Buildx installation
+      - name: Verify Buildx installation
+        run: docker buildx version
+
       # Cache Docker layers
       - name: Cache Docker layers
         uses: actions/cache@v3
         with:
           path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-docker-${{ github.sha }}
+          key: ${{ runner.os }}-docker-${{ hashFiles('**/Dockerfile', '**/docker-compose.yml') }}
           restore-keys: |
+            ${{ runner.os }}-docker-${{ hashFiles('**/Dockerfile', '**/docker-compose.yml') }}
             ${{ runner.os }}-docker-
 
       # Create .env file for Docker Compose
