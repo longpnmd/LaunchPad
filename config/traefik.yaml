@@ -30,7 +30,7 @@ http:
       tls:
         certResolver: myresolver
     portainer:
-      rule: Host(`portainer-beta.{{ env "BASE_DOMAIN" }}`)
+      rule: Host(`monitor.{{ env "BASE_DOMAIN" }}`)
       service: portainer@docker
       middlewares:
         - rate-limit
