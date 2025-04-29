@@ -51,6 +51,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+[ -f ./config/traefik.yaml ] || touch ./config/traefik.yaml
+
 # Start containers with updated environment variables
 echo "=== Starting containers ==="
 docker compose --env-file ./.env up -d --remove-orphans
