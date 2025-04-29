@@ -105,9 +105,9 @@ jobs:
           
           # n8n config
           echo "N8N_PORT=${{ vars.N8N_PORT || '5678' }}" >> .env
-          echo "N8N_HOST=n8n.${{ vars.BASE_DOMAIN }}" >> .env
+          echo "N8N_HOST=n8n-beta.${{ vars.BASE_DOMAIN }}" >> .env
           echo "N8N_PROTOCOL=${{ vars.N8N_PROTOCOL || 'https' }}" >> .env
-          echo "N8N_WEBHOOK_URL=https://n8n.${{ vars.BASE_DOMAIN }}/" >> .env
+          echo "N8N_WEBHOOK_URL=https://n8n-beta.${{ vars.BASE_DOMAIN }}/" >> .env
           echo "N8N_DB_NAME=${{ vars.N8N_DB_NAME || 'n8n' }}" >> .env
           echo "N8N_ENCRYPTION_KEY=${{ secrets.N8N_ENCRYPTION_KEY }}" >> .env
           
