@@ -61,11 +61,9 @@ if [ $? -ne 0 ]; then
 fi
 
 # Verify container status - thêm thời gian chờ giữa các lần kiểm tra
-# echo "=== Checking container status ==="
-# sleep 2
-# docker ps
-# sleep 1
-# docker compose ps
+echo "=== Checking container status ==="
+sleep 2
+docker ps
 
 # Container and image cleanup - thực hiện tuần tự để giảm tải
 echo "=== Cleaning up old containers and images ==="

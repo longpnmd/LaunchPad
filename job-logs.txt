@@ -1,268 +1,1014 @@
-launchpad-postgres  | 
-launchpad-postgres  | PostgreSQL Database directory appears to contain a database; Skipping initialization
-launchpad-postgres  | 
-launchpad-postgres  | 2025-04-28 14:18:52.111 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
-launchpad-postgres  | 2025-04-28 14:18:52.111 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-launchpad-postgres  | 2025-04-28 14:18:52.111 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-launchpad-postgres  | 2025-04-28 14:18:52.113 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-launchpad-postgres  | 2025-04-28 14:18:52.118 UTC [27] LOG:  database system was shut down at 2025-04-28 14:18:50 UTC
-launchpad-postgres  | 2025-04-28 14:18:52.126 UTC [1] LOG:  database system is ready to accept connections
-launchpad-nextjs    |   ▲ Next.js 14.2.5
-launchpad-nextjs    |   - Local:        http://localhost:3000
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Initializing n8n process
-portainer           | [90m2025/04/28 02:18PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:310[0m[36m >[0m encryption key file not present | [36mfilename=[0mportainer
-portainer           | [90m2025/04/28 02:18PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:334[0m[36m >[0m proceeding without encryption key |
-portainer           | [90m2025/04/28 02:18PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/database/boltdb/db.go:133[0m[36m >[0m loading PortainerDB | [36mfilename=[0mportainer.db
-portainer           | [90m2025/04/28 02:18PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/internal/ssl/ssl.go:79[0m[36m >[0m no cert files found, generating self signed SSL certificates |
-launchpad-n8n       | n8n ready on 0.0.0.0, port 5678
-launchpad-n8n       | 
-launchpad-n8n       | There is a deprecation related to your environment variables. Please take the recommended actions to update your configuration:
-launchpad-n8n       |  - N8N_RUNNERS_ENABLED -> Running n8n without task runners is deprecated. Task runners will be turned on by default in a future version. Please set `N8N_RUNNERS_ENABLED=true` to enable task runners now and avoid potential issues in the future. Learn more: https://docs.n8n.io/hosting/configuration/task-runners/
-launchpad-strapi    | yarn run v1.22.22
-launchpad-strapi    | $ strapi start
-launchpad-strapi    | 
-launchpad-strapi    |  Project information
-launchpad-strapi    | 
-launchpad-strapi    | ┌────────────────────┬──────────────────────────────────────────────────┐
-launchpad-strapi    | │ Time               │ Mon Apr 28 2025 14:18:55 GMT+0000 (Coordinated … │
-launchpad-strapi    | │ Launched in        │ 1021 ms                                          │
-launchpad-nextjs    |   - Network:      http://0.0.0.0:3000
-launchpad-nextjs    | 
-launchpad-nextjs    |  ✓ Starting...
-launchpad-nextjs    |  ✓ Ready in 48ms
-portainer           | [90m2025/04/28 02:18PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/chisel/service.go:228[0m[36m >[0m generated a new Chisel private key file | [36mprivate-key=[0m/data/chisel/private-key.pem
-portainer           | 2025/04/28 14:18:52 server: Reverse tunnelling enabled
-portainer           | 2025/04/28 14:18:52 server: Fingerprint lxvzrjHlQvJlNTNOuMm47wGqn1GJUMUBjd6NFKZ8+S4=
-portainer           | 2025/04/28 14:18:52 server: Listening on http://0.0.0.0:8000
-portainer           | [90m2025/04/28 02:18PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:601[0m[36m >[0m starting Portainer | [36mbuild_number=[0m174 [36mgo_version=[0m1.23.5 [36mimage_tag=[0m2.27.4-linux-arm64 [36mnodejs_version=[0m18.20.8 [36mversion=[0m2.27.4 [36mwebpack_version=[0m5.88.2 [36myarn_version=[0m1.22.22
-portainer           | [90m2025/04/28 02:18PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:363[0m[36m >[0m starting HTTPS server | [36mbind_address=[0m:9443
-portainer           | [90m2025/04/28 02:18PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:347[0m[36m >[0m starting HTTP server | [36mbind_address=[0m:9000
-portainer           | [90m2025/04/28 02:23PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/adminmonitor/admin_monitor.go:62[0m[36m >[0m the Portainer instance timed out for security purposes, to re-enable your Portainer instance, you will need to restart Portainer |
-launchpad-strapi    | │ Environment        │ production                                       │
-launchpad-n8n       | 
-launchpad-n8n       | Version: 1.89.2
-launchpad-n8n       | 
-launchpad-n8n       | Editor is now accessible via:
-launchpad-n8n       | https://n8n.swiftsync.tech
-launchpad-strapi    | │ Process PID        │ 28                                               │
-launchpad-strapi    | │ Version            │ 5.12.4 (node v18.20.8)                           │
-launchpad-strapi    | │ Edition            │ Community                                        │
-launchpad-strapi    | │ Database           │ postgres                                         │
-launchpad-strapi    | │ Database name      │ strapi                                           │
-launchpad-strapi    | │ Database schema    │ public                                           │
-launchpad-strapi    | └────────────────────┴──────────────────────────────────────────────────┘
-launchpad-strapi    | 
-launchpad-strapi    |  Actions available
-launchpad-strapi    | 
-launchpad-strapi    | Welcome back!
-launchpad-strapi    | To manage your project 🚀, go to the administration panel at:
-launchpad-strapi    | http://0.0.0.0:1337/admin
-launchpad-strapi    | 
-launchpad-strapi    | To access the server ⚡️, go to:
-launchpad-strapi    | http://0.0.0.0:1337
-launchpad-strapi    | 
-launchpad-strapi    | [2025-04-28 14:18:55.424] [32minfo[39m: Strapi started successfully
-traefik             | time="2025-04-28T14:55:39Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:55:39Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:55:39 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:55:40Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:55:40Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:55:40 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:55:40Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:55:40Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:55:40 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:55:40Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:55:40Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:55:40 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:55:41Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:55:41Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:55:41 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:55:43Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:55:43Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:55:43 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:55:47Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:55:47Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:55:47 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:55:53Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:55:53Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:55:53 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:56:06Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:56:06Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:56:06 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:56:32Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:56:32Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:56:32 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:57:23Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:57:23Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:57:23 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:58:24Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:58:24Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:58:24 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T14:59:24Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T14:59:24Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 14:59:24 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:00:24Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:00:24Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:00:24 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:01:24Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:01:24Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:01:24 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:02:24Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:02:24Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:02:24 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:03:25Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:03:25Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:03:25 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:04:25Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:04:25Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:04:25 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:05:25Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:05:25Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:05:25 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:06:25Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:06:25Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:06:25 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:07:25Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:07:25Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:07:25 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:08:26Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:08:26Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:08:26 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:09:26Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:09:26Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:09:26 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:10:26Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:10:26Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:10:26 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:11:26Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:11:26Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:11:26 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:12:26Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:12:26Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:12:26 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:13:26Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:13:26Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:13:26 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:14:27Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:14:27Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:14:27 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:15:27Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:15:27Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:15:27 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:16:27Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:16:27Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:16:27 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:17:27Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:17:27Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:17:27 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:18:27Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:18:27Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:18:27 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:19:28Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:19:28Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:19:28 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:20:28Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:20:28Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:20:28 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:21:28Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:21:28Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:21:28 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:22:28Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:22:28Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:22:28 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:23:28Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:23:28Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:23:28 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:24:28Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:24:28Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:24:28 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:25:29Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:25:29Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:25:29 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:26:29Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:26:29Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:26:29 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:27:29Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:27:29Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:27:29 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:28:29Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:28:29Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:28:29 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:29:29Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:29:29Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:29:29 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:30:30Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:30:30Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:30:30 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:31:30Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:31:30Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:31:30 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:32:30Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:32:30Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:32:30 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:33:30Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:33:30Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:33:30 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:34:30Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:34:30Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:34:30 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:35:30Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:35:30Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:35:30 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:36:31Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:36:31Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:36:31 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:37:31Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:37:31Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:37:31 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:38:31Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:38:31Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:38:31 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:39:31Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:39:31Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:39:31 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:40:31Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:40:31Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:40:31 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:41:31Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:41:31Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:41:31 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:42:32Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:42:32Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:42:32 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:43:32Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:43:32Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:43:32 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:44:32Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:44:32Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:44:32 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:45:32Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:45:32Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:45:32 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:46:32Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:46:32Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:46:32 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:47:33Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:47:33Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:47:33 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:48:33Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:48:33Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:48:33 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:49:33Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:49:33Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:49:33 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:50:33Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:50:33Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:50:33 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:51:33Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:51:33Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:51:33 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:52:33Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:52:33Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:52:33 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-28T15:53:34Z" level=info msg="Configuration loaded from flags."
-traefik             | time="2025-04-28T15:53:34Z" level=error msg="The ACME resolver \"myresolver\" is skipped from the resolvers list because: unable to get ACME account: permissions 777 for /letsencrypt/acme.json are too open, please use 600"
-traefik             | 2025/04/28 15:53:34 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+2025-04-28T17:58:36.1506408Z Current runner version: '2.323.0'
+2025-04-28T17:58:36.1520950Z Runner name: '50734'
+2025-04-28T17:58:36.1523434Z Machine name: '50734'
+2025-04-28T17:58:36.1531584Z ##[group]GITHUB_TOKEN Permissions
+2025-04-28T17:58:36.1537793Z Actions: write
+2025-04-28T17:58:36.1539680Z Attestations: write
+2025-04-28T17:58:36.1540726Z Checks: write
+2025-04-28T17:58:36.1541799Z Contents: write
+2025-04-28T17:58:36.1543949Z Deployments: write
+2025-04-28T17:58:36.1545052Z Discussions: write
+2025-04-28T17:58:36.1546088Z Issues: write
+2025-04-28T17:58:36.1546987Z Metadata: read
+2025-04-28T17:58:36.1548040Z Models: read
+2025-04-28T17:58:36.1549566Z Packages: write
+2025-04-28T17:58:36.1550707Z Pages: write
+2025-04-28T17:58:36.1551819Z PullRequests: write
+2025-04-28T17:58:36.1553354Z RepositoryProjects: write
+2025-04-28T17:58:36.1554629Z SecurityEvents: write
+2025-04-28T17:58:36.1556407Z Statuses: write
+2025-04-28T17:58:36.1557356Z ##[endgroup]
+2025-04-28T17:58:36.1561923Z Secret source: Actions
+2025-04-28T17:58:36.1564063Z Prepare workflow directory
+2025-04-28T17:58:36.2975164Z Prepare all required actions
+2025-04-28T17:58:36.3058828Z Getting action download info
+2025-04-28T17:58:37.3640278Z Download action repository 'actions/checkout@v4' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2025-04-28T17:58:39.6758588Z Download action repository 'docker/setup-buildx-action@v2' (SHA:885d1462b80bc1c1c7f0b00334ad271f09369c55)
+2025-04-28T17:58:42.4483494Z Download action repository 'actions/cache@v3' (SHA:2f8e54208210a422b2efd51efaa6bd6d7ca8920f)
+2025-04-28T17:58:46.0086964Z Complete job name: docker-build
+2025-04-28T17:58:46.1649095Z ##[group]Run actions/checkout@v4
+2025-04-28T17:58:46.1650635Z with:
+2025-04-28T17:58:46.1651038Z   repository: longpnmd/LaunchPad
+2025-04-28T17:58:46.1651864Z   token: ***
+2025-04-28T17:58:46.1652229Z   ssh-strict: true
+2025-04-28T17:58:46.1652587Z   ssh-user: git
+2025-04-28T17:58:46.1652960Z   persist-credentials: true
+2025-04-28T17:58:46.1653362Z   clean: true
+2025-04-28T17:58:46.1653888Z   sparse-checkout-cone-mode: true
+2025-04-28T17:58:46.1654381Z   fetch-depth: 1
+2025-04-28T17:58:46.1655063Z   fetch-tags: false
+2025-04-28T17:58:46.1655779Z   show-progress: true
+2025-04-28T17:58:46.1656171Z   lfs: false
+2025-04-28T17:58:46.1656518Z   submodules: false
+2025-04-28T17:58:46.1656896Z   set-safe-directory: true
+2025-04-28T17:58:46.1658135Z ##[endgroup]
+2025-04-28T17:58:46.4409673Z Syncing repository: longpnmd/LaunchPad
+2025-04-28T17:58:46.4413645Z ##[group]Getting Git version info
+2025-04-28T17:58:46.4415415Z Working directory is '/home/runner/actions-runner/_work/LaunchPad/LaunchPad'
+2025-04-28T17:58:46.4417769Z ##[endgroup]
+2025-04-28T17:58:46.4418924Z Deleting the contents of '/home/runner/actions-runner/_work/LaunchPad/LaunchPad'
+2025-04-28T17:58:46.9072237Z The repository will be downloaded using the GitHub REST API
+2025-04-28T17:58:46.9074993Z To create a local Git repository instead, add Git 2.18 or higher to the PATH
+2025-04-28T17:58:46.9089746Z Downloading the archive
+2025-04-28T17:59:09.4971921Z Writing archive to disk
+2025-04-28T17:59:09.5537702Z Extracting the archive
+2025-04-28T17:59:09.5753870Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/actions-runner/_work/LaunchPad/LaunchPad/2287e8b9-bc6b-4b78-9830-a1f90300b2e6 -f /home/runner/actions-runner/_work/LaunchPad/LaunchPad/2287e8b9-bc6b-4b78-9830-a1f90300b2e6.tar.gz
+2025-04-28T17:59:09.8983634Z Resolved version longpnmd-LaunchPad-637cfab
+2025-04-28T17:59:09.9885344Z ##[group]Run docker/setup-buildx-action@v2
+2025-04-28T17:59:09.9886229Z with:
+2025-04-28T17:59:09.9886753Z   install: true
+2025-04-28T17:59:09.9887375Z   driver: docker-container
+2025-04-28T17:59:09.9888442Z   buildkitd-flags: --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host
+2025-04-28T17:59:09.9889761Z   use: true
+2025-04-28T17:59:09.9890254Z   cleanup: true
+2025-04-28T17:59:09.9890829Z ##[endgroup]
+2025-04-28T17:59:10.3359989Z ##[group]Docker info
+2025-04-28T17:59:10.3391069Z [command]/usr/bin/docker version
+2025-04-28T17:59:10.4115046Z Client: Docker Engine - Community
+2025-04-28T17:59:10.4120374Z  Version:           26.1.3
+2025-04-28T17:59:10.4121355Z  API version:       1.45
+2025-04-28T17:59:10.4125076Z  Go version:        go1.21.10
+2025-04-28T17:59:10.4127094Z  Git commit:        b72abbb
+2025-04-28T17:59:10.4127622Z  Built:             Thu May 16 08:34:39 2024
+2025-04-28T17:59:10.4128131Z  OS/Arch:           linux/amd64
+2025-04-28T17:59:10.4128656Z  Context:           default
+2025-04-28T17:59:10.4128918Z 
+2025-04-28T17:59:10.4129115Z Server: Docker Engine - Community
+2025-04-28T17:59:10.4129701Z  Engine:
+2025-04-28T17:59:10.4130023Z   Version:          26.1.3
+2025-04-28T17:59:10.4130479Z   API version:      1.45 (minimum version 1.24)
+2025-04-28T17:59:10.4130957Z   Go version:       go1.21.10
+2025-04-28T17:59:10.4131403Z   Git commit:       8e96db1
+2025-04-28T17:59:10.4131833Z   Built:            Thu May 16 08:33:34 2024
+2025-04-28T17:59:10.4132306Z   OS/Arch:          linux/amd64
+2025-04-28T17:59:10.4132760Z   Experimental:     false
+2025-04-28T17:59:10.4133167Z  containerd:
+2025-04-28T17:59:10.4133515Z   Version:          1.6.32
+2025-04-28T17:59:10.4134033Z   GitCommit:        8b3b7ca2e5ce38e8f31a34f35b2b68ceb8470d89
+2025-04-28T17:59:10.4134544Z  runc:
+2025-04-28T17:59:10.4135596Z   Version:          1.1.12
+2025-04-28T17:59:10.4136331Z   GitCommit:        v1.1.12-0-g51d5e94
+2025-04-28T17:59:10.4137057Z  docker-init:
+2025-04-28T17:59:10.4137425Z   Version:          0.19.0
+2025-04-28T17:59:10.4137912Z   GitCommit:        de40ad0
+2025-04-28T17:59:10.4221233Z [command]/usr/bin/docker info
+2025-04-28T17:59:10.5189436Z Client: Docker Engine - Community
+2025-04-28T17:59:10.5190557Z  Version:    26.1.3
+2025-04-28T17:59:10.5191669Z  Context:    default
+2025-04-28T17:59:10.5192166Z  Debug Mode: false
+2025-04-28T17:59:10.5193224Z  Plugins:
+2025-04-28T17:59:10.5193827Z   buildx: Docker Buildx (Docker Inc.)
+2025-04-28T17:59:10.5194288Z     Version:  v0.14.0
+2025-04-28T17:59:10.5194782Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+2025-04-28T17:59:10.5195426Z   compose: Docker Compose (Docker Inc.)
+2025-04-28T17:59:10.5195895Z     Version:  v2.27.0
+2025-04-28T17:59:10.5196354Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+2025-04-28T17:59:10.5196728Z 
+2025-04-28T17:59:10.5196877Z Server:
+2025-04-28T17:59:10.5197192Z  Containers: 3
+2025-04-28T17:59:10.5197531Z   Running: 1
+2025-04-28T17:59:10.5197861Z   Paused: 0
+2025-04-28T17:59:10.5198191Z   Stopped: 2
+2025-04-28T17:59:10.5198733Z  Images: 7
+2025-04-28T17:59:10.5199586Z  Server Version: 26.1.3
+2025-04-28T17:59:10.5200077Z  Storage Driver: overlay2
+2025-04-28T17:59:10.5200530Z   Backing Filesystem: extfs
+2025-04-28T17:59:10.5200934Z   Supports d_type: true
+2025-04-28T17:59:10.5201307Z   Using metacopy: false
+2025-04-28T17:59:10.5201691Z   Native Overlay Diff: true
+2025-04-28T17:59:10.5202084Z   userxattr: false
+2025-04-28T17:59:10.5202462Z  Logging Driver: json-file
+2025-04-28T17:59:10.5203199Z  Cgroup Driver: cgroupfs
+2025-04-28T17:59:10.5203603Z  Cgroup Version: 1
+2025-04-28T17:59:10.5203962Z  Plugins:
+2025-04-28T17:59:10.5204474Z   Volume: local
+2025-04-28T17:59:10.5205138Z   Network: bridge host ipvlan macvlan null overlay
+2025-04-28T17:59:10.5206184Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+2025-04-28T17:59:10.5206811Z  Swarm: inactive
+2025-04-28T17:59:10.5207191Z  Runtimes: io.containerd.runc.v2 runc
+2025-04-28T17:59:10.5208269Z  Default Runtime: runc
+2025-04-28T17:59:10.5208734Z  Init Binary: docker-init
+2025-04-28T17:59:10.5210141Z  containerd version: 8b3b7ca2e5ce38e8f31a34f35b2b68ceb8470d89
+2025-04-28T17:59:10.5211101Z  runc version: v1.1.12-0-g51d5e94
+2025-04-28T17:59:10.5211582Z  init version: de40ad0
+2025-04-28T17:59:10.5211981Z  Security Options:
+2025-04-28T17:59:10.5212358Z   seccomp
+2025-04-28T17:59:10.5212678Z    Profile: builtin
+2025-04-28T17:59:10.5213272Z  Kernel Version: 4.18.0-553.50.1.el8_10.x86_64
+2025-04-28T17:59:10.5214063Z  Operating System: AlmaLinux 8.10 (Cerulean Leopard)
+2025-04-28T17:59:10.5214570Z  OSType: linux
+2025-04-28T17:59:10.5215785Z  Architecture: x86_64
+2025-04-28T17:59:10.5216170Z  CPUs: 4
+2025-04-28T17:59:10.5216506Z  Total Memory: 3.829GiB
+2025-04-28T17:59:10.5216898Z  Name: 50734.vpsvinahost.vn
+2025-04-28T17:59:10.5217352Z  ID: 1cad2b71-002d-4565-ba86-4bcf946dafe4
+2025-04-28T17:59:10.5217846Z  Docker Root Dir: /var/lib/docker
+2025-04-28T17:59:10.5218261Z  Debug Mode: false
+2025-04-28T17:59:10.5218635Z  Experimental: false
+2025-04-28T17:59:10.5219029Z  Insecure Registries:
+2025-04-28T17:59:10.5220231Z   127.0.0.0/8
+2025-04-28T17:59:10.5220626Z  Live Restore Enabled: false
+2025-04-28T17:59:10.5220887Z 
+2025-04-28T17:59:10.5221652Z ##[endgroup]
+2025-04-28T17:59:10.6302690Z ##[group]Buildx version
+2025-04-28T17:59:10.6346419Z [command]/usr/bin/docker buildx version
+2025-04-28T17:59:10.7561531Z github.com/docker/buildx v0.14.0 171fcbe
+2025-04-28T17:59:10.7598569Z ##[endgroup]
+2025-04-28T17:59:10.7629041Z ##[group]Creating a new builder instance
+2025-04-28T17:59:10.8716280Z [command]/usr/bin/docker buildx create --name builder-8ac419f7-7720-4e70-a131-efea3d70e156 --driver docker-container --buildkitd-flags --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host --use
+2025-04-28T17:59:10.9828633Z builder-8ac419f7-7720-4e70-a131-efea3d70e156
+2025-04-28T17:59:10.9898485Z ##[endgroup]
+2025-04-28T17:59:10.9899790Z ##[group]Booting builder
+2025-04-28T17:59:10.9926528Z [command]/usr/bin/docker buildx inspect --bootstrap --builder builder-8ac419f7-7720-4e70-a131-efea3d70e156
+2025-04-28T17:59:11.0883214Z #1 [internal] booting buildkit
+2025-04-28T17:59:11.2391205Z #1 pulling image moby/buildkit:buildx-stable-1
+2025-04-28T17:59:13.6912705Z #1 pulling image moby/buildkit:buildx-stable-1 2.6s done
+2025-04-28T17:59:13.8416359Z #1 creating container buildx_buildkit_builder-8ac419f7-7720-4e70-a131-efea3d70e1560
+2025-04-28T17:59:14.4513230Z #1 creating container buildx_buildkit_builder-8ac419f7-7720-4e70-a131-efea3d70e1560 0.8s done
+2025-04-28T17:59:14.4538682Z #1 DONE 3.4s
+2025-04-28T17:59:14.5140038Z Name:          builder-8ac419f7-7720-4e70-a131-efea3d70e156
+2025-04-28T17:59:14.5141495Z Driver:        docker-container
+2025-04-28T17:59:14.5143245Z Last Activity: 2025-04-28 17:59:10 +0000 UTC
+2025-04-28T17:59:14.5144108Z 
+2025-04-28T17:59:14.5144340Z Nodes:
+2025-04-28T17:59:14.5145398Z Name:                  builder-8ac419f7-7720-4e70-a131-efea3d70e1560
+2025-04-28T17:59:14.5147145Z Endpoint:              unix:///var/run/docker.sock
+2025-04-28T17:59:14.5148507Z Status:                running
+2025-04-28T17:59:14.5150660Z BuildKit daemon flags: --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host
+2025-04-28T17:59:14.5153810Z BuildKit version:      v0.20.2
+2025-04-28T17:59:14.5154564Z Platforms:             linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/386
+2025-04-28T17:59:14.5155261Z Labels:
+2025-04-28T17:59:14.5156153Z  org.mobyproject.buildkit.worker.executor:         oci
+2025-04-28T17:59:14.5157073Z  org.mobyproject.buildkit.worker.hostname:         b752d11038aa
+2025-04-28T17:59:14.5158026Z  org.mobyproject.buildkit.worker.network:          host
+2025-04-28T17:59:14.5159014Z  org.mobyproject.buildkit.worker.oci.process-mode: sandbox
+2025-04-28T17:59:14.5160189Z  org.mobyproject.buildkit.worker.selinux.enabled:  false
+2025-04-28T17:59:14.5161340Z  org.mobyproject.buildkit.worker.snapshotter:      overlayfs
+2025-04-28T17:59:14.5162071Z GC Policy rule#0:
+2025-04-28T17:59:14.5163348Z  All:           false
+2025-04-28T17:59:14.5213048Z  Filters:       type==source.local,type==exec.cachemount,type==source.git.checkout
+2025-04-28T17:59:14.5213993Z  Keep Duration: 48h0m0s
+2025-04-28T17:59:14.5214550Z GC Policy rule#1:
+2025-04-28T17:59:14.5215385Z  All:           false
+2025-04-28T17:59:14.5215951Z  Keep Duration: 1440h0m0s
+2025-04-28T17:59:14.5216573Z  Keep Bytes:    7.451GiB
+2025-04-28T17:59:14.5217232Z GC Policy rule#2:
+2025-04-28T17:59:14.5217993Z  All:        false
+2025-04-28T17:59:14.5218631Z  Keep Bytes: 7.451GiB
+2025-04-28T17:59:14.5219526Z GC Policy rule#3:
+2025-04-28T17:59:14.5220418Z  All:        true
+2025-04-28T17:59:14.5220759Z  Keep Bytes: 7.451GiB
+2025-04-28T17:59:14.5227220Z ##[endgroup]
+2025-04-28T17:59:14.5228834Z ##[group]Setting buildx as default builder
+2025-04-28T17:59:14.5250360Z [command]/usr/bin/docker buildx install
+2025-04-28T17:59:14.6144399Z ##[endgroup]
+2025-04-28T17:59:14.7686373Z ##[group]Inspect builder
+2025-04-28T17:59:14.7742804Z {
+2025-04-28T17:59:14.7744094Z   "nodes": [
+2025-04-28T17:59:14.7745090Z     {
+2025-04-28T17:59:14.7746099Z       "name": "builder-8ac419f7-7720-4e70-a131-efea3d70e1560",
+2025-04-28T17:59:14.7748850Z       "endpoint": "unix:///var/run/docker.sock",
+2025-04-28T17:59:14.7750679Z       "status": "running",
+2025-04-28T17:59:14.7751596Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/386",
+2025-04-28T17:59:14.7752915Z       "labels": {
+2025-04-28T17:59:14.7753986Z         "org.mobyproject.buildkit.worker.executor": "oci",
+2025-04-28T17:59:14.7755504Z         "org.mobyproject.buildkit.worker.hostname": "b752d11038aa",
+2025-04-28T17:59:14.7761734Z         "org.mobyproject.buildkit.worker.network": "host",
+2025-04-28T17:59:14.7763214Z         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+2025-04-28T17:59:14.7764527Z         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+2025-04-28T17:59:14.7766954Z         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+2025-04-28T17:59:14.7767706Z       },
+2025-04-28T17:59:14.7768150Z       "gcPolicy": [
+2025-04-28T17:59:14.7768939Z         {
+2025-04-28T17:59:14.7769687Z           "all": false,
+2025-04-28T17:59:14.7770214Z           "filter": [
+2025-04-28T17:59:14.7770727Z             "type==source.local",
+2025-04-28T17:59:14.7771163Z             "type==exec.cachemount",
+2025-04-28T17:59:14.7771830Z             "type==source.git.checkout"
+2025-04-28T17:59:14.7772608Z           ],
+2025-04-28T17:59:14.7773304Z           "keepDuration": "48h0m0s"
+2025-04-28T17:59:14.7774270Z         },
+2025-04-28T17:59:14.7775134Z         {
+2025-04-28T17:59:14.7775546Z           "all": false,
+2025-04-28T17:59:14.7776654Z           "keepDuration": "1440h0m0s",
+2025-04-28T17:59:14.7777848Z           "keepBytes": "7.451GiB"
+2025-04-28T17:59:14.7778370Z         },
+2025-04-28T17:59:14.7778900Z         {
+2025-04-28T17:59:14.7779908Z           "all": false,
+2025-04-28T17:59:14.7780615Z           "keepBytes": "7.451GiB"
+2025-04-28T17:59:14.7781188Z         },
+2025-04-28T17:59:14.7781668Z         {
+2025-04-28T17:59:14.7782128Z           "all": true,
+2025-04-28T17:59:14.7782738Z           "keepBytes": "7.451GiB"
+2025-04-28T17:59:14.7783300Z         }
+2025-04-28T17:59:14.7783741Z       ]
+2025-04-28T17:59:14.7784394Z     }
+2025-04-28T17:59:14.7784859Z   ],
+2025-04-28T17:59:14.7785426Z   "name": "builder-8ac419f7-7720-4e70-a131-efea3d70e156",
+2025-04-28T17:59:14.7786152Z   "driver": "docker-container",
+2025-04-28T17:59:14.7786839Z   "lastActivity": "2025-04-28T17:59:10.000Z"
+2025-04-28T17:59:14.7787433Z }
+2025-04-28T17:59:14.7788481Z ##[endgroup]
+2025-04-28T17:59:14.7790249Z ##[group]BuildKit version
+2025-04-28T17:59:15.4266671Z builder-8ac419f7-7720-4e70-a131-efea3d70e1560: moby/buildkit:buildx-stable-1 => buildkitd github.com/moby/buildkit v0.20.2 97437fdd7e32f29bb80288d800cd4ffcb34e1c15
+2025-04-28T17:59:15.4271925Z ##[endgroup]
+2025-04-28T17:59:15.4507259Z ##[group]Run docker buildx version
+2025-04-28T17:59:15.4508674Z [36;1mdocker buildx version[0m
+2025-04-28T17:59:15.4538782Z shell: /usr/bin/bash -e {0}
+2025-04-28T17:59:15.4539711Z ##[endgroup]
+2025-04-28T17:59:15.5401610Z github.com/docker/buildx v0.14.0 171fcbe
+2025-04-28T17:59:16.0210062Z ##[group]Run actions/cache@v3
+2025-04-28T17:59:16.0210546Z with:
+2025-04-28T17:59:16.0211036Z   path: /tmp/.buildx-cache
+2025-04-28T17:59:16.0211784Z   key: Linux-docker-ae4b0484da67b101120deaaf162320bafa4bd8c8d6a4c3e261fe9e04de63b4e6
+2025-04-28T17:59:16.0213073Z   restore-keys: Linux-docker-ae4b0484da67b101120deaaf162320bafa4bd8c8d6a4c3e261fe9e04de63b4e6
+Linux-docker-
+
+2025-04-28T17:59:16.0214057Z   enableCrossOsArchive: false
+2025-04-28T17:59:16.0215583Z   fail-on-cache-miss: false
+2025-04-28T17:59:16.0216444Z   lookup-only: false
+2025-04-28T17:59:16.0217149Z ##[endgroup]
+2025-04-28T17:59:17.2690504Z Cache not found for input keys: Linux-docker-ae4b0484da67b101120deaaf162320bafa4bd8c8d6a4c3e261fe9e04de63b4e6, Linux-docker-ae4b0484da67b101120deaaf162320bafa4bd8c8d6a4c3e261fe9e04de63b4e6, Linux-docker-
+2025-04-28T17:59:17.2837495Z ##[group]Run touch .env
+2025-04-28T17:59:17.2838111Z [36;1mtouch .env[0m
+2025-04-28T17:59:17.2838577Z [36;1mecho "BASE_DOMAIN=swiftsync.tech" >> .env[0m
+2025-04-28T17:59:17.2839403Z [36;1mecho "CER_ACME_EMAIL=longpn.md@gmail.com" >> .env[0m
+2025-04-28T17:59:17.2839936Z [36;1m# Next config[0m
+2025-04-28T17:59:17.2840479Z [36;1mecho "NEXT_WEBSITE_URL=https://beta.swiftsync.tech" >> .env[0m
+2025-04-28T17:59:17.2841447Z [36;1mecho "NEXT_PORT=3000" >> .env[0m
+2025-04-28T17:59:17.2842535Z [36;1mecho "NEXT_PUBLIC_API_URL=https://beta-admin.swiftsync.tech" >> .env[0m
+2025-04-28T17:59:17.2843826Z [36;1mecho "NEXT_IMAGE_HOSTNAME=beta-admin.swiftsync.tech" >> .env[0m
+2025-04-28T17:59:17.2845295Z [36;1mecho "NEXT_PREVIEW_SECRET=***" >> .env[0m
+2025-04-28T17:59:17.2846051Z [36;1m# Strapi config[0m
+2025-04-28T17:59:17.2846472Z [36;1mecho "STRAPI_HOST=0.0.0.0" >> .env[0m
+2025-04-28T17:59:17.2846945Z [36;1mecho "STRAPI_PORT=1337" >> .env[0m
+2025-04-28T17:59:17.2847880Z [36;1mecho "STRAPI_APP_KEYS=***" >> .env[0m
+2025-04-28T17:59:17.2928297Z [36;1mecho "STRAPI_API_TOKEN_SALT=***" >> .env[0m
+2025-04-28T17:59:17.2930478Z [36;1mecho "STRAPI_TRANSFER_TOKEN_SALT=***" >> .env[0m
+2025-04-28T17:59:17.2932249Z [36;1mecho "STRAPI_ADMIN_JWT_SECRET=***" >> .env[0m
+2025-04-28T17:59:17.2933735Z [36;1mecho "STRAPI_JWT_SECRET=***" >> .env[0m
+2025-04-28T17:59:17.2935298Z [36;1mecho "STRAPI_ADMIN_CLIENT_URL=https://beta.swiftsync.tech" >> .env[0m
+2025-04-28T17:59:17.2936866Z [36;1mecho "STRAPI_ADMIN_CLIENT_PREVIEW_SECRET=***" >> .env[0m
+2025-04-28T17:59:17.2938484Z [36;1mecho "STRAPI_CLIENT_URL=https://beta.swiftsync.tech" >> .env[0m
+2025-04-28T17:59:17.2939995Z [36;1mecho "STRAPI_PREVIEW_SECRET=***" >> .env[0m
+2025-04-28T17:59:17.2940860Z [36;1mecho "STRAPI_ADMIN_BACKEND_URL=https://beta-admin.swiftsync.tech" >> .env[0m
+2025-04-28T17:59:17.2941886Z [36;1mecho "STRAPI_TELEMETRY_DISABLED=true" >> .env[0m
+2025-04-28T17:59:17.2942630Z [36;1mecho "STRAPI_ADMIN_PATH=/admin" >> .env[0m
+2025-04-28T17:59:17.2943193Z [36;1m[0m
+2025-04-28T17:59:17.2943950Z [36;1m# Database config[0m
+2025-04-28T17:59:17.2944458Z [36;1mecho "DATABASE_CLIENT=postgres" >> .env[0m
+2025-04-28T17:59:17.2944976Z [36;1mecho "DATABASE_HOST=postgres" >> .env[0m
+2025-04-28T17:59:17.2945534Z [36;1mecho "DATABASE_PORT=5432" >> .env[0m
+2025-04-28T17:59:17.2946320Z [36;1mecho "DATABASE_NAME=strapi" >> .env[0m
+2025-04-28T17:59:17.2947025Z [36;1mecho "DATABASE_USERNAME=postgres" >> .env[0m
+2025-04-28T17:59:17.2947773Z [36;1mecho "DATABASE_PASSWORD=***" >> .env[0m
+2025-04-28T17:59:17.2948328Z [36;1m[0m
+2025-04-28T17:59:17.2948747Z [36;1m# n8n config[0m
+2025-04-28T17:59:17.2949456Z [36;1mecho "N8N_PORT=5678" >> .env[0m
+2025-04-28T17:59:17.2950017Z [36;1mecho "N8N_HOST=n8n.swiftsync.tech" >> .env[0m
+2025-04-28T17:59:17.2950577Z [36;1mecho "N8N_PROTOCOL=https" >> .env[0m
+2025-04-28T17:59:17.2951298Z [36;1mecho "N8N_WEBHOOK_URL=https://n8n.swiftsync.tech/" >> .env[0m
+2025-04-28T17:59:17.2952030Z [36;1mecho "N8N_DB_NAME=n8n" >> .env[0m
+2025-04-28T17:59:17.2953092Z [36;1mecho "N8N_ENCRYPTION_KEY=***" >> .env[0m
+2025-04-28T17:59:17.2953751Z [36;1m[0m
+2025-04-28T17:59:17.2954119Z [36;1m# n8n SMTP settings[0m
+2025-04-28T17:59:17.2954652Z [36;1mecho "N8N_SMTP_HOST=smtp.example.com" >> .env[0m
+2025-04-28T17:59:17.2955295Z [36;1mecho "N8N_SMTP_PORT=587" >> .env[0m
+2025-04-28T17:59:17.2955901Z [36;1mecho "N8N_SMTP_USER=longpn@swiftsync.tech" >> .env[0m
+2025-04-28T17:59:17.2956523Z [36;1mecho "N8N_SMTP_PASS=***" >> .env[0m
+2025-04-28T17:59:17.2957052Z [36;1mecho "N8N_SMTP_SENDER=n8n@swiftsync.tech" >> .env[0m
+2025-04-28T17:59:17.2968618Z shell: /usr/bin/bash -e {0}
+2025-04-28T17:59:17.2969463Z ##[endgroup]
+2025-04-28T17:59:17.3111098Z ##[group]Run chmod +x ./run.sh
+2025-04-28T17:59:17.3111693Z [36;1mchmod +x ./run.sh[0m
+2025-04-28T17:59:17.3112071Z [36;1m./run.sh[0m
+2025-04-28T17:59:17.3120984Z shell: /usr/bin/bash -e {0}
+2025-04-28T17:59:17.3121401Z ##[endgroup]
+2025-04-28T17:59:17.3234550Z === Starting LaunchPad deployment ===
+2025-04-28T17:59:17.3247695Z Mon Apr 28 13:59:17 EDT 2025: Deployment initiated
+2025-04-28T17:59:17.3255002Z Detected AMD64 architecture, using linux/amd64 platform
+2025-04-28T17:59:17.3256398Z === Building Next.js container ===
+2025-04-28T17:59:17.8487802Z #0 building with "builder-8ac419f7-7720-4e70-a131-efea3d70e156" instance using docker-container driver
+2025-04-28T17:59:17.8488966Z 
+2025-04-28T17:59:17.8489752Z #1 [nextjs internal] load build definition from Dockerfile
+2025-04-28T17:59:17.8490715Z #1 transferring dockerfile: 2.22kB 0.0s done
+2025-04-28T17:59:17.8491798Z #1 DONE 0.1s
+2025-04-28T17:59:17.8492295Z 
+2025-04-28T17:59:17.8493315Z #2 [nextjs] resolve image config for docker-image://docker.io/docker/dockerfile:1
+2025-04-28T17:59:21.7221996Z #2 DONE 4.0s
+2025-04-28T17:59:21.9202191Z 
+2025-04-28T17:59:21.9204566Z #3 [nextjs] docker-image://docker.io/docker/dockerfile:1@sha256:4c68376a702446fc3c79af22de146a148bc3367e73c25a5803d453b6b3f722fb
+2025-04-28T17:59:21.9208101Z #3 resolve docker.io/docker/dockerfile:1@sha256:4c68376a702446fc3c79af22de146a148bc3367e73c25a5803d453b6b3f722fb 0.0s done
+2025-04-28T17:59:21.9313835Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 0B / 13.14MB 0.2s
+2025-04-28T17:59:22.5308288Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 1.05MB / 13.14MB 0.8s
+2025-04-28T17:59:23.2832249Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 2.10MB / 13.14MB 1.5s
+2025-04-28T17:59:23.7310967Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 3.15MB / 13.14MB 2.0s
+2025-04-28T17:59:24.3307832Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 4.19MB / 13.14MB 2.6s
+2025-04-28T17:59:25.2307838Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 5.24MB / 13.14MB 3.5s
+2025-04-28T17:59:25.9800503Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 6.29MB / 13.14MB 4.2s
+2025-04-28T17:59:26.4332036Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 7.34MB / 13.14MB 4.7s
+2025-04-28T17:59:27.0300336Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 8.39MB / 13.14MB 5.3s
+2025-04-28T17:59:27.6302830Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 9.44MB / 13.14MB 5.9s
+2025-04-28T17:59:28.2307689Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 10.49MB / 13.14MB 6.5s
+2025-04-28T17:59:28.8303942Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 11.53MB / 13.14MB 7.1s
+2025-04-28T17:59:29.4305374Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 12.58MB / 13.14MB 7.7s
+2025-04-28T17:59:29.9137549Z #3 sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 13.14MB / 13.14MB 8.0s done
+2025-04-28T17:59:29.9141849Z #3 extracting sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c
+2025-04-28T17:59:30.0698180Z #3 extracting sha256:07501dea36dacac10d4bcb55e0c725daaea8ec0b07e17c7086d8d6dd38a26f6c 0.3s done
+2025-04-28T17:59:30.0706192Z #3 DONE 8.3s
+2025-04-28T17:59:30.2578887Z 
+2025-04-28T17:59:30.2580693Z #4 [nextjs internal] load metadata for docker.io/library/node:18-alpine
+2025-04-28T17:59:32.6265789Z #4 DONE 2.4s
+2025-04-28T17:59:32.7693669Z 
+2025-04-28T17:59:32.7695352Z #5 [nextjs internal] load .dockerignore
+2025-04-28T17:59:32.7696850Z #5 transferring context: 2B done
+2025-04-28T17:59:32.7698589Z #5 DONE 0.0s
+2025-04-28T17:59:32.9025453Z 
+2025-04-28T17:59:32.9027606Z #6 [nextjs base 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+2025-04-28T17:59:32.9031497Z #6 resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e 0.0s done
+2025-04-28T17:59:32.9034174Z #6 DONE 0.1s
+2025-04-28T17:59:32.9035096Z 
+2025-04-28T17:59:32.9036869Z #7 [nextjs internal] load build context
+2025-04-28T17:59:33.0693805Z #7 transferring context: 1.03MB 0.1s done
+2025-04-28T17:59:33.0694503Z #7 DONE 0.1s
+2025-04-28T17:59:33.0695388Z 
+2025-04-28T17:59:33.0696424Z #6 [nextjs base 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+2025-04-28T17:59:33.0731081Z #6 sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 0B / 446B 0.2s
+2025-04-28T17:59:33.2233855Z #6 sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 0B / 1.26MB 0.2s
+2025-04-28T17:59:33.2237491Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 0B / 40.01MB 0.2s
+2025-04-28T17:59:33.2239661Z #6 sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 0B / 3.64MB 0.2s
+2025-04-28T17:59:33.3840128Z #6 sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 446B / 446B 0.3s done
+2025-04-28T17:59:34.4224687Z #6 sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 1.26MB / 1.26MB 1.5s done
+2025-04-28T17:59:34.5899352Z #6 sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 1.05MB / 3.64MB 1.5s
+2025-04-28T17:59:35.1898652Z #6 sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 2.10MB / 3.64MB 2.1s
+2025-04-28T17:59:35.4897322Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 2.10MB / 40.01MB 2.6s
+2025-04-28T17:59:35.6402651Z #6 sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 3.15MB / 3.64MB 2.6s
+2025-04-28T17:59:35.9432882Z #6 sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 3.64MB / 3.64MB 2.9s done
+2025-04-28T17:59:35.9435774Z #6 extracting sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870
+2025-04-28T17:59:36.0906981Z #6 extracting sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 0.2s done
+2025-04-28T17:59:37.4402506Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 4.19MB / 40.01MB 4.5s
+2025-04-28T17:59:39.3901382Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 6.29MB / 40.01MB 6.5s
+2025-04-28T17:59:41.7899833Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 8.39MB / 40.01MB 8.9s
+2025-04-28T17:59:43.5898782Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 10.49MB / 40.01MB 10.7s
+2025-04-28T17:59:45.2403219Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 12.58MB / 40.01MB 12.3s
+2025-04-28T17:59:46.8909322Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 14.68MB / 40.01MB 14.0s
+2025-04-28T17:59:48.2405974Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 16.78MB / 40.01MB 15.3s
+2025-04-28T17:59:49.4408476Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 18.87MB / 40.01MB 16.5s
+2025-04-28T17:59:50.9402265Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 20.97MB / 40.01MB 18.0s
+2025-04-28T17:59:52.4406046Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 23.07MB / 40.01MB 19.5s
+2025-04-28T17:59:53.9407150Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 25.17MB / 40.01MB 21.0s
+2025-04-28T17:59:55.5905425Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 27.26MB / 40.01MB 22.7s
+2025-04-28T17:59:56.6398786Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 29.36MB / 40.01MB 23.7s
+2025-04-28T17:59:57.8403040Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 31.46MB / 40.01MB 24.9s
+2025-04-28T17:59:59.4906842Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 33.55MB / 40.01MB 26.6s
+2025-04-28T18:00:00.9903373Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 35.65MB / 40.01MB 28.1s
+2025-04-28T18:00:02.1951096Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 37.75MB / 40.01MB 29.3s
+2025-04-28T18:00:03.2406318Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 39.85MB / 40.01MB 30.3s
+2025-04-28T18:00:03.3794784Z #6 sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 40.01MB / 40.01MB 30.4s done
+2025-04-28T18:00:03.5493703Z #6 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e
+2025-04-28T18:00:05.6013021Z #6 extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 2.2s done
+2025-04-28T18:00:05.6015261Z #6 DONE 32.8s
+2025-04-28T18:00:05.8441484Z 
+2025-04-28T18:00:05.8443226Z #6 [nextjs base 1/1] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+2025-04-28T18:00:05.8444908Z #6 extracting sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 0.1s done
+2025-04-28T18:00:05.8447022Z #6 extracting sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 0.0s done
+2025-04-28T18:00:05.8452327Z #6 DONE 32.9s
+2025-04-28T18:00:05.8453030Z 
+2025-04-28T18:00:05.8461235Z #8 [nextjs builder 1/4] WORKDIR /app
+2025-04-28T18:00:06.3068980Z #8 DONE 0.6s
+2025-04-28T18:00:06.3071303Z 
+2025-04-28T18:00:06.3072076Z #9 [nextjs deps 1/4] RUN apk add --no-cache libc6-compat
+2025-04-28T18:00:06.5426810Z #9 ...
+2025-04-28T18:00:06.5434838Z 
+2025-04-28T18:00:06.5438193Z #10 [nextjs runner 2/6] RUN addgroup --system --gid 1001 nodejs
+2025-04-28T18:00:06.5441282Z #10 DONE 0.2s
+2025-04-28T18:00:06.5443336Z 
+2025-04-28T18:00:06.5446787Z #9 [nextjs deps 1/4] RUN apk add --no-cache libc6-compat
+2025-04-28T18:00:06.5450023Z #9 0.708 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+2025-04-28T18:00:06.7908871Z #9 ...
+2025-04-28T18:00:06.7910303Z 
+2025-04-28T18:00:06.7911597Z #11 [nextjs runner 3/6] RUN adduser --system --uid 1001 nextjs
+2025-04-28T18:00:06.7913263Z #11 DONE 0.2s
+2025-04-28T18:00:06.9413534Z 
+2025-04-28T18:00:06.9416261Z #9 [nextjs deps 1/4] RUN apk add --no-cache libc6-compat
+2025-04-28T18:00:07.3934327Z #9 1.700 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+2025-04-28T18:00:10.5308800Z #9 4.831 (1/3) Installing musl-obstack (1.2.3-r2)
+2025-04-28T18:00:10.6948070Z #9 4.916 (2/3) Installing libucontext (1.3.2-r0)
+2025-04-28T18:00:10.6950161Z #9 5.002 (3/3) Installing gcompat (1.1.0-r4)
+2025-04-28T18:00:10.8155017Z #9 5.123 OK: 10 MiB in 20 packages
+2025-04-28T18:00:11.0111211Z #9 DONE 5.3s
+2025-04-28T18:00:11.2245272Z 
+2025-04-28T18:00:11.2247025Z #12 [nextjs deps 2/4] WORKDIR /app
+2025-04-28T18:00:11.2247866Z #12 DONE 0.1s
+2025-04-28T18:00:11.2248247Z 
+2025-04-28T18:00:11.2249093Z #13 [nextjs deps 3/4] COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* .npmrc* ./
+2025-04-28T18:00:11.2449844Z #13 DONE 0.2s
+2025-04-28T18:00:11.3985068Z 
+2025-04-28T18:00:11.3988524Z #14 [nextjs deps 4/4] RUN   if [ -f yarn.lock ]; then yarn --frozen-lockfile;   elif [ -f package-lock.json ]; then npm ci;   elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile;   else echo "Lockfile not found." && exit 1;   fi
+2025-04-28T18:00:11.9811927Z #14 0.734 yarn install v1.22.22
+2025-04-28T18:00:12.1546654Z #14 0.906 [1/4] Resolving packages...
+2025-04-28T18:00:12.9015816Z #14 1.653 [2/4] Fetching packages...
+2025-04-28T18:02:14.2117482Z #14 123.0 [3/4] Linking dependencies...
+2025-04-28T18:02:42.1191878Z #14 150.9 [4/4] Building fresh packages...
+2025-04-28T18:02:42.9451705Z #14 151.7 Done in 150.99s.
+2025-04-28T18:02:43.4707770Z #14 DONE 152.2s
+2025-04-28T18:02:54.6053560Z 
+2025-04-28T18:02:54.6068122Z #15 [nextjs builder 2/4] COPY --from=deps /app/node_modules ./node_modules
+2025-04-28T18:03:11.6493517Z #15 DONE 17.0s
+2025-04-28T18:03:11.8028084Z 
+2025-04-28T18:03:11.8031028Z #16 [nextjs builder 3/4] COPY . .
+2025-04-28T18:03:12.2582103Z #16 DONE 0.6s
+2025-04-28T18:03:12.4205912Z 
+2025-04-28T18:03:12.4208824Z #17 [nextjs builder 4/4] RUN   if [ -f yarn.lock ]; then yarn run build;   elif [ -f package-lock.json ]; then npm run build;   elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build;   else echo "Lockfile not found." && exit 1;   fi
+2025-04-28T18:03:13.1557594Z #17 0.887 yarn run v1.22.22
+2025-04-28T18:03:13.3742580Z #17 0.954 $ next build
+2025-04-28T18:03:14.8788440Z #17 2.609 Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2025-04-28T18:03:15.0297105Z #17 2.610 This information is used to shape Next.js' roadmap and prioritize features.
+2025-04-28T18:03:15.0302054Z #17 2.610 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2025-04-28T18:03:15.0313918Z #17 2.610 https://nextjs.org/telemetry
+2025-04-28T18:03:15.0315152Z #17 2.610 
+2025-04-28T18:03:15.0820021Z #17 2.811   ▲ Next.js 14.2.5
+2025-04-28T18:03:15.2377948Z #17 2.812 
+2025-04-28T18:03:15.2751078Z #17 3.006    Creating an optimized production build ...
+2025-04-28T18:04:36.1509812Z #17 83.88 Browserslist: caniuse-lite is outdated. Please run:
+2025-04-28T18:04:36.1512781Z #17 83.88   npx update-browserslist-db@latest
+2025-04-28T18:04:36.1514913Z #17 83.88   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2025-04-28T18:04:44.5975927Z #17 92.33  ✓ Compiled successfully
+2025-04-28T18:04:44.7489753Z #17 92.33    Linting and checking validity of types ...
+2025-04-28T18:05:05.5785789Z #17 113.3    Collecting page data ...
+2025-04-28T18:05:10.9641978Z #17 118.7    Generating static pages (0/5) ...
+2025-04-28T18:05:11.4288561Z #17 119.2    Generating static pages (1/5) 
+2025-04-28T18:05:11.6361421Z #17 119.2    Generating static pages (2/5) 
+2025-04-28T18:05:11.6363348Z #17 119.2    Generating static pages (3/5) 
+2025-04-28T18:05:11.7919040Z #17 119.5  ✓ Generating static pages (5/5)
+2025-04-28T18:05:12.1182086Z #17 119.8    Finalizing page optimization ...
+2025-04-28T18:05:12.2703156Z #17 119.8    Collecting build traces ...
+2025-04-28T18:05:38.5766115Z #17 146.3 
+2025-04-28T18:05:38.8142262Z #17 146.3 Route (app)                              Size     First Load JS
+2025-04-28T18:05:38.8146101Z #17 146.3 ┌ ○ /_not-found                          875 B          88.3 kB
+2025-04-28T18:05:38.8148080Z #17 146.3 ├ ƒ /[locale]                            641 B           469 kB
+2025-04-28T18:05:38.8150353Z #17 146.3 ├ ƒ /[locale]/[slug]                     641 B           469 kB
+2025-04-28T18:05:38.8151740Z #17 146.3 ├ ƒ /[locale]/blog                       2.41 kB         116 kB
+2025-04-28T18:05:38.8153053Z #17 146.3 ├ ƒ /[locale]/blog/[slug]                1.55 kB         470 kB
+2025-04-28T18:05:38.8154091Z #17 146.3 ├ ƒ /[locale]/products                   1.49 kB         101 kB
+2025-04-28T18:05:38.8155426Z #17 146.3 ├ ƒ /[locale]/products/[slug]            3.26 kB         471 kB
+2025-04-28T18:05:38.8156522Z #17 146.3 ├ ƒ /[locale]/sign-up                    3.21 kB         134 kB
+2025-04-28T18:05:38.8157701Z #17 146.3 └ ƒ /api/preview                         0 B                0 B
+2025-04-28T18:05:38.8158526Z #17 146.3 + First Load JS shared by all            87.4 kB
+2025-04-28T18:05:38.8159738Z #17 146.3   ├ chunks/23-b99bfd736878e5f6.js        31.7 kB
+2025-04-28T18:05:38.8161235Z #17 146.3   ├ chunks/fd9d1056-c2e4105da5bede26.js  53.6 kB
+2025-04-28T18:05:38.8162158Z #17 146.3   └ other shared chunks (total)          2.11 kB
+2025-04-28T18:05:38.8163059Z #17 146.3 
+2025-04-28T18:05:38.8163765Z #17 146.3 
+2025-04-28T18:05:38.8164770Z #17 146.3 ƒ Middleware                             35.2 kB
+2025-04-28T18:05:38.8165441Z #17 146.3 
+2025-04-28T18:05:38.8166772Z #17 146.3 ○  (Static)   prerendered as static content
+2025-04-28T18:05:38.8167628Z #17 146.3 ƒ  (Dynamic)  server-rendered on demand
+2025-04-28T18:05:38.8170911Z #17 146.3 
+2025-04-28T18:05:38.8171485Z #17 146.4 Done in 145.52s.
+2025-04-28T18:05:38.8876881Z #17 DONE 146.6s
+2025-04-28T18:05:41.3090865Z 
+2025-04-28T18:05:41.3099539Z #18 [nextjs runner 4/6] COPY --from=builder /app/public ./public
+2025-04-28T18:05:41.5180617Z #18 DONE 0.1s
+2025-04-28T18:05:41.7212159Z 
+2025-04-28T18:05:41.7218820Z #19 [nextjs runner 5/6] COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+2025-04-28T18:05:42.5190798Z #19 DONE 0.8s
+2025-04-28T18:05:42.6650746Z 
+2025-04-28T18:05:42.6656222Z #20 [nextjs runner 6/6] COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+2025-04-28T18:05:42.6657872Z #20 DONE 0.1s
+2025-04-28T18:05:42.8246183Z 
+2025-04-28T18:05:42.8248068Z #21 [nextjs] exporting to docker image format
+2025-04-28T18:05:42.8250102Z #21 exporting layers
+2025-04-28T18:05:46.8931435Z #21 exporting layers 4.2s done
+2025-04-28T18:05:47.0791630Z #21 exporting manifest sha256:9e2e929403b349a324e2b76e213705af22f798e87a811ba22e0dc81284c71280 0.0s done
+2025-04-28T18:05:47.0794240Z #21 exporting config sha256:3171d73efb9733a34684974b66c4de12fce72ab1e8d7720e0292d478aa10efcc 0.0s done
+2025-04-28T18:05:47.0795998Z #21 sending tarball
+2025-04-28T18:05:48.1222342Z #21 ...
+2025-04-28T18:05:48.1223302Z 
+2025-04-28T18:05:48.1230906Z #22 [nextjs] importing to docker
+2025-04-28T18:05:48.2524415Z #22 loading layer 15e06fd41323 93B / 93B
+2025-04-28T18:05:48.2525836Z #22 loading layer b8d2502496f3 462B / 462B
+2025-04-28T18:05:48.2527376Z #22 loading layer 752cd9a85742 977B / 977B
+2025-04-28T18:05:48.2528874Z #22 loading layer 3e18fc45a906 1.14kB / 1.14kB
+2025-04-28T18:05:48.4768237Z #22 loading layer b8579551c426 229.38kB / 19.79MB
+2025-04-28T18:05:49.8550499Z #22 loading layer 6c8ef74fd9bc 32.77kB / 1.12MB
+2025-04-28T18:05:49.9852467Z #22 loading layer 6c8ef74fd9bc 32.77kB / 1.12MB 0.1s done
+2025-04-28T18:05:50.0586648Z #22 loading layer 15e06fd41323 93B / 93B 1.9s done
+2025-04-28T18:05:50.0587667Z #22 loading layer b8d2502496f3 462B / 462B 1.8s done
+2025-04-28T18:05:50.0588693Z #22 loading layer 752cd9a85742 977B / 977B 1.8s done
+2025-04-28T18:05:50.0589703Z #22 loading layer 3e18fc45a906 1.14kB / 1.14kB 1.7s done
+2025-04-28T18:05:50.0591230Z #22 loading layer b8579551c426 229.38kB / 19.79MB 1.7s done
+2025-04-28T18:05:50.0592296Z #22 DONE 1.9s
+2025-04-28T18:05:50.0592582Z 
+2025-04-28T18:05:50.0592960Z #21 [nextjs] exporting to docker image format
+2025-04-28T18:05:50.0593704Z #21 sending tarball 3.1s done
+2025-04-28T18:05:50.0594353Z #21 DONE 7.3s
+2025-04-28T18:05:50.0769372Z === Building Strapi container ===
+2025-04-28T18:05:50.6625946Z #0 building with "builder-8ac419f7-7720-4e70-a131-efea3d70e156" instance using docker-container driver
+2025-04-28T18:05:50.6628076Z 
+2025-04-28T18:05:50.6628895Z #1 [strapi internal] load build definition from Dockerfile
+2025-04-28T18:05:50.6631000Z #1 transferring dockerfile: 1.66kB done
+2025-04-28T18:05:50.6632113Z #1 DONE 0.0s
+2025-04-28T18:05:50.6632560Z 
+2025-04-28T18:05:50.6633394Z #2 [strapi internal] load metadata for docker.io/library/node:18-alpine
+2025-04-28T18:05:52.2341247Z #2 DONE 1.7s
+2025-04-28T18:05:52.3358306Z 
+2025-04-28T18:05:52.3359652Z #3 [strapi internal] load .dockerignore
+2025-04-28T18:05:52.3361125Z #3 transferring context: 2B done
+2025-04-28T18:05:52.3362879Z #3 DONE 0.0s
+2025-04-28T18:05:52.3363627Z 
+2025-04-28T18:05:52.3365104Z #4 [strapi build  1/12] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e
+2025-04-28T18:05:52.3369309Z #4 resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e 0.1s done
+2025-04-28T18:05:52.3370919Z #4 CACHED
+2025-04-28T18:05:52.3371629Z 
+2025-04-28T18:05:52.3373239Z #5 [strapi build  2/12] RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git python3 sqlite sqlite-dev > /dev/null 2>&1
+2025-04-28T18:05:52.7489474Z #5 0.259 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+2025-04-28T18:05:53.0979108Z #5 ...
+2025-04-28T18:05:53.0981449Z 
+2025-04-28T18:05:53.0983233Z #6 [strapi internal] load build context
+2025-04-28T18:05:53.0984932Z #6 transferring context: 24.46MB 0.6s done
+2025-04-28T18:05:53.0986643Z #6 DONE 0.6s
+2025-04-28T18:05:53.2128259Z 
+2025-04-28T18:05:53.2131448Z #5 [strapi build  2/12] RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git python3 sqlite sqlite-dev > /dev/null 2>&1
+2025-04-28T18:05:53.2134043Z #5 0.877 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+2025-04-28T18:05:56.0875286Z #5 3.752 v3.21.3-407-g0044cd099a2 [https://dl-cdn.alpinelinux.org/alpine/v3.21/main]
+2025-04-28T18:05:56.0877153Z #5 3.752 v3.21.3-412-g1d4949c6680 [https://dl-cdn.alpinelinux.org/alpine/v3.21/community]
+2025-04-28T18:05:56.0889733Z #5 3.752 OK: 25397 distinct packages available
+2025-04-28T18:05:59.2454301Z #5 ...
+2025-04-28T18:05:59.2455369Z 
+2025-04-28T18:05:59.2456422Z #7 [strapi stage-1 2/7] RUN apk add --no-cache vips-dev sqlite curl
+2025-04-28T18:05:59.2457648Z #7 0.260 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/APKINDEX.tar.gz
+2025-04-28T18:05:59.2459574Z #7 0.985 fetch https://dl-cdn.alpinelinux.org/alpine/v3.21/community/x86_64/APKINDEX.tar.gz
+2025-04-28T18:05:59.2460999Z #7 3.836 (1/201) Installing brotli-libs (1.1.0-r2)
+2025-04-28T18:05:59.2461976Z #7 4.284 (2/201) Installing c-ares (1.34.5-r0)
+2025-04-28T18:05:59.2463323Z #7 4.432 (3/201) Installing libunistring (1.2-r0)
+2025-04-28T18:05:59.2464280Z #7 5.134 (4/201) Installing libidn2 (2.3.7-r0)
+2025-04-28T18:05:59.2465176Z #7 5.585 (5/201) Installing nghttp2-libs (1.64.0-r0)
+2025-04-28T18:05:59.2466073Z #7 5.731 (6/201) Installing libpsl (0.21.5-r3)
+2025-04-28T18:05:59.2466965Z #7 5.850 (7/201) Installing zstd-libs (1.5.6-r2)
+2025-04-28T18:05:59.2468087Z #7 6.377 (8/201) Installing libcurl (8.12.1-r1)
+2025-04-28T18:05:59.2469577Z #7 6.757 (9/201) Installing curl (8.12.1-r1)
+2025-04-28T18:05:59.2912789Z #7 6.955 (10/201) Installing ncurses-terminfo-base (6.5_p20241006-r3)
+2025-04-28T18:05:59.5175998Z #7 7.027 (11/201) Installing libncursesw (6.5_p20241006-r3)
+2025-04-28T18:05:59.5607308Z #7 7.224 (12/201) Installing readline (8.2.13-r0)
+2025-04-28T18:05:59.7196587Z #7 7.383 (13/201) Installing sqlite (3.48.0-r1)
+2025-04-28T18:06:00.7157674Z #7 8.378 (14/201) Installing libdeflate-static (1.22-r0)
+2025-04-28T18:06:00.8568813Z #7 8.520 (15/201) Installing openexr-libiex (3.3.2-r0)
+2025-04-28T18:06:01.0627463Z #7 8.726 (16/201) Installing openexr-libilmthread (3.3.2-r0)
+2025-04-28T18:06:01.2777814Z #7 8.791 (17/201) Installing imath (3.1.12-r0)
+2025-04-28T18:06:01.2884597Z #7 8.951 (18/201) Installing libdeflate (1.22-r0)
+2025-04-28T18:06:02.3384861Z #7 10.00 (19/201) Installing openexr-libopenexrcore (3.3.2-r0)
+2025-04-28T18:06:03.9667532Z #7 11.63 (20/201) Installing openexr-libopenexr (3.3.2-r0)
+2025-04-28T18:06:05.0578359Z #7 12.72 (21/201) Installing openexr-libopenexrutil (3.3.2-r0)
+2025-04-28T18:06:05.4559712Z #7 13.12 (22/201) Installing pkgconf (2.3.0-r0)
+2025-04-28T18:06:05.6220288Z #7 13.29 (23/201) Installing libbz2 (1.0.8-r6)
+2025-04-28T18:06:05.7658571Z #7 13.43 (24/201) Installing libexpat (2.7.0-r0)
+2025-04-28T18:06:05.9306523Z #7 13.59 (25/201) Installing libffi (3.4.7-r0)
+2025-04-28T18:06:06.1138701Z #7 13.67 (26/201) Installing gdbm (1.24-r0)
+2025-04-28T18:06:06.1140714Z #7 13.78 (27/201) Installing xz-libs (5.6.3-r1)
+2025-04-28T18:06:06.3778431Z #7 14.04 (28/201) Installing mpdecimal (4.0.0-r0)
+2025-04-28T18:06:06.5457519Z #7 14.21 (29/201) Installing libpanelw (6.5_p20241006-r3)
+2025-04-28T18:06:06.7524136Z #7 14.27 (30/201) Installing sqlite-libs (3.48.0-r1)
+2025-04-28T18:06:07.9931035Z #7 15.66 (31/201) Installing python3 (3.12.10-r0)
+2025-04-28T18:06:16.6030121Z #7 24.27 (32/201) Installing python3-pycache-pyc0 (3.12.10-r0)
+2025-04-28T18:06:23.4951402Z #7 31.15 (33/201) Installing pyc (3.12.10-r0)
+2025-04-28T18:06:23.4956200Z #7 31.15 (34/201) Installing python3-pyc (3.12.10-r0)
+2025-04-28T18:06:23.4958107Z #7 31.15 (35/201) Installing boost1.84-python3 (1.84.0-r2)
+2025-04-28T18:06:23.7524717Z #7 31.42 (36/201) Installing py3-imath (3.1.12-r0)
+2025-04-28T18:06:29.2033813Z #7 36.87 (37/201) Installing imath-dev (3.1.12-r0)
+2025-04-28T18:06:29.4082087Z #7 37.07 (38/201) Installing libdeflate-dev (1.22-r0)
+2025-04-28T18:06:29.6143765Z #7 37.13 (39/201) Installing openexr-dev (3.3.2-r0)
+2025-04-28T18:06:29.6623957Z #7 37.33 (40/201) Installing cairo-tools (1.18.2-r1)
+2025-04-28T18:06:29.8649961Z #7 37.38 (41/201) Installing libpng (1.6.47-r0)
+2025-04-28T18:06:29.8651726Z #7 37.53 (42/201) Installing freetype (2.13.3-r0)
+2025-04-28T18:06:30.3357649Z #7 38.00 (43/201) Installing fontconfig (2.15.0-r1)
+2025-04-28T18:06:30.5592503Z #7 38.22 (44/201) Installing expat (2.7.0-r0)
+2025-04-28T18:06:30.6851967Z #7 38.28 (45/201) Installing expat-dev (2.7.0-r0)
+2025-04-28T18:06:30.6854046Z #7 38.35 (46/201) Installing bzip2-dev (1.0.8-r6)
+2025-04-28T18:06:30.7932321Z #7 38.40 (47/201) Installing brotli (1.1.0-r2)
+2025-04-28T18:06:30.7933203Z #7 38.46 (48/201) Installing brotli-dev (1.1.0-r2)
+2025-04-28T18:06:30.9377422Z #7 38.52 (49/201) Installing zlib-dev (1.3.1-r2)
+2025-04-28T18:06:30.9380923Z #7 38.60 (50/201) Installing libpng-dev (1.6.47-r0)
+2025-04-28T18:06:31.4811843Z #7 39.15 (51/201) Installing freetype-dev (2.13.3-r0)
+2025-04-28T18:06:31.8245095Z #7 39.49 (52/201) Installing fontconfig-dev (2.15.0-r1)
+2025-04-28T18:06:31.9398069Z #7 39.55 (53/201) Installing libxau (1.0.11-r4)
+2025-04-28T18:06:31.9399874Z #7 39.60 (54/201) Installing xorgproto (2024.1-r0)
+2025-04-28T18:06:32.3465496Z #7 40.01 (55/201) Installing libxau-dev (1.0.11-r4)
+2025-04-28T18:06:32.4631433Z #7 40.06 (56/201) Installing libmd (1.1.0-r0)
+2025-04-28T18:06:32.4633288Z #7 40.13 (57/201) Installing libbsd (0.12.2-r0)
+2025-04-28T18:06:32.6839842Z #7 40.20 (58/201) Installing libxdmcp (1.1.5-r1)
+2025-04-28T18:06:32.6906485Z #7 40.35 (59/201) Installing libxcb (1.16.1-r0)
+2025-04-28T18:06:33.4599926Z #7 41.12 (60/201) Installing libx11 (1.8.10-r0)
+2025-04-28T18:06:34.9696119Z #7 42.63 (61/201) Installing libxext (1.3.6-r2)
+2025-04-28T18:06:35.1935392Z #7 42.71 (62/201) Installing xcb-proto (1.17.0-r0)
+2025-04-28T18:06:35.2283568Z #7 42.89 (63/201) Installing xcb-proto-pyc (1.17.0-r0)
+2025-04-28T18:06:35.3602602Z #7 43.02 (64/201) Installing libxdmcp-dev (1.1.5-r1)
+2025-04-28T18:06:35.5701954Z #7 43.08 (65/201) Installing libxcb-dev (1.16.1-r0)
+2025-04-28T18:06:35.6910394Z #7 43.35 (66/201) Installing xtrans (1.5.2-r0)
+2025-04-28T18:06:35.7921367Z #7 43.46 (67/201) Installing libx11-dev (1.8.10-r0)
+2025-04-28T18:06:35.8963104Z #7 43.56 (68/201) Installing libxext-dev (1.3.6-r2)
+2025-04-28T18:06:36.0170754Z #7 43.62 (69/201) Installing libxrender (0.9.11-r5)
+2025-04-28T18:06:36.0171657Z #7 43.68 (70/201) Installing libxrender-dev (0.9.11-r5)
+2025-04-28T18:06:36.2373547Z #7 43.75 (71/201) Installing pixman (0.43.4-r1)
+2025-04-28T18:06:36.3682077Z #7 44.03 (72/201) Installing pixman-dev (0.43.4-r1)
+2025-04-28T18:06:36.4938202Z #7 44.09 (73/201) Installing util-macros (1.20.1-r0)
+2025-04-28T18:06:36.4940896Z #7 44.16 (74/201) Installing xcb-util (0.4.1-r3)
+2025-04-28T18:06:36.5977964Z #7 44.21 (75/201) Installing xcb-util-dev (0.4.1-r3)
+2025-04-28T18:06:36.5980780Z #7 44.26 (76/201) Installing cairo (1.18.2-r1)
+2025-04-28T18:06:37.0847519Z #7 44.75 (77/201) Installing libintl (0.22.5-r0)
+2025-04-28T18:06:37.2170575Z #7 44.82 (78/201) Installing libeconf (0.6.3-r0)
+2025-04-28T18:06:37.2174420Z #7 44.88 (79/201) Installing libblkid (2.40.4-r1)
+2025-04-28T18:06:37.3359354Z #7 45.00 (80/201) Installing libmount (2.40.4-r1)
+2025-04-28T18:06:37.4819925Z #7 45.15 (81/201) Installing pcre2 (10.43-r0)
+2025-04-28T18:06:37.7402148Z #7 45.40 (82/201) Installing glib (2.82.5-r0)
+2025-04-28T18:06:39.8450883Z #7 47.50 (83/201) Installing cairo-gobject (1.18.2-r1)
+2025-04-28T18:06:40.0464665Z #7 47.56 (84/201) Installing libxml2 (2.13.4-r5)
+2025-04-28T18:06:41.5203170Z #7 49.18 (85/201) Installing libxml2-utils (2.13.4-r5)
+2025-04-28T18:06:41.6287757Z #7 49.29 (86/201) Installing docbook-xml (4.5-r9)
+2025-04-28T18:06:42.3175769Z #7 49.98 Executing docbook-xml-4.5-r9.post-install
+2025-04-28T18:06:42.4809984Z #7 50.00 (87/201) Installing libgpg-error (1.51-r0)
+2025-04-28T18:06:42.4810930Z #7 50.14 (88/201) Installing libgcrypt (1.10.3-r1)
+2025-04-28T18:06:43.1286337Z #7 50.79 (89/201) Installing libxslt (1.1.42-r2)
+2025-04-28T18:06:43.3307837Z #7 50.99 (90/201) Installing docbook-xsl-ns (1.79.2-r11)
+2025-04-28T18:06:45.2581336Z #7 52.92 Executing docbook-xsl-ns-1.79.2-r11.post-install
+2025-04-28T18:06:45.4461001Z #7 52.96 (91/201) Installing docbook-xsl-nons (1.79.2-r11)
+2025-04-28T18:06:47.8318521Z #7 55.50 Executing docbook-xsl-nons-1.79.2-r11.post-install
+2025-04-28T18:06:48.0750289Z #7 55.54 (92/201) Installing docbook-xsl (1.79.2-r11)
+2025-04-28T18:06:48.0759620Z #7 55.59 (93/201) Installing xz (5.6.3-r1)
+2025-04-28T18:06:48.0930530Z #7 55.76 (94/201) Installing gettext-asprintf (0.22.5-r0)
+2025-04-28T18:06:48.3074358Z #7 55.82 (95/201) Installing gettext-libs (0.22.5-r0)
+2025-04-28T18:06:50.1117267Z #7 57.77 (96/201) Installing gettext-envsubst (0.22.5-r0)
+2025-04-28T18:06:50.4996255Z #7 58.16 (97/201) Installing libgomp (14.2.0-r4)
+2025-04-28T18:06:53.0925545Z #7 60.76 (98/201) Installing gettext (0.22.5-r0)
+2025-04-28T18:06:59.5195915Z #7 67.18 (99/201) Installing gettext-dev (0.22.5-r0)
+2025-04-28T18:07:01.7741779Z #7 69.44 (100/201) Installing py3-parsing (3.1.4-r0)
+2025-04-28T18:07:02.0471084Z #7 69.71 (101/201) Installing py3-parsing-pyc (3.1.4-r0)
+2025-04-28T18:07:02.4443672Z #7 70.11 (102/201) Installing py3-packaging (24.2-r0)
+2025-04-28T18:07:02.5992252Z #7 70.26 (103/201) Installing py3-packaging-pyc (24.2-r0)
+2025-04-28T18:07:02.7922514Z #7 70.46 (104/201) Installing linux-headers (6.6-r1)
+2025-04-28T18:07:05.8526490Z #7 73.52 (105/201) Installing libffi-dev (3.4.7-r0)
+2025-04-28T18:07:06.1106912Z #7 73.77 (106/201) Installing bsd-compat-headers (0.7.2-r6)
+2025-04-28T18:07:06.4738902Z #7 74.14 (107/201) Installing libformw (6.5_p20241006-r3)
+2025-04-28T18:07:06.6911302Z #7 74.35 (108/201) Installing libmenuw (6.5_p20241006-r3)
+2025-04-28T18:07:06.8953553Z #7 74.45 (109/201) Installing libncurses++ (6.5_p20241006-r3)
+2025-04-28T18:07:06.8960300Z #7 74.56 (110/201) Installing ncurses-dev (6.5_p20241006-r3)
+2025-04-28T18:07:07.1213851Z #7 74.78 (111/201) Installing libedit (20240808.3.1-r0)
+2025-04-28T18:07:07.6851220Z #7 75.35 (112/201) Installing libedit-dev (20240808.3.1-r0)
+2025-04-28T18:07:07.8322912Z #7 75.50 (113/201) Installing libpcre2-16 (10.43-r0)
+2025-04-28T18:07:08.7794252Z #7 76.44 (114/201) Installing libpcre2-32 (10.43-r0)
+2025-04-28T18:07:09.4874681Z #7 77.15 (115/201) Installing pcre2-dev (10.43-r0)
+2025-04-28T18:07:12.6053863Z #7 80.27 (116/201) Installing libuuid (2.40.4-r1)
+2025-04-28T18:07:12.8352041Z #7 80.35 (117/201) Installing libfdisk (2.40.4-r1)
+2025-04-28T18:07:13.0021586Z #7 80.67 (118/201) Installing liblastlog2 (2.40.4-r1)
+2025-04-28T18:07:13.1264821Z #7 80.79 (119/201) Installing libsmartcols (2.40.4-r1)
+2025-04-28T18:07:13.3242450Z #7 80.99 (120/201) Installing sqlite-dev (3.48.0-r1)
+2025-04-28T18:07:13.7900204Z #7 81.45 (121/201) Installing util-linux-dev (2.40.4-r1)
+2025-04-28T18:07:13.8898675Z #7 81.55 (122/201) Installing glib-dev (2.82.5-r0)
+2025-04-28T18:07:16.5765579Z #7 84.24 (123/201) Installing cairo-dev (1.18.2-r1)
+2025-04-28T18:07:16.6792361Z #7 84.34 (124/201) Installing cfitsio (4.5.0-r0)
+2025-04-28T18:07:17.3563795Z #7 85.02 (125/201) Installing cfitsio-dev (4.5.0-r0)
+2025-04-28T18:07:17.4976769Z #7 85.10 (126/201) Installing cgif (0.4.1-r0)
+2025-04-28T18:07:17.4977995Z #7 85.16 (127/201) Installing cgif-dev (0.4.1-r0)
+2025-04-28T18:07:17.7001954Z #7 85.21 (128/201) Installing fftw-double-libs (3.3.10-r6)
+2025-04-28T18:07:18.7357690Z #7 86.40 (129/201) Installing fftw-long-double-libs (3.3.10-r6)
+2025-04-28T18:07:20.0310296Z #7 87.70 (130/201) Installing fftw-single-libs (3.3.10-r6)
+2025-04-28T18:07:22.4277381Z #7 90.09 (131/201) Installing fftw-dev (3.3.10-r6)
+2025-04-28T18:07:26.0934266Z #7 93.76 (132/201) Installing libimagequant (4.2.2-r0)
+2025-04-28T18:07:26.3776793Z #7 94.04 (133/201) Installing libimagequant-dev (4.2.2-r0)
+2025-04-28T18:07:26.5780754Z #7 94.09 (134/201) Installing lcms2 (2.16-r0)
+2025-04-28T18:07:26.6276242Z #7 94.29 (135/201) Installing lcms2-plugins (2.16-r0)
+2025-04-28T18:07:26.8882538Z #7 94.55 (136/201) Installing libjpeg-turbo (3.0.4-r0)
+2025-04-28T18:07:27.4411192Z #7 95.10 (137/201) Installing libturbojpeg (3.0.4-r0)
+2025-04-28T18:07:28.3540833Z #7 96.02 (138/201) Installing libjpeg-turbo-dev (3.0.4-r0)
+2025-04-28T18:07:28.5611433Z #7 96.22 (139/201) Installing libsharpyuv (1.4.0-r0)
+2025-04-28T18:07:28.7873107Z #7 96.30 (140/201) Installing libwebp (1.4.0-r0)
+2025-04-28T18:07:29.2700490Z #7 96.93 (141/201) Installing tiff (4.7.0-r0)
+2025-04-28T18:07:29.6038080Z #7 97.27 (142/201) Installing libtiffxx (4.7.0-r0)
+2025-04-28T18:07:29.8090620Z #7 97.32 (143/201) Installing libwebpdecoder (1.4.0-r0)
+2025-04-28T18:07:29.8885983Z #7 97.55 (144/201) Installing libwebpdemux (1.4.0-r0)
+2025-04-28T18:07:30.0218236Z #7 97.61 (145/201) Installing libwebpmux (1.4.0-r0)
+2025-04-28T18:07:30.0221675Z #7 97.69 (146/201) Installing libwebp-dev (1.4.0-r0)
+2025-04-28T18:07:30.2578335Z #7 97.77 (147/201) Installing zstd (1.5.6-r2)
+2025-04-28T18:07:30.3288728Z #7 97.99 (148/201) Installing zstd-dev (1.5.6-r2)
+2025-04-28T18:07:30.4467014Z #7 98.11 (149/201) Installing tiff-dev (4.7.0-r0)
+2025-04-28T18:07:30.6121096Z #7 98.19 (150/201) Installing lcms2-dev (2.16-r0)
+2025-04-28T18:07:30.6123745Z #7 98.28 (151/201) Installing acl-libs (2.3.2-r1)
+2025-04-28T18:07:30.8068052Z #7 98.34 (152/201) Installing lz4-libs (1.10.0-r0)
+2025-04-28T18:07:30.8070119Z #7 98.47 (153/201) Installing libarchive (3.7.9-r0)
+2025-04-28T18:07:31.2123341Z #7 98.88 (154/201) Installing openssl-dev (3.3.3-r0)
+2025-04-28T18:07:31.6422418Z #7 99.31 (155/201) Installing libarchive-dev (3.7.9-r0)
+2025-04-28T18:07:31.8235218Z #7 99.37 (156/201) Installing libexif (0.6.24-r2)
+2025-04-28T18:07:31.8236765Z #7 99.49 (157/201) Installing libexif-dev (0.6.24-r2)
+2025-04-28T18:07:31.9538363Z #7 99.55 (158/201) Installing libhwy (1.0.7-r0)
+2025-04-28T18:07:31.9540347Z #7 99.62 (159/201) Installing libhwy_contrib (1.0.7-r0)
+2025-04-28T18:07:33.8952578Z #7 101.6 (160/201) Installing libhwy_test (1.0.7-r0)
+2025-04-28T18:07:34.0976456Z #7 101.6 (161/201) Installing gtest (1.15.2-r0)
+2025-04-28T18:07:34.1821183Z #7 101.8 (162/201) Installing gmock (1.15.2-r0)
+2025-04-28T18:07:34.4168506Z #7 101.9 (163/201) Installing gtest-dev (1.15.2-r0)
+2025-04-28T18:07:34.6023412Z #7 102.3 (164/201) Installing highway-dev (1.0.7-r0)
+2025-04-28T18:07:35.2142251Z #7 102.9 (165/201) Installing openjpeg (2.5.2-r0)
+2025-04-28T18:07:35.7235566Z #7 103.4 (166/201) Installing openjpeg-tools (2.5.2-r0)
+2025-04-28T18:07:36.2145781Z #7 103.9 (167/201) Installing openjpeg-dev (2.5.2-r0)
+2025-04-28T18:07:38.6632414Z #7 106.3 (168/201) Installing libdav1d (1.5.0-r0)
+2025-04-28T18:07:40.9611299Z #7 108.6 (169/201) Installing libxft (2.3.8-r3)
+2025-04-28T18:07:41.1209473Z #7 108.8 (170/201) Installing fribidi (1.0.16-r0)
+2025-04-28T18:07:41.2390294Z #7 108.9 (171/201) Installing graphite2 (1.3.14-r6)
+2025-04-28T18:07:41.4358791Z #7 109.1 (172/201) Installing harfbuzz (9.0.0-r1)
+2025-04-28T18:07:45.5015257Z #7 113.2 (173/201) Installing pango (1.54.0-r1)
+2025-04-28T18:07:46.1335868Z #7 113.8 (174/201) Installing rsvg-convert (2.59.2-r0)
+2025-04-28T18:07:50.0359446Z #7 117.7 (175/201) Installing shared-mime-info (2.4-r2)
+2025-04-28T18:07:51.4764086Z #7 119.1 (176/201) Installing gdk-pixbuf (2.42.12-r1)
+2025-04-28T18:07:53.0588303Z #7 120.7 (177/201) Installing librsvg (2.59.2-r0)
+2025-04-28T18:08:23.4616760Z #7 151.1 (178/201) Installing dav1d-dev (1.5.0-r0)
+2025-04-28T18:08:23.6280032Z #7 151.3 (179/201) Installing gdk-pixbuf-dev (2.42.12-r1)
+2025-04-28T18:08:24.1630884Z #7 151.8 (180/201) Installing harfbuzz-cairo (9.0.0-r1)
+2025-04-28T18:08:24.3122709Z #7 152.0 (181/201) Installing harfbuzz-gobject (9.0.0-r1)
+2025-04-28T18:08:24.5172405Z #7 152.2 (182/201) Installing icu-data-en (74.2-r0)
+2025-04-28T18:08:38.9487376Z #7 166.6 Executing icu-data-en-74.2-r0.post-install
+2025-04-28T18:08:39.1048633Z #7 166.6 *
+2025-04-28T18:08:39.1052017Z #7 166.6 * If you need ICU with non-English locales and legacy charset support, install
+2025-04-28T18:08:39.1053463Z #7 166.6 * package icu-data-full.
+2025-04-28T18:08:39.1054133Z #7 166.6 *
+2025-04-28T18:08:39.1055231Z #7 166.6 (183/201) Installing icu-libs (74.2-r0)
+2025-04-28T18:08:52.5344248Z #7 180.2 (184/201) Installing harfbuzz-icu (9.0.0-r1)
+2025-04-28T18:08:52.9386049Z #7 180.6 (185/201) Installing harfbuzz-subset (9.0.0-r1)
+2025-04-28T18:08:55.0321273Z #7 182.7 (186/201) Installing graphite2-dev (1.3.14-r6)
+2025-04-28T18:08:55.2498892Z #7 182.8 (187/201) Installing icu (74.2-r0)
+2025-04-28T18:08:55.6403061Z #7 183.3 (188/201) Installing icu-dev (74.2-r0)
+2025-04-28T18:08:57.4015416Z #7 185.1 (189/201) Installing harfbuzz-dev (9.0.0-r1)
+2025-04-28T18:08:57.6791358Z #7 185.3 (190/201) Installing xz-dev (5.6.3-r1)
+2025-04-28T18:08:57.7939854Z #7 185.5 (191/201) Installing libxml2-dev (2.13.4-r5)
+2025-04-28T18:08:57.9450129Z #7 185.6 (192/201) Installing pango-tools (1.54.0-r1)
+2025-04-28T18:08:58.0916778Z #7 185.7 (193/201) Installing fribidi-dev (1.0.16-r0)
+2025-04-28T18:08:58.0918260Z #7 185.8 (194/201) Installing libxft-dev (2.3.8-r3)
+2025-04-28T18:08:58.1951022Z #7 185.9 (195/201) Installing pango-dev (1.54.0-r1)
+2025-04-28T18:08:58.7804024Z #7 186.4 (196/201) Installing librsvg-dev (2.59.2-r0)
+2025-04-28T18:08:58.9398973Z #7 186.6 (197/201) Installing libspng (0.7.4-r0)
+2025-04-28T18:08:59.1540903Z #7 186.8 (198/201) Installing libspng-dev (0.7.4-r0)
+2025-04-28T18:08:59.3638103Z #7 186.9 (199/201) Installing vips (8.15.3-r5)
+2025-04-28T18:09:06.5853327Z #7 194.2 (200/201) Installing vips-cpp (8.15.3-r5)
+2025-04-28T18:09:06.8401182Z #7 194.5 (201/201) Installing vips-dev (8.15.3-r5)
+2025-04-28T18:09:07.5635098Z #7 195.2 Executing busybox-1.37.0-r12.trigger
+2025-04-28T18:09:07.7441946Z #7 195.2 Executing glib-2.82.5-r0.trigger
+2025-04-28T18:09:07.7482267Z #7 195.3 No schema files found: doing nothing.
+2025-04-28T18:09:07.7484486Z #7 195.3 Executing shared-mime-info-2.4-r2.trigger
+2025-04-28T18:09:08.4349538Z #7 196.1 Executing gdk-pixbuf-2.42.12-r1.trigger
+2025-04-28T18:09:08.6329681Z #7 196.1 OK: 235 MiB in 218 packages
+2025-04-28T18:09:09.1943191Z #7 DONE 196.9s
+2025-04-28T18:09:09.1945097Z 
+2025-04-28T18:09:09.1954552Z #5 [strapi build  2/12] RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git python3 sqlite sqlite-dev > /dev/null 2>&1
+2025-04-28T18:09:09.3511001Z #5 ...
+2025-04-28T18:09:09.3512012Z 
+2025-04-28T18:09:09.3513100Z #8 [strapi stage-1 3/7] WORKDIR /opt/
+2025-04-28T18:09:09.3797005Z #8 DONE 0.2s
+2025-04-28T18:09:09.3804821Z 
+2025-04-28T18:09:09.3807867Z #5 [strapi build  2/12] RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev vips-dev git python3 sqlite sqlite-dev > /dev/null 2>&1
+2025-04-28T18:10:25.7055213Z #5 DONE 273.4s
+2025-04-28T18:10:25.8602894Z 
+2025-04-28T18:10:25.8603823Z #9 [strapi build  3/12] WORKDIR /opt/
+2025-04-28T18:10:25.8941520Z #9 DONE 0.2s
+2025-04-28T18:10:25.9961626Z 
+2025-04-28T18:10:25.9966376Z #10 [strapi build  4/12] COPY package.json yarn.lock ./
+2025-04-28T18:10:25.9968344Z #10 DONE 0.1s
+2025-04-28T18:10:26.2218985Z 
+2025-04-28T18:10:26.2220599Z #11 [strapi build  5/12] COPY scripts/ ./scripts/
+2025-04-28T18:10:26.2221715Z #11 DONE 0.1s
+2025-04-28T18:10:26.2222370Z 
+2025-04-28T18:10:26.2224736Z #12 [strapi build  6/12] RUN yarn global add node-gyp esbuild
+2025-04-28T18:10:26.9054056Z #12 0.834 yarn global v1.22.22
+2025-04-28T18:10:27.0451521Z #12 0.974 [1/4] Resolving packages...
+2025-04-28T18:10:32.2047463Z #12 6.133 [2/4] Fetching packages...
+2025-04-28T18:10:49.4798640Z #12 23.41 [3/4] Linking dependencies...
+2025-04-28T18:10:50.8291796Z #12 24.76 [4/4] Building fresh packages...
+2025-04-28T18:10:51.1848411Z #12 25.11 success Installed "node-gyp@11.2.0" with binaries:
+2025-04-28T18:10:51.1850927Z #12 25.11       - node-gyp
+2025-04-28T18:10:51.1856183Z #12 25.11 success Installed "esbuild@0.25.3" with binaries:
+2025-04-28T18:10:51.1860013Z #12 25.11       - esbuild
+2025-04-28T18:10:51.3415326Z #12 25.12 Done in 24.31s.
+2025-04-28T18:10:52.0155533Z #12 DONE 25.9s
+2025-04-28T18:10:52.1737680Z 
+2025-04-28T18:10:52.1766212Z #13 [strapi build  7/12] RUN yarn config set network-timeout 1800000 -g # Tăng timeout lên 30 phút
+2025-04-28T18:10:52.7691889Z #13 0.740 yarn config v1.22.22
+2025-04-28T18:10:52.9278585Z #13 0.817 success Set "network-timeout" to "1800000".
+2025-04-28T18:10:52.9281127Z #13 0.817 Done in 0.10s.
+2025-04-28T18:10:52.9282173Z #13 DONE 0.9s
+2025-04-28T18:10:53.0813436Z 
+2025-04-28T18:10:53.0816022Z #14 [strapi build  8/12] RUN yarn config set registry https://registry.npmjs.org/
+2025-04-28T18:10:53.5272036Z #14 0.596 yarn config v1.22.22
+2025-04-28T18:10:53.6604391Z #14 0.658 success Set "registry" to "https://registry.npmjs.org/".
+2025-04-28T18:10:53.6607546Z #14 0.658 Done in 0.08s.
+2025-04-28T18:10:53.6614273Z #14 DONE 0.7s
+2025-04-28T18:10:53.8144877Z 
+2025-04-28T18:10:53.8150084Z #15 [strapi build  9/12] RUN yarn install --network-timeout 1800000 --non-interactive ||     (sleep 5 && yarn install --network-timeout 1800000 --non-interactive) ||     (sleep 10 && yarn install --network-timeout 1800000 --non-interactive --legacy-peer-deps)
+2025-04-28T18:10:54.3380998Z #15 0.671 yarn install v1.22.22
+2025-04-28T18:10:54.5363824Z #15 0.872 [1/5] Validating package.json...
+2025-04-28T18:10:54.6915060Z #15 0.877 [2/5] Resolving packages...
+2025-04-28T18:10:55.7918551Z #15 2.128 [3/5] Fetching packages...
+2025-04-28T18:13:24.5107068Z #15 150.8 [4/5] Linking dependencies...
+2025-04-28T18:13:24.6992453Z #15 150.9 warning "@strapi/plugin-cloud > @strapi/design-system > @uiw/react-codemirror@4.22.2" has unmet peer dependency "@babel/runtime@>=7.11.0".
+2025-04-28T18:13:24.6996594Z #15 150.9 warning "@strapi/plugin-cloud > @strapi/design-system > @uiw/react-codemirror@4.22.2" has unmet peer dependency "@codemirror/state@>=6.0.0".
+2025-04-28T18:13:24.7001041Z #15 150.9 warning "@strapi/plugin-cloud > @strapi/design-system > @uiw/react-codemirror@4.22.2" has unmet peer dependency "@codemirror/theme-one-dark@>=6.0.0".
+2025-04-28T18:13:24.7010256Z #15 150.9 warning "@strapi/plugin-cloud > @strapi/design-system > @uiw/react-codemirror@4.22.2" has unmet peer dependency "@codemirror/view@>=6.0.0".
+2025-04-28T18:13:24.7014141Z #15 150.9 warning "@strapi/plugin-cloud > @strapi/design-system > @uiw/react-codemirror@4.22.2" has unmet peer dependency "codemirror@>=6.0.0".
+2025-04-28T18:13:24.7019030Z #15 150.9 warning "@strapi/plugin-cloud > @strapi/design-system > @uiw/react-codemirror > @uiw/codemirror-extensions-basic-setup@4.22.2" has unmet peer dependency "@codemirror/autocomplete@>=6.0.0".
+2025-04-28T18:13:24.7024563Z #15 150.9 warning "@strapi/plugin-cloud > @strapi/design-system > @uiw/react-codemirror > @uiw/codemirror-extensions-basic-setup@4.22.2" has unmet peer dependency "@codemirror/language@>=6.0.0".
+2025-04-28T18:13:24.7029757Z #15 150.9 warning "@strapi/plugin-cloud > @strapi/design-system > @uiw/react-codemirror > @uiw/codemirror-extensions-basic-setup@4.22.2" has unmet peer dependency "@codemirror/lint@>=6.0.0".
+2025-04-28T18:13:24.7036288Z #15 150.9 warning "@strapi/plugin-cloud > @strapi/design-system > @uiw/react-codemirror > @uiw/codemirror-extensions-basic-setup@4.22.2" has unmet peer dependency "@codemirror/search@>=6.0.0".
+2025-04-28T18:13:24.7046455Z #15 150.9 warning "@strapi/plugin-cloud > @strapi/design-system > @uiw/react-codemirror > @uiw/codemirror-extensions-basic-setup@4.22.2" has unmet peer dependency "@codemirror/view@>=6.0.0".
+2025-04-28T18:13:24.7050975Z #15 150.9 warning "@strapi/strapi > @strapi/email@5.12.4" has unmet peer dependency "koa@^2.15.2".
+2025-04-28T18:13:24.7054289Z #15 150.9 warning "@strapi/strapi > esbuild-register@3.5.0" has unmet peer dependency "esbuild@>=0.12 <1".
+2025-04-28T18:13:24.7063569Z #15 150.9 warning "@strapi/strapi > @strapi/types > typedoc@0.25.10" has incorrect peer dependency "typescript@4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x".
+2025-04-28T18:13:24.8091573Z #15 151.1 warning Workspaces can only be enabled in private projects.
+2025-04-28T18:14:06.0993983Z #15 192.4 [5/5] Building fresh packages...
+2025-04-28T18:14:09.0967325Z #15 195.4 success Saved lockfile.
+2025-04-28T18:14:09.2541835Z #15 195.4 $ node ./scripts/updateUuid.js
+2025-04-28T18:14:09.3096176Z #15 195.6 Done in 194.99s.
+2025-04-28T18:14:09.9233193Z #15 DONE 196.3s
+2025-04-28T18:14:10.0785460Z 
+2025-04-28T18:14:10.0787256Z #16 [strapi build 10/12] WORKDIR /opt/app
+2025-04-28T18:14:13.3387367Z #16 DONE 3.4s
+2025-04-28T18:14:13.4989630Z 
+2025-04-28T18:14:13.4991012Z #17 [strapi build 11/12] COPY . .
+2025-04-28T18:14:13.5671937Z #17 DONE 0.2s
+2025-04-28T18:14:13.7222239Z 
+2025-04-28T18:14:13.7224185Z #18 [strapi build 12/12] RUN yarn config set network-timeout 1800000 && yarn build
+2025-04-28T18:14:14.2704366Z #18 0.700 yarn config v1.22.22
+2025-04-28T18:14:14.5061829Z #18 0.785 success Set "network-timeout" to "1800000".
+2025-04-28T18:14:14.5064129Z #18 0.785 Done in 0.10s.
+2025-04-28T18:14:14.8203650Z #18 1.249 yarn run v1.22.22
+2025-04-28T18:14:15.0451441Z #18 1.324 $ strapi build
+2025-04-28T18:14:20.2175568Z #18 6.647 - Compiling TS
+2025-04-28T18:14:27.9688856Z #18 14.40 ✔ Compiling TS (7754ms)
+2025-04-28T18:14:27.9691149Z #18 14.40 - Building build context
+2025-04-28T18:14:28.1234076Z #18 14.40 
+2025-04-28T18:14:28.1545082Z #18 14.58 [INFO] Including the following ENV variables as part of the JS bundle:
+2025-04-28T18:14:28.1547256Z #18 14.58     - ADMIN_PATH
+2025-04-28T18:14:28.1549738Z #18 14.58     - STRAPI_ADMIN_BACKEND_URL
+2025-04-28T18:14:28.1551752Z #18 14.58     - STRAPI_TELEMETRY_DISABLED
+2025-04-28T18:14:28.4254223Z #18 14.85 ✔ Building build context (459ms)
+2025-04-28T18:14:28.5755800Z #18 14.86 
+2025-04-28T18:14:28.5757038Z #18 14.86 - Building admin panel
+2025-04-28T18:15:33.8486659Z #18 80.25 ✔ Building admin panel (65395ms)
+2025-04-28T18:15:34.8711195Z #18 81.30 Done in 80.07s.
+2025-04-28T18:15:35.0482832Z #18 DONE 81.5s
+2025-04-28T18:16:06.4231882Z 
+2025-04-28T18:16:06.4240313Z #19 [strapi stage-1 4/7] COPY --from=build /opt/node_modules ./node_modules
+2025-04-28T18:16:33.6025177Z #19 DONE 27.2s
+2025-04-28T18:16:33.7569317Z 
+2025-04-28T18:16:33.7571592Z #20 [strapi stage-1 5/7] WORKDIR /opt/app
+2025-04-28T18:16:34.7568396Z #20 DONE 1.2s
+2025-04-28T18:16:34.9118430Z 
+2025-04-28T18:16:34.9121374Z #21 [strapi stage-1 6/7] COPY --from=build /opt/app ./
+2025-04-28T18:16:35.2790271Z #21 DONE 0.5s
+2025-04-28T18:16:35.4327020Z 
+2025-04-28T18:16:35.4328038Z #22 [strapi stage-1 7/7] RUN chown -R node:node /opt/app
+2025-04-28T18:16:37.1792029Z #22 DONE 1.9s
+2025-04-28T18:16:37.3383475Z 
+2025-04-28T18:16:37.3387003Z #23 [strapi] exporting to docker image format
+2025-04-28T18:16:37.3388399Z #23 exporting layers
+2025-04-28T18:17:59.0622419Z #23 exporting layers 81.9s done
+2025-04-28T18:17:59.2497208Z #23 exporting manifest sha256:42c3dee03abbd33446516dcd39fa7c232be24d78c38adb4ddd15240e7863ae70 0.0s done
+2025-04-28T18:17:59.2503391Z #23 exporting config sha256:bb36ab8e212cb1a087af3cb72e5f315837b556c1bf429cc4829189212164a715 0.0s done
+2025-04-28T18:17:59.2510016Z #23 sending tarball
+2025-04-28T18:18:06.2092974Z #23 ...
+2025-04-28T18:18:06.2094464Z 
+2025-04-28T18:18:06.2095769Z #24 [strapi] importing to docker
+2025-04-28T18:18:06.3622968Z #24 loading layer d2712c857a8a 557.06kB / 69.47MB
+2025-04-28T18:18:08.3074648Z #24 loading layer d2712c857a8a 21.73MB / 69.47MB 2.1s
+2025-04-28T18:18:10.4459021Z #24 loading layer d2712c857a8a 61.28MB / 69.47MB 4.2s
+2025-04-28T18:18:12.5706061Z #24 loading layer d2712c857a8a 69.47MB / 69.47MB 6.4s
+2025-04-28T18:18:12.7046161Z #24 loading layer 5f70bf18a086 32B / 32B
+2025-04-28T18:18:12.8347012Z #24 loading layer aa6b680e2807 557.06kB / 223.50MB
+2025-04-28T18:18:15.3503420Z #24 loading layer aa6b680e2807 13.37MB / 223.50MB 2.5s
+2025-04-28T18:18:17.5141897Z #24 loading layer aa6b680e2807 40.11MB / 223.50MB 4.7s
+2025-04-28T18:18:19.7340252Z #24 loading layer aa6b680e2807 78.54MB / 223.50MB 6.9s
+2025-04-28T18:18:24.3872657Z #24 loading layer aa6b680e2807 95.26MB / 223.50MB 11.5s
+2025-04-28T18:18:30.7797341Z #24 loading layer aa6b680e2807 117.54MB / 223.50MB 17.9s
+2025-04-28T18:18:32.8403368Z #24 loading layer aa6b680e2807 155.98MB / 223.50MB 20.0s
+2025-04-28T18:18:37.0739002Z #24 loading layer aa6b680e2807 172.69MB / 223.50MB 24.2s
+2025-04-28T18:18:44.0176560Z #24 loading layer aa6b680e2807 178.81MB / 223.50MB 31.2s
+2025-04-28T18:18:46.1322614Z #24 loading layer aa6b680e2807 192.18MB / 223.50MB 33.3s
+2025-04-28T18:18:52.7657505Z #24 loading layer aa6b680e2807 203.88MB / 223.50MB 39.9s
+2025-04-28T18:18:57.4003828Z #24 loading layer aa6b680e2807 220.59MB / 223.50MB 44.6s
+2025-04-28T18:18:59.2611787Z #24 loading layer a12c34af1bcd 109B / 109B
+2025-04-28T18:18:59.4695155Z #24 loading layer 5cb2629f3caa 393.22kB / 36.30MB
+2025-04-28T18:19:00.0865328Z #24 loading layer 6438e1539b05 393.22kB / 36.30MB
+2025-04-28T18:19:00.9835194Z #24 loading layer 5cb2629f3caa 393.22kB / 36.30MB 1.7s done
+2025-04-28T18:19:01.0868750Z #24 loading layer d2712c857a8a 69.47MB / 69.47MB 54.8s done
+2025-04-28T18:19:01.0871340Z #24 loading layer 5f70bf18a086 32B / 32B 48.3s done
+2025-04-28T18:19:01.0872418Z #24 loading layer aa6b680e2807 220.59MB / 223.50MB 48.1s done
+2025-04-28T18:19:01.0873413Z #24 loading layer a12c34af1bcd 109B / 109B 1.7s done
+2025-04-28T18:19:01.0874485Z #24 loading layer 6438e1539b05 393.22kB / 36.30MB 0.9s done
+2025-04-28T18:19:01.0875808Z #24 DONE 54.8s
+2025-04-28T18:19:01.0876349Z 
+2025-04-28T18:19:01.0877578Z #23 [strapi] exporting to docker image format
+2025-04-28T18:19:01.0879063Z #23 sending tarball 61.9s done
+2025-04-28T18:19:01.0880660Z #23 DONE 143.8s
+2025-04-28T18:19:01.1263127Z === Starting containers ===
+2025-04-28T18:19:01.1265216Z === Starting base services ===
+2025-04-28T18:19:01.4133790Z  Container launchpad-strapi  Stopping
+2025-04-28T18:19:01.4137522Z  Container launchpad-nextjs  Stopping
+2025-04-28T18:19:01.4140504Z  Container launchpad-n8n  Stopping
+2025-04-28T18:19:01.4208069Z  Container launchpad-n8n  Stopped
+2025-04-28T18:19:01.4210711Z  Container launchpad-n8n  Removing
+2025-04-28T18:19:01.4212790Z  Container launchpad-strapi  Stopped
+2025-04-28T18:19:01.4214394Z  Container launchpad-strapi  Removing
+2025-04-28T18:19:01.4431307Z  Container launchpad-n8n  Removed
+2025-04-28T18:19:01.4607855Z  Container launchpad-strapi  Removed
+2025-04-28T18:19:02.6770739Z  Container launchpad-nextjs  Stopped
+2025-04-28T18:19:02.6771655Z  Container launchpad-nextjs  Removing
+2025-04-28T18:19:02.6972244Z  Container launchpad-nextjs  Removed
+2025-04-28T18:19:02.6976445Z  Container traefik  Creating
+2025-04-28T18:19:02.6977876Z  Container launchpad-postgres  Creating
+2025-04-28T18:19:02.6979544Z  Container portainer  Creating
+2025-04-28T18:19:02.7757153Z  Container launchpad-postgres  Created
+2025-04-28T18:19:02.7758510Z  Container traefik  Created
+2025-04-28T18:19:02.7829786Z  Container portainer  Created
+2025-04-28T18:19:02.7857503Z  Container traefik  Starting
+2025-04-28T18:19:02.7874093Z  Container launchpad-postgres  Starting
+2025-04-28T18:19:02.7875791Z  Container portainer  Starting
+2025-04-28T18:19:03.3441810Z  Container launchpad-postgres  Started
+2025-04-28T18:19:03.3733931Z  Container portainer  Started
+2025-04-28T18:19:03.4176460Z  Container traefik  Started
+2025-04-28T18:19:03.4264783Z === Starting application services ===
+2025-04-28T18:19:03.6429265Z  Container portainer  Stopping
+2025-04-28T18:19:03.6443989Z  Container launchpad-postgres  Stopping
+2025-04-28T18:19:03.6445589Z  Container traefik  Stopping
+2025-04-28T18:19:03.8123825Z  Container portainer  Stopped
+2025-04-28T18:19:03.8125767Z  Container portainer  Removing
+2025-04-28T18:19:03.8278621Z  Container portainer  Removed
+2025-04-28T18:19:04.2996399Z  Container traefik  Stopped
+2025-04-28T18:19:04.2997879Z  Container traefik  Removing
+2025-04-28T18:19:04.3148350Z  Container traefik  Removed
+2025-04-28T18:19:13.8383284Z  Container launchpad-postgres  Stopped
+2025-04-28T18:19:13.8384240Z  Container launchpad-postgres  Removing
+2025-04-28T18:19:13.8552250Z  Container launchpad-postgres  Removed
+2025-04-28T18:19:13.8554888Z  Container launchpad-n8n  Creating
+2025-04-28T18:19:13.8556485Z  Container launchpad-strapi  Creating
+2025-04-28T18:19:13.9384966Z  Container launchpad-n8n  Created
+2025-04-28T18:19:13.9461697Z  Container launchpad-strapi  Created
+2025-04-28T18:19:13.9462539Z  Container launchpad-nextjs  Creating
+2025-04-28T18:19:14.0177644Z  Container launchpad-nextjs  Created
+2025-04-28T18:19:14.0211359Z  Container launchpad-n8n  Starting
+2025-04-28T18:19:14.0221592Z  Container launchpad-strapi  Starting
+2025-04-28T18:19:14.4638791Z  Container launchpad-strapi  Started
+2025-04-28T18:19:14.4640998Z  Container launchpad-nextjs  Starting
+2025-04-28T18:19:14.4781199Z  Container launchpad-n8n  Started
+2025-04-28T18:19:14.9704057Z  Container launchpad-nextjs  Started
+2025-04-28T18:19:14.9737009Z === Checking container status ===
+2025-04-28T18:19:17.0134197Z CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+2025-04-28T18:19:17.0313760Z 3ee47e1f52a9   launchpad-nextjs                "docker-entrypoint.s…"   4 seconds ago    Up 2 seconds    0.0.0.0:3000->3000/tcp, :::3000->3000/tcp   launchpad-nextjs
+2025-04-28T18:19:17.0318948Z 6d0e42fd6c6d   n8nio/n8n:latest                "tini -- /docker-ent…"   4 seconds ago    Up 2 seconds    0.0.0.0:5678->5678/tcp, :::5678->5678/tcp   launchpad-n8n
+2025-04-28T18:19:17.0322748Z 5bd03638d2ab   launchpad-strapi                "docker-entrypoint.s…"   4 seconds ago    Up 2 seconds    0.0.0.0:1337->1337/tcp, :::1337->1337/tcp   launchpad-strapi
+2025-04-28T18:19:17.0326713Z b752d11038aa   moby/buildkit:buildx-stable-1   "buildkitd --allow-i…"   20 minutes ago   Up 20 minutes                                               buildx_buildkit_builder-8ac419f7-7720-4e70-a131-efea3d70e1560
+2025-04-28T18:19:18.1676622Z no configuration file provided: not found
+2025-04-28T18:19:18.2145915Z ##[error]Process completed with exit code 14.
+2025-04-28T18:19:18.2574057Z Post job cleanup.
+2025-04-28T18:19:18.7498783Z ##[group]Removing builder
+2025-04-28T18:19:19.2428442Z [command]/usr/bin/docker buildx rm builder-8ac419f7-7720-4e70-a131-efea3d70e156
+2025-04-28T18:19:39.6630116Z builder-8ac419f7-7720-4e70-a131-efea3d70e156 removed
+2025-04-28T18:19:39.6947089Z ##[endgroup]
+2025-04-28T18:19:39.6962226Z ##[group]Cleaning up certificates
+2025-04-28T18:19:39.6973280Z ##[endgroup]
+2025-04-28T18:19:39.7291794Z Post job cleanup.
+2025-04-28T18:19:40.0185420Z Cleaning up orphan processes
