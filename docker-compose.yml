@@ -172,9 +172,12 @@ services:
       - N8N_SMTP_USER=${N8N_SMTP_USER}
       - N8N_SMTP_PASS=${N8N_SMTP_PASS}
       - N8N_SMTP_SENDER=${N8N_SMTP_SENDER}
+      - N8N_SMTP_SSL=${N8N_SMTP_SSL}
       - N8N_ALLOW_CUSTOM_NODES=true
       - N8N_ALLOW_COMMUNITY_NODES=true
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_USER_MANAGEMENT_DISABLED=false
+      - N8N_AUTH_EXCLUDE_ENDPOINTS=
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.n8n.rule=Host(`n8n-beta.${BASE_DOMAIN}`)"
