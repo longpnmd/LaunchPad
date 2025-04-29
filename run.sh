@@ -46,21 +46,14 @@ nice -n $BUILD_NICE docker build \
     $ADDITIONAL_ARGS \
     -t strapi-app:latest ./strapi
 
-# Start containers with updated environment variables
-echo "=== Starting containers ==="
-echo "=== Starting base services ==="
-docker compose -f docker-compose.base.yml --env-file ./.env up -d --remove-orphans
 if [ $? -ne 0 ]; then
-    echo "ERROR: Failed to start base services"
+    echo "ERROR: Strapi build failed"
     exit 1
 fi
 
-echo "=== Starting application services ==="
-docker compose -f docker-compose.services.yml --env-file ./.env up -d --remove-orphans
-if [ $? -ne 0 ]; then
-    echo "ERROR: Failed to start application services"
-    exit 1
-fi
+# Start containers with updated environment variables
+echo "=== Starting containers ==="
+docker compose --env-file ./.env up -d --remove-orphans
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to start containers"
     exit 1
@@ -70,6 +63,8 @@ fi
 echo "=== Checking container status ==="
 sleep 2
 docker ps
+sleep 1
+docker compose ps
 
 # Container and image cleanup - thực hiện tuần tự để giảm tải
 echo "=== Cleaning up old containers and images ==="
