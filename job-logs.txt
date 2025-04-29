@@ -1,11 +1,60 @@
+n8n               | User settings loaded from: /home/node/.n8n/config
+n8n               | Initializing n8n process
+n8n               | nodes package n8n-nodes-base is already loaded.
+n8n               |  Please delete this second copy at path /home/node/.n8n/nodes/node_modules/n8n-nodes-base
+n8n               | nodes package n8n-nodes-base is already loaded.
+n8n               |  Please delete this second copy at path /home/node/.n8n/nodes/node_modules/n8n-nodes-base
+n8n               | n8n ready on 0.0.0.0, port 5678
+n8n               | 
+n8n               | There is a deprecation related to your environment variables. Please take the recommended actions to update your configuration:
+launchpad-nextjs  |   ▲ Next.js 14.2.5
+launchpad-nextjs  |   - Local:        http://localhost:3000
+n8n               |  - N8N_RUNNERS_ENABLED -> Running n8n without task runners is deprecated. Task runners will be turned on by default in a future version. Please set `N8N_RUNNERS_ENABLED=true` to enable task runners now and avoid potential issues in the future. Learn more: https://docs.n8n.io/hosting/configuration/task-runners/
+n8n               | 
+n8n               | Version: 1.90.2
+n8n               | 
+n8n               | Editor is now accessible via:
+n8n               | https://n8n.swiftsync.tech
 launchpad-strapi  | yarn run v1.22.22
+portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:310[0m[36m >[0m encryption key file not present | [36mfilename=[0mportainer
+portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:334[0m[36m >[0m proceeding without encryption key |
+portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/database/boltdb/db.go:133[0m[36m >[0m loading PortainerDB | [36mfilename=[0mportainer.db
+launchpad-nextjs  |   - Network:      http://0.0.0.0:3000
+launchpad-nextjs  | 
+launchpad-nextjs  |  ✓ Starting...
+launchpad-nextjs  |  ✓ Ready in 33ms
+postgres          | 
+postgres          | PostgreSQL Database directory appears to contain a database; Skipping initialization
+traefik           | time="2025-04-29T15:15:48Z" level=info msg="Configuration loaded from flags."
+traefik           | time="2025-04-29T15:15:54Z" level=error msg="Unable to obtain ACME certificate for domains \"portainer.swiftsync.tech\": unable to generate a certificate for the domains [portainer.swiftsync.tech]: error: one or more domains had a problem:\n[portainer.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://portainer.swiftsync.tech/.well-known/acme-challenge/cTMNslcLjoBgCH3zQGRjNK7a0J5OYmkYGuBjS73trQc: 404\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker rule="Host(`portainer.swiftsync.tech`)" providerName=myresolver.acme
+traefik           | time="2025-04-29T15:15:56Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://beta.swiftsync.tech/.well-known/acme-challenge/KiGHMNE_IMCdZ7x6LSCS25t-CN4DXx3Kp6UqbgdVoGU: 404\n" routerName=nextjs@docker rule="Host(`beta.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
+traefik           | time="2025-04-29T15:15:56Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://beta-admin.swiftsync.tech/.well-known/acme-challenge/y6QpwsYPCN28D62gQxuUoKxoCWn29TAEXRtVJulkluM: 404\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`beta-admin.swiftsync.tech`)" routerName=strapi@docker providerName=myresolver.acme
+traefik           | time="2025-04-29T15:30:04Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://beta-admin.swiftsync.tech/.well-known/acme-challenge/v-Pz2x-am-RdQHMGT7Z1tA5mzAIxzUWK-35FyD5hjgo: 404\n" rule="Host(`beta-admin.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=strapi@docker
+traefik           | time="2025-04-29T15:30:06Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/IKPP3qi2gl4uPDjP-xmwZnZioihnNc0yxyrcxTNbuXA: 404\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=n8n@docker rule="Host(`n8n-beta.swiftsync.tech`)" providerName=myresolver.acme
+traefik           | time="2025-04-29T15:30:06Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://beta.swiftsync.tech/.well-known/acme-challenge/F5WPOh0ahQfC208UytpyuySwnSsykCpW0yWIP9O2fec: 404\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`beta.swiftsync.tech`)" routerName=nextjs@docker providerName=myresolver.acme
+traefik           | time="2025-04-29T15:30:07Z" level=error msg="Unable to obtain ACME certificate for domains \"portainer.swiftsync.tech\": unable to generate a certificate for the domains [portainer.swiftsync.tech]: error: one or more domains had a problem:\n[portainer.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://portainer.swiftsync.tech/.well-known/acme-challenge/RrGyNfEpvo0HM3u3-qtT6Jhw8eN-7P7Hjnu8TduD-9Q: 404\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`portainer.swiftsync.tech`)" routerName=portainer@docker
+postgres          | 
+postgres          | 2025-04-29 15:15:48.340 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres          | 2025-04-29 15:15:48.340 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres          | 2025-04-29 15:15:48.340 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres          | 2025-04-29 15:15:48.349 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres          | 2025-04-29 15:15:48.360 UTC [25] LOG:  database system was shut down at 2025-04-29 15:15:47 UTC
+portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/chisel/service.go:200[0m[36m >[0m found Chisel private key file on disk | [36mprivate-key=[0m/data/chisel/private-key.pem
+portainer         | 2025/04/29 15:29:58 server: Reverse tunnelling enabled
+portainer         | 2025/04/29 15:29:58 server: Fingerprint lxvzrjHlQvJlNTNOuMm47wGqn1GJUMUBjd6NFKZ8+S4=
+portainer         | 2025/04/29 15:29:58 server: Listening on http://0.0.0.0:8000
+portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:601[0m[36m >[0m starting Portainer | [36mbuild_number=[0m174 [36mgo_version=[0m1.23.5 [36mimage_tag=[0m2.27.4-linux-arm64 [36mnodejs_version=[0m18.20.8 [36mversion=[0m2.27.4 [36mwebpack_version=[0m5.88.2 [36myarn_version=[0m1.22.22
+portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:363[0m[36m >[0m starting HTTPS server | [36mbind_address=[0m:9443
+portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:347[0m[36m >[0m starting HTTP server | [36mbind_address=[0m:9000
+portainer         | [90m2025/04/29 03:34PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/adminmonitor/admin_monitor.go:62[0m[36m >[0m the Portainer instance timed out for security purposes, to re-enable your Portainer instance, you will need to restart Portainer |
+postgres          | 2025-04-29 15:15:48.406 UTC [1] LOG:  database system is ready to accept connections
 launchpad-strapi  | $ strapi start
 launchpad-strapi  | 
 launchpad-strapi  |  Project information
 launchpad-strapi  | 
 launchpad-strapi  | ┌────────────────────┬──────────────────────────────────────────────────┐
-launchpad-strapi  | │ Time               │ Tue Apr 29 2025 09:16:09 GMT+0000 (Coordinated … │
-launchpad-strapi  | │ Launched in        │ 1137 ms                                          │
+launchpad-strapi  | │ Time               │ Tue Apr 29 2025 15:15:49 GMT+0000 (Coordinated … │
+launchpad-strapi  | │ Launched in        │ 640 ms                                           │
 launchpad-strapi  | │ Environment        │ production                                       │
 launchpad-strapi  | │ Process PID        │ 28                                               │
 launchpad-strapi  | │ Version            │ 5.12.4 (node v18.20.8)                           │
@@ -24,48 +73,4 @@ launchpad-strapi  |
 launchpad-strapi  | To access the server ⚡️, go to:
 launchpad-strapi  | http://0.0.0.0:1337
 launchpad-strapi  | 
-launchpad-strapi  | [2025-04-29 09:16:09.832] [32minfo[39m: Strapi started successfully
-n8n               | Initializing n8n process
-n8n               | n8n ready on 0.0.0.0, port 5678
-n8n               | 
-n8n               | There is a deprecation related to your environment variables. Please take the recommended actions to update your configuration:
-n8n               |  - N8N_RUNNERS_ENABLED -> Running n8n without task runners is deprecated. Task runners will be turned on by default in a future version. Please set `N8N_RUNNERS_ENABLED=true` to enable task runners now and avoid potential issues in the future. Learn more: https://docs.n8n.io/hosting/configuration/task-runners/
-n8n               | 
-n8n               | Version: 1.90.2
-n8n               | 
-n8n               | Editor is now accessible via:
-n8n               | https://n8n.swiftsync.tech
-n8n               | Failed to renew license: renewal failed because current cert is not initialized
-n8n               | Community package installed: n8n-nodes-youtube-transcription-kasha
-n8n               | Unable to sign without access token
-launchpad-nextjs  |   ▲ Next.js 14.2.5
-launchpad-nextjs  |   - Local:        http://localhost:3000
-launchpad-nextjs  |   - Network:      http://0.0.0.0:3000
-launchpad-nextjs  | 
-launchpad-nextjs  |  ✓ Starting...
-launchpad-nextjs  |  ✓ Ready in 70ms
-portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:310[0m[36m >[0m encryption key file not present | [36mfilename=[0mportainer
-portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:334[0m[36m >[0m proceeding without encryption key |
-portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/database/boltdb/db.go:133[0m[36m >[0m loading PortainerDB | [36mfilename=[0mportainer.db
-portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/chisel/service.go:200[0m[36m >[0m found Chisel private key file on disk | [36mprivate-key=[0m/data/chisel/private-key.pem
-portainer         | 2025/04/29 10:01:07 server: Reverse tunnelling enabled
-portainer         | 2025/04/29 10:01:07 server: Fingerprint lxvzrjHlQvJlNTNOuMm47wGqn1GJUMUBjd6NFKZ8+S4=
-portainer         | 2025/04/29 10:01:07 server: Listening on http://0.0.0.0:8000
-portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:601[0m[36m >[0m starting Portainer | [36mbuild_number=[0m174 [36mgo_version=[0m1.23.5 [36mimage_tag=[0m2.27.4-linux-arm64 [36mnodejs_version=[0m18.20.8 [36mversion=[0m2.27.4 [36mwebpack_version=[0m5.88.2 [36myarn_version=[0m1.22.22
-portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:363[0m[36m >[0m starting HTTPS server | [36mbind_address=[0m:9443
-portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:347[0m[36m >[0m starting HTTP server | [36mbind_address=[0m:9000
-traefik           | time="2025-04-29T09:09:53Z" level=info msg="Configuration loaded from flags."
-traefik           | time="2025-04-29T09:10:03Z" level=error msg="Unable to obtain ACME certificate for domains \"monitor.swiftsync.tech\": unable to generate a certificate for the domains [monitor.swiftsync.tech]: error: one or more domains had a problem:\n[monitor.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://monitor.swiftsync.tech/.well-known/acme-challenge/bVbRiR0Il6eqTXs8pPsqqxSOTi8H8PbGayBjH0dJ3hk: Connection refused\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker rule="Host(`monitor.swiftsync.tech`)" providerName=myresolver.acme
-traefik           | time="2025-04-29T09:16:12Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/hXBnowiPL43q9gD4W4BQA4PJ0mGa_NdMuwRT39GKWXc: Connection refused\n" routerName=strapi@docker rule="Host(`beta-admin.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
-traefik           | time="2025-04-29T09:16:16Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta.swiftsync.tech/.well-known/acme-challenge/QhVkz5or8AFH_OK6E51obOL3sJia5YF7mZXsTpuf2OQ: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=nextjs@docker rule="Host(`beta.swiftsync.tech`)"
-traefik           | time="2025-04-29T09:16:16Z" level=error msg="Unable to obtain ACME certificate for domains \"monitor.swiftsync.tech\": unable to generate a certificate for the domains [monitor.swiftsync.tech]: error: one or more domains had a problem:\n[monitor.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://monitor.swiftsync.tech/.well-known/acme-challenge/hEniafROFYk_KYQWmlEnTL48jHi37k1GzKgNxi1sYfk: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker rule="Host(`monitor.swiftsync.tech`)"
-traefik           | time="2025-04-29T09:16:17Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/JM291JCzi6liOOMagIXap-CXAvMofHoJb7QUdGpAhUo: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`n8n-beta.swiftsync.tech`)" routerName=n8n@docker
-postgres          | 
-postgres          | PostgreSQL Database directory appears to contain a database; Skipping initialization
-postgres          | 
-postgres          | 2025-04-29 09:09:52.864 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
-postgres          | 2025-04-29 09:09:52.864 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-postgres          | 2025-04-29 09:09:52.864 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-postgres          | 2025-04-29 09:09:52.867 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-postgres          | 2025-04-29 09:09:52.871 UTC [27] LOG:  database system was shut down at 2025-04-29 08:39:14 UTC
-postgres          | 2025-04-29 09:09:52.882 UTC [1] LOG:  database system is ready to accept connections
+launchpad-strapi  | [2025-04-29 15:15:49.916] [32minfo[39m: Strapi started successfully

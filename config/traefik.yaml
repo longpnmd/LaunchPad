@@ -13,6 +13,7 @@ http:
       service: strapi@docker
       middlewares:
         - rate-limit
+        - https-redirectscheme
       tls:
         certResolver: myresolver
     nextjs:
@@ -20,6 +21,7 @@ http:
       service: nextjs@docker
       middlewares:
         - rate-limit
+        - https-redirectscheme
       tls:
         certResolver: myresolver
     n8n:
@@ -27,15 +29,23 @@ http:
       service: n8n@docker
       middlewares:
         - rate-limit
+        - https-redirectscheme
       tls:
         certResolver: myresolver
     portainer:
-      rule: Host(`monitor.{{ env "BASE_DOMAIN" }}`)
+      rule: Host(`portainer.{{ env "BASE_DOMAIN" }}`)
       service: portainer@docker
       middlewares:
         - rate-limit
+        - https-redirectscheme
       tls:
         certResolver: myresolver
+    acme-challenge:
+      rule: "PathPrefix(`/.well-known/acme-challenge/`)"
+      entryPoints:
+        - web
+      service: acme-challenge@internal
+      priority: 100
   middlewares:
     basic-auth:
       basicAuth:
@@ -49,5 +59,8 @@ http:
       redirectScheme:
         scheme: https
         permanent: true
+        # Loại trừ đường dẫn /.well-known/acme-challenge/
+        regex: "^https?://(.*)/((?!\\.well-known/acme-challenge/).*)$"
+        replacement: "https://${1}/${2}"
     compress:
       compress: {}

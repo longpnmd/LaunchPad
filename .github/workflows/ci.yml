@@ -117,6 +117,7 @@ jobs:
           echo "N8N_SMTP_USER=${{ vars.N8N_SMTP_USER }}" >> .env
           echo "N8N_SMTP_PASS=${{ secrets.N8N_SMTP_PASS }}" >> .env
           echo "N8N_SMTP_SENDER=${{ vars.N8N_SMTP_SENDER }}" >> .env
+          echo "N8N_SMTP_SSL=${{ vars.N8N_SMTP_SSL }}" >> .env
 
       # Build and run using run.sh script
       - name: Build and run using run.sh
