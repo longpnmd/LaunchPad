@@ -51,7 +51,13 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Create necessary directories and files if they don't exist
+echo "=== Creating necessary directories and files ==="
 [ -f ./config/traefik.yaml ] || touch ./config/traefik.yaml
+[ -f ./config/.htpasswd ] || touch ./config/.htpasswd
+[ -f ./strapi/package.json ] || touch ./strapi/package.json
+[ -f ./strapi/yarn.lock ] || touch ./strapi/yarn.lock
+[ -f ./strapi/.env ] || touch ./strapi/.env
 
 # Start containers with updated environment variables
 echo "=== Starting containers ==="

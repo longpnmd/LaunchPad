@@ -76,14 +76,14 @@ services:
       - "traefik.http.routers.strapi.tls.certresolver=myresolver"
       - "traefik.http.services.strapi.loadbalancer.server.port=${STRAPI_PORT}"
     volumes:
-      - ./strapi/config:/opt/app/config
-      - ./strapi/src:/opt/app/src
-      - ./strapi/package.json:/opt/package.json
-      - ./strapi/yarn.lock:/opt/yarn.lock
-      - ./strapi/.env:/opt/app/.env
-      - ./strapi/data:/opt/app/data
-      - ./strapi/public/uploads:/opt/app/public/uploads
-      - ./strapi/.tmp:/opt/app/.tmp
+      - ~/apps/strapi/config:/opt/app/config
+      - ~/apps/strapi/src:/opt/app/src
+      - ~/apps/strapi/package.json:/opt/package.json
+      - ~/apps/strapi/yarn.lock:/opt/yarn.lock
+      - ~/apps/strapi/.env:/opt/app/.env
+      - ~/apps/strapi/data:/opt/app/data
+      - ~/apps/strapi/public/uploads:/opt/app/public/uploads
+      - ~/apps/strapi/.tmp:/opt/app/.tmp
     networks:
       - web
 
@@ -122,14 +122,14 @@ services:
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./config/traefik.yaml:/config/traefik.yaml
-      - ./config/.htpasswd:/config/.htpasswd
-      - ./letsencrypt:/letsencrypt
+      - ~/apps/config/traefik.yaml:/config/traefik.yaml
+      - ~/apps/config/.htpasswd:/config/.htpasswd
+      - ~/apps/letsencrypt:/letsencrypt
     networks:
       - web
 
   postgres:
-    container_name: launchpad-postgres
+    container_name: postgres
     image: postgres:14-alpine
     restart: unless-stopped
     env_file:
@@ -143,12 +143,12 @@ services:
       - POSTGRES_MULTIPLE_DATABASES=${N8N_DB_NAME:-n8n}
     volumes:
       - postgres-data:/var/lib/postgresql/data
-      - ./postgres/init:/docker-entrypoint-initdb.d:ro
+      - ~/apps/postgres/init:/docker-entrypoint-initdb.d:ro
     networks:
       - web
 
   n8n:
-    container_name: launchpad-n8n
+    container_name: n8n
     image: n8nio/n8n:latest
     restart: unless-stopped
     env_file:
@@ -191,7 +191,7 @@ services:
       - "traefik.http.middlewares.n8n-redirect.redirectscheme.scheme=https"
       - "traefik.http.routers.n8n.middlewares=n8n-redirect"
     volumes:
-      - ./n8n_data:/home/node/.n8n
+      - ~/apps/n8n_data:/home/node/.n8n
     depends_on:
       - postgres
     networks:
