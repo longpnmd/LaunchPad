@@ -204,6 +204,8 @@ services:
       - "traefik.http.routers.portainer.rule=Host(`monitor.${BASE_DOMAIN}`)"
       - "traefik.http.routers.portainer.entrypoints=websecure"
       - "traefik.http.routers.portainer.tls.certresolver=myresolver"
+      - "traefik.http.middlewares.portainer-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.portainer.middlewares=portainer-redirect"
     networks:
       - web
 

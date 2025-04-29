@@ -1,213 +1,71 @@
+launchpad-strapi  | yarn run v1.22.22
+launchpad-strapi  | $ strapi start
+launchpad-strapi  | 
+launchpad-strapi  |  Project information
+launchpad-strapi  | 
+launchpad-strapi  | ┌────────────────────┬──────────────────────────────────────────────────┐
+launchpad-strapi  | │ Time               │ Tue Apr 29 2025 09:16:09 GMT+0000 (Coordinated … │
+launchpad-strapi  | │ Launched in        │ 1137 ms                                          │
+launchpad-strapi  | │ Environment        │ production                                       │
+launchpad-strapi  | │ Process PID        │ 28                                               │
+launchpad-strapi  | │ Version            │ 5.12.4 (node v18.20.8)                           │
+launchpad-strapi  | │ Edition            │ Community                                        │
+launchpad-strapi  | │ Database           │ postgres                                         │
+launchpad-strapi  | │ Database name      │ strapi                                           │
+launchpad-strapi  | │ Database schema    │ public                                           │
+launchpad-strapi  | └────────────────────┴──────────────────────────────────────────────────┘
+launchpad-strapi  | 
+launchpad-strapi  |  Actions available
+launchpad-strapi  | 
+launchpad-strapi  | Welcome back!
+launchpad-strapi  | To manage your project 🚀, go to the administration panel at:
+launchpad-strapi  | http://0.0.0.0:1337/admin
+launchpad-strapi  | 
+launchpad-strapi  | To access the server ⚡️, go to:
+launchpad-strapi  | http://0.0.0.0:1337
+launchpad-strapi  | 
+launchpad-strapi  | [2025-04-29 09:16:09.832] [32minfo[39m: Strapi started successfully
+n8n               | Initializing n8n process
+n8n               | n8n ready on 0.0.0.0, port 5678
+n8n               | 
+n8n               | There is a deprecation related to your environment variables. Please take the recommended actions to update your configuration:
+n8n               |  - N8N_RUNNERS_ENABLED -> Running n8n without task runners is deprecated. Task runners will be turned on by default in a future version. Please set `N8N_RUNNERS_ENABLED=true` to enable task runners now and avoid potential issues in the future. Learn more: https://docs.n8n.io/hosting/configuration/task-runners/
+n8n               | 
+n8n               | Version: 1.90.2
+n8n               | 
+n8n               | Editor is now accessible via:
+n8n               | https://n8n.swiftsync.tech
+n8n               | Failed to renew license: renewal failed because current cert is not initialized
+n8n               | Community package installed: n8n-nodes-youtube-transcription-kasha
+n8n               | Unable to sign without access token
 launchpad-nextjs  |   ▲ Next.js 14.2.5
 launchpad-nextjs  |   - Local:        http://localhost:3000
 launchpad-nextjs  |   - Network:      http://0.0.0.0:3000
 launchpad-nextjs  | 
 launchpad-nextjs  |  ✓ Starting...
-launchpad-nextjs  |  ✓ Ready in 45ms
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
+launchpad-nextjs  |  ✓ Ready in 70ms
+portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:310[0m[36m >[0m encryption key file not present | [36mfilename=[0mportainer
+portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:334[0m[36m >[0m proceeding without encryption key |
+portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/database/boltdb/db.go:133[0m[36m >[0m loading PortainerDB | [36mfilename=[0mportainer.db
+portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/chisel/service.go:200[0m[36m >[0m found Chisel private key file on disk | [36mprivate-key=[0m/data/chisel/private-key.pem
+portainer         | 2025/04/29 10:01:07 server: Reverse tunnelling enabled
+portainer         | 2025/04/29 10:01:07 server: Fingerprint lxvzrjHlQvJlNTNOuMm47wGqn1GJUMUBjd6NFKZ8+S4=
+portainer         | 2025/04/29 10:01:07 server: Listening on http://0.0.0.0:8000
+portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:601[0m[36m >[0m starting Portainer | [36mbuild_number=[0m174 [36mgo_version=[0m1.23.5 [36mimage_tag=[0m2.27.4-linux-arm64 [36mnodejs_version=[0m18.20.8 [36mversion=[0m2.27.4 [36mwebpack_version=[0m5.88.2 [36myarn_version=[0m1.22.22
+portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:363[0m[36m >[0m starting HTTPS server | [36mbind_address=[0m:9443
+portainer         | [90m2025/04/29 10:01AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:347[0m[36m >[0m starting HTTP server | [36mbind_address=[0m:9000
+traefik           | time="2025-04-29T09:09:53Z" level=info msg="Configuration loaded from flags."
+traefik           | time="2025-04-29T09:10:03Z" level=error msg="Unable to obtain ACME certificate for domains \"monitor.swiftsync.tech\": unable to generate a certificate for the domains [monitor.swiftsync.tech]: error: one or more domains had a problem:\n[monitor.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://monitor.swiftsync.tech/.well-known/acme-challenge/bVbRiR0Il6eqTXs8pPsqqxSOTi8H8PbGayBjH0dJ3hk: Connection refused\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker rule="Host(`monitor.swiftsync.tech`)" providerName=myresolver.acme
+traefik           | time="2025-04-29T09:16:12Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/hXBnowiPL43q9gD4W4BQA4PJ0mGa_NdMuwRT39GKWXc: Connection refused\n" routerName=strapi@docker rule="Host(`beta-admin.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
+traefik           | time="2025-04-29T09:16:16Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta.swiftsync.tech/.well-known/acme-challenge/QhVkz5or8AFH_OK6E51obOL3sJia5YF7mZXsTpuf2OQ: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=nextjs@docker rule="Host(`beta.swiftsync.tech`)"
+traefik           | time="2025-04-29T09:16:16Z" level=error msg="Unable to obtain ACME certificate for domains \"monitor.swiftsync.tech\": unable to generate a certificate for the domains [monitor.swiftsync.tech]: error: one or more domains had a problem:\n[monitor.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://monitor.swiftsync.tech/.well-known/acme-challenge/hEniafROFYk_KYQWmlEnTL48jHi37k1GzKgNxi1sYfk: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker rule="Host(`monitor.swiftsync.tech`)"
+traefik           | time="2025-04-29T09:16:17Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/JM291JCzi6liOOMagIXap-CXAvMofHoJb7QUdGpAhUo: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`n8n-beta.swiftsync.tech`)" routerName=n8n@docker
 postgres          | 
 postgres          | PostgreSQL Database directory appears to contain a database; Skipping initialization
 postgres          | 
-postgres          | 2025-04-29 08:09:44.206 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
-postgres          | 2025-04-29 08:09:44.207 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-postgres          | 2025-04-29 08:09:44.207 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-postgres          | 2025-04-29 08:09:44.212 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-postgres          | 2025-04-29 08:09:44.216 UTC [27] LOG:  database system was shut down at 2025-04-29 07:43:39 UTC
-postgres          | 2025-04-29 08:09:44.235 UTC [1] LOG:  database system is ready to accept connections
-postgres          | 2025-04-29 08:13:09.270 UTC [1] LOG:  received fast shutdown request
-postgres          | 2025-04-29 08:13:09.273 UTC [1] LOG:  aborting any active transactions
-postgres          | 2025-04-29 08:13:09.276 UTC [1] LOG:  background worker "logical replication launcher" (PID 33) exited with exit code 1
-postgres          | 2025-04-29 08:13:09.277 UTC [28] LOG:  shutting down
-postgres          | 2025-04-29 08:13:09.292 UTC [1] LOG:  database system is shut down
-postgres          | 
-postgres          | PostgreSQL Database directory appears to contain a database; Skipping initialization
-postgres          | 
-postgres          | 2025-04-29 08:19:23.238 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
-postgres          | 2025-04-29 08:19:23.238 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-portainer         | [90m2025/04/29 08:09AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:310[0m[36m >[0m encryption key file not present | [36mfilename=[0mportainer
-portainer         | [90m2025/04/29 08:09AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:334[0m[36m >[0m proceeding without encryption key |
-portainer         | [90m2025/04/29 08:09AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/database/boltdb/db.go:133[0m[36m >[0m loading PortainerDB | [36mfilename=[0mportainer.db
-portainer         | [90m2025/04/29 08:09AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/chisel/service.go:200[0m[36m >[0m found Chisel private key file on disk | [36mprivate-key=[0m/data/chisel/private-key.pem
-portainer         | 2025/04/29 08:09:44 server: Reverse tunnelling enabled
-portainer         | 2025/04/29 08:09:44 server: Fingerprint lxvzrjHlQvJlNTNOuMm47wGqn1GJUMUBjd6NFKZ8+S4=
-postgres          | 2025-04-29 08:19:23.238 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-postgres          | 2025-04-29 08:19:23.240 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-postgres          | 2025-04-29 08:19:23.244 UTC [26] LOG:  database system was shut down at 2025-04-29 08:13:09 UTC
-portainer         | 2025/04/29 08:09:44 server: Listening on http://0.0.0.0:8000
-portainer         | [90m2025/04/29 08:09AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:601[0m[36m >[0m starting Portainer | [36mbuild_number=[0m174 [36mgo_version=[0m1.23.5 [36mimage_tag=[0m2.27.4-linux-arm64 [36mnodejs_version=[0m18.20.8 [36mversion=[0m2.27.4 [36mwebpack_version=[0m5.88.2 [36myarn_version=[0m1.22.22
-portainer         | [90m2025/04/29 08:09AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:363[0m[36m >[0m starting HTTPS server | [36mbind_address=[0m:9443
-portainer         | [90m2025/04/29 08:09AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:347[0m[36m >[0m starting HTTP server | [36mbind_address=[0m:9000
-portainer         | [90m2025/04/29 08:19AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:310[0m[36m >[0m encryption key file not present | [36mfilename=[0mportainer
-postgres          | 2025-04-29 08:19:23.262 UTC [1] LOG:  database system is ready to accept connections
-portainer         | [90m2025/04/29 08:19AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:334[0m[36m >[0m proceeding without encryption key |
-portainer         | [90m2025/04/29 08:19AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/database/boltdb/db.go:133[0m[36m >[0m loading PortainerDB | [36mfilename=[0mportainer.db
-portainer         | [90m2025/04/29 08:19AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/chisel/service.go:200[0m[36m >[0m found Chisel private key file on disk | [36mprivate-key=[0m/data/chisel/private-key.pem
-n8n               | Initializing n8n process
-n8n               | n8n ready on 0.0.0.0, port 5678
-n8n               | 
-n8n               | There is a deprecation related to your environment variables. Please take the recommended actions to update your configuration:
-portainer         | 2025/04/29 08:19:23 server: Reverse tunnelling enabled
-portainer         | 2025/04/29 08:19:23 server: Fingerprint lxvzrjHlQvJlNTNOuMm47wGqn1GJUMUBjd6NFKZ8+S4=
-portainer         | 2025/04/29 08:19:23 server: Listening on http://0.0.0.0:8000
-portainer         | [90m2025/04/29 08:19AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:601[0m[36m >[0m starting Portainer | [36mbuild_number=[0m174 [36mgo_version=[0m1.23.5 [36mimage_tag=[0m2.27.4-linux-arm64 [36mnodejs_version=[0m18.20.8 [36mversion=[0m2.27.4 [36mwebpack_version=[0m5.88.2 [36myarn_version=[0m1.22.22
-n8n               |  - N8N_RUNNERS_ENABLED -> Running n8n without task runners is deprecated. Task runners will be turned on by default in a future version. Please set `N8N_RUNNERS_ENABLED=true` to enable task runners now and avoid potential issues in the future. Learn more: https://docs.n8n.io/hosting/configuration/task-runners/
-portainer         | [90m2025/04/29 08:19AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:363[0m[36m >[0m starting HTTPS server | [36mbind_address=[0m:9443
-portainer         | [90m2025/04/29 08:19AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:347[0m[36m >[0m starting HTTP server | [36mbind_address=[0m:9000
-portainer         | [90m2025/04/29 08:24AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/adminmonitor/admin_monitor.go:62[0m[36m >[0m the Portainer instance timed out for security purposes, to re-enable your Portainer instance, you will need to restart Portainer |
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-n8n               | 
-n8n               | Version: 1.90.2
-n8n               | 
-n8n               | Editor is now accessible via:
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-n8n               | https://n8n.swiftsync.tech
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi  | yarn run v1.22.22
-launchpad-strapi  | error Error: EISDIR: illegal operation on a directory, read
-launchpad-strapi  | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-traefik           | time="2025-04-29T08:09:44Z" level=info msg="Configuration loaded from flags."
-traefik           | time="2025-04-29T08:09:54Z" level=error msg="Unable to obtain ACME certificate for domains \"monitor.swiftsync.tech\": unable to generate a certificate for the domains [monitor.swiftsync.tech]: error: one or more domains had a problem:\n[monitor.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://monitor.swiftsync.tech/.well-known/acme-challenge/eKYCBEJHtyU_R5NtgI5NPsl7THREqIHaQBycaAnzTo0: Connection refused\n" routerName=portainer@docker rule="Host(`monitor.swiftsync.tech`)" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" providerName=myresolver.acme
-traefik           | time="2025-04-29T08:11:53Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:11:53Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:11:54Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:11:54Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:11:55Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7 providerName=docker
-traefik           | time="2025-04-29T08:11:55Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:11:57Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7 providerName=docker
-traefik           | time="2025-04-29T08:11:57Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:11:59Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/NgPZ-AgUgugdbdXBojWz1oCrwuzr1bgCE18y6yhPrrY: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`beta-admin.swiftsync.tech`)" routerName=strapi@docker
-traefik           | time="2025-04-29T08:12:00Z" level=error msg="Unable to obtain ACME certificate for domains \"monitor.swiftsync.tech\": unable to generate a certificate for the domains [monitor.swiftsync.tech]: error: one or more domains had a problem:\n[monitor.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://monitor.swiftsync.tech/.well-known/acme-challenge/_He5_SowN0Bh8aYvyrS-D7WIdqJwf4cekpCSvCLn7W8: Connection refused\n" rule="Host(`monitor.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker
-traefik           | time="2025-04-29T08:12:00Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7 providerName=docker
-traefik           | time="2025-04-29T08:12:00Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:12:07Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:12:12Z" level=error msg="Unable to obtain ACME certificate for domains \"monitor.swiftsync.tech\": unable to generate a certificate for the domains [monitor.swiftsync.tech]: error: one or more domains had a problem:\n[monitor.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://monitor.swiftsync.tech/.well-known/acme-challenge/7vXZ52djR-6q5O04o994iPKx4fn5F87Rg0tJq2_rCiU: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker rule="Host(`monitor.swiftsync.tech`)"
-traefik           | time="2025-04-29T08:12:15Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/O4l8EZqhVwxQe2JbaznNJMWGe2S2l_XKe-7Xo6-9tyA: Connection refused\n" rule="Host(`beta-admin.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=strapi@docker
-traefik           | time="2025-04-29T08:12:20Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:12:20Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:12:46Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7 providerName=docker
-traefik           | time="2025-04-29T08:12:51Z" level=error msg="Unable to obtain ACME certificate for domains \"monitor.swiftsync.tech\": unable to generate a certificate for the domains [monitor.swiftsync.tech]: error: one or more domains had a problem:\n[monitor.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://monitor.swiftsync.tech/.well-known/acme-challenge/sdRs9TFnoA5mT318EI27aMC19Y4GuNDQAo912Vi27VI: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker rule="Host(`monitor.swiftsync.tech`)"
-traefik           | time="2025-04-29T08:12:52Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/zyuZsWoWdyoPN5DqViE-uJQZR1bX46a7zeFA6GfjpAY: Connection refused\n" routerName=strapi@docker rule="Host(`beta-admin.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
-traefik           | time="2025-04-29T08:13:09Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
-traefik           | time="2025-04-29T08:13:09Z" level=error msg="accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
-traefik           | time="2025-04-29T08:13:09Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
-traefik           | time="2025-04-29T08:13:09Z" level=error msg="close tcp [::]:80: use of closed network connection" entryPointName=web
-traefik           | time="2025-04-29T08:13:09Z" level=error msg="close tcp [::]:443: use of closed network connection" entryPointName=websecure
-traefik           | time="2025-04-29T08:13:09Z" level=error msg="close tcp [::]:8080: use of closed network connection" entryPointName=traefik
-traefik           | time="2025-04-29T08:19:23Z" level=info msg="Configuration loaded from flags."
-traefik           | time="2025-04-29T08:19:23Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:23Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:24Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:24Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:25Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:25Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:27Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7 providerName=docker
-traefik           | time="2025-04-29T08:19:30Z" level=error msg="Unable to obtain ACME certificate for domains \"monitor.swiftsync.tech\": unable to generate a certificate for the domains [monitor.swiftsync.tech]: error: one or more domains had a problem:\n[monitor.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://monitor.swiftsync.tech/.well-known/acme-challenge/4B-pMXAqBBGcA97s73UKcmerwFifiPUzXnIj9fycKfk: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker rule="Host(`monitor.swiftsync.tech`)"
-traefik           | time="2025-04-29T08:19:31Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:35Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/I1ms1OXlgVvkZgJ8Y7ZUVtaD2X8Jw3TucQDMrJwivRE: Connection refused\n" routerName=strapi@docker rule="Host(`beta-admin.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
-traefik           | time="2025-04-29T08:19:37Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:37Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:50Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:54Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:54Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:19:58Z" level=error msg="Unable to obtain ACME certificate for domains \"monitor.swiftsync.tech\": unable to generate a certificate for the domains [monitor.swiftsync.tech]: error: one or more domains had a problem:\n[monitor.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://monitor.swiftsync.tech/.well-known/acme-challenge/zVL2v32HkNeCF7Hp37cdkD3NDu-_Sg2uIMOyw7c_X2o: Connection refused\n" rule="Host(`monitor.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker
-traefik           | time="2025-04-29T08:19:58Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/viANJsaMw-CKUzm4U8UudVO4BdVibrYe8RQU7OGgECk: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=strapi@docker rule="Host(`beta-admin.swiftsync.tech`)"
-traefik           | time="2025-04-29T08:19:59Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta.swiftsync.tech/.well-known/acme-challenge/zJ_zYX93tC6C_0ZpmP9MZk9PxYIXjbxMdEdU7xZvXkA: Connection refused\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=nextjs@docker rule="Host(`beta.swiftsync.tech`)" providerName=myresolver.acme
-traefik           | time="2025-04-29T08:20:03Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/3plBIKk60q95X0X6UYZc5tVES2v143zAEZIpgj3_-RA: Connection refused\n" routerName=n8n@docker rule="Host(`n8n-beta.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
-traefik           | time="2025-04-29T08:20:16Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7 providerName=docker
-traefik           | time="2025-04-29T08:20:16Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:21:07Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7 providerName=docker
-traefik           | time="2025-04-29T08:21:07Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:22:08Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:22:08Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:23:08Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:23:08Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7 providerName=docker
-traefik           | time="2025-04-29T08:24:08Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:24:08Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:25:08Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:25:14Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/SfQ4tM7c7XEwfIAuQ0gXMc7mBn-BzpHAN0OD8g46gEE: Connection refused\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=strapi@docker rule="Host(`beta-admin.swiftsync.tech`)"
-traefik           | time="2025-04-29T08:25:15Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/0IeifztVYSfT6-Sl1tU8vAyqt20Xl9TFI8rq6pXJzh4: Connection refused\n" rule="Host(`n8n-beta.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=n8n@docker
-traefik           | time="2025-04-29T08:25:16Z" level=error msg="Unable to obtain ACME certificate for domains \"monitor.swiftsync.tech\": unable to generate a certificate for the domains [monitor.swiftsync.tech]: error: one or more domains had a problem:\n[monitor.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://monitor.swiftsync.tech/.well-known/acme-challenge/dYq0QyY1sodeZB_ZYTNMxzyATrjrOWZreDRYGJbSwpc: Connection refused\n" routerName=portainer@docker rule="Host(`monitor.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
-traefik           | time="2025-04-29T08:25:17Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta.swiftsync.tech/.well-known/acme-challenge/UCdHDN1_lmVOmMsAdS6L6GcPjcKMHdSlbNTEGMvm2PY: Connection refused\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=nextjs@docker rule="Host(`beta.swiftsync.tech`)" providerName=myresolver.acme
-traefik           | time="2025-04-29T08:26:08Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:26:08Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:27:09Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:27:09Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:28:09Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
-traefik           | time="2025-04-29T08:28:09Z" level=error msg="service \"strapi\" error: unable to find the IP address for the container \"/launchpad-strapi\": the server is ignored" providerName=docker container=strapi-launchpad-c715bce63c3fcce879fd388d74cfd64246c6bd95bfbfa734ff83fdc57ae602f7
+postgres          | 2025-04-29 09:09:52.864 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres          | 2025-04-29 09:09:52.864 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres          | 2025-04-29 09:09:52.864 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres          | 2025-04-29 09:09:52.867 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres          | 2025-04-29 09:09:52.871 UTC [27] LOG:  database system was shut down at 2025-04-29 08:39:14 UTC
+postgres          | 2025-04-29 09:09:52.882 UTC [1] LOG:  database system is ready to accept connections
