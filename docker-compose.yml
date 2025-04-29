@@ -76,14 +76,7 @@ services:
       - "traefik.http.routers.strapi.tls.certresolver=myresolver"
       - "traefik.http.services.strapi.loadbalancer.server.port=${STRAPI_PORT}"
     volumes:
-      - ~/apps/strapi/config:/opt/app/config
-      - ~/apps/strapi/src:/opt/app/src
-      - ~/apps/strapi/package.json:/opt/package.json
-      - ~/apps/strapi/yarn.lock:/opt/yarn.lock
-      - ~/apps/strapi/.env:/opt/app/.env
-      - ~/apps/strapi/data:/opt/app/data
       - ~/apps/strapi/public/uploads:/opt/app/public/uploads
-      - ~/apps/strapi/.tmp:/opt/app/.tmp
     networks:
       - web
 
