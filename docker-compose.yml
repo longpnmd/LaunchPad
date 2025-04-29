@@ -174,7 +174,6 @@ services:
       - DB_POSTGRESDB_USER=${DATABASE_USERNAME:-postgres}
       - DB_POSTGRESDB_PASSWORD=${DATABASE_PASSWORD}
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
-      - EXECUTIONS_PROCESS=main
       - N8N_EMAIL_MODE=smtp
       - N8N_SMTP_HOST=${N8N_SMTP_HOST}
       - N8N_SMTP_PORT=${N8N_SMTP_PORT:-587}
@@ -183,6 +182,8 @@ services:
       - N8N_SMTP_SENDER=${N8N_SMTP_SENDER}
       - N8N_ALLOW_CUSTOM_NODES=true
       - N8N_ALLOW_COMMUNITY_NODES=true
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_RUNNERS_ENABLED=true
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.n8n.rule=Host(`n8n-beta.${BASE_DOMAIN}`)"

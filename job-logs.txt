@@ -1,22 +1,69 @@
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-traefik             | time="2025-04-29T03:33:11Z" level=info msg="Configuration loaded from flags."
-traefik             | 2025/04/29 03:33:11 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:33:12Z" level=info msg="Configuration loaded from flags."
+launchpad-nextjs  |   ▲ Next.js 14.2.5
+launchpad-nextjs  |   - Local:        http://localhost:3000
+launchpad-nextjs  |   - Network:      http://0.0.0.0:3000
+launchpad-nextjs  | 
+launchpad-nextjs  |  ✓ Starting...
+launchpad-nextjs  |  ✓ Ready in 39ms
+traefik           | time="2025-04-29T03:33:11Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:33:11 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:33:12Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:33:12 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:33:12Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:33:12 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:33:13Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:33:13 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:33:14Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:33:14 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:33:16Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:33:16 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:33:19Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:33:19 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:33:26Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:33:26 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:33:39Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:33:39 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:34:04Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:34:04 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:34:56Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:34:56 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:35:56Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:35:56 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:36:56Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:36:56 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:37:57Z" level=info msg="Configuration loaded from flags."
+traefik           | 2025/04/29 03:37:57 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik           | time="2025-04-29T03:38:57Z" level=info msg="Configuration loaded from flags."
+traefik             | 2025/04/29 03:38:57 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik             | time="2025-04-29T03:39:57Z" level=info msg="Configuration loaded from flags."
+traefik             | 2025/04/29 03:39:57 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik             | time="2025-04-29T03:40:57Z" level=info msg="Configuration loaded from flags."
+traefik             | 2025/04/29 03:40:57 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik             | time="2025-04-29T03:41:57Z" level=info msg="Configuration loaded from flags."
+traefik             | 2025/04/29 03:41:57 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+traefik             | time="2025-04-29T03:42:58Z" level=info msg="Configuration loaded from flags."
+traefik             | 2025/04/29 03:42:58 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
+portainer         | [90m2025/04/29 03:43AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:310[0m[36m >[0m encryption key file not present | [36mfilename=[0mportainer
+portainer           | [90m2025/04/29 03:43AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:334[0m[36m >[0m proceeding without encryption key |
+portainer           | [90m2025/04/29 03:43AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/database/boltdb/db.go:133[0m[36m >[0m loading PortainerDB | [36mfilename=[0mportainer.db
+portainer           | [90m2025/04/29 03:43AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/chisel/service.go:200[0m[36m >[0m found Chisel private key file on disk | [36mprivate-key=[0m/data/chisel/private-key.pem
+portainer           | 2025/04/29 03:43:48 server: Reverse tunnelling enabled
+portainer           | 2025/04/29 03:43:48 server: Fingerprint lxvzrjHlQvJlNTNOuMm47wGqn1GJUMUBjd6NFKZ8+S4=
+portainer           | 2025/04/29 03:43:48 server: Listening on http://0.0.0.0:8000
+portainer           | [90m2025/04/29 03:43AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:601[0m[36m >[0m starting Portainer | [36mbuild_number=[0m174 [36mgo_version=[0m1.23.5 [36mimage_tag=[0m2.27.4-linux-arm64 [36mnodejs_version=[0m18.20.8 [36mversion=[0m2.27.4 [36mwebpack_version=[0m5.88.2 [36myarn_version=[0m1.22.22
+portainer           | [90m2025/04/29 03:43AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:363[0m[36m >[0m starting HTTPS server | [36mbind_address=[0m:9443
+portainer           | [90m2025/04/29 03:43AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:347[0m[36m >[0m starting HTTP server | [36mbind_address=[0m:9000
+launchpad-postgres  | 
+launchpad-postgres  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+launchpad-postgres  | 
+launchpad-postgres  | 2025-04-29 03:31:59.276 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+launchpad-postgres  | 2025-04-29 03:31:59.276 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+launchpad-postgres  | 2025-04-29 03:31:59.276 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+launchpad-postgres  | 2025-04-29 03:31:59.279 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+launchpad-postgres  | 2025-04-29 03:31:59.285 UTC [27] LOG:  database system was shut down at 2025-04-29 03:24:33 UTC
+launchpad-postgres  | 2025-04-29 03:31:59.290 UTC [1] LOG:  database system is ready to accept connections
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:24:35.303] [31merror[39m: getaddrinfo ENOTFOUND postgres
-portainer           | [90m2025/04/29 03:31AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:310[0m[36m >[0m encryption key file not present | [36mfilename=[0mportainer
-portainer           | [90m2025/04/29 03:31AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:334[0m[36m >[0m proceeding without encryption key |
-portainer           | [90m2025/04/29 03:31AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/database/boltdb/db.go:133[0m[36m >[0m loading PortainerDB | [36mfilename=[0mportainer.db
-portainer           | [90m2025/04/29 03:31AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/chisel/service.go:200[0m[36m >[0m found Chisel private key file on disk | [36mprivate-key=[0m/data/chisel/private-key.pem
-portainer           | 2025/04/29 03:31:59 server: Reverse tunnelling enabled
-portainer           | 2025/04/29 03:31:59 server: Fingerprint lxvzrjHlQvJlNTNOuMm47wGqn1GJUMUBjd6NFKZ8+S4=
-portainer           | 2025/04/29 03:31:59 server: Listening on http://0.0.0.0:8000
-portainer           | [90m2025/04/29 03:31AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:601[0m[36m >[0m starting Portainer | [36mbuild_number=[0m174 [36mgo_version=[0m1.23.5 [36mimage_tag=[0m2.27.4-linux-arm64 [36mnodejs_version=[0m18.20.8 [36mversion=[0m2.27.4 [36mwebpack_version=[0m5.88.2 [36myarn_version=[0m1.22.22
-portainer           | [90m2025/04/29 03:31AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:363[0m[36m >[0m starting HTTPS server | [36mbind_address=[0m:9443
-portainer           | [90m2025/04/29 03:31AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:347[0m[36m >[0m starting HTTP server | [36mbind_address=[0m:9000
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
 launchpad-strapi    | [2025-04-29 03:24:35.303] [32minfo[39m: Shutting down Strapi
@@ -25,111 +72,30 @@ launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documen
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:24:36.784] [31merror[39m: getaddrinfo ENOTFOUND postgres
-launchpad-nextjs    |   ▲ Next.js 14.2.5
-launchpad-nextjs    |   - Local:        http://localhost:3000
-launchpad-nextjs    |   - Network:      http://0.0.0.0:3000
-launchpad-nextjs    | 
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-portainer           | [90m2025/04/29 03:36AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/adminmonitor/admin_monitor.go:62[0m[36m >[0m the Portainer instance timed out for security purposes, to re-enable your Portainer instance, you will need to restart Portainer |
-launchpad-nextjs    |  ✓ Starting...
-launchpad-nextjs    |  ✓ Ready in 39ms
-traefik             | 2025/04/29 03:33:12 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-launchpad-postgres  | 
-launchpad-postgres  | PostgreSQL Database directory appears to contain a database; Skipping initialization
-launchpad-postgres  | 
-launchpad-postgres  | 2025-04-29 03:31:59.276 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
-launchpad-postgres  | 2025-04-29 03:31:59.276 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-launchpad-postgres  | 2025-04-29 03:31:59.276 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-traefik             | time="2025-04-29T03:33:12Z" level=info msg="Configuration loaded from flags."
-traefik             | 2025/04/29 03:33:12 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:33:13Z" level=info msg="Configuration loaded from flags."
-traefik             | 2025/04/29 03:33:13 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:33:14Z" level=info msg="Configuration loaded from flags."
-traefik             | 2025/04/29 03:33:14 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:33:16Z" level=info msg="Configuration loaded from flags."
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-traefik             | 2025/04/29 03:33:16 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:33:19Z" level=info msg="Configuration loaded from flags."
-traefik             | 2025/04/29 03:33:19 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:33:26Z" level=info msg="Configuration loaded from flags."
-launchpad-postgres  | 2025-04-29 03:31:59.279 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-launchpad-postgres  | 2025-04-29 03:31:59.285 UTC [27] LOG:  database system was shut down at 2025-04-29 03:24:33 UTC
-launchpad-postgres  | 2025-04-29 03:31:59.290 UTC [1] LOG:  database system is ready to accept connections
-traefik             | 2025/04/29 03:33:26 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:33:39Z" level=info msg="Configuration loaded from flags."
-traefik             | 2025/04/29 03:33:39 traefik.go:80: command traefik error: error while building entryPoint dashboard: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:34:04Z" level=info msg="Configuration loaded from flags."
-traefik             | 2025/04/29 03:34:04 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:34:56Z" level=info msg="Configuration loaded from flags."
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
 launchpad-strapi    | [2025-04-29 03:24:36.785] [32minfo[39m: Shutting down Strapi
 launchpad-strapi    | error Command failed with exit code 1.
-traefik             | 2025/04/29 03:34:56 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:35:56Z" level=info msg="Configuration loaded from flags."
-traefik             | 2025/04/29 03:35:56 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:36:56Z" level=info msg="Configuration loaded from flags."
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-traefik             | 2025/04/29 03:36:56 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:37:57Z" level=info msg="Configuration loaded from flags."
-traefik             | 2025/04/29 03:37:57 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-traefik             | time="2025-04-29T03:38:57Z" level=info msg="Configuration loaded from flags."
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-traefik             | 2025/04/29 03:38:57 traefik.go:80: command traefik error: error while building entryPoint traefik: error preparing server: error opening listener: listen tcp :8080: bind: address already in use
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:24:38.387] [31merror[39m: getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
 launchpad-strapi    | [2025-04-29 03:24:38.387] [32minfo[39m: Shutting down Strapi
 launchpad-strapi    | error Command failed with exit code 1.
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:24:40.038] [31merror[39m: getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
 launchpad-strapi    | [2025-04-29 03:24:40.038] [32minfo[39m: Shutting down Strapi
 launchpad-strapi    | error Command failed with exit code 1.
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:24:42.048] [31merror[39m: getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
 launchpad-strapi    | [2025-04-29 03:24:42.048] [32minfo[39m: Shutting down Strapi
@@ -138,100 +104,45 @@ launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documen
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:24:44.901] [31merror[39m: getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
 launchpad-strapi    | [2025-04-29 03:24:44.901] [32minfo[39m: Shutting down Strapi
 launchpad-strapi    | error Command failed with exit code 1.
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:24:49.339] [31merror[39m: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
 launchpad-strapi    | [2025-04-29 03:24:49.339] [32minfo[39m: Shutting down Strapi
 launchpad-strapi    | error Command failed with exit code 1.
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:24:56.931] [31merror[39m: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
 launchpad-strapi    | [2025-04-29 03:24:56.932] [32minfo[39m: Shutting down Strapi
 launchpad-strapi    | error Command failed with exit code 1.
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 launchpad-strapi    | yarn run v1.22.22
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:25:11.493] [31merror[39m: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
 launchpad-strapi    | [2025-04-29 03:25:11.493] [32minfo[39m: Shutting down Strapi
 launchpad-strapi    | error Command failed with exit code 1.
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:25:38.483] [31merror[39m: getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
 launchpad-strapi    | [2025-04-29 03:25:38.483] [32minfo[39m: Shutting down Strapi
 launchpad-strapi    | error Command failed with exit code 1.
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
 launchpad-strapi    | [2025-04-29 03:26:31.144] [31merror[39m: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
@@ -240,64 +151,59 @@ launchpad-strapi    | error Command failed with exit code 1.
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
 launchpad-strapi    | [2025-04-29 03:27:32.548] [31merror[39m: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
 launchpad-strapi    | [2025-04-29 03:27:32.549] [32minfo[39m: Shutting down Strapi
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 launchpad-strapi    | error Command failed with exit code 1.
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
 launchpad-strapi    | yarn run v1.22.22
-launchpad-strapi    | $ strapi start
 launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
 launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-strapi    | [2025-04-29 03:28:34.447] [31merror[39m: getaddrinfo ENOTFOUND postgres
-launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
 launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-strapi    | $ strapi start
+launchpad-strapi    | [2025-04-29 03:28:34.447] [31merror[39m: getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
 launchpad-strapi    | [2025-04-29 03:28:34.447] [32minfo[39m: Shutting down Strapi
 launchpad-strapi    | error Command failed with exit code 1.
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-n8n       | Initializing n8n process
 launchpad-n8n       | There was an error initializing DB
 launchpad-n8n       | getaddrinfo ENOTFOUND postgres
 launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:29:35.756] [31merror[39m: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
 launchpad-strapi    | [2025-04-29 03:29:35.756] [32minfo[39m: Shutting down Strapi
-launchpad-strapi    | error Command failed with exit code 1.
-launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
 launchpad-n8n       | Initializing n8n process
 launchpad-n8n       | There was an error initializing DB
+launchpad-strapi    | error Command failed with exit code 1.
+launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
 launchpad-strapi    | yarn run v1.22.22
 launchpad-strapi    | $ strapi start
 launchpad-strapi    | [2025-04-29 03:30:37.170] [31merror[39m: getaddrinfo ENOTFOUND postgres
@@ -306,44 +212,46 @@ launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:d
 launchpad-strapi    | [2025-04-29 03:30:37.170] [32minfo[39m: Shutting down Strapi
 launchpad-strapi    | error Command failed with exit code 1.
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-launchpad-strapi    | yarn run v1.22.22
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-strapi    | $ strapi start
-launchpad-strapi    | [2025-04-29 03:31:38.537] [31merror[39m: getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
 launchpad-n8n       | Last session crashed
 launchpad-n8n       | Initializing n8n process
+launchpad-strapi    | yarn run v1.22.22
+launchpad-strapi    | $ strapi start
+launchpad-strapi    | [2025-04-29 03:31:38.537] [31merror[39m: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    | Error: getaddrinfo ENOTFOUND postgres
 launchpad-strapi    |     at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
 launchpad-n8n       | There was an error initializing DB
 launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
 launchpad-strapi    | [2025-04-29 03:31:38.537] [32minfo[39m: Shutting down Strapi
 launchpad-strapi    | error Command failed with exit code 1.
 launchpad-strapi    | info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
 launchpad-strapi    | yarn run v1.22.22
-launchpad-strapi    | $ strapi start
-launchpad-strapi    | 
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
 launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
 launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-strapi    |  Project information
-launchpad-strapi    | 
-launchpad-strapi    | ┌────────────────────┬──────────────────────────────────────────────────┐
-launchpad-strapi    | │ Time               │ Tue Apr 29 2025 03:32:40 GMT+0000 (Coordinated … │
 launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
 launchpad-n8n       | Last session crashed
+launchpad-strapi    | $ strapi start
+launchpad-strapi    | 
+launchpad-strapi    |  Project information
+launchpad-strapi    | 
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-strapi    | ┌────────────────────┬──────────────────────────────────────────────────┐
+launchpad-strapi    | │ Time               │ Tue Apr 29 2025 03:32:40 GMT+0000 (Coordinated … │
 launchpad-strapi    | │ Launched in        │ 713 ms                                           │
 launchpad-strapi    | │ Environment        │ production                                       │
 launchpad-strapi    | │ Process PID        │ 28                                               │
 launchpad-strapi    | │ Version            │ 5.12.4 (node v18.20.8)                           │
 launchpad-strapi    | │ Edition            │ Community                                        │
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
 launchpad-strapi    | │ Database           │ postgres                                         │
 launchpad-strapi    | │ Database name      │ strapi                                           │
 launchpad-strapi    | │ Database schema    │ public                                           │
-launchpad-strapi    | └────────────────────┴──────────────────────────────────────────────────┘
 launchpad-n8n       | getaddrinfo ENOTFOUND postgres
 launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
 launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
@@ -352,39 +260,138 @@ launchpad-n8n       | Last session crashed
 launchpad-n8n       | Initializing n8n process
 launchpad-n8n       | There was an error initializing DB
 launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-strapi    | └────────────────────┴──────────────────────────────────────────────────┘
 launchpad-strapi    | 
 launchpad-strapi    |  Actions available
 launchpad-strapi    | 
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
-launchpad-n8n       | getaddrinfo ENOTFOUND postgres
-launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
-launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
-launchpad-n8n       | Last session crashed
 launchpad-strapi    | Welcome back!
 launchpad-strapi    | To manage your project 🚀, go to the administration panel at:
-launchpad-n8n       | Initializing n8n process
-launchpad-n8n       | There was an error initializing DB
 launchpad-strapi    | http://0.0.0.0:1337/admin
 launchpad-strapi    | 
 launchpad-strapi    | To access the server ⚡️, go to:
 launchpad-strapi    | http://0.0.0.0:1337
 launchpad-strapi    | 
+launchpad-strapi    | [2025-04-29 03:32:40.885] [32minfo[39m: Strapi started successfully
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
 launchpad-n8n       | getaddrinfo ENOTFOUND postgres
 launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
-launchpad-strapi    | [2025-04-29 03:32:40.885] [32minfo[39m: Strapi started successfully
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
+launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
+launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
+launchpad-n8n       | Last session crashed
+launchpad-n8n       | Initializing n8n process
+launchpad-n8n       | There was an error initializing DB
+launchpad-n8n       | getaddrinfo ENOTFOUND postgres
+launchpad-n8n       | Permissions 0777 for n8n settings file /home/node/.n8n/config are too wide. This is ignored for now, but in the future n8n will attempt to change the permissions automatically. To automatically enforce correct permissions now set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true (recommended), or turn this check off set N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=false.
 launchpad-n8n       | User settings loaded from: /home/node/.n8n/config
 launchpad-n8n       | Please unset the deprecated env variableEXECUTIONS_PROCESS
 launchpad-n8n       | Last session crashed
