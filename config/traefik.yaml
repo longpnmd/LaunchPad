@@ -64,3 +64,13 @@ http:
         replacement: "https://${1}/${2}"
     compress:
       compress: {}
+
+certificatesResolvers:
+  myresolver:
+    acme:
+      email: "{{ env \"CER_ACME_EMAIL\" }}"
+      storage: /letsencrypt/acme.json
+      httpChallenge:
+        entryPoint: web
+      # caServer: https://acme-staging-v02.api.letsencrypt.org/directory
+      caServer: https://acme-v02.api.letsencrypt.org/directory

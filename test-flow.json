@@ -1,321 +1,391 @@
 {
+  "id": "Iz8TMdlc6JhaKkd9",
+  "meta": {
+    "instanceId": "dacfda6d2e1dbefe99a005845405509e9929b16710017f4bd5d2bf758941295c",
+    "templateCredsSetupCompleted": true
+  },
+  "name": "YouTube Video Transcriber",
+  "tags": [],
   "nodes": [
     {
-      "id": "9320d08a-4868-4103-abdf-3f8f54a7a0a0",
-      "name": "Webhook",
-      "type": "n8n-nodes-base.webhook",
+      "id": "a4e2f554-ebae-41df-912a-0d1081fa1736",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "position": [
-        0,
-        0
+        -100,
+        -60
       ],
-      "webhookId": "9024e29e-9080-4cf5-9a6b-0d918468f195",
+      "webhookId": "70129cbe-1a05-495f-bd92-18d36c1bc260",
       "parameters": {
-        "path": "ytube",
-        "options": {},
-        "httpMethod": "POST",
-        "responseMode": "responseNode"
-      },
-      "typeVersion": 2
-    },
-    {
-      "id": "a5cc8922-8124-4269-9cfd-e891b29cc2b7",
-      "name": "YouTube Transcript",
-      "type": "n8n-nodes-youtube-transcription.youtubeTranscripter",
-      "position": [
-        800,
-        0
-      ],
-      "parameters": {},
-      "typeVersion": 1
-    },
-    {
-      "id": "ff3c0fd1-36d8-4d64-b405-0600efd4d93b",
-      "name": "Split Out",
-      "type": "n8n-nodes-base.splitOut",
-      "position": [
-        200,
-        260
-      ],
-      "parameters": {
-        "options": {},
-        "fieldToSplitOut": "transcript"
-      },
-      "typeVersion": 1
-    },
-    {
-      "id": "423276e0-81bf-487a-bbdd-26e9b84fa755",
-      "name": "Respond to Webhook",
-      "type": "n8n-nodes-base.respondToWebhook",
-      "position": [
-        1200,
-        140
-      ],
-      "parameters": {
-        "options": {}
+        "public": true,
+        "options": {
+          "title": "Youtube Video Transcriber 🚀",
+          "subtitle": "Have a great transcription!  📖",
+          "inputPlaceholder": "Insert a URL of a YouTube video.  💻"
+        },
+        "initialMessages": "Give me a URL of a video from YouTube to start! 👍"
       },
       "typeVersion": 1.1
     },
     {
-      "id": "27344649-8029-48ae-867b-7363d904fc59",
-      "name": "Telegram",
-      "type": "n8n-nodes-base.telegram",
-      "position": [
-        1200,
-        380
-      ],
-      "parameters": {
-        "text": "={{ $json.title }}\n{{ $json.youtubeUrl }}",
-        "additionalFields": {
-          "parse_mode": "HTML",
-          "appendAttribution": false
-        }
-      },
-      "typeVersion": 1.2
-    },
-    {
-      "id": "230c0325-d22a-4070-9460-748a6fef48d5",
-      "name": "Get YouTube URL",
-      "type": "n8n-nodes-base.set",
-      "position": [
-        200,
-        0
-      ],
-      "parameters": {
-        "options": {},
-        "assignments": {
-          "assignments": [
-            {
-              "id": "3ee42e4c-3cee-4934-97e7-64c96b5691ed",
-              "name": "youtubeUrl",
-              "type": "string",
-              "value": "={{ $json.body.youtubeUrl }}"
-            }
-          ]
-        }
-      },
-      "typeVersion": 3.4
-    },
-    {
-      "id": "420e90c3-9dfa-4f41-825a-9874b5ebe43a",
-      "name": "YouTube Video ID",
+      "id": "34b2b12e-0eb5-4f59-bd30-e7b595d06b8c",
+      "name": "Code",
       "type": "n8n-nodes-base.code",
       "position": [
-        400,
-        0
+        280,
+        -60
       ],
       "parameters": {
-        "jsCode": "const extractYoutubeId = (url) => {\n  // Regex pattern that matches both youtu.be and youtube.com URLs\n  const pattern = /(?:youtube\\.com\\/(?:[^\\/]+\\/.+\\/|(?:v|e(?:mbed)?)\\/|.*[?&]v=)|youtu\\.be\\/)([^\"&?\\/\\s]{11})/;\n  const match = url.match(pattern);\n  return match ? match[1] : null;\n};\n\n// Input URL from previous node\nconst youtubeUrl = items[0].json.youtubeUrl; // Adjust this based on your workflow\n\n// Process the URL and return the video ID\nreturn [{\n  json: {\n    videoId: extractYoutubeId(youtubeUrl)\n  }\n}];\n"
+        "language": "python",
+        "pythonCode": "import re\n\ndef youtube_video_url_validatior(video_url) -> str:\n  try:\n    if not video_url:\n      return {\"text\": 'URL from the video is required.', \"is_valid\": False}\n    \n    video_url: str = re.sub(r\"\\s{2,}\", \" \", video_url.strip())\n    \n    if not video_url:\n      return {\"text\": 'URL from the video is required.', \"is_valid\": False}\n    \n    if len(video_url) < 25:\n      return {\"text\": 'URL is too short to be a valid YouTube URL.', \"is_valid\": False}\n    \n    # if not re.match(r'^[A-Za-z0-9:/._?&=-]+$', video_url):\n    #   return {\"text\": 'URL contains invalid characters.', \"is_valid\": False}\n    \n    is_valid: bool = False\n    \n    for pattern in [\n        r'^https?://(?:www\\.)?youtube\\.com/watch\\?v=[\\w-]{11}',\n        r'^https?://youtu\\.be/[\\w-]{11}',\n        r'^https?://(?:www\\.)?youtube\\.com/embed/[\\w-]{11}',\n        r'^https?://(?:www\\.)?youtube\\.com/v/[\\w-]{11}',\n    ]:\n        if re.match(pattern, video_url):\n          is_valid = True\n          \n          break\n    \n    if not is_valid:\n      return {\"text\": 'Invalid YouTube URL format.', \"is_valid\": False}\n      \n    video_url_id: str | None = re.search(r'(?:v=|youtu\\.be/|embed/|v/)([\\w-]{11})', video_url).group(1)\n    \n    if not video_url_id or not re.match(r'^[\\w-]{11}$', video_url_id):\n      return {\"text\": 'Invalid YouTube video ID.', \"is_valid\": False}\n    \n    return {\"text\": video_url, \"is_valid\": True}\n  except Exception as ex:\n    raise ex\n\nreturn youtube_video_url_validatior(_input.first().json.chatInput)"
       },
       "typeVersion": 2
     },
     {
-      "id": "a4171c3e-1ff2-40de-af7f-b3971a1ebe79",
-      "name": "Get YouTube Video",
-      "type": "n8n-nodes-base.youTube",
+      "id": "712cbf28-df12-44fc-b54a-bc21e13e55e7",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
       "position": [
         600,
-        0
+        -240
       ],
       "parameters": {
         "options": {},
-        "videoId": "={{ $json.videoId }}",
-        "resource": "video",
-        "operation": "get"
-      },
-      "typeVersion": 1
-    },
-    {
-      "id": "73e6bfc5-8b62-4880-acd4-292f2f692540",
-      "name": "gpt-4o-mini",
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
-      "position": [
-        620,
-        440
-      ],
-      "parameters": {
-        "options": {}
-      },
-      "typeVersion": 1
-    },
-    {
-      "id": "ea14e296-b30c-46f7-b283-746822ae1af4",
-      "name": "Summarize & Analyze Transcript",
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "position": [
-        600,
-        260
-      ],
-      "parameters": {
-        "text": "=Please analyze the given text and create a structured summary following these guidelines:\n\n1. Break down the content into main topics using Level 2 headers (##)\n2. Under each header:\n   - List only the most essential concepts and key points\n   - Use bullet points for clarity\n   - Keep explanations concise\n   - Preserve technical accuracy\n   - Highlight key terms in bold\n3. Organize the information in this sequence:\n   - Definition/Background\n   - Main characteristics\n   - Implementation details\n   - Advantages/Disadvantages\n4. Format requirements:\n   - Use markdown formatting\n   - Keep bullet points simple (no nesting)\n   - Bold important terms using **term**\n   - Use tables for comparisons\n   - Include relevant technical details\n\nPlease provide a clear, structured summary that captures the core concepts while maintaining technical accuracy.\n\nHere is the text: {{ $json.concatenated_text\n }}",
-        "promptType": "define"
-      },
-      "typeVersion": 1.4
-    },
-    {
-      "id": "90e3488f-f854-483e-9106-a5760d0c0457",
-      "name": "Concatenate",
-      "type": "n8n-nodes-base.summarize",
-      "position": [
-        400,
-        260
-      ],
-      "parameters": {
-        "options": {},
-        "fieldsToSummarize": {
-          "values": [
+        "conditions": {
+          "options": {
+            "version": 2,
+            "leftValue": "",
+            "caseSensitive": true,
+            "typeValidation": "loose"
+          },
+          "combinator": "and",
+          "conditions": [
             {
-              "field": "text",
-              "separateBy": " ",
-              "aggregation": "concatenate"
+              "id": "b8927a53-2755-4364-84b1-5340c5c31af5",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.is_valid }}",
+              "rightValue": ""
             }
           ]
-        }
+        },
+        "looseTypeValidation": true
+      },
+      "typeVersion": 2.2
+    },
+    {
+      "id": "be9e1903-25bc-4f1b-8793-5e657205dd5d",
+      "name": "Respond to Webhook - Chat Message",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [
+        600,
+        60
+      ],
+      "parameters": {
+        "options": {},
+        "respondWith": "text",
+        "responseBody": "={{ $json.text }}"
+      },
+      "retryOnFail": true,
+      "typeVersion": 1.1
+    },
+    {
+      "id": "98bc7747-e688-4683-8686-ca44023f8648",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -200,
+        -240
+      ],
+      "parameters": {
+        "color": 5,
+        "width": 300,
+        "height": 420,
+        "content": "## Entry Point\n\nThe workflow entry point is the  node chat message."
       },
       "typeVersion": 1
     },
     {
-      "id": "9c5c249c-5eeb-4433-ba93-ace4611f4858",
-      "name": "Response Object",
+      "id": "7ca94ab6-7306-4b04-8b34-eb9e0937d681",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        180,
+        -240
+      ],
+      "parameters": {
+        "color": 3,
+        "width": 300,
+        "height": 420,
+        "content": "## Validation - URL\n\nThis node ensures that only a valid youtube video url goes forward."
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "c719c022-b55b-42b3-ab5f-36c0e1d62512",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1360,
+        -320
+      ],
+      "parameters": {
+        "color": 4,
+        "width": 460,
+        "height": 560,
+        "content": "## Data Structuring\n\nHere is the core of the workflow, where structuring is done to get the right format to answer.\n\n**NOTE:**\n\n1. Users implementing this template must modify the language in the OpenAI prompt to suit their desired output.\n\n2. An OpenAI API key is essential and must be properly configured to support data structuring and processing.  "
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "7e1fa50f-7bd3-4bed-8537-969baa4c61de",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        820,
+        -480
+      ],
+      "parameters": {
+        "color": 7,
+        "width": 460,
+        "height": 900,
+        "content": "## Supadata\n\nSupadata is a powerful tool that converts YouTube video URLs into structured data via a simple API. It efficiently extracts transcriptions, making it ideal for AI training, data analysis, or text-based applications.\n\n**NOTE:**\n\n1. Users implementing this template must change the language in the query parameter to suit their needs. \n\n2. An API key is required and must be configured for the workflow to function properly."
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "35bf3191-4113-4a92-85a8-b22d3b2a4134",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -920,
+        -180
+      ],
+      "parameters": {
+        "width": 640,
+        "height": 300,
+        "content": "## Description\n\nThis workflow simplifies access to YouTube video content converting into clear and concise transcriptions, ideal for users seeking practicality. It transcribes YouTube videos directly and returns the text, eliminating the need to watch the full video. \n\nThe need for this workflow arose from the demands of studying, where, amidst the fast-paced routine of daily life, reading transcribed content proved faster and more efficient for creating summaries than watching entire videos. Often, time constraints make it difficult to watch videos in full, and written text allows for quicker absorption of information. This solution provides a seamless way to access and review content from any YouTube video, regardless of the topic."
+      },
+      "typeVersion": 1
+    },
+    {
+      "id": "2ea0b992-231b-4f6d-9f6f-9f488d266cfb",
+      "name": "Edit Fields - Respond to Chat Message 2",
       "type": "n8n-nodes-base.set",
       "position": [
-        960,
-        260
+        1000,
+        180
       ],
       "parameters": {
         "options": {},
         "assignments": {
           "assignments": [
             {
-              "id": "bf132004-6636-411f-9d85-0c696fda84c4",
-              "name": "summary",
+              "id": "66270798-60eb-4ab8-8572-ab957474e260",
+              "name": "text",
               "type": "string",
-              "value": "={{ $json.text }}"
-            },
-            {
-              "id": "63c8d0e3-685c-488a-9b45-363cf52479ea",
-              "name": "topics",
-              "type": "array",
-              "value": "=[]"
-            },
-            {
-              "id": "171f30cf-34e9-42f3-8735-814024bfde0b",
-              "name": "title",
-              "type": "string",
-              "value": "={{ $('Get YouTube Video').item.json.snippet.title }}"
-            },
-            {
-              "id": "7f26f5a3-e695-49d1-b1e8-9260c31f1b3d",
-              "name": "description",
-              "type": "string",
-              "value": "={{ $('Get YouTube Video').item.json.snippet.description }}"
-            },
-            {
-              "id": "d0594232-cb39-453c-b015-3b039c098e1f",
-              "name": "id",
-              "type": "string",
-              "value": "={{ $('Get YouTube Video').item.json.id }}"
-            },
-            {
-              "id": "17b6ca08-ce89-4467-bd25-0d2d182f7a8b",
-              "name": "youtubeUrl",
-              "type": "string",
-              "value": "={{ $('Webhook').item.json.body.youtubeUrl }}"
+              "value": "={{ $json.error }} - {{ $json.message }}"
             }
           ]
         }
       },
       "typeVersion": 3.4
+    },
+    {
+      "id": "9846e903-015a-4111-b582-572d473fe4d3",
+      "name": "Edit Fields - Respond to Chat Message 3",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1900,
+        -320
+      ],
+      "parameters": {
+        "options": {},
+        "assignments": {
+          "assignments": [
+            {
+              "id": "97e0c175-8060-43da-9761-5c25d660c7ed",
+              "name": "text",
+              "type": "string",
+              "value": "={{ $json.message.content }}"
+            }
+          ]
+        }
+      },
+      "typeVersion": 3.4
+    },
+    {
+      "id": "775e067c-3518-4c64-a939-5f9b9b435b3c",
+      "name": "Edit Fields - Respond to Chat Message 4",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1900,
+        100
+      ],
+      "parameters": {
+        "options": {},
+        "assignments": {
+          "assignments": [
+            {
+              "id": "66270798-60eb-4ab8-8572-ab957474e260",
+              "name": "text",
+              "type": "string",
+              "value": "=Something went wrong with the data structuring."
+            }
+          ]
+        }
+      },
+      "typeVersion": 3.4
+    },
+    {
+      "id": "91e22fcc-79b8-48d2-ba6e-bfb699ed9a07",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "onError": "continueErrorOutput",
+      "position": [
+        1000,
+        -100
+      ],
+      "parameters": {
+        "url": "=https://api.supadata.ai/v1/youtube/transcript?url={{ $json.text }}&text=true&lang=pt",
+        "options": {
+          "timeout": 300000
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "SUPADATA_API_KEY"
+            }
+          ]
+        }
+      },
+      "executeOnce": false,
+      "notesInFlow": false,
+      "retryOnFail": false,
+      "typeVersion": 4.2,
+      "alwaysOutputData": false
+    },
+    {
+      "id": "3fce199e-2e95-40a8-a78e-20a25c3f4300",
+      "name": "OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "onError": "continueErrorOutput",
+      "position": [
+        1460,
+        20
+      ],
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini-2024-07-18",
+          "cachedResultName": "GPT-4O-MINI-2024-07-18"
+        },
+        "options": {},
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are an expert in grammar corrections and textual structuring.\n\nCorrect the classification of the provided text, adding commas, periods, question marks and other symbols necessary for natural and consistent reading. Do not change any words, just adjust the punctuation according to the grammatical rules and context.\n\nOrganize your content using markdown, structuring it with titles, subtitles, lists or other protected elements to clearly highlight the topics and information captured. Leave it in Portuguese and remember to always maintain the original formatting.\n\nTextual organization should always be a priority according to the content of the text, as well as the appropriate title, which must make sense."
+            },
+            {
+              "content": "={{ $json.content }}"
+            }
+          ]
+        }
+      },
+      "credentials": {
+        "openAiApi": {
+          "id": "GpAe9wonPZjokqpc",
+          "name": "OpenAi account"
+        }
+      },
+      "retryOnFail": true,
+      "typeVersion": 1.8
     }
   ],
+  "active": true,
   "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d2f6a7fb-f3e1-462f-8627-7f67cc7bfa5b",
   "connections": {
-    "Webhook": {
+    "If": {
       "main": [
         [
           {
-            "node": "Get YouTube URL",
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond to Webhook - Chat Message",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Split Out": {
+    "Code": {
       "main": [
         [
           {
-            "node": "Concatenate",
+            "node": "If",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Concatenate": {
+    "OpenAI": {
       "main": [
         [
           {
-            "node": "Summarize & Analyze Transcript",
+            "node": "Edit Fields - Respond to Chat Message 3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields - Respond to Chat Message 4",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "gpt-4o-mini": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Summarize & Analyze Transcript",
-            "type": "ai_languageModel",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Get YouTube URL": {
+    "HTTP Request": {
       "main": [
         [
           {
-            "node": "YouTube Video ID",
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields - Respond to Chat Message 2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Response Object": {
+    "When chat message received": {
       "main": [
         [
           {
-            "node": "Respond to Webhook",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "Telegram",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "YouTube Video ID": {
-      "main": [
-        [
-          {
-            "node": "Get YouTube Video",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Summarize & Analyze Transcript": {
-      "main": [
-        [
-          {
-            "node": "Response Object",
+            "node": "Code",
             "type": "main",
             "index": 0
           }

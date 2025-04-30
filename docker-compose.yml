@@ -23,10 +23,6 @@ services:
       - IMAGE_HOSTNAME=${NEXT_IMAGE_HOSTNAME}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.nextjs.rule=Host(`beta.${BASE_DOMAIN}`)"
-      - "traefik.http.routers.nextjs.entrypoints=websecure"
-      - "traefik.http.routers.nextjs.tls.certresolver=myresolver"
-      - "traefik.http.services.nextjs.loadbalancer.server.port=${NEXT_PORT}"
     depends_on:
       - strapi
     networks:
@@ -71,10 +67,6 @@ services:
       - DATABASE_PASSWORD=${DATABASE_PASSWORD}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.strapi.rule=Host(`beta-admin.${BASE_DOMAIN}`)"
-      - "traefik.http.routers.strapi.entrypoints=websecure"
-      - "traefik.http.routers.strapi.tls.certresolver=myresolver"
-      - "traefik.http.services.strapi.loadbalancer.server.port=${STRAPI_PORT}"
     volumes:
       - ~/apps/strapi/public/uploads:/opt/app/public/uploads
     networks:
@@ -89,6 +81,7 @@ services:
     environment:
       - TRAEFIK_CERTIFICATESRESOLVERS_LE_ACME_STORAGE=/letsencrypt/acme.json
       - BASE_DOMAIN=${BASE_DOMAIN:-localhost.dev}
+      - CER_ACME_EMAIL=${CER_ACME_EMAIL:-admin@${BASE_DOMAIN}}
     command:
       - --api.insecure=true
       - --api.dashboard=true
@@ -103,13 +96,6 @@ services:
       - --providers.docker.network=web
       - --providers.file.watch=true
       - --providers.file.directory=/config/
-      - --certificatesresolvers.myresolver.acme.email=${CER_ACME_EMAIL}
-      - --certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json
-      - --certificatesresolvers.myresolver.acme.httpchallenge=true
-      - --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
-      # TODO : Use Staging Environment for Testing
-      # - --certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
-      - --certificatesresolvers.myresolver.acme.caserver=https://acme-v02.api.letsencrypt.org/directory
     ports:
       - "80:80"
       - "443:443"
@@ -181,10 +167,6 @@ services:
       - N8N_AUTH_EXCLUDE_ENDPOINTS=
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.n8n.rule=Host(`n8n-beta.${BASE_DOMAIN}`)"
-      - "traefik.http.routers.n8n.entrypoints=websecure"
-      - "traefik.http.routers.n8n.tls.certresolver=myresolver"
-      - "traefik.http.services.n8n.loadbalancer.server.port=${N8N_PORT:-5678}"
     volumes:
       - ~/apps/n8n_data:/home/node/.n8n
     depends_on:
@@ -203,9 +185,6 @@ services:
       - portainer_data:/data
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.${BASE_DOMAIN}`)"
-      - "traefik.http.routers.portainer.entrypoints=websecure"
-      - "traefik.http.routers.portainer.tls.certresolver=myresolver"
     networks:
       - web
 
