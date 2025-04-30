@@ -7,7 +7,9 @@ export function strapiImage(url: string): string {
     if (!process.env.NEXT_PUBLIC_API_URL && document?.location.host.endsWith(".strapidemo.com")) {
       return `https://${document.location.host.replace("client-", "api-")}${url}`
     }
-
+    if (url.startsWith("/uploads/") && process.env.NEXT_IMAGE_HOSTNAME) {
+      return `https://${process.env.NEXT_IMAGE_HOSTNAME}${url}`
+    }
     return process.env.NEXT_PUBLIC_API_URL + url
   }
   return url
