@@ -1,6 +1,5 @@
 http:
   routers:
-    # Define a connection between requests and services
     dashboard:
       rule: (Host(`traefik.{{ env "BASE_DOMAIN" }}`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`)))
       service: api@internal
@@ -13,39 +12,48 @@ http:
       service: strapi@docker
       middlewares:
         - rate-limit
-        - https-redirectscheme
+        - https-redirect
       tls:
         certResolver: myresolver
+      entryPoints:
+        - websecure
     nextjs:
       rule: Host(`beta.{{ env "BASE_DOMAIN" }}`)
       service: nextjs@docker
       middlewares:
         - rate-limit
-        - https-redirectscheme
+        - https-redirect
       tls:
         certResolver: myresolver
+      entryPoints:
+        - websecure
     n8n:
       rule: Host(`n8n-beta.{{ env "BASE_DOMAIN" }}`)
       service: n8n@docker
       middlewares:
         - rate-limit
-        - https-redirectscheme
+        - https-redirect
       tls:
         certResolver: myresolver
+      entryPoints:
+        - websecure
     portainer:
       rule: Host(`portainer.{{ env "BASE_DOMAIN" }}`)
       service: portainer@docker
       middlewares:
         - rate-limit
-        - https-redirectscheme
+        - https-redirect
       tls:
         certResolver: myresolver
+      entryPoints:
+        - websecure
     acme-challenge:
       rule: "PathPrefix(`/.well-known/acme-challenge/`)"
       entryPoints:
         - web
       service: acme-challenge@internal
       priority: 100
+
   middlewares:
     basic-auth:
       basicAuth:
@@ -55,22 +63,17 @@ http:
       rateLimit:
         average: 100
         burst: 50
-    https-redirectscheme:
+    https-redirect:
       redirectScheme:
         scheme: https
         permanent: true
-        # Loại trừ đường dẫn /.well-known/acme-challenge/
-        regex: "^https?://(.*)/((?!\\.well-known/acme-challenge/).*)$"
-        replacement: "https://${1}/${2}"
     compress:
       compress: {}
 
 certificatesResolvers:
   myresolver:
     acme:
-      email: "{{ env \"CER_ACME_EMAIL\" }}"
+      email: ${CER_ACME_EMAIL:-admin@localhost.dev}
       storage: /letsencrypt/acme.json
       httpChallenge:
         entryPoint: web
-      # caServer: https://acme-staging-v02.api.letsencrypt.org/directory
-      caServer: https://acme-v02.api.letsencrypt.org/directory

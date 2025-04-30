@@ -23,6 +23,7 @@ services:
       - IMAGE_HOSTNAME=${NEXT_IMAGE_HOSTNAME}
     labels:
       - "traefik.enable=true"
+      - "traefik.http.services.nextjs.loadbalancer.server.port=${NEXT_PORT:-3000}"
     depends_on:
       - strapi
     networks:
@@ -67,6 +68,7 @@ services:
       - DATABASE_PASSWORD=${DATABASE_PASSWORD}
     labels:
       - "traefik.enable=true"
+      - "traefik.http.services.strapi.loadbalancer.server.port=${STRAPI_PORT:-1337}"
     volumes:
       - ~/apps/strapi/public/uploads:/opt/app/public/uploads
     networks:
@@ -96,14 +98,21 @@ services:
       - --providers.docker.network=web
       - --providers.file.watch=true
       - --providers.file.directory=/config/
+      - --certificatesresolvers.myresolver.acme.email=${CER_ACME_EMAIL}
+      - --certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json
+      - --certificatesresolvers.myresolver.acme.httpchallenge=true
+      - --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
+      # TODO : Use Staging Environment for Testing
+      - --certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+      # - --certificatesresolvers.myresolver.acme.caserver=https://acme-v02.api.letsencrypt.org/directory
     ports:
       - "80:80"
       - "443:443"
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ~/apps/config/traefik.yaml:/config/traefik.yaml
-      - ~/apps/config/.htpasswd:/config/.htpasswd
+      - ./config/traefik.yaml:/config/traefik.yaml
+      - ./config/.htpasswd:/config/.htpasswd
       - ~/apps/letsencrypt:/letsencrypt
     networks:
       - web
@@ -167,6 +176,7 @@ services:
       - N8N_AUTH_EXCLUDE_ENDPOINTS=
     labels:
       - "traefik.enable=true"
+      - "traefik.http.services.n8n.loadbalancer.server.port=${N8N_PORT:-5678}"
     volumes:
       - ~/apps/n8n_data:/home/node/.n8n
     depends_on:
@@ -185,6 +195,7 @@ services:
       - portainer_data:/data
     labels:
       - "traefik.enable=true"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
     networks:
       - web
 

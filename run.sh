@@ -53,8 +53,11 @@ fi
 
 # Create necessary directories and files if they don't exist
 echo "=== Creating necessary directories and files ==="
-[ -f ./config/traefik.yaml ] || touch ./config/traefik.yaml
-[ -f ./config/.htpasswd ] || touch ./config/.htpasswd
+[ -d ~/apps/letsencrypt ] || mkdir -p ~/apps/letsencrypt
+[ -f ~/apps/letsencrypt/acme.json] || touch ~/apps/letsencrypt/acme.json
+[ -d ~/apps/next ] || mkdir -p ~/apps/next
+[ -d ~/apps/strapi ] || mkdir -p ~/apps/strapi
+[ -d ~/apps/strapi/public/uploads ] || mkdir -p ~/apps/strapi/public/uploads
 
 # Start containers with updated environment variables
 echo "=== Starting containers ==="
