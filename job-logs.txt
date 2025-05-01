@@ -1,63 +1,47 @@
-n8n               | User settings loaded from: /home/node/.n8n/config
-n8n               | Initializing n8n process
-n8n               | nodes package n8n-nodes-base is already loaded.
-n8n               |  Please delete this second copy at path /home/node/.n8n/nodes/node_modules/n8n-nodes-base
-n8n               | nodes package n8n-nodes-base is already loaded.
-n8n               |  Please delete this second copy at path /home/node/.n8n/nodes/node_modules/n8n-nodes-base
-n8n               | n8n ready on 0.0.0.0, port 5678
-n8n               | 
-n8n               | There is a deprecation related to your environment variables. Please take the recommended actions to update your configuration:
-launchpad-nextjs  |   ▲ Next.js 14.2.5
-launchpad-nextjs  |   - Local:        http://localhost:3000
-n8n               |  - N8N_RUNNERS_ENABLED -> Running n8n without task runners is deprecated. Task runners will be turned on by default in a future version. Please set `N8N_RUNNERS_ENABLED=true` to enable task runners now and avoid potential issues in the future. Learn more: https://docs.n8n.io/hosting/configuration/task-runners/
-n8n               | 
-n8n               | Version: 1.90.2
-n8n               | 
-n8n               | Editor is now accessible via:
-n8n               | https://n8n.swiftsync.tech
-launchpad-strapi  | yarn run v1.22.22
-portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:310[0m[36m >[0m encryption key file not present | [36mfilename=[0mportainer
-portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:334[0m[36m >[0m proceeding without encryption key |
-portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/database/boltdb/db.go:133[0m[36m >[0m loading PortainerDB | [36mfilename=[0mportainer.db
-launchpad-nextjs  |   - Network:      http://0.0.0.0:3000
-launchpad-nextjs  | 
-launchpad-nextjs  |  ✓ Starting...
-launchpad-nextjs  |  ✓ Ready in 33ms
 postgres          | 
 postgres          | PostgreSQL Database directory appears to contain a database; Skipping initialization
-traefik           | time="2025-04-29T15:15:48Z" level=info msg="Configuration loaded from flags."
-traefik           | time="2025-04-29T15:15:54Z" level=error msg="Unable to obtain ACME certificate for domains \"portainer.swiftsync.tech\": unable to generate a certificate for the domains [portainer.swiftsync.tech]: error: one or more domains had a problem:\n[portainer.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://portainer.swiftsync.tech/.well-known/acme-challenge/cTMNslcLjoBgCH3zQGRjNK7a0J5OYmkYGuBjS73trQc: 404\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker rule="Host(`portainer.swiftsync.tech`)" providerName=myresolver.acme
-traefik           | time="2025-04-29T15:15:56Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://beta.swiftsync.tech/.well-known/acme-challenge/KiGHMNE_IMCdZ7x6LSCS25t-CN4DXx3Kp6UqbgdVoGU: 404\n" routerName=nextjs@docker rule="Host(`beta.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
-traefik           | time="2025-04-29T15:15:56Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://beta-admin.swiftsync.tech/.well-known/acme-challenge/y6QpwsYPCN28D62gQxuUoKxoCWn29TAEXRtVJulkluM: 404\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`beta-admin.swiftsync.tech`)" routerName=strapi@docker providerName=myresolver.acme
-traefik           | time="2025-04-29T15:30:04Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://beta-admin.swiftsync.tech/.well-known/acme-challenge/v-Pz2x-am-RdQHMGT7Z1tA5mzAIxzUWK-35FyD5hjgo: 404\n" rule="Host(`beta-admin.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=strapi@docker
-traefik           | time="2025-04-29T15:30:06Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/IKPP3qi2gl4uPDjP-xmwZnZioihnNc0yxyrcxTNbuXA: 404\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=n8n@docker rule="Host(`n8n-beta.swiftsync.tech`)" providerName=myresolver.acme
-traefik           | time="2025-04-29T15:30:06Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://beta.swiftsync.tech/.well-known/acme-challenge/F5WPOh0ahQfC208UytpyuySwnSsykCpW0yWIP9O2fec: 404\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`beta.swiftsync.tech`)" routerName=nextjs@docker providerName=myresolver.acme
-traefik           | time="2025-04-29T15:30:07Z" level=error msg="Unable to obtain ACME certificate for domains \"portainer.swiftsync.tech\": unable to generate a certificate for the domains [portainer.swiftsync.tech]: error: one or more domains had a problem:\n[portainer.swiftsync.tech] acme: error: 403 :: urn:ietf:params:acme:error:unauthorized :: 146.196.64.68: Invalid response from http://portainer.swiftsync.tech/.well-known/acme-challenge/RrGyNfEpvo0HM3u3-qtT6Jhw8eN-7P7Hjnu8TduD-9Q: 404\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`portainer.swiftsync.tech`)" routerName=portainer@docker
 postgres          | 
-postgres          | 2025-04-29 15:15:48.340 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
-postgres          | 2025-04-29 15:15:48.340 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-postgres          | 2025-04-29 15:15:48.340 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-postgres          | 2025-04-29 15:15:48.349 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-postgres          | 2025-04-29 15:15:48.360 UTC [25] LOG:  database system was shut down at 2025-04-29 15:15:47 UTC
-portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/chisel/service.go:200[0m[36m >[0m found Chisel private key file on disk | [36mprivate-key=[0m/data/chisel/private-key.pem
-portainer         | 2025/04/29 15:29:58 server: Reverse tunnelling enabled
-portainer         | 2025/04/29 15:29:58 server: Fingerprint lxvzrjHlQvJlNTNOuMm47wGqn1GJUMUBjd6NFKZ8+S4=
-portainer         | 2025/04/29 15:29:58 server: Listening on http://0.0.0.0:8000
-portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:601[0m[36m >[0m starting Portainer | [36mbuild_number=[0m174 [36mgo_version=[0m1.23.5 [36mimage_tag=[0m2.27.4-linux-arm64 [36mnodejs_version=[0m18.20.8 [36mversion=[0m2.27.4 [36mwebpack_version=[0m5.88.2 [36myarn_version=[0m1.22.22
-portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:363[0m[36m >[0m starting HTTPS server | [36mbind_address=[0m:9443
-portainer         | [90m2025/04/29 03:29PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:347[0m[36m >[0m starting HTTP server | [36mbind_address=[0m:9000
-portainer         | [90m2025/04/29 03:34PM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/adminmonitor/admin_monitor.go:62[0m[36m >[0m the Portainer instance timed out for security purposes, to re-enable your Portainer instance, you will need to restart Portainer |
-postgres          | 2025-04-29 15:15:48.406 UTC [1] LOG:  database system is ready to accept connections
+launchpad-strapi  | yarn run v1.22.22
 launchpad-strapi  | $ strapi start
 launchpad-strapi  | 
 launchpad-strapi  |  Project information
 launchpad-strapi  | 
+portainer         | [90m2025/04/30 09:39AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:310[0m[36m >[0m encryption key file not present | [36mfilename=[0mportainer
+portainer         | [90m2025/04/30 09:39AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:334[0m[36m >[0m proceeding without encryption key |
+portainer         | [90m2025/04/30 09:39AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/database/boltdb/db.go:133[0m[36m >[0m loading PortainerDB | [36mfilename=[0mportainer.db
+portainer         | [90m2025/04/30 09:39AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/chisel/service.go:200[0m[36m >[0m found Chisel private key file on disk | [36mprivate-key=[0m/data/chisel/private-key.pem
+portainer         | 2025/04/30 09:39:28 server: Reverse tunnelling enabled
+portainer         | 2025/04/30 09:39:28 server: Fingerprint lxvzrjHlQvJlNTNOuMm47wGqn1GJUMUBjd6NFKZ8+S4=
+portainer         | 2025/04/30 09:39:28 server: Listening on http://0.0.0.0:8000
+portainer         | [90m2025/04/30 09:39AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/datastore/postinit/migrate_post_init.go:101[0m[36m >[0m Executing post init migration for environment 3 |
+portainer         | [90m2025/04/30 09:39AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/cmd/portainer/main.go:601[0m[36m >[0m starting Portainer | [36mbuild_number=[0m174 [36mgo_version=[0m1.23.5 [36mimage_tag=[0m2.27.4-linux-arm64 [36mnodejs_version=[0m18.20.8 [36mversion=[0m2.27.4 [36mwebpack_version=[0m5.88.2 [36myarn_version=[0m1.22.22
+portainer         | [90m2025/04/30 09:39AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:363[0m[36m >[0m starting HTTPS server | [36mbind_address=[0m:9443
+portainer         | [90m2025/04/30 09:39AM[0m [32mINF[0m [1mgithub.com/portainer/portainer/api/http/server.go:347[0m[36m >[0m starting HTTP server | [36mbind_address=[0m:9000
+n8n               | User settings loaded from: /home/node/.n8n/config
+postgres          | 2025-04-30 05:44:12.956 UTC [1] LOG:  starting PostgreSQL 14.17 on aarch64-unknown-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+postgres          | 2025-04-30 05:44:12.957 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+postgres          | 2025-04-30 05:44:12.957 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+postgres          | 2025-04-30 05:44:12.972 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+postgres          | 2025-04-30 05:44:12.981 UTC [26] LOG:  database system was shut down at 2025-04-30 05:44:12 UTC
+postgres          | 2025-04-30 05:44:12.991 UTC [1] LOG:  database system is ready to accept connections
+n8n               | Initializing n8n process
+traefik           | time="2025-04-30T09:24:13Z" level=info msg="Configuration loaded from flags."
+traefik           | time="2025-04-30T09:24:14Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+traefik           | time="2025-04-30T09:24:14Z" level=error msg="the service \"portainer@docker\" does not exist" routerName=portainer@file entryPointName=websecure
+traefik           | time="2025-04-30T09:24:14Z" level=error msg="the service \"portainer@docker\" does not exist" entryPointName=web routerName=portainer@file
+traefik           | time="2025-04-30T09:25:00Z" level=error msg="accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:25:00Z" level=error msg="close tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:25:00Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:25:00Z" level=error msg="close tcp [::]:443: use of closed network connection" entryPointName=websecure
 launchpad-strapi  | ┌────────────────────┬──────────────────────────────────────────────────┐
-launchpad-strapi  | │ Time               │ Tue Apr 29 2025 15:15:49 GMT+0000 (Coordinated … │
-launchpad-strapi  | │ Launched in        │ 640 ms                                           │
+launchpad-strapi  | │ Time               │ Wed Apr 30 2025 09:41:54 GMT+0000 (Coordinated … │
+launchpad-strapi  | │ Launched in        │ 690 ms                                           │
 launchpad-strapi  | │ Environment        │ production                                       │
-launchpad-strapi  | │ Process PID        │ 28                                               │
+launchpad-strapi  | │ Process PID        │ 27                                               │
 launchpad-strapi  | │ Version            │ 5.12.4 (node v18.20.8)                           │
+traefik           | time="2025-04-30T09:25:00Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:25:00Z" level=error msg="close tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:25:00Z" level=info msg="Configuration loaded from flags."
 launchpad-strapi  | │ Edition            │ Community                                        │
 launchpad-strapi  | │ Database           │ postgres                                         │
 launchpad-strapi  | │ Database name      │ strapi                                           │
@@ -73,4 +57,139 @@ launchpad-strapi  |
 launchpad-strapi  | To access the server ⚡️, go to:
 launchpad-strapi  | http://0.0.0.0:1337
 launchpad-strapi  | 
-launchpad-strapi  | [2025-04-29 15:15:49.916] [32minfo[39m: Strapi started successfully
+launchpad-strapi  | [2025-04-30 09:41:54.786] [32minfo[39m: Strapi started successfully
+n8n               | nodes package n8n-nodes-base is already loaded.
+n8n               |  Please delete this second copy at path /home/node/.n8n/nodes/node_modules/n8n-nodes-base
+n8n               | nodes package n8n-nodes-base is already loaded.
+n8n               |  Please delete this second copy at path /home/node/.n8n/nodes/node_modules/n8n-nodes-base
+n8n               | n8n ready on 0.0.0.0, port 5678
+n8n               | 
+n8n               | There is a deprecation related to your environment variables. Please take the recommended actions to update your configuration:
+n8n               |  - N8N_RUNNERS_ENABLED -> Running n8n without task runners is deprecated. Task runners will be turned on by default in a future version. Please set `N8N_RUNNERS_ENABLED=true` to enable task runners now and avoid potential issues in the future. Learn more: https://docs.n8n.io/hosting/configuration/task-runners/
+n8n               | 
+n8n               | Version: 1.90.2
+n8n               | 
+n8n               | Editor is now accessible via:
+n8n               | https://n8n.swiftsync.tech
+traefik           | time="2025-04-30T09:25:00Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+traefik           | time="2025-04-30T09:25:00Z" level=error msg="the service \"portainer@docker\" does not exist" entryPointName=web routerName=portainer@file
+traefik           | time="2025-04-30T09:25:00Z" level=error msg="the service \"portainer@docker\" does not exist" routerName=portainer@file entryPointName=websecure
+traefik           | time="2025-04-30T09:26:40Z" level=error msg="accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:26:40Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:26:40Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:26:40Z" level=error msg="close tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:26:40Z" level=error msg="close tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:26:40Z" level=error msg="close tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:26:40Z" level=info msg="Configuration loaded from flags."
+traefik           | time="2025-04-30T09:26:40Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+traefik           | time="2025-04-30T09:26:40Z" level=error msg="the service \"portainer@docker\" does not exist" routerName=portainer@file entryPointName=web
+traefik           | time="2025-04-30T09:26:40Z" level=error msg="the service \"portainer@docker\" does not exist" entryPointName=websecure routerName=portainer@file
+traefik           | time="2025-04-30T09:28:06Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:28:06Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:28:06Z" level=error msg="close tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:28:06Z" level=error msg="accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:28:06Z" level=error msg="close tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:28:06Z" level=error msg="close tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:28:07Z" level=info msg="Configuration loaded from flags."
+traefik           | time="2025-04-30T09:28:07Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+traefik           | time="2025-04-30T09:28:07Z" level=error msg="the service \"portainer@docker\" does not exist" entryPointName=websecure routerName=portainer@file
+traefik           | time="2025-04-30T09:28:07Z" level=error msg="the service \"portainer@docker\" does not exist" entryPointName=web routerName=portainer@file
+traefik           | time="2025-04-30T09:28:20Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+traefik           | time="2025-04-30T09:28:20Z" level=error msg="the service \"portainer@docker\" does not exist" entryPointName=web routerName=portainer@file
+traefik           | time="2025-04-30T09:28:20Z" level=error msg="the service \"portainer@docker\" does not exist" routerName=portainer@file entryPointName=websecure
+traefik           | time="2025-04-30T09:28:22Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+traefik           | time="2025-04-30T09:28:29Z" level=error msg="accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:28:29Z" level=error msg="close tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:28:29Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:28:29Z" level=error msg="close tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:28:29Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:28:29Z" level=error msg="close tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:28:30Z" level=info msg="Configuration loaded from flags."
+traefik           | time="2025-04-30T09:28:30Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+traefik           | time="2025-04-30T09:30:09Z" level=error msg="Unable to obtain ACME certificate for domains \"portainer.swiftsync.tech\": unable to generate a certificate for the domains [portainer.swiftsync.tech]: error: one or more domains had a problem:\n[portainer.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://portainer.swiftsync.tech/.well-known/acme-challenge/usw3xrljEXiCabbEM9ewLbPp3wlj7V3DtbRvopnIf2w: Timeout after connect (your server may be slow or overloaded)\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=portainer@docker rule="Host(`portainer.swiftsync.tech`)"
+traefik           | time="2025-04-30T09:30:26Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/9k68iNPGbqAovVc2z5p5EeCBjwziKmqwOT2fh-7EeJg: Timeout after connect (your server may be slow or overloaded)\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=n8n@file rule="Host(`n8n-beta.swiftsync.tech`)"
+traefik           | time="2025-04-30T09:30:27Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/0fNrpZHEpChAYgrDWT9m5fcPl7MXB7_-VMLbe5TNVFc: Timeout after connect (your server may be slow or overloaded)\n" routerName=strapi@file rule="Host(`beta-admin.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
+traefik           | time="2025-04-30T09:30:38Z" level=error msg="Unable to obtain ACME certificate for domains \"traefik.swiftsync.tech\": unable to generate a certificate for the domains [traefik.swiftsync.tech]: error: one or more domains had a problem:\n[traefik.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://traefik.swiftsync.tech/.well-known/acme-challenge/nf8ygdoOK1Xjnp_7HsYed_2AW93UlK8Lc0pXEGpgfAs: Timeout after connect (your server may be slow or overloaded)\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=dashboard@file rule="(Host(`traefik.swiftsync.tech`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`)))"
+traefik           | time="2025-04-30T09:30:48Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta.swiftsync.tech/.well-known/acme-challenge/Q2C_Qc7vkRmnvizl1nKMzCr30NFwgCc9Yc8qPnY00sk: Timeout after connect (your server may be slow or overloaded)\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=nextjs@file rule="Host(`beta.swiftsync.tech`)" providerName=myresolver.acme
+traefik           | time="2025-04-30T09:31:52Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+traefik           | time="2025-04-30T09:31:52Z" level=error msg="the service \"portainer@docker\" does not exist" entryPointName=web routerName=portainer@file
+traefik           | time="2025-04-30T09:31:52Z" level=error msg="the service \"portainer@docker\" does not exist" entryPointName=websecure routerName=portainer@file
+traefik           | time="2025-04-30T09:31:54Z" level=error msg="unknown internal service acme-challenge@internal" routerName=acme-challenge@file entryPointName=web
+traefik           | time="2025-04-30T09:33:06Z" level=error msg="accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:33:06Z" level=error msg="close tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:33:06Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:33:06Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:33:06Z" level=error msg="close tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:33:06Z" level=error msg="close tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:33:07Z" level=info msg="Configuration loaded from flags."
+traefik           | time="2025-04-30T09:33:07Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+traefik           | time="2025-04-30T09:33:10Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:33:10Z" level=error msg="accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:33:10Z" level=error msg="close tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:33:10Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:33:10Z" level=error msg="close tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:33:10Z" level=error msg="close tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:33:11Z" level=info msg="Configuration loaded from flags."
+traefik           | time="2025-04-30T09:33:11Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+traefik           | time="2025-04-30T09:33:25Z" level=error msg="Unable to obtain ACME certificate for domains \"portainer.swiftsync.tech\": unable to generate a certificate for the domains [portainer.swiftsync.tech]: error: one or more domains had a problem:\n[portainer.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://portainer.swiftsync.tech/.well-known/acme-challenge/Rj_4-A1CKYxBO5A1CpmIXgu_xMOwtzlbtXBT0wv_lNY: Timeout during connect (likely firewall problem)\n" routerName=portainer@file providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`portainer.swiftsync.tech`)"
+traefik           | time="2025-04-30T09:33:26Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/6rjvqkLLOtFVO513oUqcHcQ7AL-bxl976HUquZrsp04: Timeout during connect (likely firewall problem)\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=strapi@file rule="Host(`beta-admin.swiftsync.tech`)"
+traefik           | time="2025-04-30T09:33:26Z" level=error msg="Unable to obtain ACME certificate for domains \"traefik.swiftsync.tech\": unable to generate a certificate for the domains [traefik.swiftsync.tech]: error: one or more domains had a problem:\n[traefik.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://traefik.swiftsync.tech/.well-known/acme-challenge/s6cG16TLKNfNLwpwmtEnJTuZqLEIjN41NEvJSnXE6DY: Timeout during connect (likely firewall problem)\n" rule="(Host(`traefik.swiftsync.tech`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`)))" routerName=dashboard@file providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
+traefik           | time="2025-04-30T09:33:27Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta.swiftsync.tech/.well-known/acme-challenge/oWqjaymP_SaULMNG2dXTFGzfcypJmCVwriW8iS5q1Po: Timeout during connect (likely firewall problem)\n" rule="Host(`beta.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=nextjs@docker
+traefik           | time="2025-04-30T09:33:29Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/U3OoeYeyj-9hnrxMmOhmb-fQpE-NVO5UiXUshOaWvTQ: Timeout during connect (likely firewall problem)\n" routerName=n8n@docker rule="Host(`n8n-beta.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
+traefik           | time="2025-04-30T09:35:57Z" level=error msg="unknown internal service acme-challenge@internal" routerName=acme-challenge@file entryPointName=web
+traefik           | time="2025-04-30T09:35:57Z" level=error msg="the service \"portainer@docker\" does not exist" routerName=portainer@file entryPointName=websecure
+traefik           | time="2025-04-30T09:35:59Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+traefik           | time="2025-04-30T09:35:59Z" level=error msg="the service \"portainer@docker\" does not exist" routerName=portainer@file entryPointName=websecure
+traefik           | time="2025-04-30T09:36:09Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/k-0dtCWDQQ07dzGZD8ThKSg19KrwgV6hjbWTi_fXI0o: Timeout during connect (likely firewall problem)\n" routerName=strapi@file rule="Host(`beta-admin.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
+traefik           | time="2025-04-30T09:36:12Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta.swiftsync.tech/.well-known/acme-challenge/NC6Kqq0QmzDEwu1W1itHZ67vtDObI52s8siw9EHe4Hw: Timeout during connect (likely firewall problem)\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=nextjs@file rule="Host(`beta.swiftsync.tech`)" providerName=myresolver.acme
+traefik           | time="2025-04-30T09:36:15Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/suTue83yP7QaCnTadtsvYcUUOzLdbK4noRiI3IVJFns: Timeout during connect (likely firewall problem)\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=n8n@file rule="Host(`n8n-beta.swiftsync.tech`)"
+traefik           | time="2025-04-30T09:36:15Z" level=error msg="Unable to obtain ACME certificate for domains \"traefik.swiftsync.tech\": unable to generate a certificate for the domains [traefik.swiftsync.tech]: error: one or more domains had a problem:\n[traefik.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://traefik.swiftsync.tech/.well-known/acme-challenge/YCdiX-P3_sp1BpPG2880tePI2S54cqsPTNhahsQJW-M: Timeout during connect (likely firewall problem)\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="(Host(`traefik.swiftsync.tech`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`)))" routerName=dashboard@file providerName=myresolver.acme
+traefik           | time="2025-04-30T09:36:17Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:36:17Z" level=error msg="Error while starting server: accept tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:36:17Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:36:17Z" level=error msg="accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:36:17Z" level=error msg="close tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:36:17Z" level=error msg="close tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:36:17Z" level=info msg="Configuration loaded from flags."
+traefik           | time="2025-04-30T09:36:17Z" level=error msg="Error while building configuration (for the first time): /config/traefik.yaml: field not found, node: loadBalancer" providerName=file
+traefik           | time="2025-04-30T09:36:32Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/K1f-5M4uDSj05ZRfneU3vEtku2gkHdOH5IVsHq57Iws: Timeout during connect (likely firewall problem)\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" providerName=myresolver.acme routerName=n8n@docker rule="Host(`n8n-beta.swiftsync.tech`)"
+traefik           | time="2025-04-30T09:36:32Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta.swiftsync.tech/.well-known/acme-challenge/2OlDJJqpeBOsjfpyM9BGAyv_ocy9esI-SifTnwCwi0A: Timeout during connect (likely firewall problem)\n" routerName=nextjs@docker ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" providerName=myresolver.acme rule="Host(`beta.swiftsync.tech`)"
+traefik           | time="2025-04-30T09:36:33Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/rSRiZ_BWMzIk5RU8IuNvR814iPaSPYZmR7CIcnxfeyM: Timeout during connect (likely firewall problem)\n" providerName=myresolver.acme routerName=strapi@docker rule="Host(`beta-admin.swiftsync.tech`)" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
+traefik           | time="2025-04-30T09:38:11Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:38:11Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:38:11Z" level=error msg="accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:38:11Z" level=error msg="close tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:38:11Z" level=error msg="close tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:38:11Z" level=error msg="close tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:38:11Z" level=info msg="Configuration loaded from flags."
+traefik           | time="2025-04-30T09:38:11Z" level=error msg="Error while building configuration (for the first time): /config/traefik.yaml: field not found, node: loadBalancer" providerName=file
+traefik           | time="2025-04-30T09:38:27Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/AviYHxdv66BsxFGINYUFIsZnSzngA_31L1colEEJrVE: Timeout during connect (likely firewall problem)\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=n8n@docker rule="Host(`n8n-beta.swiftsync.tech`)"
+traefik           | time="2025-04-30T09:38:28Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta.swiftsync.tech/.well-known/acme-challenge/JfsygQ-iRNVQngoX705oahJH7I1DWHG3LL6ISLHN3XY: Timeout during connect (likely firewall problem)\n" rule="Host(`beta.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=nextjs@docker
+traefik           | time="2025-04-30T09:38:31Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/-40A0Yk_8jPNs2OSPx25TG7BUauR3sbz1mySP_82-qY: Timeout during connect (likely firewall problem)\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`beta-admin.swiftsync.tech`)" routerName=strapi@docker
+traefik           | time="2025-04-30T09:39:35Z" level=error msg="accept tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:39:35Z" level=error msg="close tcp [::]:8080: use of closed network connection" entryPointName=traefik
+traefik           | time="2025-04-30T09:39:35Z" level=error msg="accept tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:39:35Z" level=error msg="accept tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:39:35Z" level=error msg="close tcp [::]:443: use of closed network connection" entryPointName=websecure
+traefik           | time="2025-04-30T09:39:35Z" level=error msg="close tcp [::]:80: use of closed network connection" entryPointName=web
+traefik           | time="2025-04-30T09:39:35Z" level=info msg="Configuration loaded from flags."
+traefik           | time="2025-04-30T09:39:35Z" level=error msg="unknown internal service acme-challenge@internal" routerName=acme-challenge@file entryPointName=web
+traefik           | time="2025-04-30T09:39:51Z" level=error msg="Unable to obtain ACME certificate for domains \"portainer.swiftsync.tech\": unable to generate a certificate for the domains [portainer.swiftsync.tech]: error: one or more domains had a problem:\n[portainer.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://portainer.swiftsync.tech/.well-known/acme-challenge/2Ue_irvVL-3vPdwdpk-UhqjQvQpDW7_1qCKd8tEPxFg: Timeout during connect (likely firewall problem)\n" routerName=portainer@file rule="Host(`portainer.swiftsync.tech`)" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
+traefik           | time="2025-04-30T09:39:52Z" level=error msg="Unable to obtain ACME certificate for domains \"beta-admin.swiftsync.tech\": unable to generate a certificate for the domains [beta-admin.swiftsync.tech]: error: one or more domains had a problem:\n[beta-admin.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta-admin.swiftsync.tech/.well-known/acme-challenge/rclQdMZDq6LjfbrAWhUC5UljKX7gk4Rh3bb-XILu57I: Timeout during connect (likely firewall problem)\n" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=strapi@docker rule="Host(`beta-admin.swiftsync.tech`)"
+traefik           | time="2025-04-30T09:39:52Z" level=error msg="Unable to obtain ACME certificate for domains \"n8n-beta.swiftsync.tech\": unable to generate a certificate for the domains [n8n-beta.swiftsync.tech]: error: one or more domains had a problem:\n[n8n-beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://n8n-beta.swiftsync.tech/.well-known/acme-challenge/7ELrf7PcQUYIRs-xXVEXC-25j9-QraT_sCoaMvi7Wb0: Timeout during connect (likely firewall problem)\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" routerName=n8n@file rule="Host(`n8n-beta.swiftsync.tech`)" providerName=myresolver.acme
+traefik           | time="2025-04-30T09:39:53Z" level=error msg="Unable to obtain ACME certificate for domains \"traefik.swiftsync.tech\": unable to generate a certificate for the domains [traefik.swiftsync.tech]: error: one or more domains had a problem:\n[traefik.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://traefik.swiftsync.tech/.well-known/acme-challenge/wl5RlLpZ-ygyeSFhqwXeWCVDcAzKe4ccQOZN2k6rP8Q: Timeout during connect (likely firewall problem)\n" routerName=dashboard@file rule="(Host(`traefik.swiftsync.tech`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`)))" providerName=myresolver.acme ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory"
+traefik           | time="2025-04-30T09:39:56Z" level=error msg="Unable to obtain ACME certificate for domains \"beta.swiftsync.tech\": unable to generate a certificate for the domains [beta.swiftsync.tech]: error: one or more domains had a problem:\n[beta.swiftsync.tech] acme: error: 400 :: urn:ietf:params:acme:error:connection :: 146.196.64.68: Fetching http://beta.swiftsync.tech/.well-known/acme-challenge/xNoVpLWtXst6rA3Jyuv_okQDgSR4B1ZdUP8GRPqE_0Y: Timeout during connect (likely firewall problem)\n" ACME CA="https://acme-staging-v02.api.letsencrypt.org/directory" rule="Host(`beta.swiftsync.tech`)" routerName=nextjs@file providerName=myresolver.acme
+traefik           | time="2025-04-30T09:41:53Z" level=error msg="unknown internal service acme-challenge@internal" routerName=acme-challenge@file entryPointName=web
+traefik           | time="2025-04-30T09:41:53Z" level=error msg="the service \"strapi@docker\" does not exist" routerName=strapi@file entryPointName=web
+traefik           | time="2025-04-30T09:41:53Z" level=error msg="the service \"nextjs@docker\" does not exist" entryPointName=web routerName=nextjs@file
+traefik           | time="2025-04-30T09:41:53Z" level=error msg="the service \"n8n@docker\" does not exist" entryPointName=web routerName=n8n@file
+traefik           | time="2025-04-30T09:41:53Z" level=error msg="the service \"nextjs@docker\" does not exist" entryPointName=websecure routerName=nextjs@file
+traefik           | time="2025-04-30T09:41:53Z" level=error msg="the service \"n8n@docker\" does not exist" routerName=n8n@file entryPointName=websecure
+traefik           | time="2025-04-30T09:41:53Z" level=error msg="the service \"strapi@docker\" does not exist" entryPointName=websecure routerName=strapi@file
+traefik           | time="2025-04-30T09:41:55Z" level=error msg="unknown internal service acme-challenge@internal" entryPointName=web routerName=acme-challenge@file
+launchpad-nextjs  |   ▲ Next.js 14.2.5
+launchpad-nextjs  |   - Local:        http://localhost:3000
+launchpad-nextjs  |   - Network:      http://0.0.0.0:3000
+launchpad-nextjs  | 
+launchpad-nextjs  |  ✓ Starting...
+launchpad-nextjs  |  ✓ Ready in 32ms
