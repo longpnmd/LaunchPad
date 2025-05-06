@@ -6,6 +6,9 @@ const plugins: Record<string, any> = () => ({
       locales: ['en', 'vi', 'fr'], // Danh sách các ngôn ngữ được hỗ trợ
     },
   },
+  documentation: {
+    enabled: true,
+  },
 });
 
 export default plugins;

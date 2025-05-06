@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.12.4",
+    "@strapi/plugin-documentation": "^5.12.7",
     "@strapi/plugin-seo": "^2.0.4",
     "@strapi/plugin-users-permissions": "5.12.4",
     "@strapi/strapi": "5.12.4",
