@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "properties",
+  "info": {
+    "singularName": "property", 
+    "pluralName": "properties", 
+    "displayName": "Property",
+    "description": "Real estate property information"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "propertyType": {
+      "type": "enumeration",
+      "enum": ["apartment", "house", "land", "villa", "commercial", "other"]
+    },
+    "location": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "area": {
+      "type": "decimal",
+      "min": 0
+    },
+    "bedrooms": {
+      "type": "integer",
+      "min": 0
+    },
+    "bathrooms": {
+      "type": "integer",
+      "min": 0
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["available", "sold", "pending", "off-market"]
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"]
+    },
+    "listedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "deals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::deal.deal",
+      "mappedBy": "property"
+    },
+    "notes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::note.note",
+      "mappedBy": "property"
+    }
+  }
+}

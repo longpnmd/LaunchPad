@@ -1,4 +1,7 @@
-// import type { Core } from '@strapi/strapi';
+import type { Core } from '@strapi/strapi';
+
+import setupAgentRole from './bootstrap/setup-agent-role';
+import seedMockData from './bootstrap/seed-mock-data';
 
 export default {
   /**
@@ -16,5 +19,11 @@ export default {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap(/* { strapi }: { strapi: Core.Strapi } */) {},
+  bootstrap({ strapi }: { strapi: Core.Strapi }) {
+    // Setup agent role
+    setupAgentRole(strapi);
+    
+    // Seed mock data (bao gồm client stages)
+    seedMockData(strapi);
+  },
 };

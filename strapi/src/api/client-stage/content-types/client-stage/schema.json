@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "client_stages",
+  "info": {
+    "singularName": "client-stage", 
+    "pluralName": "client-stages", 
+    "displayName": "Client Stage",
+    "description": "Define stages in customer lifecycle"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "focus_on": {
+      "type": "string"
+    },
+    "follow_up_automation_days": {
+      "type": "integer",
+      "default": 0
+    },
+    "description": {
+      "type": "text"
+    },
+    "isActiveStage": {
+      "type": "boolean",
+      "default": false
+    },
+    "isSOIStage": {
+      "type": "boolean",
+      "default": false
+    },
+    "customers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::customer.customer",
+      "mappedBy": "stage"
+    }
+  }
+}

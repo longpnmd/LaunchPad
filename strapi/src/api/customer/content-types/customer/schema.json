@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "singularName": "customer", 
+    "pluralName": "customers", 
+    "displayName": "Customer",
+    "description": "Customer/Client information"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": ["website", "facebook", "zalo", "referral", "event", "other"]
+    },
+    "agent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "stage": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client-stage.client-stage",
+      "inversedBy": "customers"
+    },
+    "deals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::deal.deal",
+      "mappedBy": "customer"
+    },
+    "notes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::note.note",
+      "mappedBy": "customer"
+    },
+    "lastContacted": {
+      "type": "datetime"
+    },
+    "nextFollowUp": {
+      "type": "datetime"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "deals",
+  "info": {
+    "singularName": "deal", 
+    "pluralName": "deals", 
+    "displayName": "Deal",
+    "description": "Real estate transactions"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client-stage.client-stage"
+    },
+    "dealValue": {
+      "type": "decimal",
+      "precision": 18,
+      "scale": 2
+    },
+    "dealDate": {
+      "type": "datetime"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "deals"
+    },
+    "property": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::property.property", 
+      "inversedBy": "deals"
+    },
+    "agent": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "notes": {
+      "type": "relation",
+      "relation": "oneToMany", 
+      "target": "api::note.note",
+      "mappedBy": "deal"
+    }
+  }
+}
