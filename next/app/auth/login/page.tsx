@@ -21,7 +21,7 @@ export default function LoginPage() {
     try {
       const success = await login(values.email, values.password);
       if (success) {
-        router.push('/dashboard');
+        router.push('/admin/dashboard');
       }
     } catch (err) {
       setLoginError('Đăng nhập không thành công. Vui lòng kiểm tra lại thông tin.');

@@ -44,7 +44,7 @@ export const useAuth = () => {
       setUser(data.user);
       localStorage.setItem("jwt", data.jwt );
       authenticateApi(data.jwt);
-      router.push("/dashboard");
+      router.push("/admin/dashboard");
       return true;
     } catch (err: any) {
       setError(err.message || "Đăng nhập thất bại");
@@ -59,7 +59,7 @@ export const useAuth = () => {
     localStorage.removeItem("jwt");
     setUser(undefined);
     clearAuthentication();
-    router.push("/login");
+    router.push("/auth/login");
   };
 
   // Kiểm tra trạng thái đăng nhập khi component mount
