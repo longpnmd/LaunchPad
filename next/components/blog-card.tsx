@@ -7,7 +7,7 @@ import Balancer from "react-wrap-balancer";
 import { truncate } from "@/lib/utils";
 import { format } from "date-fns";
 import { strapiImage } from "@/lib/strapi/strapiImage";
-import { Article } from "@/types/types";
+import { Article } from "@/lib/services/api-service";
 
 export const BlogCard = ({ article, locale }: { article: Article, locale: string }) => {
   return (
@@ -18,8 +18,8 @@ export const BlogCard = ({ article, locale }: { article: Article, locale: string
       <div className="">
         {article.image ? (
           <BlurImage
-            src={strapiImage(article.image.url)}
-            alt={article.title}
+            src={strapiImage(article.image.url || "")}
+            alt={article?.title || ""}
             height="1200"
             width="1200"
             className="h-full object-cover object-top w-full rounded-3xl"
@@ -46,7 +46,7 @@ export const BlogCard = ({ article, locale }: { article: Article, locale: string
             <Balancer>{article.title}</Balancer>
           </p>
           <p className="text-left text-base md:text-xl mt-2 text-muted">
-            {truncate(article.description, 500)}
+            {truncate(article.description || "", 500)}
           </p>
         </div>
         <div className="flex space-x-2 items-center  mt-6">
@@ -60,7 +60,7 @@ export const BlogCard = ({ article, locale }: { article: Article, locale: string
           {/* <p className="text-sm font-normal text-muted">{article.author}</p> */}
           <div className="h-1 w-1 bg-neutral-300 rounded-full"></div>
           <p className="text-neutral-300 text-sm  max-w-xl group-hover:text-white transition duration-200">
-            {format(new Date(article.publishedAt), "MMMM dd, yyyy")}
+            {format(new Date(article.publishedAt || ""), "MMMM dd, yyyy")}
           </p>
         </div>
       </div>
@@ -77,8 +77,8 @@ export const BlogCardVertical = ({ article, locale }: { article: Article, locale
       <div className="">
         {article.image ? (
           <BlurImage
-            src={strapiImage(article.image.url || "")}
-            alt={article.title}
+            src={strapiImage(article?.image?.url || "")}
+            alt={article?.title || ""}
             height="800"
             width="800"
             className=" h-64 md:h-96 object-cover object-top w-full rounded-3xl"
@@ -105,7 +105,7 @@ export const BlogCardVertical = ({ article, locale }: { article: Article, locale
             <Balancer>{article.title}</Balancer>
           </p>
           <p className="text-left text-sm md:text-base mt-2 text-muted">
-            {truncate(article.description, 500)}
+            {truncate(article.description || "", 500)}
           </p>
         </div>
         <div className="flex space-x-2 items-center  mt-6">
@@ -119,7 +119,7 @@ export const BlogCardVertical = ({ article, locale }: { article: Article, locale
           <p className="text-sm font-normal text-muted">{article.author}</p> */}
           <div className="h-1 w-1 bg-neutral-300 rounded-full"></div>
           <p className="text-neutral-300 text-sm  max-w-xl group-hover:text-white transition duration-200">
-            {format(new Date(article.publishedAt), "MMMM dd, yyyy")}
+            {format(new Date(article.publishedAt || ""), "MMMM dd, yyyy")}
           </p>
         </div>
       </div>

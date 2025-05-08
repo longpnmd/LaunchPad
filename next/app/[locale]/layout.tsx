@@ -9,7 +9,7 @@ import { Navbar } from '@/components/navbar';
 import { CartProvider } from '@/context/cart-context';
 import { cn } from '@/lib/utils';
 import { ViewTransitions } from 'next-view-transitions';
-import fetchContentType from '@/lib/strapi/fetchContentType';
+import { api } from '@/lib/services';
 
 const inter = Inter({
     subsets: ["latin"],
@@ -23,16 +23,15 @@ export async function generateMetadata({
 }: {
     params: { locale: string; slug: string };
 }): Promise<Metadata> {
-    const pageData = await fetchContentType(
-        'global',
-        {
-            filters: { locale: params.locale },
-            populate: "seo.metaImage",
-        },
-        true
-    );
-
-    const seo = pageData?.seo;
+    const response = await api.global.getGlobal({
+        filters: { locale: params.locale.toString() },
+        populate: "seo.metaImage",
+    });
+    if(response.status !== 200) {
+        throw new Error(`Failed to fetch data from Strapi (url=${response.config.url}, status=${response.status})`);
+    }
+    const pageData = response.data;        
+    const seo = pageData.data?.seo;
     const metadata = generateMetadataObject(seo);
     return metadata;
 }
@@ -45,7 +44,10 @@ export default async function LocaleLayout({
     params: { locale: string };
 }) {
 
-    const pageData = await fetchContentType('global', { filters: { locale } }, true);
+    const response = await api.global.getGlobal({
+        filters: { locale }
+    });
+    const {data : pageData} = response.data     
     return (
         <html lang={locale}>
             <ViewTransitions>
@@ -56,9 +58,9 @@ export default async function LocaleLayout({
                             "bg-charcoal antialiased h-full w-full"
                         )}
                     >
-                        <Navbar data={pageData.navbar} locale={locale} />
+                        <Navbar data={pageData?.navbar} locale={locale} />
                         {children}
-                        <Footer data={pageData.footer} locale={locale} />
+                        <Footer data={pageData?.footer} locale={locale} />
                     </body>
                 </CartProvider>
             </ViewTransitions>

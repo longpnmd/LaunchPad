@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import { Link } from "next-view-transitions";
 import React, { useEffect, useState } from "react";
 import FuzzySearch from "fuzzy-search";
-import { Article } from "@/types/types";
+import { Article } from "@/lib/services/api-service";
 
 export const BlogPostRows = ({ articles }: { articles: Article[] }) => {
   const [search, setSearch] = useState("");
@@ -38,7 +38,7 @@ export const BlogPostRows = ({ articles }: { articles: Article[] }) => {
           <p className="text-neutral-400 text-center p-4">No results found</p>
         ) : (
           results.map((article, index) => (
-            <BlogPostRow article={article} key={article.slug + index} />
+            <BlogPostRow article={article} key={(article.slug || '') + index} />
           ))
         )}
       </div>
@@ -58,12 +58,12 @@ export const BlogPostRow = ({ article }: { article: Article }) => {
           {article.title}
         </p>
         <p className="text-neutral-300 text-sm mt-2 max-w-xl group-hover:text-white transition duration-200">
-          {truncate(article.description, 80)}
+          {truncate(article.description || "", 80)}
         </p>
 
         <div className="flex gap-2 items-center my-4">
           <p className="text-neutral-300 text-sm  max-w-xl group-hover:text-white transition duration-200">
-            {format(new Date(article.publishedAt), "MMMM dd, yyyy")}
+            {format(new Date(article.publishedAt || ""), "MMMM dd, yyyy")}
           </p>
           <div className="h-1 w-1 rounded-full bg-neutral-800"></div>
           <div className="flex gap-4 flex-wrap ">

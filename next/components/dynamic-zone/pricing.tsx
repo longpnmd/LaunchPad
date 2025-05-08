@@ -28,7 +28,7 @@ type Plan = {
   CTA?: CTA | undefined;
 };
 
-export const Pricing = ({ heading, sub_heading, plans }: { heading: string, sub_heading: string, plans: any[] }) => {
+export const Pricing = ({ heading, sub_heading, plans=[] }: { heading: string, sub_heading: string, plans: any[] }) => {
   const onClick = (plan: Plan) => {
     console.log("click", plan);
   };
@@ -121,7 +121,7 @@ const Card = ({ plan, onClick }: { plan: Plan; onClick: () => void }) => {
         </Button>
       </div>
       <div className="mt-1 p-4">
-        {plan.perks.map((feature, idx) => (
+        {plan.perks?.map((feature, idx) => (
           <Step featured={plan.featured} key={idx}>
             {feature.text}
           </Step>

@@ -1,6 +1,6 @@
 import { unstable_noStore as noStore } from 'next/cache';
 
-export function strapiImage(url: string): string {
+export function strapiImage(url: string = ''): string {
   noStore();
   if (url.startsWith("/")) {
 

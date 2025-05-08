@@ -159,7 +159,8 @@ export default async (strapi: Core.Strapi) => {
       .create({
         data: {
           name: 'Agent',
-          description: 'Real estate agent who can manage their deals, tasks, and customers'
+          description: 'Real estate agent who can manage their deals, tasks, and customers',
+          type: 'authenticated',
         }
       });
 

@@ -11,7 +11,7 @@ import {
 import { useScroll } from "framer-motion";
 
 
-export const Launches = ({ heading, sub_heading, launches }: { heading: string; sub_heading: string; launches: any[] }) => {
+export const Launches = ({ heading, sub_heading, launches = [] }: { heading: string; sub_heading: string; launches: any[] }) => {
   const launchesWithDecoration = launches.map(entry => ({
     ...entry,
     icon: <IconRocket className="h-8 w-8 text-secondary" />,

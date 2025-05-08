@@ -8,23 +8,23 @@ import { FeatureIconContainer } from "@/components/dynamic-zone/features/feature
 import { IconClipboardText } from "@tabler/icons-react";
 import { BlogPostRows } from "@/components/blog-post-rows";
 import { AmbientColor } from "@/components/decorations/ambient-color";
-import fetchContentType from "@/lib/strapi/fetchContentType";
-import { Article } from "@/types/types";
-import { generateMetadataObject } from '@/lib/shared/metadata';
+import { generateMetadataObject } from "@/lib/shared/metadata";
 
 import ClientSlugHandler from "../ClientSlugHandler";
+import { api } from "@/lib/services";
+import { Article } from "@/lib/services/api-service";
 
 export async function generateMetadata({
   params,
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const pageData = await fetchContentType('blog-page', {
+  const { data: pageData } = await api.global.getGlobal({
     filters: { locale: params.locale },
     populate: "seo.metaImage",
-  }, true)
+  });
 
-  const seo = pageData?.seo;
+  const seo = pageData.data?.seo;
   const metadata = generateMetadataObject(seo);
   return metadata;
 }
@@ -32,16 +32,39 @@ export async function generateMetadata({
 export default async function Blog({
   params,
 }: {
-  params: { locale: string, slug: string };
+  params: { locale: string; slug: string };
 }) {
-  const blogPage = await fetchContentType('blog-page', {
-    filters: { locale: params.locale },
-  }, true)
-  const articles = await fetchContentType('articles', {
-    filters: { locale: params.locale },
-  }, false)
+  const { data: _blogPage } = await api.blogPage.getBlogPage({
+    filters: {
+      locale: params.locale,
+    },
+    populate: {
+      seo: {
+        populate: ["metaImage"],
+      },
+      localizations: true,
+    } as any,
+    "pagination[limit]": 1,
+  });
+  const { data: articles } = await api.articles.getArticles({
+    filters: {
+      locale: params.locale,
+    },
+    populate: {
+      image : true,
+      categories: true,
+      seo: {
+        populate: ["metaImage"],
+      },
+      localizations: true,
+    } as any,
+    "pagination[limit]": 100,
+  });
+  const blogPage = Array.isArray(_blogPage?.data)
+    ? _blogPage.data[0]
+    : _blogPage?.data;
 
-  const localizedSlugs = blogPage.localizations?.reduce(
+  const localizedSlugs = blogPage?.localizations?.reduce(
     (acc: Record<string, string>, localization: any) => {
       acc[localization.locale] = "blog";
       return acc;
@@ -51,7 +74,7 @@ export default async function Blog({
 
   return (
     <div className="relative overflow-hidden py-20 md:py-0">
-      <ClientSlugHandler localizedSlugs={localizedSlugs} />
+      <ClientSlugHandler localizedSlugs={localizedSlugs || {}} />
       <AmbientColor />
       <Container className="flex flex-col items-center justify-between pb-20">
         <div className="relative z-20 py-10 md:pt-40">
@@ -59,18 +82,22 @@ export default async function Blog({
             <IconClipboardText className="h-6 w-6 text-white" />
           </FeatureIconContainer>
           <Heading as="h1" className="mt-4">
-            {blogPage.heading}
+            {blogPage?.seo?.metaTitle}
           </Heading>
           <Subheading className="max-w-3xl mx-auto">
-            {blogPage.sub_heading}
+            {blogPage?.seo?.metaDescription}
           </Subheading>
         </div>
 
-        {articles.data.slice(0, 1).map((article: Article) => (
-          <BlogCard article={article} locale={params.locale} key={article.title} />
+        {articles?.data?.slice(0, 1).map((article: Article) => (
+          <BlogCard
+            article={article}
+            locale={params.locale}
+            key={article.title}
+          />
         ))}
 
-        <BlogPostRows articles={articles.data} />
+        <BlogPostRows articles={articles.data ?? []} />
       </Container>
     </div>
   );

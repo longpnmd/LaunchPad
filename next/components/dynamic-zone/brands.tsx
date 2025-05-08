@@ -6,9 +6,9 @@ import { Subheading } from "../elements/subheading";
 import { AnimatePresence, motion } from "framer-motion";
 import { strapiImage } from "@/lib/strapi/strapiImage";
 
-export const Brands = ({ heading, sub_heading, logos }: { heading: string, sub_heading: string, logos: any[] }) => {
+export const Brands = ({ heading, sub_heading, logos = [], key }: { heading: string, sub_heading: string, logos: any[], key : any }) => {
   
-  const middleIndex = Math.floor(logos.length / 2);
+  const middleIndex = Math.floor(logos?.length / 2);
   const firstHalf = logos.slice(0, middleIndex);
   const secondHalf = logos.slice(middleIndex);
   const logosArraySplitInHalf = [firstHalf, secondHalf];
@@ -36,7 +36,7 @@ export const Brands = ({ heading, sub_heading, logos }: { heading: string, sub_h
   }, [activeLogoSet]); // Depend on activeLogoSet to trigger flip every time it changes
 
   return (
-    <div className="relative z-20 py-10 md:py-40">
+    <div key={key} className="relative z-20 py-10 md:py-40">
       <Heading className="pt-4">{heading}</Heading>
       <Subheading className="max-w-3xl mx-auto">
         {sub_heading}
@@ -47,7 +47,8 @@ export const Brands = ({ heading, sub_heading, logos }: { heading: string, sub_h
           mode="popLayout"
         >
           {activeLogoSet.map((logo, idx) => (
-            <motion.div
+            <motion.div 
+              
               initial={{
                 y: 40,
                 opacity: 0,
@@ -68,12 +69,12 @@ export const Brands = ({ heading, sub_heading, logos }: { heading: string, sub_h
                 delay: 0.1 * idx,
                 ease: [0.4, 0, 0.2, 1],
               }}
-              key={logo.title}
+              key={logo.id}
               className="relative"
             >
               <Image
                 src={strapiImage(logo.image.url)}
-                alt={logo.image.alternativeText}
+                alt={logo.image.alternativeText || logo.company}
                 width="400"
                 height="400"
                 className="md:h-20 md:w-60 h-10 w-40 object-contain filter"

@@ -47,6 +47,15 @@ export default async (strapi: Core.Strapi) => {
       await strapi.db.query('api::client-stage.client-stage').deleteMany({
         where: {}
       });
+
+      // 7. Xoá Users
+      await strapi.db.query('plugin::users-permissions.user').deleteMany({
+        where: {
+          role: {
+            type: 'agent'
+          }
+        }
+      });
       console.log('- Đã xóa tất cả Client Stages');
     } else {
       console.log('Không xóa dữ liệu cũ, thoát khỏi quá trình seed.');
@@ -65,7 +74,7 @@ export default async (strapi: Core.Strapi) => {
         data: {
           name: 'Agent',
           description: 'Vai trò dành cho nhân viên sales BĐS',
-          type: 'agent'
+          type: "agent",
         }
       });
       console.log('Đã tạo vai trò Agent');
@@ -87,16 +96,16 @@ export default async (strapi: Core.Strapi) => {
     
     // Tạo Agent Users
     const agents = [
-      { username: 'nguyenvanlinh', email: 'nguyenvanlinh@realty.vn', password: 'Password123', firstname: 'Nguyễn Văn', lastname: 'Linh' },
-      { username: 'phamthihoa', email: 'phamthihoa@realty.vn', password: 'Password123', firstname: 'Phạm Thị', lastname: 'Hoa' },
-      { username: 'tranthihang', email: 'tranthihang@realty.vn', password: 'Password123', firstname: 'Trần Thị', lastname: 'Hằng' },
-      { username: 'levanminh', email: 'levanminh@realty.vn', password: 'Password123', firstname: 'Lê Văn', lastname: 'Minh' },
-      { username: 'hoanganhtu', email: 'hoanganhtu@realty.vn', password: 'Password123', firstname: 'Hoàng Anh', lastname: 'Tú' },
-      { username: 'duongthilan', email: 'duongthilan@realty.vn', password: 'Password123', firstname: 'Dương Thị', lastname: 'Lan' },
-      { username: 'vohuynhnam', email: 'vohuynhnam@realty.vn', password: 'Password123', firstname: 'Võ Huỳnh', lastname: 'Nam' },
-      { username: 'dothibichngoc', email: 'dothibichngoc@realty.vn', password: 'Password123', firstname: 'Đỗ Thị Bích', lastname: 'Ngọc' },
-      { username: 'ngothihongngoc', email: 'ngothihongngoc@realty.vn', password: 'Password123', firstname: 'Ngô Thị Hồng', lastname: 'Ngọc' },
-      { username: 'buithikimchi', email: 'buithikimchi@realty.vn', password: 'Password123', firstname: 'Bùi Thị Kim', lastname: 'Chi' }
+      { username: 'nguyenvanlinh', email: 'nguyenvanlinh@realty.vn', password: 'Password123', firstname: 'Nguyễn Văn', lastname: 'Linh', provider : 'local' },
+      { username: 'phamthihoa', email: 'phamthihoa@realty.vn', password: 'Password123', firstname: 'Phạm Thị', lastname: 'Hoa' , provider : 'local' },
+      { username: 'tranthihang', email: 'tranthihang@realty.vn', password: 'Password123', firstname: 'Trần Thị', lastname: 'Hằng' , provider : 'local' },
+      { username: 'levanminh', email: 'levanminh@realty.vn', password: 'Password123', firstname: 'Lê Văn', lastname: 'Minh' , provider : 'local' },
+      { username: 'hoanganhtu', email: 'hoanganhtu@realty.vn', password: 'Password123', firstname: 'Hoàng Anh', lastname: 'Tú', provider : 'local' },
+      { username: 'duongthilan', email: 'duongthilan@realty.vn', password: 'Password123', firstname: 'Dương Thị', lastname: 'Lan' , provider : 'local' },
+      { username: 'vohuynhnam', email: 'vohuynhnam@realty.vn', password: 'Password123', firstname: 'Võ Huỳnh', lastname: 'Nam' , provider : 'local' },
+      { username: 'dothibichngoc', email: 'dothibichngoc@realty.vn', password: 'Password123', firstname: 'Đỗ Thị Bích', lastname: 'Ngọc', provider : 'local'  },
+      { username: 'ngothihongngoc', email: 'ngothihongngoc@realty.vn', password: 'Password123', firstname: 'Ngô Thị Hồng', lastname: 'Ngọc' , provider : 'local' },
+      { username: 'buithikimchi', email: 'buithikimchi@realty.vn', password: 'Password123', firstname: 'Bùi Thị Kim', lastname: 'Chi', provider : 'local'  }
     ];
 
     const createdAgents = {};

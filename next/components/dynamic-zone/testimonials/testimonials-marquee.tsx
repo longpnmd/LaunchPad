@@ -23,17 +23,17 @@ export const TestimonialsMarquee = ({ testimonials }: { testimonials: any }) => 
               <div className="flex gap-2 items-center mt-8">
                 <Image
                   src={strapiImage(testimonial?.user?.image?.url)}
-                  alt={`${testimonial.user.firstname} ${testimonial.user.lastname}`}
+                  alt={`${testimonial.user?.firstname} ${testimonial.user?.lastname}`}
                   width={40}
                   height={40}
                   className="rounded-full"
                 />
                 <div className="flex flex-col">
                   <QuoteDescription className="text-neutral-300">
-                    {`${testimonial.user.firstname} ${testimonial.user.lastname}`}
+                    {`${testimonial.user?.firstname} ${testimonial.user?.lastname}`}
                   </QuoteDescription>
                   <QuoteDescription className="text-neutral-400">
-                    {testimonial.user.job}
+                    {testimonial.user?.job}
                   </QuoteDescription>
                 </div>
               </div>
@@ -54,17 +54,17 @@ export const TestimonialsMarquee = ({ testimonials }: { testimonials: any }) => 
               <div className="flex gap-2 items-center mt-8">
                 <Image
                   src={strapiImage(testimonial?.user?.image?.url)}
-                  alt={`${testimonial.user.firstname} ${testimonial.user.lastname}`}
+                  alt={`${testimonial.user?.firstname} ${testimonial.user?.lastname}`}
                   width={40}
                   height={40}
                   className="rounded-full"
                 />
                 <div className="flex flex-col">
                   <QuoteDescription className="text-neutral-300">
-                    {`${testimonial.user.firstname} ${testimonial.user.lastname}`}
+                    {`${testimonial.user?.firstname} ${testimonial.user?.lastname}`}
                   </QuoteDescription>
                   <QuoteDescription className="text-neutral-400">
-                    {testimonial.user.job}
+                    {testimonial.user?.job}
                   </QuoteDescription>
                 </div>
               </div>

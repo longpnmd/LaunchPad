@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
 import { AmbientColor } from "@/components/decorations/ambient-color";
 import { Container } from "@/components/container";
@@ -8,25 +8,25 @@ import { Featured } from "@/components/products/featured";
 import { ProductItems } from "@/components/products/product-items";
 import { Subheading } from "@/components/elements/subheading";
 import { IconShoppingCartUp } from "@tabler/icons-react";
-import fetchContentType from "@/lib/strapi/fetchContentType";
-import { generateMetadataObject } from '@/lib/shared/metadata';
+import { generateMetadataObject } from "@/lib/shared/metadata";
 
-import ClientSlugHandler from '../ClientSlugHandler';
+import ClientSlugHandler from "../ClientSlugHandler";
+import { api } from "@/lib/services";
 
 export async function generateMetadata({
   params,
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-
-  const pageData = await fetchContentType("product-page", {
+  const { data: pageData } = await api.productPage.getProductPage({
     filters: {
       locale: params.locale,
     },
     populate: "seo.metaImage",
-  }, true)
+    "pagination[limit]": 1,
+  });
 
-  const seo = pageData?.seo;
+  const seo = Array.isArray(pageData?.data) ? pageData.data[0]?.seo : undefined;
   const metadata = generateMetadataObject(seo);
   return metadata;
 }
@@ -36,14 +36,25 @@ export default async function Products({
 }: {
   params: { locale: string };
 }) {
-
   // Fetch the product-page and products data
-  const productPage = await fetchContentType('product-page', {
+  const { data: productPageResponse } = await api.productPage.getProductPage({
     filters: {
       locale: params.locale,
     },
-  }, true);
-  const products = await fetchContentType('products');
+    populate: {
+      seo: {
+        populate: ["metaImage"],
+      },
+      localizations: true,
+    } as any,
+    "pagination[limit]": 1,
+  });
+  const { data: products } = await api.products.getProducts({
+    "pagination[limit]": 100,
+  });
+  const productPage = Array.isArray(productPageResponse?.data)
+    ? productPageResponse.data[0]
+    : productPageResponse.data;
 
   const localizedSlugs = productPage.localizations?.reduce(
     (acc: Record<string, string>, localization: any) => {
@@ -52,7 +63,9 @@ export default async function Products({
     },
     { [params.locale]: "products" }
   );
-  const featured = products?.data.filter((product: { featured: boolean }) => product.featured);
+  const featured = products?.data?.filter(
+    (product: { featured?: boolean }) => product.featured === true
+  );
 
   return (
     <div className="relative overflow-hidden w-full">
@@ -68,8 +81,8 @@ export default async function Products({
         <Subheading className="max-w-3xl mx-auto">
           {productPage.sub_heading}
         </Subheading>
-        <Featured products={featured} locale={params.locale} />
-        <ProductItems products={products?.data} locale={params.locale} />
+        <Featured products={featured || []} locale={params.locale} />
+        <ProductItems products={products?.data || []} locale={params.locale} />
       </Container>
     </div>
   );

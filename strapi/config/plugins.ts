@@ -7,7 +7,7 @@ const plugins: Record<string, any> = () => ({
     },
   },
   documentation: {
-    enabled: true,
+    enabled: true
   },
 });
 

@@ -1,3 +1,4 @@
+import { debug } from 'console';
 import path from 'path';
 
 export default ({ env }) => {
@@ -66,6 +67,7 @@ export default ({ env }) => {
       client,
       ...connections[client],
       acquireConnectionTimeout: env.int('DATABASE_CONNECTION_TIMEOUT', 60000),
+      debug : false
     },
   };
 };

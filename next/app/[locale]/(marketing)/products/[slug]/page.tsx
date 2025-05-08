@@ -6,8 +6,7 @@ import { AmbientColor } from "@/components/decorations/ambient-color";
 import { SingleProduct } from "@/components/products/single-product";
 import DynamicZoneManager from '@/components/dynamic-zone/manager'
 import { generateMetadataObject } from '@/lib/shared/metadata';
-
-import fetchContentType from "@/lib/strapi/fetchContentType";
+import { api } from "@/lib/services";
 
 export async function generateMetadata({
   params,
@@ -15,14 +14,25 @@ export async function generateMetadata({
   params: { locale: string, slug: string };
 }): Promise<Metadata> {
 
-  const pageData = await fetchContentType("products", {
-    filters: { slug: params.slug },
-    populate: "seo.metaImage",
-  }, true)
+  const { data: response } = await api.products.getProducts({
+    filters: {
+      slug: params.slug,
+      locale: params.locale,
+    },
+    populate: {
+      seo: {
+        populate: ["metaImage"],
+      },
+      localizations: true,
+    } as any,
+    "pagination[limit]": 1,
+  });
+  const pageData = response.data?.[0];
 
-  const seo = pageData?.seo;
-  const metadata = generateMetadataObject(seo);
-  return metadata;
+  // const seo = pageData?.seo; ;
+  // const metadata = generateMetadataObject(seo);
+  // return metadata;
+  return {}
 }
 
 export default async function SingleProductPage({
@@ -31,9 +41,16 @@ export default async function SingleProductPage({
   params: { slug: string, locale: string };
 }) {
 
-  const product = await fetchContentType("products", {
-    filters: { slug: params.slug },
-  }, true)
+  const { data: response } = await api.products.getProducts({
+    filters: {
+      slug: params.slug,
+      locale: params.locale,
+    },
+    populate: ["seo.metaImage","dynamic_zone"] as any,
+    "pagination[limit]": 1,
+  });
+
+  const product = response?.data?.[0];
 
   if (!product) {
     redirect("/products");
@@ -44,7 +61,7 @@ export default async function SingleProductPage({
       <AmbientColor />
       <Container className="py-20 md:py-40">
         <SingleProduct product={product} />
-        {product?.dynamic_zone && (<DynamicZoneManager dynamicZone={product?.dynamic_zone} locale={params.locale} />)}
+        {product?.dynamic_zone && (<DynamicZoneManager dynamicZone={product?.dynamic_zone as any} locale={params.locale} />)}
       </Container>
     </div>
   );

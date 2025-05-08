@@ -82,10 +82,10 @@ export const TestimonialsSlider = ({ testimonials }: { testimonials: any }) => {
                     <div className="absolute inset-0 h-full -z-10">
                       <Image
                         className="relative top-11 left-1/2 -translate-x-1/2 rounded-full"
-                        src={strapiImage(item.user.image.url)}
+                        src={strapiImage(item.user?.image.url)}
                         width={56}
                         height={56}
-                        alt={`${item.user.firstname} ${item.user.lastname}`}
+                        alt={`${item.user?.firstname} ${item.user?.lastname}`}
                       />
                     </div>
                   </Transition>
@@ -132,14 +132,14 @@ export const TestimonialsSlider = ({ testimonials }: { testimonials: any }) => {
                 >
                   <span className="relative">
                     <span className="text-neutral-50 font-bold">
-                      {item.user.firstname + item.user.lastname}
+                      {item.user?.firstname + item.user?.lastname}
                     </span>{" "}
                     <br className="block sm:hidden" />
                     <span className="text-neutral-600 hidden sm:inline-block">
                       -
                     </span>{" "}
                     <span className="hidden sm:inline-block">
-                      {item.user.job}
+                      {item.user?.job}
                     </span>
                   </span>
                 </button>

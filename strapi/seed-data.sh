@@ -50,7 +50,7 @@ echo "Build lại Strapi..."
 npm run build
 
 # Khởi động Strapi để chạy seeder
-# echo "Khởi động Strapi để chạy seeder..."
-# npm run develop
+echo "Khởi động Strapi để chạy seeder..."
+npm run develop
 
 echo "===== Quá trình seed hoàn tất! ====="
