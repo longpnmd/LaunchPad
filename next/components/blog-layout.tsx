@@ -5,7 +5,7 @@ import { Link } from "next-view-transitions";
 import { format } from "date-fns";
 import { strapiImage } from "@/lib/strapi/strapiImage";
 import DynamicZoneManager from "./dynamic-zone/manager";
-import { Article } from "@/types/types";
+import { Article } from "@/lib/services/api-service";
 
 export async function BlogLayout({
   article,
@@ -32,7 +32,7 @@ export async function BlogLayout({
             height="800"
             width="800"
             className="h-40 md:h-96 w-full aspect-square object-cover rounded-3xl [mask-image:radial-gradient(circle,white,transparent)]"
-            alt={article.title}
+            alt={article.title || "Article Image"}
           />
         ) : (
           <div className="h-40 md:h-96 w-full aspect-squace rounded-3xl shadow-derek bg-neutral-900 flex items-center justify-center">
@@ -80,14 +80,14 @@ export async function BlogLayout({
                 className="flex items-center text-base "
               >
                 <span className="text-muted text-sm">
-                  {format(new Date(article.publishedAt), "MMMM dd, yyyy")}
+                  {format(new Date(article.publishedAt || ''), "MMMM dd, yyyy")}
                 </span>
               </time>
             </div>
           </article>
         </div>
       </div>
-      {article?.dynamic_zone && (<DynamicZoneManager dynamicZone={article?.dynamic_zone} locale={locale} />)}
+      {article?.dynamic_zone && (<DynamicZoneManager dynamicZone={article?.dynamic_zone as any} locale={locale} />)}
     </Container>
   );
 }

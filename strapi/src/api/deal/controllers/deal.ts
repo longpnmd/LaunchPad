@@ -24,9 +24,9 @@ export default factories.createCoreController('api::deal.deal' as any, ({ strapi
     
     if (user && user.role && user.role.name === 'Agent') {
       const { id } = ctx.params;
-      const deal: any = await strapi.entityService.findOne('api::deal.deal' as any, id, {
-        fields: ['id'],
-        populate: { agent: true },
+      const deal = await strapi.documents('api::deal.deal').findFirst({
+        where: { id },
+        populate: ['agent'],
       });
       
       if (!deal || deal.agent?.id !== user.id) {
@@ -56,9 +56,9 @@ export default factories.createCoreController('api::deal.deal' as any, ({ strapi
 
     // Check quyền: Chỉ cho Agent update Deal của họ
     if (user && user.role && user.role.name === 'Agent') {
-      const deal: any = await strapi.entityService.findOne('api::deal.deal' as any, ctx.params.id, {
-        fields: ['id'],
-        populate: { agent: true },
+      const deal = await strapi.documents('api::deal.deal').findFirst({
+        where: { id: ctx.params.id },
+        populate: ['agent'],
       });
 
       if (!deal || deal.agent?.id !== user.id) {
@@ -80,9 +80,9 @@ export default factories.createCoreController('api::deal.deal' as any, ({ strapi
 
     // Check quyền: Chỉ cho Agent xóa Deal của họ
     if (user && user.role && user.role.name === 'Agent') {
-      const deal: any = await strapi.entityService.findOne('api::deal.deal' as any, ctx.params.id, {
-        fields: ['id'],
-        populate: { agent: true },
+      const deal = await strapi.documents('api::deal.deal').findFirst({
+        where: { id: ctx.params.id },
+        populate: ['agent'],
       });
 
       if (!deal || deal.agent?.id !== user.id) {

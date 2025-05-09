@@ -24,9 +24,9 @@ export default factories.createCoreController('api::task.task' as any, ({ strapi
     
     if (user && user.role && user.role.name === 'Agent') {
       const { id } = ctx.params;
-      const task: any = await strapi.entityService.findOne('api::task.task' as any, id, {
-        fields: ['id'],
-        populate: { assignedTo: true },
+      const task = await strapi.documents('api::task.task').findFirst({
+        where: { id },
+        populate: ['assignedTo'],
       });
       
       if (!task || task.assignedTo?.id !== user.id) {
@@ -56,9 +56,9 @@ export default factories.createCoreController('api::task.task' as any, ({ strapi
 
     // Check quyền: Chỉ cho Agent update Task của họ
     if (user && user.role && user.role.name === 'Agent') {
-      const task: any = await strapi.entityService.findOne('api::task.task' as any, ctx.params.id, {
-        fields: ['id'],
-        populate: { assignedTo: true },
+      const task = await strapi.documents('api::task.task').findFirst({
+        where: { id: ctx.params.id },
+        populate: ['assignedTo'],
       });
 
       if (!task || task.assignedTo?.id !== user.id) {
@@ -80,9 +80,9 @@ export default factories.createCoreController('api::task.task' as any, ({ strapi
 
     // Check quyền: Chỉ cho Agent xóa Task của họ
     if (user && user.role && user.role.name === 'Agent') {
-      const task: any = await strapi.entityService.findOne('api::task.task' as any, ctx.params.id, {
-        fields: ['id'],
-        populate: { assignedTo: true },
+      const task = await strapi.documents('api::task.task').findFirst({
+        where: { id: ctx.params.id },
+        populate: ['assignedTo'],
       });
 
       if (!task || task.assignedTo?.id !== user.id) {

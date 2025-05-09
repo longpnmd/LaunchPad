@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Alert, Button, Form, Input, Typography, Card } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import { useAuth } from '@/lib/api/hooks/useAuth';
+import { useAuth } from '@/lib/hooks/useAuth';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';

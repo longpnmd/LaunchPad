@@ -24,9 +24,9 @@ export default factories.createCoreController('api::property.property' as any, (
     
     if (user && user.role && user.role.name === 'Agent') {
       const { id } = ctx.params;
-      const property: any = await strapi.entityService.findOne('api::property.property' as any, id, {
-        fields: ['id'],
-        populate: { listedBy: true },
+      const property = await strapi.documents('api::property.property').findFirst({
+        where: { id },
+        populate: ['listedBy'],
       });
       
       if (!property || property.listedBy?.id !== user.id) {
@@ -56,9 +56,9 @@ export default factories.createCoreController('api::property.property' as any, (
 
     // Check quyền: Chỉ cho Agent update Property của họ
     if (user && user.role && user.role.name === 'Agent') {
-      const property: any = await strapi.entityService.findOne('api::property.property' as any, ctx.params.id, {
-        fields: ['id'],
-        populate: { listedBy: true },
+      const property = await strapi.documents('api::property.property').findFirst({
+        where: { id: ctx.params.id },
+        populate: ['listedBy'],
       });
 
       if (!property || property.listedBy?.id !== user.id) {
@@ -80,9 +80,9 @@ export default factories.createCoreController('api::property.property' as any, (
 
     // Check quyền: Chỉ cho Agent xóa Property của họ
     if (user && user.role && user.role.name === 'Agent') {
-      const property: any = await strapi.entityService.findOne('api::property.property' as any, ctx.params.id, {
-        fields: ['id'],
-        populate: { listedBy: true },
+      const property = await strapi.documents('api::property.property').findFirst({
+        where: { id: ctx.params.id },
+        populate: ['listedBy'],
       });
 
       if (!property || property.listedBy?.id !== user.id) {

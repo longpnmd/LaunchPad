@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useAuth } from '@/lib/api/hooks/useAuth';
+import { useAuth } from '@/lib/hooks/useAuth';
 import { Spin } from 'antd';
 
 type PermissionGuardProps = {

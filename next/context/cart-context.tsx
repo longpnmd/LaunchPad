@@ -1,6 +1,6 @@
 "use client";
+import { Product } from "@/lib/services/api-service";
 import React, { createContext, useContext, useState, useCallback } from "react";
-import { Product } from "@/types/types";
 
 type CartItem = {
   product: Product;
@@ -59,7 +59,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const getCartTotal = useCallback(() => {
     return items.reduce(
-      (total, item) => total + item.product.price * item.quantity,
+      (total, item) => total + (item.product.price ?? 0) * item.quantity,
       0
     );
   }, [items]);

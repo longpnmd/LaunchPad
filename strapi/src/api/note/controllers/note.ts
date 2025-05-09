@@ -38,9 +38,9 @@ export default factories.createCoreController('api::note.note' as any, ({ strapi
 
     // Check quyền: Chỉ cho Agent update Note của họ
     if (user && user.role && user.role.name === 'Agent') {
-      const note: any = await strapi.entityService.findOne('api::note.note' as any, ctx.params.id, {
-        fields: ['id'],
-        populate: { createdByUser: true },
+      const note = await strapi.documents('api::note.note').findFirst({
+        where: { id: ctx.params.id },
+        populate: ['createdByUser'],
       });
 
       if (!note || note.createdByUser?.id !== user.id) {
@@ -56,9 +56,9 @@ export default factories.createCoreController('api::note.note' as any, ({ strapi
 
     // Check quyền: Chỉ cho Agent xóa Note của họ
     if (user && user.role && user.role.name === 'Agent') {
-      const note: any = await strapi.entityService.findOne('api::note.note' as any, ctx.params.id, {
-        fields: ['id'],
-        populate: { createdByUser: true },
+      const note = await strapi.documents('api::note.note').findFirst({
+        where: { id: ctx.params.id },
+        populate: ['createdByUser'],
       });
 
       if (!note || note.createdByUser?.id !== user.id) {

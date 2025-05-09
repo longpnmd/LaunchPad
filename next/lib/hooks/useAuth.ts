@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { api, authenticateApi, clearAuthentication } from "@/lib/services";
+import { api, AUTH_TOKEN_KEY, authenticateApi, clearAuthentication } from "@/lib/services";
 import {
   UsersPermissionsRole,
   UsersPermissionsUser,
@@ -23,7 +23,6 @@ export const useAuth = () => {
     } catch (err) {
       setUser(undefined);
       setError("Không thể lấy thông tin người dùng");
-      localStorage.removeItem("jwt");
     } finally {
       setIsLoading(false);
     }
@@ -42,7 +41,6 @@ export const useAuth = () => {
         throw new Error("Đăng nhập thất bại");
       }
       setUser(data.user);
-      localStorage.setItem("jwt", data.jwt );
       authenticateApi(data.jwt);
       router.push("/admin/dashboard");
       return true;
@@ -56,7 +54,6 @@ export const useAuth = () => {
 
   // Đăng xuất
   const logout = () => {
-    localStorage.removeItem("jwt");
     setUser(undefined);
     clearAuthentication();
     router.push("/auth/login");
@@ -65,7 +62,7 @@ export const useAuth = () => {
   // Kiểm tra trạng thái đăng nhập khi component mount
   useEffect(() => {
     const token =
-      typeof window !== "undefined" ? localStorage.getItem("jwt") : null;
+      typeof window !== "undefined" ? localStorage.getItem(AUTH_TOKEN_KEY) : null;
     if (token) {
       fetchCurrentUser();
     } else {

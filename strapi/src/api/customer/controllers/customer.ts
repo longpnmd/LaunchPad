@@ -7,12 +7,20 @@ import { factories } from '@strapi/strapi';
 export default factories.createCoreController('api::customer.customer' as any, ({ strapi }) => ({
   async find(ctx) {
     const user = ctx.state.user;
-
+    console.log('ctx.query.filters', ctx.query);
     // Nếu user là agent (không phải admin)
     if (user && user.role && user.role.name === 'Agent') {
+      // Convert filters to an object if it's a string or initialize as empty if null
+      const existingFilters = ctx.query.filters && typeof ctx.query.filters === 'string' 
+        ? JSON.parse(ctx.query.filters) 
+        : (ctx.query.filters || {});
+      
+      // Apply agent filter using $and to preserve any existing filters
       ctx.query.filters = {
-        ...(typeof ctx.query.filters === 'object' && ctx.query.filters !== null ? ctx.query.filters : {}),
-        agent: user.id, // Chỉ lấy Customer của chính agent này
+        ...existingFilters,
+        // agent : {
+        //   id: user.id
+        // }
       };
     }
 
@@ -20,20 +28,22 @@ export default factories.createCoreController('api::customer.customer' as any, (
   },
 
   async findOne(ctx) {
+    // throw new Error('findOne');
     const user = ctx.state.user;
-    
     if (user && user.role && user.role.name === 'Agent') {
       const { id } = ctx.params;
-      const customer: any = await strapi.entityService.findOne('api::customer.customer' as any, id, {
-        fields: ['id'],
-        populate: { agent: true },
+      const customer: any = await  strapi.documents('api::customer.customer').findOne({
+        documentId: id,
+        populate: ['agent'],
       });
       
       if (!customer || customer.agent?.id !== user.id) {
         return ctx.unauthorized(`You can't access this customer`);
       }
+      ctx.body = {
+        data: customer
+      }
     }
-    
     return await super.findOne(ctx);
   },
 
@@ -56,9 +66,9 @@ export default factories.createCoreController('api::customer.customer' as any, (
 
     // Check quyền: Chỉ cho Agent update Customer của họ
     if (user && user.role && user.role.name === 'Agent') {
-      const customer: any = await strapi.entityService.findOne('api::customer.customer' as any, ctx.params.id, {
-        fields: ['id'],
-        populate: { agent: true },
+      const customer = await strapi.documents('api::customer.customer').findFirst({
+        where: { id: ctx.params.id },
+        populate: ['agent'],
       });
 
       if (!customer || customer.agent?.id !== user.id) {
@@ -80,9 +90,9 @@ export default factories.createCoreController('api::customer.customer' as any, (
 
     // Check quyền: Chỉ cho Agent xóa Customer của họ
     if (user && user.role && user.role.name === 'Agent') {
-      const customer: any = await strapi.entityService.findOne('api::customer.customer' as any, ctx.params.id, {
-        fields: ['id'],
-        populate: { agent: true },
+      const customer = await strapi.documents('api::customer.customer').findFirst({
+        where: { id: ctx.params.id },
+        populate: ['agent'],
       });
 
       if (!customer || customer.agent?.id !== user.id) {

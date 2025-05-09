@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { Product } from "@/types/types";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { IconCheck } from "@tabler/icons-react";
@@ -8,9 +7,12 @@ import { cn, formatNumber } from "@/lib/utils";
 import AddToCartModal from "@/components/products/modal";
 import { useCart } from "@/context/cart-context";
 import { strapiImage } from "@/lib/strapi/strapiImage";
+import { Product } from "@/lib/services/api-service";
 
 export const SingleProduct = ({ product }: { product: Product }) => {
-  const [activeThumbnail, setActiveThumbnail] = useState(strapiImage(product.images[0].url));
+  const [activeThumbnail, setActiveThumbnail] = useState(
+    strapiImage(product.images?.[0]?.url ?? "")
+  );
   const { addToCart } = useCart();
   
   return (
@@ -32,7 +34,7 @@ export const SingleProduct = ({ product }: { product: Product }) => {
           >
             <Image
               src={activeThumbnail}
-              alt={product.name}
+              alt={product.name || "Product Image"}
               width={600}
               height={600}
               // fill
@@ -64,7 +66,7 @@ export const SingleProduct = ({ product }: { product: Product }) => {
         <div>
           <h2 className="text-2xl font-semibold mb-4">{product.name}</h2>
           <p className=" mb-6 bg-white text-xs px-4 py-1 rounded-full text-black w-fit">
-            ${formatNumber(product.price)}
+            ${formatNumber(product.price || 0)}
           </p>
           <p className="text-base font-normal mb-4 text-neutral-400">
             {product.description}
@@ -99,7 +101,7 @@ export const SingleProduct = ({ product }: { product: Product }) => {
                 key={`category-${idx}`}
                 className=" bg-neutral-800 text-sm text-white px-3 py-1 rounded-full font-medium"
               >
-                {category.name}
+                {category.documentId || "Unknown"}
               </li>
             ))}
           </ul>

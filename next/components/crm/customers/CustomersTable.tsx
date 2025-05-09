@@ -5,7 +5,7 @@ import { ProTable } from '@ant-design/pro-components';
 import { Button, Space, Tag, message, Modal } from 'antd';
 import { EditOutlined, DeleteOutlined, EyeOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/navigation';
-import { useCustomers } from '@/lib/api/hooks/useCustomers';
+import { useCustomers } from '@/lib/hooks/useCustomers';
 
 type Customer = {
   id: number;

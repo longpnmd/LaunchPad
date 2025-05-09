@@ -54,7 +54,7 @@ fi
 # Create necessary directories and files if they don't exist
 echo "=== Creating necessary directories and files ==="
 [ -d ~/apps/letsencrypt ] || mkdir -p ~/apps/letsencrypt
-[ -f ~/apps/letsencrypt/acme.json] || touch ~/apps/letsencrypt/acme.json
+[ -f ~/apps/letsencrypt/acme.json ] || touch ~/apps/letsencrypt/acme.json
 [ -d ~/apps/next ] || mkdir -p ~/apps/next
 [ -d ~/apps/strapi ] || mkdir -p ~/apps/strapi
 [ -d ~/apps/strapi/public/uploads ] || mkdir -p ~/apps/strapi/public/uploads

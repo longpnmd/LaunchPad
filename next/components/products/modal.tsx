@@ -39,8 +39,8 @@ export default function AddToCartModal({ onClick }: { onClick: () => void }) {
               >
                 <div className="flex items-center gap-4">
                   <Image
-                    src={strapiImage(item.product.images[0].url)}
-                    alt={item.product.name}
+                    src={item.product.images?.[0]?.url ? strapiImage(item.product.images[0].url) : "/placeholder-image.png"}
+                    alt={item.product.name || "Product Image"}
                     width={60}
                     height={60}
                     className="rounded-lg hidden md:block"
@@ -69,9 +69,9 @@ export default function AddToCartModal({ onClick }: { onClick: () => void }) {
                     }}
                   />
                   <div className="text-black text-sm font-medium w-20">
-                    ${formatNumber(item.product.price)}
+                    ${formatNumber(item.product.price || 0)}
                   </div>
-                  <button onClick={() => removeFromCart(item.product.id)}>
+                  <button onClick={() => removeFromCart(item.product.id || 0)}>
                     <IconTrash className="w-4 h-4 text-neutral-900" />
                   </button>
                 </div>

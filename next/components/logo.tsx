@@ -4,9 +4,9 @@ import { Link } from "next-view-transitions";
 import { BlurImage } from "./blur-image";
 
 import { strapiImage } from "@/lib/strapi/strapiImage";
-import { Image } from "@/types/types";
+import { UploadFile } from "@/lib/services/api-service";
 
-export const Logo = ({ image, locale }: { image?: Image, locale?: string }) => {
+export const Logo = ({ image, locale }: { image?: UploadFile, locale?: string }) => {
   if (image) {
     return (
       <Link
@@ -15,7 +15,7 @@ export const Logo = ({ image, locale }: { image?: Image, locale?: string }) => {
       >
         <BlurImage
           src={strapiImage(image?.url)}
-          alt={image.alternativeText}
+          alt={image.alternativeText || "Logo"}
           width={200}
           height={200}
           className="h-10 w-10 rounded-xl mr-2"

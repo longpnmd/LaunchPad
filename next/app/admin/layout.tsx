@@ -8,7 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import viVN from "antd/lib/locale/vi_VN";
 import enUS from "antd/lib/locale/en_US";
-import { useAuth } from "@/lib/api/hooks/useAuth";
+import { useAuth } from "@/lib/hooks/useAuth";
 import { api } from "@/lib/services";
 
 // Menu items cho sidebar

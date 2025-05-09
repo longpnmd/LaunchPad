@@ -8,7 +8,7 @@ import RecentActivityFeed from '@/components/crm/dashboard/RecentActivityFeed';
 import UpcomingTasksList from '@/components/crm/dashboard/UpcomingTasksList';
 import PerformanceChart from '@/components/crm/dashboard/PerformanceChart';
 import LeadConversionFunnel from '@/components/crm/dashboard/LeadConversionFunnel';
-import { useDashboardStats } from '@/lib/api/hooks/useDashboardStats';
+import { useDashboardStats } from '@/lib/hooks/useDashboardStats';
 
 export default function DashboardPage() {
   const { data, isLoading, error } = useDashboardStats();

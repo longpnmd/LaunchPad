@@ -129,10 +129,18 @@ services:
       - POSTGRES_DB=${DATABASE_NAME:-postgres}
       - POSTGRES_USER=${DATABASE_USERNAME:-postgres}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-      - POSTGRES_MULTIPLE_DATABASES=${N8N_DB_NAME:-n8n}
+      - POSTGRES_MULTIPLE_DATABASES=${N8N_DB_NAME:-n8n},${AFFINE_DATABASE_NAME:-affine},${DATABASE_NAME:-strapi}
+    healthcheck:
+      test:
+        ['CMD', 'pg_isready', '-U', "${DATABASE_USERNAME:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     volumes:
       - postgres-data:/var/lib/postgresql/data
       - ~/apps/postgres/init:/docker-entrypoint-initdb.d:ro
+      - ./scripts:/scripts
+    command: ["bash", "-c", "bash /scripts/init-always.sh & docker-entrypoint.sh postgres"]
     networks:
       - web
 
@@ -181,6 +189,62 @@ services:
       - ~/apps/n8n_data:/home/node/.n8n
     depends_on:
       - postgres
+    networks:
+      - web
+
+  affine:
+    image: ghcr.io/toeverything/affine-graphql:${AFFINE_REVISION:-stable}
+    container_name: affine_server
+    ports:
+      - '${AFFINE_PORT:-3010}:3010'
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      affine_migration:
+        condition: service_completed_successfully
+    volumes:
+      # custom configurations
+      - ${AFFINE_UPLOAD_LOCATION}:/root/.affine/storage
+      - ${AFFINE_CONFIG_LOCATION}:/root/.affine/config
+    env_file:
+      - .env
+    environment:
+      - REDIS_SERVER_HOST=redis
+      - DATABASE_URL=postgresql://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@postgres:5432/${AFFINE_DATABASE_NAME:-affine}
+    restart: unless-stopped
+    networks:
+      - web
+  affine_migration:
+    image: ghcr.io/toeverything/affine-graphql:${AFFINE_REVISION:-stable}
+    container_name: affine_migration_job
+    volumes:
+      # custom configurations
+      - ${AFFINE_UPLOAD_LOCATION}:/root/.affine/storage
+      - ${AFFINE_CONFIG_LOCATION}:/root/.affine/config
+    command: ['sh', '-c', 'node ./scripts/self-host-predeploy.js']
+    env_file:
+      - .env
+    environment:
+      - REDIS_SERVER_HOST=redis
+      - DATABASE_URL=postgresql://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@postgres:5432/${AFFINE_DATABASE_NAME:-affine}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - web
+  redis:
+    image: redis
+    container_name: affine_redis
+    healthcheck:
+      test: ['CMD', 'redis-cli', '--raw', 'incr', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
     networks:
       - web
 
