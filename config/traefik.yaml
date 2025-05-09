@@ -37,6 +37,16 @@ http:
         certResolver: myresolver
       entryPoints:
         - websecure
+    affine:
+      rule: Host(`affine.{{ env "BASE_DOMAIN" }}`)
+      service: affine@docker
+      middlewares:
+        - rate-limit
+        - https-redirect
+      tls:
+        certResolver: myresolver
+      entryPoints:
+        - websecure
     portainer:
       rule: Host(`portainer.{{ env "BASE_DOMAIN" }}`)
       service: portainer@docker
