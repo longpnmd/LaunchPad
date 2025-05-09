@@ -118,6 +118,13 @@ jobs:
           echo "N8N_SMTP_PASS=${{ secrets.N8N_SMTP_PASS }}" >> .env
           echo "N8N_SMTP_SENDER=${{ vars.N8N_SMTP_SENDER }}" >> .env
           echo "N8N_SMTP_SSL=${{ vars.N8N_SMTP_SSL }}" >> .env
+          echo "AFFINE_REVISION=${{ vars.AFFINE_REVISION }}" >> .env
+          echo "AFFINE_PORT=${{ vars.AFFINE_PORT }}" >> .env
+          echo "AFFINE_HOST=${{ vars.AFFINE_HOST }}" >> .env
+          echo "AFFINE_HTTPS=${{ vars.AFFINE_HTTPS }}" >> .env
+          echo "AFFINE_DATABASE_NAME=${{ vars.AFFINE_DATABASE_NAME }}" >> .env
+          echo "AFFINE_UPLOAD_LOCATION=${{ vars.AFFINE_UPLOAD_LOCATION }}" >> .env
+          echo "AFFINE_CONFIG_LOCATION=${{ vars.AFFINE_CONFIG_LOCATION }}" >> .env
 
       # Build and run using run.sh script
       - name: Build and run using run.sh
