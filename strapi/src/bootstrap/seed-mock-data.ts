@@ -1,5 +1,6 @@
 import { Core } from '@strapi/strapi';
 import seedClientStages from './seed-client-stages';
+import setupAgentRole from './setup-agent-role';
 
 export default async (strapi: Core.Strapi) => {
   console.log('Bắt đầu tạo dữ liệu mẫu...');
@@ -47,7 +48,7 @@ export default async (strapi: Core.Strapi) => {
       await strapi.db.query('api::client-stage.client-stage').deleteMany({
         where: {}
       });
-
+      console.log('- Đã xóa tất cả Client Stages');
       // 7. Xoá Users
       await strapi.db.query('plugin::users-permissions.user').deleteMany({
         where: {
@@ -56,7 +57,14 @@ export default async (strapi: Core.Strapi) => {
           }
         }
       });
-      console.log('- Đã xóa tất cả Client Stages');
+      // 8. Xoá Role Agent
+      await strapi.db.query('plugin::users-permissions.role').deleteMany({
+        where: {
+          type: 'agent'
+        }
+      });
+      console.log('- Đã xóa tất cả Users và Role Agent');
+      
     } else {
       console.log('Không xóa dữ liệu cũ, thoát khỏi quá trình seed.');
       return;
@@ -65,20 +73,7 @@ export default async (strapi: Core.Strapi) => {
     // Giữ lại các Agent (users) - không xóa users để tránh mất tài khoản admin
 
     // Tạo vai trò Agent nếu chưa có
-    let agentRole = await strapi.query('plugin::users-permissions.role').findOne({
-      where: { type: 'agent' }
-    });
-
-    if (!agentRole) {
-      agentRole = await strapi.query('plugin::users-permissions.role').create({
-        data: {
-          name: 'Agent',
-          description: 'Vai trò dành cho nhân viên sales BĐS',
-          type: "agent",
-        }
-      });
-      console.log('Đã tạo vai trò Agent');
-    }
+    const agentRole = await setupAgentRole(strapi);
 
     // Seed Client Stages từ module chuyên biệt
     await seedClientStages(strapi);

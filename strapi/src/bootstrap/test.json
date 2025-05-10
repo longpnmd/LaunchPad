@@ -1,0 +1,592 @@
+[
+  {
+    "id": 10,
+    "documentId": "a5mfgrn0xeedewc84p5rjhrv",
+    "action": "api::category.category.find",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.011Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 11,
+    "documentId": "aq1c99pq7pimpiz0ja85ahtz",
+    "action": "api::testimonial.testimonial.findOne",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.014Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 12,
+    "documentId": "ay4waz9c2ov6tnegnsedf8uq",
+    "action": "api::page.page.find",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.012Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 13,
+    "documentId": "bgjsqmo4darf1piqtm2hixe7",
+    "action": "plugin::users-permissions.auth.sendEmailConfirmation",
+    "createdAt": "2024-08-01T13:39:26.934Z",
+    "updatedAt": "2024-08-01T13:39:26.934Z",
+    "publishedAt": "2024-08-01T13:39:26.935Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 14,
+    "documentId": "cpp318k1nrsbjztakrmp549o",
+    "action": "api::redirection.redirection.findOne",
+    "createdAt": "2024-09-12T10:53:37.968Z",
+    "updatedAt": "2024-09-12T10:53:37.968Z",
+    "publishedAt": "2024-09-12T10:53:37.969Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 15,
+    "documentId": "dsg8z561ceti4iyn09ap9341",
+    "action": "api::category.category.findOne",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.011Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 16,
+    "documentId": "f60fao71414h65da4rvag7zx",
+    "action": "api::product.product.findOne",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.012Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 17,
+    "documentId": "hdutz7v0639dw3tl6nfaba1o",
+    "action": "api::plan.plan.findOne",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.012Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 19,
+    "documentId": "ipf14pxx3m2pmwduiutytf56",
+    "action": "plugin::users-permissions.auth.emailConfirmation",
+    "createdAt": "2024-08-01T13:39:26.934Z",
+    "updatedAt": "2024-08-01T13:39:26.934Z",
+    "publishedAt": "2024-08-01T13:39:26.935Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 20,
+    "documentId": "iq21h6q7d3mvpk136rh1kake",
+    "action": "api::testimonial.testimonial.find",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.013Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 21,
+    "documentId": "irnn12teafk1don81m3nh3uj",
+    "action": "api::product-page.product-page.find",
+    "createdAt": "2024-09-09T13:04:54.170Z",
+    "updatedAt": "2024-09-09T13:04:54.170Z",
+    "publishedAt": "2024-09-09T13:04:54.170Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 22,
+    "documentId": "laz6w05k9nraunxm4asbq7su",
+    "action": "plugin::users-permissions.auth.resetPassword",
+    "createdAt": "2024-08-01T13:39:26.934Z",
+    "updatedAt": "2024-08-01T13:39:26.934Z",
+    "publishedAt": "2024-08-01T13:39:26.935Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 23,
+    "documentId": "leoyl7djk4vtj18508dr4q1r",
+    "action": "plugin::users-permissions.auth.callback",
+    "createdAt": "2024-08-01T13:39:26.934Z",
+    "updatedAt": "2024-08-01T13:39:26.934Z",
+    "publishedAt": "2024-08-01T13:39:26.934Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 24,
+    "documentId": "lviq31znlkxuepcwgxur5otf",
+    "action": "api::product.product.find",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.012Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 25,
+    "documentId": "lxcqomsfxgydjx60qx1o6edz",
+    "action": "api::blog-page.blog-page.find",
+    "createdAt": "2024-09-10T08:03:52.464Z",
+    "updatedAt": "2024-09-10T08:03:52.464Z",
+    "publishedAt": "2024-09-10T08:03:52.464Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 26,
+    "documentId": "m8aof8xa8vccpt3lz53ip6kw",
+    "action": "api::article.article.find",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.010Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 27,
+    "documentId": "nc446qh1ffl5kqcbkbsks445",
+    "action": "api::article.article.findOne",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.011Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 28,
+    "documentId": "ncftm0nvra0qg5jf23lf3oer",
+    "action": "api::global.global.find",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.011Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 29,
+    "documentId": "oa8he0gbpcq34yqc2er02y9n",
+    "action": "api::logo.logo.findOne",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.012Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 30,
+    "documentId": "ob612bvn55atju01ndqod6aj",
+    "action": "plugin::users-permissions.auth.connect",
+    "createdAt": "2024-08-01T13:39:26.934Z",
+    "updatedAt": "2024-08-01T13:39:26.934Z",
+    "publishedAt": "2024-08-01T13:39:26.935Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 31,
+    "documentId": "ok1bd9ibsuye3a2kjj6v0iq4",
+    "action": "api::faq.faq.findOne",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.011Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 32,
+    "documentId": "pmp314g0v5tzeqdlh5t2omvt",
+    "action": "api::logo.logo.find",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.012Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 33,
+    "documentId": "qdw1r1im5gjauk41eyjma91z",
+    "action": "plugin::users-permissions.auth.changePassword",
+    "createdAt": "2024-08-01T13:39:26.924Z",
+    "updatedAt": "2024-08-01T13:39:26.924Z",
+    "publishedAt": "2024-08-01T13:39:26.924Z",
+    "locale": null,
+    "role": {
+      "id": 5,
+      "documentId": "h11n1tr7g7y1hftedvqarkk6",
+      "name": "Authenticated",
+      "description": "Default role given to authenticated user.",
+      "type": "authenticated",
+      "createdAt": "2024-08-01T13:39:26.915Z",
+      "updatedAt": "2024-08-01T13:39:26.915Z",
+      "publishedAt": "2024-08-01T13:39:26.916Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 34,
+    "documentId": "snkixxzmbrpjlo7bywqyq593",
+    "action": "api::plan.plan.find",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.012Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 18,
+    "documentId": "i171herf0b7tfxxr67uktez4",
+    "action": "plugin::users-permissions.user.me",
+    "createdAt": "2024-08-01T13:39:26.924Z",
+    "updatedAt": "2025-05-09T16:12:24.250Z",
+    "publishedAt": "2024-08-01T13:39:26.924Z",
+    "locale": null,
+    "role": null
+  },
+  {
+    "id": 35,
+    "documentId": "srw1nhowk8no5dwj6d721rua",
+    "action": "api::faq.faq.find",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.011Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 36,
+    "documentId": "ti0avuxelpxdc9id8nqe2ht9",
+    "action": "api::page.page.findOne",
+    "createdAt": "2024-08-07T10:43:00.010Z",
+    "updatedAt": "2024-08-07T10:43:00.010Z",
+    "publishedAt": "2024-08-07T10:43:00.012Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 37,
+    "documentId": "y4fyb5z03kzy5d28w7f8fxe4",
+    "action": "plugin::users-permissions.auth.register",
+    "createdAt": "2024-08-01T13:39:26.934Z",
+    "updatedAt": "2024-08-01T13:39:26.934Z",
+    "publishedAt": "2024-08-01T13:39:26.935Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 38,
+    "documentId": "yd39p13i3js3ubfww971wuku",
+    "action": "plugin::users-permissions.auth.forgotPassword",
+    "createdAt": "2024-08-01T13:39:26.934Z",
+    "updatedAt": "2024-08-01T13:39:26.934Z",
+    "publishedAt": "2024-08-01T13:39:26.935Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  },
+  {
+    "id": 39,
+    "documentId": "zl0beop5ekq90pnmro69pczx",
+    "action": "api::redirection.redirection.find",
+    "createdAt": "2024-09-12T10:53:37.968Z",
+    "updatedAt": "2024-09-12T10:53:37.968Z",
+    "publishedAt": "2024-09-12T10:53:37.968Z",
+    "locale": null,
+    "role": {
+      "id": 4,
+      "documentId": "ejq42di6zxqd9xpa2cm05r62",
+      "name": "Public",
+      "description": "Default role given to unauthenticated user.",
+      "type": "public",
+      "createdAt": "2024-08-01T13:39:26.918Z",
+      "updatedAt": "2025-03-19T16:28:53.436Z",
+      "publishedAt": "2024-08-01T13:39:26.918Z",
+      "locale": null
+    }
+  }
+]

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+'use client';
+import React, { useState, useEffect, use } from 'react';
 import { List, Avatar, Card, Typography, Empty, Spin, message } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
@@ -21,11 +22,11 @@ interface NotesSectionProps {
   customerId: string;
 }
 
-const NotesSection: React.FC<NotesSectionProps> = ({ customerId }) => {
+const NotesSection: React.FC<NotesSectionProps> = ({ customerId = '' }) => {
   const [notes, setNotes] = useState<Note[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const fetchNotes = async () => {
+  const fetchNotes = React.useCallback(async () => {
     try {
       setLoading(true);
       const res = await fetch(`/api/notes?filters[customer]=${customerId}&sort=createdAt:desc`);
@@ -41,13 +42,13 @@ const NotesSection: React.FC<NotesSectionProps> = ({ customerId }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [customerId]);
 
   useEffect(() => {
     if (customerId) {
       fetchNotes();
     }
-  }, [customerId]);
+  }, [customerId, fetchNotes]);
 
   const handleNoteAdded = () => {
     fetchNotes();

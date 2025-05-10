@@ -6,12 +6,12 @@ export default async (strapi: Core.Strapi) => {
     const agentRole = await strapi
       .query('plugin::users-permissions.role')
       .findOne({
-        where: { name: 'Agent' }
+        where: { type: 'agent' }
       });
     
     if (agentRole) {
       console.log('Agent role already exists, skipping...');
-      return;
+      return agentRole;
     }
 
     // Tạo role Agent mới
@@ -28,43 +28,67 @@ export default async (strapi: Core.Strapi) => {
     // Lấy danh sách tất cả các permissions
     const permissions = await strapi
       .query('plugin::users-permissions.permission')
-      .findMany({});
-
+      .findMany({
+        populate: {
+          role: true,
+        },
+      });
+    console.log(`- Found ${permissions.length} permissions`);
+    // console.log(`- ALL permission: ${JSON.stringify(permissions)}`);
     // Thiết lập quyền cho Agent đối với các Content Types
     const agentPermissions = permissions.filter(p => {
-      // Deal, Task, Customer, Note, Property
-      if (['deal', 'task', 'customer', 'note', 'property'].includes(p.controller) && 
-          ['api::deal', 'api::task', 'api::customer', 'api::note', 'api::property'].includes(p.provider)) {
-        return ['find', 'findOne', 'create', 'update'].includes(p.action);
+      // Parse the action string to extract provider and controller
+      const actionParts = p.action.split('.');
+      if (actionParts.length < 2) return false;
+      
+      const provider = actionParts[0]; // e.g., "api::deal"
+      const controller = actionParts[1]; // e.g., "deal"
+      const actionType = actionParts[actionParts.length - 1]; // e.g., "find"
+      
+      // Deal, Task, Customer, Note, Property - full CRUD (except delete)
+      if (['deal', 'task', 'customer', 'note', 'property'].includes(controller) && 
+          provider.startsWith('api::')) {
+        return ['find', 'findOne', 'create', 'update'].includes(actionType);
       }
-      // ClientStage - chỉ cho phép đọc
-      if (p.controller === 'client-stage' && p.provider === 'api::client-stage') {
-        return ['find', 'findOne'].includes(p.action);
+      
+      // Read-only content types: client-stage, category, testimonial, product, plan
+      if (['client-stage', 'category', 'testimonial', 'product', 'plan'].includes(controller) && 
+          provider.startsWith('api::')) {
+        return ['find', 'findOne'].includes(actionType);
       }
+      
       // Upload files
-      if (p.controller === 'upload' && p.provider === 'plugin::upload') {
+      if (controller === 'upload' && provider === 'plugin::upload') {
         return true;
       }
+      
       // User permissions
-      if (p.controller === 'user' && p.provider === 'plugin::users-permissions') {
-        return ['me'].includes(p.action);
+      if (controller === 'user' && provider === 'plugin::users-permissions') {
+        return actionType === 'me';
       }
+      
       return false;
     });
+    console.log(`- Found ${agentPermissions.length} permissions for Agent role`);
 
-    // Cập nhật quyền cho role Agent
-    await Promise.all(
-      agentPermissions.map(p => {
-        return strapi
+    // Cập nhật quyền cho role Agent - sequential updates to avoid deadlocks
+    console.log(`- Updating permissions for Agent role...`);
+    for (const p of agentPermissions) {
+      try {
+        await strapi
           .query('plugin::users-permissions.permission')
           .update({
             where: { id: p.id },
             data: { role: role.id }
           });
-      })
-    );
+      } catch (updateError) {
+        console.error(`Failed to update permission ID ${p.id}:`, updateError);
+        // Continue with other permissions even if one fails
+      }
+    }
 
     console.log(`Agent role created with ${agentPermissions.length} permissions`);
+    return role;
   } catch (error) {
     console.error('Error setting up Agent role:', error);
   }
