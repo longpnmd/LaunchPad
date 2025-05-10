@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { api, AUTH_TOKEN_KEY, authenticateApi, clearAuthentication } from "@/lib/services";
+import { api, AUTH_TOKEN_KEY, authenticateApi, clearAuthentication, getLocalStorageToken } from "@/lib/services";
 import {
   UsersPermissionsRole,
   UsersPermissionsUser,
@@ -61,8 +61,7 @@ export const useAuth = () => {
 
   // Kiểm tra trạng thái đăng nhập khi component mount
   useEffect(() => {
-    const token =
-      typeof window !== "undefined" ? localStorage.getItem(AUTH_TOKEN_KEY) : null;
+    const token = getLocalStorageToken();
     if (token) {
       fetchCurrentUser();
     } else {

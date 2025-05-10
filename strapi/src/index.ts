@@ -1,6 +1,6 @@
 import type { Core } from "@strapi/strapi";
 
-import setupAgentRole from "./bootstrap/setup-agent-role";
+// import setupAgentRole from "./bootstrap/setup-agent-role";
 import seedMockData from "./bootstrap/seed-mock-data";
 import fs from "fs";
 import path from "path";
@@ -53,7 +53,7 @@ export default {
    */
   bootstrap({ strapi }: { strapi: Core.Strapi }) {
     // Setup agent role
-    setupAgentRole(strapi);
+    // setupAgentRole(strapi);
 
     // Seed mock data (bao gồm client stages)
     seedMockData(strapi);

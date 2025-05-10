@@ -10,38 +10,42 @@ import viVN from "antd/lib/locale/vi_VN";
 import enUS from "antd/lib/locale/en_US";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { api } from "@/lib/services";
+import { CheckSquareOutlined, DashboardOutlined, DollarOutlined, HomeOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
+import { GlobalResponse } from "@/lib/services/api-service";
+import { strapiImage } from "@/lib/strapi/strapiImage";
 
 // Menu items cho sidebar
 const routes = [
   {
     path: "/admin/dashboard",
     name: "Dashboard",
-    icon: "DashboardOutlined",
+    icon: <DashboardOutlined />,
   },
   {
     path: "/admin/customers",
     name: "Khách hàng",
-    icon: "UserOutlined",
+    icon: <UserOutlined />,
   },
   {
     path: "/admin/properties",
     name: "Bất động sản",
-    icon: "HomeOutlined",
+    icon: <HomeOutlined />,
+    
   },
   {
     path: "/admin/deals",
     name: "Giao dịch",
-    icon: "DollarOutlined",
+    icon: <DollarOutlined />,
   },
   {
     path: "/admin/tasks",
     name: "Nhiệm vụ",
-    icon: "CheckSquareOutlined",
+    icon: <CheckSquareOutlined />,
   },
   {
     path: "/admin/settings",
     name: "Cài đặt",
-    icon: "SettingOutlined",
+    icon: <SettingOutlined />,
   },
 ];
 
@@ -55,13 +59,24 @@ export default function AdminLayout({
   const pathname = usePathname();
   const { user, isLoading, logout } = useAuth();
   const [collapsed, setCollapsed] = useState(false);
+  const [pageData, setPageData] = useState<GlobalResponse['data']>();
 
   useEffect(() => {
     const fetchGlobalData = async () => {
       const response = await api.global.getGlobal({
         filters: { locale: "en" },
+        populate: {
+          seo: {
+            populate: ['metaImage']
+          },
+          navbar:{
+            populate: ['logo']
+          }
+          // logo: true,
+          // favicon: true,
+        } as any,
       });
-      const { data: pageData } = response.data;
+      setPageData(response.data.data);
     };
     fetchGlobalData();
   },[]);
@@ -82,7 +97,7 @@ export default function AdminLayout({
     <ConfigProvider locale={params.locale === "vi" ? viVN : enUS}>
       <ProLayout
         title="CRM BĐS"
-        logo={<Image src="/logo.png" alt="Logo" width={32} height={32} />}
+        logo={<Image src={strapiImage(pageData?.seo?.metaImage?.url)} alt="Logo" width={32} height={32} />}
         menu={{
           type: "group",
         }}
@@ -98,7 +113,7 @@ export default function AdminLayout({
         collapsed={collapsed}
         onCollapse={setCollapsed}
         menuItemRender={(item, dom) => (
-          <Link href={item.path || "/dashboard"} legacyBehavior>
+          <Link href={item.path || "/admin/dashboard"} legacyBehavior>
             <a>{dom}</a>
           </Link>
         )}
