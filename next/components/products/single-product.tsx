@@ -7,7 +7,7 @@ import { cn, formatNumber } from "@/lib/utils";
 import AddToCartModal from "@/components/products/modal";
 import { useCart } from "@/context/cart-context";
 import { strapiImage } from "@/lib/strapi/strapiImage";
-import { Product } from "@/lib/services/api-service";
+import { Product } from "@/lib/services";
 
 export const SingleProduct = ({ product }: { product: Product }) => {
   const [activeThumbnail, setActiveThumbnail] = useState(

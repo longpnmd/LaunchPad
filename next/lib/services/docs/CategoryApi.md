@@ -1,0 +1,319 @@
+# CategoryApi
+
+All URIs are relative to *http://localhost:1337/api*
+
+|Method | HTTP request | Description|
+|------------- | ------------- | -------------|
+|[**deleteCategoriesId**](#deletecategoriesid) | **DELETE** /categories/{id} | |
+|[**getCategories**](#getcategories) | **GET** /categories | |
+|[**getCategoriesId**](#getcategoriesid) | **GET** /categories/{id} | |
+|[**postCategories**](#postcategories) | **POST** /categories | |
+|[**putCategoriesId**](#putcategoriesid) | **PUT** /categories/{id} | |
+
+# **deleteCategoriesId**
+> number deleteCategoriesId()
+
+
+### Example
+
+```typescript
+import {
+    CategoryApi,
+    Configuration
+} from './api';
+
+const configuration = new Configuration();
+const apiInstance = new CategoryApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.deleteCategoriesId(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**number**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**400** | Bad Request |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Not Found |  -  |
+|**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getCategories**
+> CategoryListResponse getCategories()
+
+
+### Example
+
+```typescript
+import {
+    CategoryApi,
+    Configuration
+} from './api';
+
+const configuration = new Configuration();
+const apiInstance = new CategoryApi(configuration);
+
+let sort: string; //Sort by attributes ascending (asc) or descending (desc) (optional) (default to undefined)
+let paginationWithCount: boolean; //Return page/pageSize (default: true) (optional) (default to undefined)
+let paginationPage: number; //Page number (default: 0) (optional) (default to undefined)
+let paginationPageSize: number; //Page size (default: 25) (optional) (default to undefined)
+let paginationStart: number; //Offset value (default: 0) (optional) (default to undefined)
+let paginationLimit: number; //Number of entities to return (default: 25) (optional) (default to undefined)
+let fields: string; //Fields to return (ex: title,author) (optional) (default to undefined)
+let populate: string; //Relations to return (optional) (default to undefined)
+let filters: { [key: string]: any; }; //Filters to apply (optional) (default to undefined)
+let locale: string; //Locale to apply (optional) (default to undefined)
+
+const { status, data } = await apiInstance.getCategories(
+    sort,
+    paginationWithCount,
+    paginationPage,
+    paginationPageSize,
+    paginationStart,
+    paginationLimit,
+    fields,
+    populate,
+    filters,
+    locale
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **sort** | [**string**] | Sort by attributes ascending (asc) or descending (desc) | (optional) defaults to undefined|
+| **paginationWithCount** | [**boolean**] | Return page/pageSize (default: true) | (optional) defaults to undefined|
+| **paginationPage** | [**number**] | Page number (default: 0) | (optional) defaults to undefined|
+| **paginationPageSize** | [**number**] | Page size (default: 25) | (optional) defaults to undefined|
+| **paginationStart** | [**number**] | Offset value (default: 0) | (optional) defaults to undefined|
+| **paginationLimit** | [**number**] | Number of entities to return (default: 25) | (optional) defaults to undefined|
+| **fields** | [**string**] | Fields to return (ex: title,author) | (optional) defaults to undefined|
+| **populate** | [**string**] | Relations to return | (optional) defaults to undefined|
+| **filters** | **{ [key: string]: any; }** | Filters to apply | (optional) defaults to undefined|
+| **locale** | [**string**] | Locale to apply | (optional) defaults to undefined|
+
+
+### Return type
+
+**CategoryListResponse**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**400** | Bad Request |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Not Found |  -  |
+|**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getCategoriesId**
+> CategoryResponse getCategoriesId()
+
+
+### Example
+
+```typescript
+import {
+    CategoryApi,
+    Configuration
+} from './api';
+
+const configuration = new Configuration();
+const apiInstance = new CategoryApi(configuration);
+
+let id: number; // (default to undefined)
+
+const { status, data } = await apiInstance.getCategoriesId(
+    id
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**CategoryResponse**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**400** | Bad Request |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Not Found |  -  |
+|**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **postCategories**
+> CategoryResponse postCategories(categoryRequest)
+
+
+### Example
+
+```typescript
+import {
+    CategoryApi,
+    Configuration,
+    CategoryRequest
+} from './api';
+
+const configuration = new Configuration();
+const apiInstance = new CategoryApi(configuration);
+
+let categoryRequest: CategoryRequest; //
+
+const { status, data } = await apiInstance.postCategories(
+    categoryRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **categoryRequest** | **CategoryRequest**|  | |
+
+
+### Return type
+
+**CategoryResponse**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**400** | Bad Request |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Not Found |  -  |
+|**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **putCategoriesId**
+> CategoryResponse putCategoriesId(categoryRequest)
+
+
+### Example
+
+```typescript
+import {
+    CategoryApi,
+    Configuration,
+    CategoryRequest
+} from './api';
+
+const configuration = new Configuration();
+const apiInstance = new CategoryApi(configuration);
+
+let id: number; // (default to undefined)
+let categoryRequest: CategoryRequest; //
+
+const { status, data } = await apiInstance.putCategoriesId(
+    id,
+    categoryRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **categoryRequest** | **CategoryRequest**|  | |
+| **id** | [**number**] |  | defaults to undefined|
+
+
+### Return type
+
+**CategoryResponse**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**400** | Bad Request |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Not Found |  -  |
+|**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

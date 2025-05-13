@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
-import { api } from "@/lib/services";
 import {
   Button,
   Tabs,
@@ -29,7 +28,8 @@ import PageHeader from "@/components/layout/PageHeader";
 import StageTag from "@/components/common/StageTag";
 import NotesSection from "../components/NotesSection";
 import EntityTimeline from "@/components/common/EntityTimeline";
-import { Customer } from "@/lib/services/api-service";
+import { Customer } from "@/lib/services";
+import { customerApi } from "@/lib/api-helper";
 
 const { TabPane } = Tabs;
 const { Title, Text } = Typography;
@@ -44,7 +44,9 @@ export default function CustomerDetailPage() {
     const fetchCustomer = async () => {
       try {
         setLoading(true);
-        const { data } = await api.customers.getCustomersId(id as any);
+        const { data } = await customerApi.getCustomersId({
+          id: parseInt(id as string),
+        });
         if (!data) {
           throw new Error("Không tìm thấy khách hàng");
         }
@@ -76,7 +78,9 @@ export default function CustomerDetailPage() {
       cancelText: "Hủy",
       onOk: async () => {
         try {
-          await api.customers.deleteCustomersId(parseInt(id as string));
+          await customerApi.deleteCustomersId({
+            id: parseInt(id as string),
+          });
 
           message.success("Xóa khách hàng thành công!");
           router.push("/admin/customers");

@@ -1,0 +1,67 @@
+{
+    "template": "Real Estate CRM",
+    "version": "1.0.0",
+    "description": "A comprehensive Real Estate CRM template for managing properties, clients, and transactions",
+    "pages": [
+      {
+        "id": "dashboard",
+        "title": "Dashboard",
+        "content": "# Real Estate CRM Dashboard\n\n## Key Metrics\n- Active Listings: 0\n- Properties Under Contract: 0\n- Closed Deals This Month: 0\n- New Client Inquiries: 0\n\n## Quick Links\n- [Property Database](#properties)\n- [Client Database](#clients)\n- [Transaction Pipeline](#pipeline)\n- [Marketing Campaigns](#marketing)"
+      },
+      {
+        "id": "properties",
+        "title": "Property Database",
+        "content": "# Property Database\n\n## Categories\n- [Residential Properties](#residential)\n- [Commercial Properties](#commercial)\n- [Development Projects](#development)\n\n## Property Entry Template\n\n### Basic Information\n- Address: \n- Property Type: \n- Listing Price: \n- Square Footage: \n- Bedrooms: \n- Bathrooms: \n- Year Built: \n- Status: [Available, Under Contract, Sold, Off Market]\n\n### Additional Details\n- Description: \n- Features: \n- Recent Updates/Renovations: \n- School District: \n- Taxes: \n- HOA Fees: \n\n### Transaction Information\n- Listing Date: \n- Listing Agent: \n- Seller Information: \n- Documents: [Link to documents]"
+      },
+      {
+        "id": "clients",
+        "title": "Client Database",
+        "content": "# Client Database\n\n## Categories\n- [Buyers](#buyers)\n- [Sellers](#sellers)\n- [Partners & Agents](#partners)\n\n## Client Entry Template\n\n### Contact Information\n- Name: \n- Phone: \n- Email: \n- Address: \n- Client Type: [Buyer, Seller, Both]\n- Referred By: \n\n### Buyer Information\n- Budget Range: \n- Desired Locations: \n- Property Type Preference: \n- Must-Have Features: \n- Nice-to-Have Features: \n- Timeline: \n- Pre-Approved for Mortgage: [Yes/No]\n- Pre-Approval Amount: \n\n### Seller Information\n- Property Address: \n- Desired Listing Price: \n- Timeline for Selling: \n- Reason for Selling: \n\n### Interactions Log\n- Date: \n- Type: [Call, Email, Meeting, Showing]\n- Notes: \n- Follow-up Needed: [Yes/No]\n- Follow-up Date: "
+      },
+      {
+        "id": "pipeline",
+        "title": "Transaction Pipeline",
+        "content": "# Transaction Pipeline\n\n## Pipeline Stages\n\n### New Leads\n- [Client Name] - [Property Address]\n\n### Initial Contact\n- [Client Name] - [Property Address]\n\n### Property Search/Listing Preparation\n- [Client Name] - [Property Address]\n\n### Offer/Negotiation\n- [Client Name] - [Property Address]\n\n### Under Contract\n- [Client Name] - [Property Address]\n\n### Inspection & Due Diligence\n- [Client Name] - [Property Address]\n\n### Final Walkthrough\n- [Client Name] - [Property Address]\n\n### Closed\n- [Client Name] - [Property Address]"
+      },
+      {
+        "id": "marketing",
+        "title": "Marketing Campaigns",
+        "content": "# Marketing Campaigns\n\n## Campaign Template\n\n### Campaign Details\n- Name: \n- Target Audience: \n- Start Date: \n- End Date: \n- Budget: \n- Goals & KPIs: \n\n### Channels\n- Social Media: [Facebook, Instagram, LinkedIn]\n- Email Marketing: \n- Print Media: \n- Direct Mail: \n- Open Houses: \n\n### Content Calendar\n- Date: \n- Channel: \n- Content Type: \n- Message: \n- Status: [Planned, Created, Published, Completed]\n\n### Results Tracking\n- Impressions: \n- Clicks/Engagement: \n- Inquiries Generated: \n- ROI: "
+      },
+      {
+        "id": "checklists",
+        "title": "Process Checklists",
+        "content": "# Process Checklists\n\n## New Listing Checklist\n- [ ] Initial client consultation\n- [ ] Property evaluation\n- [ ] Comparative market analysis\n- [ ] Listing agreement signed\n- [ ] Professional photography scheduled\n- [ ] Property measurements\n- [ ] Listing written\n- [ ] Marketing materials created\n- [ ] Listed on MLS\n- [ ] Social media announcement\n- [ ] Yard sign installed\n- [ ] Open house scheduled\n\n## Buyer Representation Checklist\n- [ ] Initial client consultation\n- [ ] Buyer agreement signed\n- [ ] Mortgage pre-approval\n- [ ] Property search criteria established\n- [ ] Initial property showings\n- [ ] Offer preparation\n- [ ] Negotiation\n- [ ] Accepted offer\n- [ ] Earnest money deposited\n- [ ] Inspections scheduled\n- [ ] Loan processing\n- [ ] Final walkthrough\n- [ ] Closing coordination\n\n## Transaction Closing Checklist\n- [ ] Purchase agreement fully executed\n- [ ] Earnest money received\n- [ ] Title work ordered\n- [ ] Inspections completed\n- [ ] Inspection objections resolved\n- [ ] Appraisal completed\n- [ ] Loan commitment received\n- [ ] Title issues cleared\n- [ ] Closing disclosure reviewed\n- [ ] Final walkthrough scheduled\n- [ ] Utilities transfer arranged\n- [ ] Closing scheduled\n- [ ] Keys transferred\n- [ ] Commission received\n- [ ] Thank you/closing gift sent"
+      }
+    ],
+    "integrations": {
+      "n8n": {
+        "workflows": [
+          {
+            "name": "New Lead Notification",
+            "description": "Sends notification when new lead is added"
+          },
+          {
+            "name": "Property Match Alert",
+            "description": "Alerts clients when new properties match their criteria"
+          },
+          {
+            "name": "Follow-up Reminder",
+            "description": "Sends reminders for client follow-ups"
+          }
+        ]
+      },
+      "strapi": {
+        "content_types": [
+          {
+            "name": "properties",
+            "fields": ["address", "property_type", "price", "features", "status"]
+          },
+          {
+            "name": "clients",
+            "fields": ["name", "email", "phone", "client_type", "preferences"]
+          }
+        ]
+      }
+    }
+  }

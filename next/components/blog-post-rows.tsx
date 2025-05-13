@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import { Link } from "next-view-transitions";
 import React, { useEffect, useState } from "react";
 import FuzzySearch from "fuzzy-search";
-import { Article } from "@/lib/services/api-service";
+import { Article } from "@/lib/services";
 
 export const BlogPostRows = ({ articles }: { articles: Article[] }) => {
   const [search, setSearch] = useState("");

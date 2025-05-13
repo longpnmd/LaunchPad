@@ -9,7 +9,7 @@ import { Subheading } from "../elements/subheading";
 import { Button } from "../elements/button";
 import { Cover } from "../decorations/cover";
 import { motion } from "framer-motion";
-import { DynamicZoneHeroComponent } from "@/lib/services/api-service";
+import { DynamicZoneHeroComponent } from "@/lib/services";
 
 export const Hero = ({ id, locale, heading = '', sub_heading, CTAs }: DynamicZoneHeroComponent & { locale: string }) => {
   return (

@@ -4,27 +4,27 @@ import { BlogLayout } from "@/components/blog-layout";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 import ClientSlugHandler from "../../ClientSlugHandler";
-import { api } from "@/lib/services";
+import { articleApi } from "@/lib/api-helper";
 
 export default async function SingleArticlePage({
   params,
 }: {
   params: { slug: string; locale: string };
 }) {
-  const { data: articleResponse } = await api.articles.getArticles({
+  const { data: articleResponse } = await articleApi.getArticles({
     filters: {
       slug: params.slug,
       locale: params.locale,
     },
     populate: {
-      image : true,
+      image: true,
       categories: true,
       seo: {
         populate: ["metaImage"],
       },
       localizations: true,
     } as any,
-    "pagination[limit]": 1,
+    paginationLimit: 1,
   });
   const article = articleResponse.data?.[0];
 

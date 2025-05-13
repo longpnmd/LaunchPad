@@ -11,19 +11,19 @@ import { IconShoppingCartUp } from "@tabler/icons-react";
 import { generateMetadataObject } from "@/lib/shared/metadata";
 
 import ClientSlugHandler from "../ClientSlugHandler";
-import { api } from "@/lib/services";
+import { productPageApi, productApi } from "@/lib/api-helper";
 
 export async function generateMetadata({
   params,
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const { data: pageData } = await api.productPage.getProductPage({
+  const { data: pageData } = await productPageApi.getProductPage({
     filters: {
       locale: params.locale,
     },
     populate: "seo.metaImage",
-    "pagination[limit]": 1,
+    paginationLimit: 1,
   });
 
   const seo = Array.isArray(pageData?.data) ? pageData.data[0]?.seo : undefined;
@@ -37,7 +37,7 @@ export default async function Products({
   params: { locale: string };
 }) {
   // Fetch the product-page and products data
-  const { data: productPageResponse } = await api.productPage.getProductPage({
+  const { data: productPageResponse } = await productPageApi.getProductPage({
     filters: {
       locale: params.locale,
     },
@@ -47,10 +47,10 @@ export default async function Products({
       },
       localizations: true,
     } as any,
-    "pagination[limit]": 1,
+    paginationLimit: 1,
   });
-  const { data: products } = await api.products.getProducts({
-    "pagination[limit]": 100,
+  const { data: products } = await productApi.getProducts({
+    paginationLimit: 100,
   });
   const productPage = Array.isArray(productPageResponse?.data)
     ? productPageResponse.data[0]

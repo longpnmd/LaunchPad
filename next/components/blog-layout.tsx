@@ -5,8 +5,7 @@ import { Link } from "next-view-transitions";
 import { format } from "date-fns";
 import { strapiImage } from "@/lib/strapi/strapiImage";
 import DynamicZoneManager from "./dynamic-zone/manager";
-import { Article } from "@/lib/services/api-service";
-
+import { Article } from "@/lib/services";
 export async function BlogLayout({
   article,
   locale,

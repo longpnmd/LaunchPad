@@ -11,18 +11,27 @@ import { AmbientColor } from "@/components/decorations/ambient-color";
 import { generateMetadataObject } from "@/lib/shared/metadata";
 
 import ClientSlugHandler from "../ClientSlugHandler";
-import { api } from "@/lib/services";
-import { Article } from "@/lib/services/api-service";
+import { Article } from "@/lib/services";
+import { articleApi, blogPageApi, globalApi } from "@/lib/api-helper";
 
 export async function generateMetadata({
   params,
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const { data: pageData } = await api.global.getGlobal({
-    filters: { locale: params.locale },
-    populate: "seo.metaImage",
-  });
+  const { data: pageData } = await globalApi.getGlobal({
+    filters: {
+      slug: "blog-page",
+      locale: params.locale,
+    },
+    populate: {
+      seo: {
+        populate: ["metaImage"],
+      },
+      localizations: true,
+    } as any,
+    paginationLimit: 1,
+  })
 
   const seo = pageData.data?.seo;
   const metadata = generateMetadataObject(seo);
@@ -34,7 +43,7 @@ export default async function Blog({
 }: {
   params: { locale: string; slug: string };
 }) {
-  const { data: _blogPage } = await api.blogPage.getBlogPage({
+  const { data: _blogPage } = await blogPageApi.getBlogPage({
     filters: {
       locale: params.locale,
     },
@@ -44,9 +53,9 @@ export default async function Blog({
       },
       localizations: true,
     } as any,
-    "pagination[limit]": 1,
+    paginationLimit: 1,
   });
-  const { data: articles } = await api.articles.getArticles({
+  const { data: articles } = await articleApi.getArticles({
     filters: {
       locale: params.locale,
     },
@@ -58,7 +67,7 @@ export default async function Blog({
       },
       localizations: true,
     } as any,
-    "pagination[limit]": 100,
+    paginationLimit: 100,
   });
   const blogPage = Array.isArray(_blogPage?.data)
     ? _blogPage.data[0]

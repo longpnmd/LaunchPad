@@ -7,7 +7,7 @@ import Balancer from "react-wrap-balancer";
 import { truncate } from "@/lib/utils";
 import { format } from "date-fns";
 import { strapiImage } from "@/lib/strapi/strapiImage";
-import { Article } from "@/lib/services/api-service";
+import { Article } from "@/lib/services";
 
 export const BlogCard = ({ article, locale }: { article: Article, locale: string }) => {
   return (

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { formatNumber } from "@/lib/utils";
 import { Link } from "next-view-transitions";
 import { strapiImage } from "@/lib/strapi/strapiImage";
-import { Product } from "@/lib/services/api-service";
+import { Product } from "@/lib/services";
 
 export const Featured = ({ products, locale }: { products: Product[], locale: string }) => {
   return (

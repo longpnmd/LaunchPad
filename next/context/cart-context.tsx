@@ -1,5 +1,5 @@
 "use client";
-import { Product } from "@/lib/services/api-service";
+import { Product } from "@/lib/services";
 import React, { createContext, useContext, useState, useCallback } from "react";
 
 type CartItem = {

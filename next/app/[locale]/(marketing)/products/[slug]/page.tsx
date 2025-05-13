@@ -5,16 +5,14 @@ import { Container } from "@/components/container";
 import { AmbientColor } from "@/components/decorations/ambient-color";
 import { SingleProduct } from "@/components/products/single-product";
 import DynamicZoneManager from '@/components/dynamic-zone/manager'
-import { generateMetadataObject } from '@/lib/shared/metadata';
-import { api } from "@/lib/services";
+import { productApi } from "@/lib/api-helper";
 
 export async function generateMetadata({
   params,
 }: {
   params: { locale: string, slug: string };
 }): Promise<Metadata> {
-
-  const { data: response } = await api.products.getProducts({
+  const { data: response } = await productApi.getProducts({
     filters: {
       slug: params.slug,
       locale: params.locale,
@@ -25,7 +23,7 @@ export async function generateMetadata({
       },
       localizations: true,
     } as any,
-    "pagination[limit]": 1,
+    paginationLimit: 1,
   });
   const pageData = response.data?.[0];
 
@@ -40,14 +38,13 @@ export default async function SingleProductPage({
 }: {
   params: { slug: string, locale: string };
 }) {
-
-  const { data: response } = await api.products.getProducts({
+  const { data: response } = await productApi.getProducts({
     filters: {
       slug: params.slug,
       locale: params.locale,
     },
     populate: ["seo.metaImage","dynamic_zone"] as any,
-    "pagination[limit]": 1,
+    paginationLimit: 1,
   });
 
   const product = response?.data?.[0];

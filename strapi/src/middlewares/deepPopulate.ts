@@ -121,10 +121,10 @@ export default (config, { strapi }: { strapi: Core.Strapi }) => {
           const populateConfig = getDeepPopulate(uid);
 
           // Apply population to the query
-          ctx.query.populate = {
-            ...populateConfig,
-            ...(includesLocalization && { localizations: { populate: "*" } }),
-          };
+          // ctx.query.populate = {
+          //   ...populateConfig,
+          //   ...(includesLocalization && { localizations: { populate: "*" } }),
+          // };
 
           strapi.log.debug(`Applied deep population for ${uid}`);
         } else {

@@ -4,7 +4,7 @@ import { Link } from "next-view-transitions";
 import { BlurImage } from "./blur-image";
 
 import { strapiImage } from "@/lib/strapi/strapiImage";
-import { UploadFile } from "@/lib/services/api-service";
+import { UploadFile } from "@/lib/services";
 
 export const Logo = ({ image, locale }: { image?: UploadFile, locale?: string }) => {
   if (image) {

@@ -3,20 +3,25 @@ import { Metadata } from "next";
 import PageContent from "@/lib/shared/PageContent";
 import { generateMetadataObject } from "@/lib/shared/metadata";
 import ClientSlugHandler from "./ClientSlugHandler";
-import { api } from "@/lib/services";
+import { pageApi } from "@/lib/api-helper";
 
 export async function generateMetadata({
   params,
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const { data: pageData } = await api.pages.getPages({
+  const { data: pageData } = await pageApi.getPages({
     filters: {
       slug: "homepage",
       locale: params.locale,
     },
-    populate: "seo.metaImage",
-    "pagination[limit]": 1,
+    populate: {
+      seo: {
+        populate: ["metaImage"],
+      },
+      localizations: true,
+    } as any,
+    paginationLimit: 1,
   });
 
   const seo = pageData?.data?.[0]?.seo;
@@ -29,7 +34,7 @@ export default async function HomePage({
 }: {
   params: { locale: string };
 }) {
-  const { data: responseData } = await api.pages
+  const { data: responseData } = await pageApi
     .getPages({
       filters: {
         slug: "homepage",
@@ -117,7 +122,7 @@ export default async function HomePage({
           },
         },
       } as any,
-      "pagination[limit]": 1,
+      paginationLimit: 1,
     })
     .catch((error) => {
       console.error("Error fetching data:", error);

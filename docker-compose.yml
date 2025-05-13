@@ -182,6 +182,8 @@ services:
       - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
       - N8N_USER_MANAGEMENT_DISABLED=false
       - N8N_AUTH_EXCLUDE_ENDPOINTS=
+      - EXECUTIONS_PROCESS=queue
+      - QUEUE_BULL_REDIS_HOST=redis
     labels:
       - "traefik.enable=true"
       - "traefik.http.services.n8n.loadbalancer.server.port=${N8N_PORT:-5678}"
@@ -211,6 +213,7 @@ services:
     env_file:
       - .env
     environment:
+      - AFFINE_ENV=${AFFINE_ENV:-production}
       - REDIS_SERVER_HOST=redis
       - DATABASE_URL=postgresql://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@postgres:5432/${AFFINE_DATABASE_NAME:-affine}
     restart: unless-stopped
@@ -227,6 +230,7 @@ services:
     env_file:
       - .env
     environment:
+      - AFFINE_ENV=${AFFINE_ENV:-production}
       - REDIS_SERVER_HOST=redis
       - DATABASE_URL=postgresql://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@postgres:5432/${AFFINE_DATABASE_NAME:-affine}
     depends_on:
@@ -253,6 +257,7 @@ services:
     image: portainer/portainer-ce:latest
     restart: always
     ports:
+      - "9443:9443"
       - "9000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock

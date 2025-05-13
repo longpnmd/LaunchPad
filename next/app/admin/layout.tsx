@@ -1,143 +1,121 @@
-"use client";
+import { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { generateMetadataObject } from "@/lib/shared/metadata";
+import { globalApi } from "@/lib/api-helper";
+import AdminClientLayout from "./page";
+import qs from "qs";
 
-import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import { ConfigProvider } from "antd";
-import { ProLayout } from "@ant-design/pro-components";
-import Link from "next/link";
-import Image from "next/image";
-import viVN from "antd/lib/locale/vi_VN";
-import enUS from "antd/lib/locale/en_US";
-import { useAuth } from "@/lib/hooks/useAuth";
-import { api } from "@/lib/services";
-import { CheckSquareOutlined, DashboardOutlined, DollarOutlined, HomeOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
-import { GlobalResponse } from "@/lib/services/api-service";
-import { strapiImage } from "@/lib/strapi/strapiImage";
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
-// Menu items cho sidebar
-const routes = [
-  {
-    path: "/admin/dashboard",
-    name: "Dashboard",
-    icon: <DashboardOutlined />,
-  },
-  {
-    path: "/admin/customers",
-    name: "Khách hàng",
-    icon: <UserOutlined />,
-  },
-  {
-    path: "/admin/properties",
-    name: "Bất động sản",
-    icon: <HomeOutlined />,
-    
-  },
-  {
-    path: "/admin/deals",
-    name: "Giao dịch",
-    icon: <DollarOutlined />,
-  },
-  {
-    path: "/admin/tasks",
-    name: "Nhiệm vụ",
-    icon: <CheckSquareOutlined />,
-  },
-  {
-    path: "/admin/settings",
-    name: "Cài đặt",
-    icon: <SettingOutlined />,
-  },
-];
+// Metadata cho Admin section
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  try {
+    const response = await globalApi.getGlobal({
+      filters: { locale: params.locale?.toString() || "en" },
+      populate: "seo",
+    });
 
-export default function AdminLayout({
+    if (response.status !== 200) {
+      throw new Error(
+        `Failed to fetch data from Strapi (status=${response.status})`
+      );
+    }
+
+    const pageData = response.data;
+    const seo = pageData.data?.seo;
+
+    return (
+      generateMetadataObject(seo) || {
+        title: "Admin Dashboard | CRM BĐS",
+        description: "Hệ thống quản lý bất động sản",
+      }
+    );
+  } catch (error) {
+    console.error("Error generating metadata:", error);
+    return {
+      title: "Admin Dashboard | CRM BĐS",
+      description: "Hệ thống quản lý bất động sản",
+    };
+  }
+}
+
+export default async function AdminLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const pathname = usePathname();
-  const { user, isLoading, logout } = useAuth();
-  const [collapsed, setCollapsed] = useState(false);
-  const [pageData, setPageData] = useState<GlobalResponse['data']>();
-
-  useEffect(() => {
-    const fetchGlobalData = async () => {
-      const response = await api.global.getGlobal({
-        filters: { locale: "en" },
+  try {
+    // Server-side data fetching
+    const response = await globalApi
+      .getGlobal({
+        filters: { locale: params.locale?.toString() || "en" },
         populate: {
           seo: {
-            populate: ['metaImage']
+            populate: ["metaImage"],
           },
-          navbar:{
-            populate: ['logo']
-          }
-          // logo: true,
-          // favicon: true,
+          navbar : {
+            populate: ["logo"]
+          },
+          localizations: true,
         } as any,
+      })
+      .catch((error) => {
+        console.error("Error fetching global data:", error);
+        throw error;
       });
-      setPageData(response.data.data);
-    };
-    fetchGlobalData();
-  },[]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user) {
-    // Redirect to login
-    if (typeof window !== "undefined") {
-      window.location.href = "/auth/login";
+    if (response.status !== 200) {
+      throw new Error(
+        `Failed to fetch data from Strapi (status=${response.status})`
+      );
     }
-    return <div>Redirecting to login...</div>;
-  }
 
-  return (
-    <ConfigProvider locale={params.locale === "vi" ? viVN : enUS}>
-      <ProLayout
-        title="CRM BĐS"
-        logo={<Image src={strapiImage(pageData?.seo?.metaImage?.url)} alt="Logo" width={32} height={32} />}
-        menu={{
-          type: "group",
-        }}
-        route={{
-          path: "/",
-          routes,
-        }}
-        location={{
-          pathname,
-        }}
-        navTheme="light"
-        fixSiderbar
-        collapsed={collapsed}
-        onCollapse={setCollapsed}
-        menuItemRender={(item, dom) => (
-          <Link href={item.path || "/admin/dashboard"} legacyBehavior>
-            <a>{dom}</a>
-          </Link>
-        )}
-        avatarProps={{
-          src:
-            user?.id ||
-            "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
-          size: "small",
-          title: user?.username,
-          render: (_, dom) => {
-            return (
-              <div
-                onClick={() => {
-                  logout();
-                }}
+    const globalData = response.data.data;
+
+    return (
+      <html lang={params.locale} className={inter.className}>
+        <body className="antialiased bg-gray-50">
+          <AdminClientLayout
+            children={children}
+            params={params}
+            initialData={globalData}
+          />
+        </body>
+      </html>
+    );
+  } catch (error) {
+    console.error("Error in AdminLayout:", error);
+    return (
+      <html lang={params.locale} className={inter.className}>
+        <body className="antialiased bg-gray-50">
+          <div className="flex items-center justify-center h-screen">
+            <div className="text-center">
+              <h1 className="text-2xl font-bold text-red-600 mb-4">
+                Đã xảy ra lỗi
+              </h1>
+              <p className="mb-4">
+                Không thể tải dữ liệu. Vui lòng thử lại sau.
+              </p>
+              <button
+                className="px-4 py-2 bg-blue-600 text-white rounded-md"
+                onClick={() => window.location.reload()}
               >
-                {dom}
-              </div>
-            );
-          },
-        }}
-      >
-        {children}
-      </ProLayout>
-    </ConfigProvider>
-  );
+                Tải lại trang
+              </button>
+            </div>
+          </div>
+        </body>
+      </html>
+    );
+  }
 }

@@ -1,0 +1,50 @@
+# Task
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | **number** |  | [optional] [default to undefined]
+**documentId** | **string** |  | [optional] [default to undefined]
+**title** | **string** |  | [default to undefined]
+**description** | **string** |  | [optional] [default to undefined]
+**dueDate** | **string** |  | [optional] [default to undefined]
+**assignedTo** | [**ClientStageCustomersInnerAgent**](ClientStageCustomersInnerAgent.md) |  | [optional] [default to undefined]
+**status** | **string** |  | [optional] [default to undefined]
+**relatedDeal** | [**TaskRelatedDeal**](TaskRelatedDeal.md) |  | [optional] [default to undefined]
+**notes** | [**Array&lt;ArticleCategoriesInnerProductImagesInnerRelatedInner&gt;**](ArticleCategoriesInnerProductImagesInnerRelatedInner.md) |  | [optional] [default to undefined]
+**createdAt** | **string** |  | [optional] [default to undefined]
+**updatedAt** | **string** |  | [optional] [default to undefined]
+**publishedAt** | **string** |  | [optional] [default to undefined]
+**createdBy** | [**ArticleCategoriesInnerProductImagesInnerRelatedInner**](ArticleCategoriesInnerProductImagesInnerRelatedInner.md) |  | [optional] [default to undefined]
+**updatedBy** | [**ArticleCategoriesInnerProductImagesInnerRelatedInner**](ArticleCategoriesInnerProductImagesInnerRelatedInner.md) |  | [optional] [default to undefined]
+**locale** | **string** |  | [optional] [default to undefined]
+**localizations** | [**Array&lt;ArticleCategoriesInnerProductImagesInnerRelatedInner&gt;**](ArticleCategoriesInnerProductImagesInnerRelatedInner.md) |  | [optional] [default to undefined]
+
+## Example
+
+```typescript
+import { Task } from './api';
+
+const instance: Task = {
+    id,
+    documentId,
+    title,
+    description,
+    dueDate,
+    assignedTo,
+    status,
+    relatedDeal,
+    notes,
+    createdAt,
+    updatedAt,
+    publishedAt,
+    createdBy,
+    updatedBy,
+    locale,
+    localizations,
+};
+```
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -9,7 +9,7 @@ import { Navbar } from '@/components/navbar';
 import { CartProvider } from '@/context/cart-context';
 import { cn } from '@/lib/utils';
 import { ViewTransitions } from 'next-view-transitions';
-import { api } from '@/lib/services';
+import { globalApi } from '@/lib/api-helper';
 
 const inter = Inter({
     subsets: ["latin"],
@@ -23,9 +23,9 @@ export async function generateMetadata({
 }: {
     params: { locale: string; slug: string };
 }): Promise<Metadata> {
-    const response = await api.global.getGlobal({
+    const response = await globalApi.getGlobal({
         filters: { locale: params.locale.toString() },
-        populate: "seo.metaImage",
+        populate: "seo",
     });
     if(response.status !== 200) {
         throw new Error(`Failed to fetch data from Strapi (url=${response.config.url}, status=${response.status})`);
@@ -43,10 +43,13 @@ export default async function LocaleLayout({
     children: React.ReactNode;
     params: { locale: string };
 }) {
-
-    const response = await api.global.getGlobal({
-        filters: { locale }
+    const response = await globalApi.getGlobal({
+        filters: { locale: locale.toString() },
+        populate: "navbar,footer",
     });
+    if(response.status !== 200) {
+        throw new Error(`Failed to fetch data from Strapi (url=${response.config.url}, status=${response.status})`);
+    }
     const {data : pageData} = response.data     
     return (
         <html lang={locale}>
