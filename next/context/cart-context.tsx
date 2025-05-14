@@ -1,16 +1,15 @@
 "use client";
-import { Product } from "@/lib/services";
 import React, { createContext, useContext, useState, useCallback } from "react";
 
 type CartItem = {
-  product: Product;
+  product: API.Product;
   quantity: number;
 };
 
 type CartContextType = {
   items: CartItem[];
-  updateQuantity: (product: Product, quantity: number) => void;
-  addToCart: (product: Product) => void;
+  updateQuantity: (product: API.Product, quantity: number) => void;
+  addToCart: (product: API.Product) => void;
   removeFromCart: (productId: number) => void;
   clearCart: () => void;
   getCartTotal: () => number;
@@ -23,7 +22,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [items, setItems] = useState<CartItem[]>([]);
 
-  const addToCart = useCallback((product: Product) => {
+  const addToCart = useCallback((product: API.Product) => {
     setItems((prevItems) => {
       const existingItem = prevItems.find(
         (item) => item.product.id === product.id
@@ -49,7 +48,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     setItems([]);
   }, []);
 
-  const updateQuantity = useCallback((product: Product, quantity: number) => {
+  const updateQuantity = useCallback((product: API.Product, quantity: number) => {
     setItems((prevItems) =>
       prevItems.map((item) =>
         item.product.id === product.id ? { ...item, quantity } : item

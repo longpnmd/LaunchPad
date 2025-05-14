@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { UsersPermissionsRole, UsersPermissionsUser } from "../services";
-import { authApi, userApi } from "../api-helper";
-
+import api from "../api";
+type User = (API.UsersPermissionsUser | null) & {
+  role?: API.UsersPermissionsRole;
+};
 export const useAuth = () => {
-  const [user, setUser] = useState<
-    (UsersPermissionsUser | null) & { role?: UsersPermissionsRole }
-  >();
+  const [user, setUser] = useState<User>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
@@ -15,8 +14,11 @@ export const useAuth = () => {
   const fetchCurrentUser = async () => {
     setIsLoading(true);
     try {
-      const { data } = await userApi.usersMeGet();
-      setUser(data);
+      const response = await api.usersPermissionsUsersRoles.getUsersMe() as {
+        jwt?: string;
+        user?: User;
+      };
+      setUser(response as User);
       setError(null);
     } catch (err) {
       setUser(undefined);
@@ -31,14 +33,15 @@ export const useAuth = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const { data } = await authApi.authLocalPost({
-        authLocalPostRequest : { identifier, password },
-      })
-      if(!data || !data.jwt) {
-        throw new Error("Đăng nhập thất bại");
-      }
-      setUser(data.user);
-      localStorage.setItem("jwt", data.jwt);
+      const { user, jwt = "" } = (await api.usersPermissionsAuth.postAuthLocal({
+        identifier,
+        password,
+      })) as {
+        jwt?: string;
+        user?: User;
+      };
+      setUser(user);
+      localStorage.setItem("jwt", jwt);
       router.push("/admin/dashboard");
       return true;
     } catch (err: any) {

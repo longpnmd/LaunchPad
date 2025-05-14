@@ -4,29 +4,31 @@ import { BlogLayout } from "@/components/blog-layout";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 
 import ClientSlugHandler from "../../ClientSlugHandler";
-import { articleApi } from "@/lib/api-helper";
+import api from "@/lib/api";
 
 export default async function SingleArticlePage({
   params,
 }: {
   params: { slug: string; locale: string };
 }) {
-  const { data: articleResponse } = await articleApi.getArticles({
+  const { data: articleResponse } = await api.article.getArticles({
     filters: {
-      slug: params.slug,
-      locale: params.locale,
+      filters: {
+        slug: params.slug,
+        locale: params.locale,
+      },
     },
     populate: {
       image: true,
       categories: true,
       seo: {
-        populate: ["metaImage"],
+        populate: "*",
       },
       localizations: true,
     } as any,
-    paginationLimit: 1,
+    "pagination[limit]": 1,
   });
-  const article = articleResponse.data?.[0];
+  const article = articleResponse?.[0];
 
   if (!article) {
     return <div>Blog not found</div>;

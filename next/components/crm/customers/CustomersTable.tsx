@@ -5,7 +5,7 @@ import { ProTable } from '@ant-design/pro-components';
 import { Button, Space, Tag, message, Modal } from 'antd';
 import { EditOutlined, DeleteOutlined, EyeOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/navigation';
-import { customerApi } from '@/lib/api-helper';
+import api from '@/lib/api';
 
 type Customer = {
   id: number;
@@ -50,7 +50,7 @@ const CustomersTable: React.FC<CustomersTableProps> = ({
       cancelText: 'Hủy',
       onOk: async () => {
         try {
-          await customerApi.deleteCustomersId({ id: customer.id });
+          await api.customer.deleteCustomersId({ id: customer.id });
           message.success('Xóa khách hàng thành công');
           if (onRefresh) onRefresh();
         } catch (error) {

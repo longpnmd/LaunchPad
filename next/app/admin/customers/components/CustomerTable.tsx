@@ -9,9 +9,8 @@ import {
 } from "@ant-design/icons";
 import Link from "next/link";
 import StageTag from "@/components/common/StageTag";
-import { Customer, CustomerApi } from "@/lib/services";
 import qs from "qs";
-import { customerApi } from "@/lib/api-helper";
+import api from "@/lib/api";
 
 const CustomerTable: React.FC = () => {
   const actionRef = useRef<ActionType>();
@@ -19,7 +18,7 @@ const CustomerTable: React.FC = () => {
     {
       title: "Họ tên",
       dataIndex: "fullName",
-      render: (text: string, record: Customer) => (
+      render: (text: string, record: API.Customer) => (
         <Link href={`/admin/customers/${record.id}`}>{text}</Link>
       ),
     },
@@ -74,7 +73,7 @@ const CustomerTable: React.FC = () => {
     {
       title: "Hành động",
       valueType: "option",
-      render: (_: any, record: Customer) => [
+      render: (_: any, record: API.Customer) => [
         <Tooltip title="Xem chi tiết" key="view">
           <Link href={`/admin/customers/${record.id}`}>
             <Button type="text" icon={<EyeOutlined />} />
@@ -100,7 +99,7 @@ const CustomerTable: React.FC = () => {
   // Thêm hàm xóa khách hàng
   const handleDeleteCustomer = async (id?: any) => {
     if (!id) return;
-    await customerApi.deleteCustomersId(id);
+    await api.customer.deleteCustomersId(id);
     try {
       await message.success("Xóa khách hàng thành công");
       actionRef.current?.reload();
@@ -110,7 +109,7 @@ const CustomerTable: React.FC = () => {
   };
 
   return (
-    <ProTable<Customer>
+    <ProTable<API.Customer>
       actionRef={actionRef}
       rowKey="id"
       search={{
@@ -124,9 +123,9 @@ const CustomerTable: React.FC = () => {
       request={async (params, sorter, filter) => {
         try {
           // Sử dụng API service thay vì fetch trực tiếp
-          const response = await customerApi.getCustomers({
-            paginationPage: params.current,
-            paginationPageSize: params.pageSize,
+          const response = await api.customer.getCustomers({
+            "pagination[page]": params.current,
+            "pagination[pageSize]": params.pageSize,
             sort:
               sorter && Object.keys(sorter).length
                 ? Object.entries(sorter)
@@ -136,15 +135,17 @@ const CustomerTable: React.FC = () => {
                     )
                     .join(",")
                 : undefined,
-            // filters: JSON.stringify({
-            //   $and: [
-            //     {
-            //       agent: {
-            //         username: { $contains: 'bui h' },
-            //       },
-            //     },
-            //   ],
-            // }) as any,
+            filters: {
+              // filters: {
+              //   $and: [
+              //     {
+              //       agent: {
+              //         username: { $contains: "bui h" },
+              //       },
+              //     },
+              //   ],
+              // },
+            },
             populate: {
               agent: true,
               stage: true,
@@ -152,9 +153,9 @@ const CustomerTable: React.FC = () => {
           });
 
           return {
-            data: response.data.data || [],
+            data: response.data || [],
             success: true,
-            total: response.data.meta?.pagination?.total || 0,
+            total: response.meta?.pagination?.total || 0,
           };
         } catch (error) {
           message.error("Không thể tải dữ liệu khách hàng");

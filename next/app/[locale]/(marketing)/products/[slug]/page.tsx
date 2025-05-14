@@ -4,50 +4,71 @@ import { redirect } from "next/navigation";
 import { Container } from "@/components/container";
 import { AmbientColor } from "@/components/decorations/ambient-color";
 import { SingleProduct } from "@/components/products/single-product";
-import DynamicZoneManager from '@/components/dynamic-zone/manager'
-import { productApi } from "@/lib/api-helper";
+import DynamicZoneManager from "@/components/dynamic-zone/manager";
+import api from "@/lib/api";
+import { generateMetadataObject } from "@/lib/shared/metadata";
 
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string, slug: string };
+  params: { locale: string; slug: string };
 }): Promise<Metadata> {
-  const { data: response } = await productApi.getProducts({
+  const { data: response } = await api.productPage.getProductPage({
     filters: {
-      slug: params.slug,
-      locale: params.locale,
+      filters: {
+        locale: params.locale,
+      },
     },
     populate: {
       seo: {
-        populate: ["metaImage"],
+        populate: "*",
       },
       localizations: true,
     } as any,
-    paginationLimit: 1,
+    "pagination[limit]": 1,
   });
-  const pageData = response.data?.[0];
+  const pageData = response;
 
-  // const seo = pageData?.seo; ;
-  // const metadata = generateMetadataObject(seo);
-  // return metadata;
-  return {}
+  const seo = pageData?.seo;
+  const metadata = generateMetadataObject(seo);
+  return metadata;
 }
 
 export default async function SingleProductPage({
   params,
 }: {
-  params: { slug: string, locale: string };
+  params: { slug: string; locale: string };
 }) {
-  const { data: response } = await productApi.getProducts({
+  const { data: response } = await api.product.getProducts({
     filters: {
-      slug: params.slug,
-      locale: params.locale,
+      filters: {
+        slug: params.slug?.toString() || "",
+      },
     },
-    populate: ["seo.metaImage","dynamic_zone"] as any,
-    paginationLimit: 1,
+    populate: {
+      perks: true,
+      plans: true,
+      categories: true,
+      images: true,
+      dynamic_zone: {
+        on: {
+          "dynamic-zone.related-products": {
+            populate: {
+              products: {
+                populate: {
+                  images: true,
+                },
+              },
+            },
+          },
+        },
+      },
+    } as any,
+    "pagination[limit]": 1,
+    locale: params.locale,
   });
 
-  const product = response?.data?.[0];
+  const product = response?.[0];
 
   if (!product) {
     redirect("/products");
@@ -58,7 +79,12 @@ export default async function SingleProductPage({
       <AmbientColor />
       <Container className="py-20 md:py-40">
         <SingleProduct product={product} />
-        {product?.dynamic_zone && (<DynamicZoneManager dynamicZone={product?.dynamic_zone as any} locale={params.locale} />)}
+        {product?.dynamic_zone && (
+          <DynamicZoneManager
+            dynamicZone={product?.dynamic_zone as any}
+            locale={params.locale}
+          />
+        )}
       </Container>
     </div>
   );

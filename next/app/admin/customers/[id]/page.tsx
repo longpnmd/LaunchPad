@@ -28,15 +28,14 @@ import PageHeader from "@/components/layout/PageHeader";
 import StageTag from "@/components/common/StageTag";
 import NotesSection from "../components/NotesSection";
 import EntityTimeline from "@/components/common/EntityTimeline";
-import { Customer } from "@/lib/services";
-import { customerApi } from "@/lib/api-helper";
+import api from "@/lib/api";
 
 const { TabPane } = Tabs;
 const { Title, Text } = Typography;
 export default function CustomerDetailPage() {
   const { id } = useParams();
   const router = useRouter();
-  const [customer, setCustomer] = useState<Customer>();
+  const [customer, setCustomer] = useState<API.Customer>();
   const [loading, setLoading] = useState(true);
   const { confirm } = Modal;
 
@@ -44,13 +43,13 @@ export default function CustomerDetailPage() {
     const fetchCustomer = async () => {
       try {
         setLoading(true);
-        const { data } = await customerApi.getCustomersId({
+        const { data } = await api.customer.getCustomersId({
           id: parseInt(id as string),
         });
         if (!data) {
           throw new Error("Không tìm thấy khách hàng");
         }
-        setCustomer(data.data as Customer);
+        setCustomer(data as API.Customer);
         console.log(data);
       } catch (error) {
         message.error("Không thể tải thông tin khách hàng.");
@@ -78,7 +77,7 @@ export default function CustomerDetailPage() {
       cancelText: "Hủy",
       onOk: async () => {
         try {
-          await customerApi.deleteCustomersId({
+          await api.customer.deleteCustomersId({
             id: parseInt(id as string),
           });
 

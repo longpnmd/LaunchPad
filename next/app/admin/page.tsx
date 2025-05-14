@@ -14,7 +14,6 @@ import {
 } from "@ant-design/icons";
 import { useAuth } from "@/lib/hooks/useAuth";
 import { strapiImage } from "@/lib/strapi/strapiImage";
-import { GlobalResponse } from "@/lib/services";
 
 // Menu items cho sidebar
 const routes = [
@@ -57,7 +56,7 @@ export default function AdminClientLayout({
 }: {
   children: React.ReactNode;
   params: { locale: string };
-  initialData: GlobalResponse['data'];
+  initialData: API.GlobalResponse['data'];
 }) {
   const pathname = usePathname();
   const { user, isLoading, logout } = useAuth();

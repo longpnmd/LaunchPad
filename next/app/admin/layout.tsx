@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { generateMetadataObject } from "@/lib/shared/metadata";
-import { globalApi } from "@/lib/api-helper";
 import AdminClientLayout from "./page";
 import qs from "qs";
+import api from "@/lib/api";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,19 +18,12 @@ export async function generateMetadata({
   params: { locale: string };
 }): Promise<Metadata> {
   try {
-    const response = await globalApi.getGlobal({
-      filters: { locale: params.locale?.toString() || "en" },
+    const response = await api.global.getGlobal({
+      filters: { filters: { locale: params.locale?.toString() || "en" } },
       populate: "seo",
     });
-
-    if (response.status !== 200) {
-      throw new Error(
-        `Failed to fetch data from Strapi (status=${response.status})`
-      );
-    }
-
     const pageData = response.data;
-    const seo = pageData.data?.seo;
+    const seo = pageData?.seo;
 
     return (
       generateMetadataObject(seo) || {
@@ -56,31 +49,20 @@ export default async function AdminLayout({
 }) {
   try {
     // Server-side data fetching
-    const response = await globalApi
+    const response = await api.global
       .getGlobal({
-        filters: { locale: params.locale?.toString() || "en" },
+        filters: { filters: { locale: params.locale?.toString() || "en" } },
         populate: {
           seo: {
-            populate: ["metaImage"],
+            populate: "*",
           },
           navbar : {
-            populate: ["logo"]
+            populate: "*",
           },
-          localizations: true,
         } as any,
       })
-      .catch((error) => {
-        console.error("Error fetching global data:", error);
-        throw error;
-      });
 
-    if (response.status !== 200) {
-      throw new Error(
-        `Failed to fetch data from Strapi (status=${response.status})`
-      );
-    }
-
-    const globalData = response.data.data;
+    const globalData = response.data;
 
     return (
       <html lang={params.locale} className={inter.className}>

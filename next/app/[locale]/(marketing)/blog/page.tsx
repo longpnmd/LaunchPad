@@ -11,29 +11,29 @@ import { AmbientColor } from "@/components/decorations/ambient-color";
 import { generateMetadataObject } from "@/lib/shared/metadata";
 
 import ClientSlugHandler from "../ClientSlugHandler";
-import { Article } from "@/lib/services";
-import { articleApi, blogPageApi, globalApi } from "@/lib/api-helper";
+import api from "@/lib/api";
 
 export async function generateMetadata({
   params,
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const { data: pageData } = await globalApi.getGlobal({
+  const { data: pageData } = await api.blogPage.getBlogPage({
     filters: {
-      slug: "blog-page",
-      locale: params.locale,
+      filters: {
+        locale: params.locale,
+      },
     },
     populate: {
       seo: {
-        populate: ["metaImage"],
+        populate: "*",
       },
       localizations: true,
     } as any,
-    paginationLimit: 1,
-  })
+    "pagination[limit]": 1,
+  });
 
-  const seo = pageData.data?.seo;
+  const seo = Array.isArray(pageData) ? pageData[0].seo : undefined;
   const metadata = generateMetadataObject(seo);
   return metadata;
 }
@@ -43,35 +43,39 @@ export default async function Blog({
 }: {
   params: { locale: string; slug: string };
 }) {
-  const { data: _blogPage } = await blogPageApi.getBlogPage({
+  const { data: _blogPage } = await api.blogPage.getBlogPage({
     filters: {
-      locale: params.locale,
+      filters: {
+        locale: params.locale,
+      },
     },
     populate: {
       seo: {
-        populate: ["metaImage"],
+        populate: "*",
       },
       localizations: true,
     } as any,
-    paginationLimit: 1,
+    "pagination[limit]": 1,
   });
-  const { data: articles } = await articleApi.getArticles({
+  const { data: articles } = await api.article.getArticles({
     filters: {
-      locale: params.locale,
+      filters: {
+        locale: params.locale,
+      },
     },
     populate: {
-      image : true,
-      categories: true,
+      image: true,
+      categories: {
+        populate: "*",
+      },
       seo: {
-        populate: ["metaImage"],
+        populate: "*",
       },
       localizations: true,
     } as any,
-    paginationLimit: 100,
+    "pagination[limit]": 100,
   });
-  const blogPage = Array.isArray(_blogPage?.data)
-    ? _blogPage.data[0]
-    : _blogPage?.data;
+  const blogPage = Array.isArray(_blogPage) ? _blogPage[0] : _blogPage;
 
   const localizedSlugs = blogPage?.localizations?.reduce(
     (acc: Record<string, string>, localization: any) => {
@@ -98,7 +102,7 @@ export default async function Blog({
           </Subheading>
         </div>
 
-        {articles?.data?.slice(0, 1).map((article: Article) => (
+        {articles?.slice(0, 1).map((article: API.Article) => (
           <BlogCard
             article={article}
             locale={params.locale}
@@ -106,7 +110,7 @@ export default async function Blog({
           />
         ))}
 
-        <BlogPostRows articles={articles.data ?? []} />
+        <BlogPostRows articles={articles ?? []} />
       </Container>
     </div>
   );

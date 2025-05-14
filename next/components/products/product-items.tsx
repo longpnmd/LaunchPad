@@ -3,7 +3,6 @@ import Image from "next/image";
 import { formatNumber, truncate } from "@/lib/utils";
 import { Link } from "next-view-transitions";
 import { strapiImage } from "@/lib/strapi/strapiImage";
-import { Product } from "@/lib/services";
 
 export const ProductItems = ({
   heading = "Popular",
@@ -13,7 +12,7 @@ export const ProductItems = ({
 }: {
   heading?: string;
   sub_heading?: string;
-  products: Product[];
+  products: API.Product[];
   locale: string;
 }) => {
   return (
@@ -39,7 +38,7 @@ const ProductItem = ({
   product,
   locale,
 }: {
-  product: Product;
+  product: API.Product;
   locale: string;
 }) => {
   return (

@@ -9,9 +9,8 @@ import { Subheading } from "../elements/subheading";
 import { Button } from "../elements/button";
 import { Cover } from "../decorations/cover";
 import { motion } from "framer-motion";
-import { DynamicZoneHeroComponent } from "@/lib/services";
 
-export const Hero = ({ id, locale, heading = '', sub_heading, CTAs }: DynamicZoneHeroComponent & { locale: string }) => {
+export const Hero = ({ id, locale, heading = '', sub_heading, CTAs }: API.DynamicZoneHeroComponent & { locale: string }) => {
   return (
     <div className="h-screen overflow-hidden relative flex flex-col items-center justify-center">
       <motion.div

@@ -2,27 +2,31 @@ import { Metadata } from "next";
 import PageContent from "@/lib/shared/PageContent";
 import { generateMetadataObject } from "@/lib/shared/metadata";
 import ClientSlugHandler from "../ClientSlugHandler";
-import { pageApi } from "@/lib/api-helper";
+import api from "@/lib/api";
+import { link } from "fs";
+import { CTA } from "@/components/dynamic-zone/cta";
 
 export async function generateMetadata({
   params,
 }: {
   params: { locale: string; slug: string };
 }): Promise<Metadata> {
-  const { data } = await pageApi.getPages({
+  const { data } = await api.page.getPages({
     filters: {
-      slug: params.slug,
-      locale: params.locale,
+      filters: {
+        slug: params.slug,
+        locale: params.locale,
+      },
     },
     populate: {
       seo: {
-        populate: ["metaImage"],
+        populate: "*",
       },
       localizations: true,
     } as any,
-    paginationLimit: 1,
+    "pagination[limit]": 1,
   });
-  const pageData = data?.data?.[0];
+  const pageData = data?.[0];
   const seo = pageData?.seo;
   const metadata = generateMetadataObject(seo);
   return metadata;
@@ -33,42 +37,81 @@ export default async function Page({
 }: {
   params: { locale: string; slug: string };
 }) {
-  const { data } = await pageApi.getPages({
+  const { data } = await api.page.getPages({
     filters: {
-      slug: params.slug,
-      locale: params.locale,
+      filters: {
+        slug: params.slug,
+        locale: params.locale,
+      },
     },
     populate: {
       seo: {
-        populate: ["metaImage"],
+        populate: "*",
       },
       localizations: true,
       dynamic_zone: {
         on: {
-          "dynamic-zone.hero": {
-            populate: "*",
-          },
-          "dynamic-zone.features": {
-            populate: "*",
-          },
-          "dynamic-zone.testimonials": {
+          "dynamic-zone.form-next-to-section": {
             populate: {
-              testimonials: {
+              social_media_icon_links: {
                 populate: {
-                  user: {
+                  image: true,
+                  link: true,
+                },
+              },
+              section: {
+                populate: {
+                  users: {
+                    populate: {
+                      image: true,
+                    },
+                  },
+                },
+              },
+              form: {
+                populate: {
+                  inputs: true,
+                },
+              },
+            },
+          },
+          "dynamic-zone.pricing": {
+            populate: {
+              plans: {
+                populate: {
+                  perks : true,
+                  CTA : true,
+                  product : true
+                },
+              },
+            },
+          },
+          "dynamic-zone.brands": {
+            populate: {
+              logos: {
+                populate: {
+                  image: {
                     populate: "*",
                   },
                 },
               },
             },
           },
+          "dynamic-zone.cta": {
+            populate: "*",
+          },
+          "dynamic-zone.faq": {
+            populate: "*",
+          },
         },
       },
     } as any,
-    paginationLimit: 1,
+    "pagination[limit]": 1,
   });
 
-  const pageData = data?.data?.[0];
+  const pageData = data?.[0];
+
+  // console.log("Page Data:" + pageData?.dynamic_zone[0]?.id ?? "No data");
 
   const localizedSlugs = pageData?.localizations?.reduce(
     (acc: Record<string, string>, localization: any) => {
