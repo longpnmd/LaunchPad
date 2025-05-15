@@ -15,15 +15,18 @@ export default {
   register({ strapi }: { strapi: Core.Strapi }) {
     if (strapi.plugin("documentation")) {
       const override = {
-        // Only run this override for version 1.0.0
-        info: { version: "1.0.0" },
-        paths: {
-          // '/answer-to-everything': {
-          //   get: {
-          //     responses: { 200: { description: "*" }}
-          //   }
-          // }
+        openapi: "3.0.0", // do not change this version
+        info: {
+          version: "1.0.0", // change this line to create a new version
         },
+        "x-strapi-config": {
+          showGeneratedFiles: true, // Do not change this line at the moment...
+        },
+        servers: {}, // Your servers config (it will be automated)
+        externalDocs: {},
+        paths: {}, // All your Api routes
+        tags: [], // Group of route
+        components: {}, // Default generated components and custom ones
       };
 
       strapi
@@ -35,12 +38,12 @@ export default {
           // The override provides everything don't generate anything
           excludeFromGeneration: ["upload"],
         });
-      // const specPath = path.join(__dirname, "../../public/content-api.yaml");
+      const specPath = "../../../../public/";
       // const spec = fs.readFileSync(specPath, "utf8");
-      // strapi
-      //   .plugin("documentation")
-      //   .service("documentation")
-      //   .generateFullDoc(spec);
+      strapi
+        .plugin("documentation")
+        .service("documentation")
+        .generateFullDoc(specPath);
     }
   },
 

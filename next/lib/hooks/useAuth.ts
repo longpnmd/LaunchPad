@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { api, AUTH_TOKEN_KEY, authenticateApi, clearAuthentication, getLocalStorageToken } from "@/lib/services";
-import {
-  UsersPermissionsRole,
-  UsersPermissionsUser,
-} from "@/lib/services/api-service";
+import api from "../api";
+type User = (API.UsersPermissionsUser | null) & {
+  role?: API.UsersPermissionsRole;
+};
 export const useAuth = () => {
-  const [user, setUser] = useState<
-    (UsersPermissionsUser | null) & { role?: UsersPermissionsRole }
-  >();
+  const [user, setUser] = useState<User>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
@@ -17,8 +14,11 @@ export const useAuth = () => {
   const fetchCurrentUser = async () => {
     setIsLoading(true);
     try {
-      const { data } = await api.users.getUsers();
-      setUser(data);
+      const response = await api.usersPermissionsUsersRoles.getUsersMe() as {
+        jwt?: string;
+        user?: User;
+      };
+      setUser(response as User);
       setError(null);
     } catch (err) {
       setUser(undefined);
@@ -33,15 +33,15 @@ export const useAuth = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const { data } = await api.auth.localCreate({
+      const { user, jwt = "" } = (await api.usersPermissionsAuth.postAuthLocal({
         identifier,
         password,
-      });
-      if(!data || !data.jwt) {
-        throw new Error("Đăng nhập thất bại");
-      }
-      setUser(data.user);
-      authenticateApi(data.jwt);
+      })) as {
+        jwt?: string;
+        user?: User;
+      };
+      setUser(user);
+      localStorage.setItem("jwt", jwt);
       router.push("/admin/dashboard");
       return true;
     } catch (err: any) {
@@ -55,13 +55,13 @@ export const useAuth = () => {
   // Đăng xuất
   const logout = () => {
     setUser(undefined);
-    clearAuthentication();
+    localStorage.removeItem("jwt");
     router.push("/auth/login");
   };
 
   // Kiểm tra trạng thái đăng nhập khi component mount
   useEffect(() => {
-    const token = getLocalStorageToken();
+    const token = localStorage.getItem("jwt");
     if (token) {
       fetchCurrentUser();
     } else {

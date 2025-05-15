@@ -11,7 +11,7 @@ import { IconShoppingCartUp } from "@tabler/icons-react";
 import { generateMetadataObject } from "@/lib/shared/metadata";
 
 import ClientSlugHandler from "../ClientSlugHandler";
-import { api } from "@/lib/services";
+import api from "@/lib/api";
 
 export async function generateMetadata({
   params,
@@ -20,13 +20,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { data: pageData } = await api.productPage.getProductPage({
     filters: {
-      locale: params.locale,
+      filters: {
+        locale: params.locale,
+      },
     },
-    populate: "seo.metaImage",
+    populate: {
+      seo: {
+        populate: "*",
+      },
+      localizations: true,
+    } as any,
     "pagination[limit]": 1,
   });
 
-  const seo = Array.isArray(pageData?.data) ? pageData.data[0]?.seo : undefined;
+  const seo = Array.isArray(pageData) ? pageData[0]?.seo : undefined;
   const metadata = generateMetadataObject(seo);
   return metadata;
 }
@@ -39,22 +46,30 @@ export default async function Products({
   // Fetch the product-page and products data
   const { data: productPageResponse } = await api.productPage.getProductPage({
     filters: {
-      locale: params.locale,
+      filters: {
+        locale: params.locale,
+      },
     },
     populate: {
       seo: {
-        populate: ["metaImage"],
+        populate: "*",
       },
       localizations: true,
     } as any,
     "pagination[limit]": 1,
   });
-  const { data: products } = await api.products.getProducts({
+  const { data: products } = await api.product.getProducts({
     "pagination[limit]": 100,
+    populate: {
+      perks: true,
+      plans: true,
+      categories: true,
+      images: true,
+    } as any,
   });
-  const productPage = Array.isArray(productPageResponse?.data)
-    ? productPageResponse.data[0]
-    : productPageResponse.data;
+  const productPage = Array.isArray(productPageResponse)
+    ? productPageResponse[0]
+    : productPageResponse;
 
   const localizedSlugs = productPage.localizations?.reduce(
     (acc: Record<string, string>, localization: any) => {
@@ -63,7 +78,7 @@ export default async function Products({
     },
     { [params.locale]: "products" }
   );
-  const featured = products?.data?.filter(
+  const featured = products?.filter(
     (product: { featured?: boolean }) => product.featured === true
   );
 
@@ -82,7 +97,7 @@ export default async function Products({
           {productPage.sub_heading}
         </Subheading>
         <Featured products={featured || []} locale={params.locale} />
-        <ProductItems products={products?.data || []} locale={params.locale} />
+        <ProductItems products={products || []} locale={params.locale} />
       </Container>
     </div>
   );

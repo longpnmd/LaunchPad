@@ -17,18 +17,19 @@ else
 fi
 
 # Thiết lập giới hạn tài nguyên
-# Giảm số lượng jobs song song và giới hạn CPU bằng cpulimit hoặc nice
-CPU_LIMIT=75  # Giới hạn 75% CPU
-PARALLEL_JOBS=1  # Số lượng công việc chạy song song
-BUILD_NICE=10  # Độ ưu tiên (nice level), cao hơn = ít ưu tiên hơn
+# Điều chỉnh phù hợp cho VPS 4 vCPU, 4GB RAM
+CPU_LIMIT=200    # Sử dụng tối đa 2 cores (200%)
+PARALLEL_JOBS=2  # Cho phép 2 công việc chạy song song
+BUILD_NICE=5     # Giảm nice level để tăng ưu tiên xây dựng
 
 # Build Next.js container with resource limits
 echo "=== Building Next.js container ==="
 nice -n $BUILD_NICE docker build \
     --platform $BUILD_PLATFORM \
-    --memory=2g \
-    --cpu-quota=150000 \
-    --cpu-period=200000 \
+    --memory=2.5g \
+    --memory-swap=3g \
+    --cpu-quota=200000 \
+    --cpu-period=100000 \
     -t next-app:latest ./next
 
 if [ $? -ne 0 ]; then
@@ -40,9 +41,10 @@ fi
 echo "=== Building Strapi container ==="
 nice -n $BUILD_NICE docker build \
     --platform $BUILD_PLATFORM \
-    --memory=2g \
-    --cpu-quota=150000 \
-    --cpu-period=200000 \
+    --memory=2.5g \
+    --memory-swap=3g \
+    --cpu-quota=200000 \
+    --cpu-period=100000 \
     $ADDITIONAL_ARGS \
     -t strapi-app:latest ./strapi
 

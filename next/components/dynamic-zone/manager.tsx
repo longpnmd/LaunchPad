@@ -1,10 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { Product } from '@/lib/services/api-service';
-import { api } from '@/lib/services';
-
 interface Props {
-  dynamicZone: Product['dynamic_zone'][];
+  dynamicZone: any;
   locale: string;
 }
 
@@ -27,7 +24,7 @@ const DynamicZoneManager: React.FC<Props> = ({ dynamicZone, locale }) => {
   return (
     <div>
       {
-        dynamicZone.map((componentData) => {
+        dynamicZone.map((componentData : any) => {
           const Component = componentMapping[componentData?.__component ?? ''];
           if (!Component) {
             console.warn(`No component found for: ${componentData?.__component}`);

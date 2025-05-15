@@ -4,9 +4,8 @@ import { format } from "date-fns";
 import { Link } from "next-view-transitions";
 import React, { useEffect, useState } from "react";
 import FuzzySearch from "fuzzy-search";
-import { Article } from "@/lib/services/api-service";
 
-export const BlogPostRows = ({ articles }: { articles: Article[] }) => {
+export const BlogPostRows = ({ articles }: { articles: API.Article[] }) => {
   const [search, setSearch] = useState("");
 
   const searcher = new FuzzySearch(articles, ["title"], {
@@ -46,7 +45,7 @@ export const BlogPostRows = ({ articles }: { articles: Article[] }) => {
   );
 };
 
-export const BlogPostRow = ({ article }: { article: Article }) => {
+export const BlogPostRow = ({ article }: { article: API.Article }) => {
   return (
     <Link
       href={`blog/${article.slug}`}

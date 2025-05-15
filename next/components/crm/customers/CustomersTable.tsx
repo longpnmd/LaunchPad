@@ -5,7 +5,7 @@ import { ProTable } from '@ant-design/pro-components';
 import { Button, Space, Tag, message, Modal } from 'antd';
 import { EditOutlined, DeleteOutlined, EyeOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/navigation';
-import { useCustomers } from '@/lib/hooks/useCustomers';
+import api from '@/lib/api';
 
 type Customer = {
   id: number;
@@ -38,7 +38,6 @@ const CustomersTable: React.FC<CustomersTableProps> = ({
   onRefresh,
 }) => {
   const router = useRouter();
-  const { deleteCustomer } = useCustomers();
   const [selectedRows, setSelectedRows] = useState<Customer[]>([]);
 
   // Xử lý xóa khách hàng
@@ -51,7 +50,7 @@ const CustomersTable: React.FC<CustomersTableProps> = ({
       cancelText: 'Hủy',
       onOk: async () => {
         try {
-          await deleteCustomer(customer.id);
+          await api.customer.deleteCustomersId({ id: customer.id });
           message.success('Xóa khách hàng thành công');
           if (onRefresh) onRefresh();
         } catch (error) {

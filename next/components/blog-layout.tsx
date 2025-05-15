@@ -5,14 +5,12 @@ import { Link } from "next-view-transitions";
 import { format } from "date-fns";
 import { strapiImage } from "@/lib/strapi/strapiImage";
 import DynamicZoneManager from "./dynamic-zone/manager";
-import { Article } from "@/lib/services/api-service";
-
 export async function BlogLayout({
   article,
   locale,
   children,
 }: {
-  article: Article;
+  article: API.Article;
   locale: string;
   children: React.ReactNode;
 }) {
