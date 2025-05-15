@@ -7,7 +7,7 @@ import CustomerForm from '../components/CustomerForm';
 
 export default function NewCustomerPage() {
   return (
-    <AdminLayout>
+    <>
       <PageHeader
         title="Thêm khách hàng mới"
         breadcrumb={[
@@ -18,6 +18,6 @@ export default function NewCustomerPage() {
       />
       
       <CustomerForm />
-    </AdminLayout>
+    </>
   );
 }
