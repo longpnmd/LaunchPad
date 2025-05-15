@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { generateMetadataObject } from "@/lib/shared/metadata";
-import AdminClientLayout from "./page";
-import qs from "qs";
 import api from "@/lib/api";
+import AdminClientLayout from "@/components/layout/AdminLayout";
 
+// Move font loader to module scope
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -49,29 +49,26 @@ export default async function AdminLayout({
 }) {
   try {
     // Server-side data fetching
-    const response = await api.global
-      .getGlobal({
-        filters: { filters: { locale: params.locale?.toString() || "en" } },
-        populate: {
-          seo: {
-            populate: "*",
-          },
-          navbar : {
-            populate: "*",
-          },
-        } as any,
-      })
+    const response = await api.global.getGlobal({
+      filters: { filters: { locale: params.locale?.toString() || "en" } },
+      populate: {
+        seo: {
+          populate: "*",
+        },
+        navbar: {
+          populate: "*",
+        },
+      } as any,
+    });
 
     const globalData = response.data;
 
     return (
       <html lang={params.locale} className={inter.className}>
         <body className="antialiased bg-gray-50">
-          <AdminClientLayout
-            children={children}
-            params={params}
-            initialData={globalData}
-          />
+          <AdminClientLayout params={params} initialData={globalData}>
+            {children}
+          </AdminClientLayout>
         </body>
       </html>
     );
