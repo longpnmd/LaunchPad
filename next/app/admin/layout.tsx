@@ -3,14 +3,6 @@ import { Inter } from "next/font/google";
 import { generateMetadataObject } from "@/lib/shared/metadata";
 import api from "@/lib/api";
 import AdminClientLayout from "@/components/layout/AdminLayout";
-
-// Move font loader to module scope
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
-
 // Metadata cho Admin section
 export async function generateMetadata({
   params,
@@ -64,7 +56,7 @@ export default async function AdminLayout({
     const globalData = response.data;
 
     return (
-      <html lang={params.locale} className={inter.className}>
+      <html lang={params.locale} >
         <body className="antialiased bg-gray-50">
           <AdminClientLayout params={params} initialData={globalData}>
             {children}
@@ -75,7 +67,7 @@ export default async function AdminLayout({
   } catch (error) {
     console.error("Error in AdminLayout:", error);
     return (
-      <html lang={params.locale} className={inter.className}>
+      <html lang={params.locale} >
         <body className="antialiased bg-gray-50">
           <div className="flex items-center justify-center h-screen">
             <div className="text-center">
