@@ -246,7 +246,7 @@ services:
       - web
   redis:
     image: redis
-    container_name: affine_redis
+    container_name: redis
     healthcheck:
       test: ['CMD', 'redis-cli', '--raw', 'incr', 'ping']
       interval: 10s
