@@ -1,16 +1,10 @@
 import { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { generateMetadataObject } from "@/lib/shared/metadata";
 import api from "@/lib/api";
 import AdminClientLayout from "@/components/layout/AdminLayout";
 import { ViewTransitions } from "next-view-transitions";
 import { CartProvider } from "@/context/cart-context";
 import { cn } from "@/lib/utils";
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
 
 // Metadata cho Admin section
 export async function generateMetadata({
@@ -60,7 +54,6 @@ export default async function AdminLayout({
         <CartProvider>
           <body
             className={cn(
-              inter.className,
               "bg-charcoal antialiased h-full w-full"
             )}
           >
