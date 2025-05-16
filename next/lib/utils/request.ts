@@ -2,6 +2,8 @@ import { notification } from "antd";
 import qs from "qs";
 import { extend } from "umi-request";
 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== "undefined" ? "http://strapi:1337" : "http://localhost:3000");
+
 const request = extend({
   // Default options for all requests
   timeout: 10000, // 10 seconds timeout
@@ -51,7 +53,7 @@ const request = extend({
     }
     throw error;
   },
-  prefix: `${process.env.NEXT_PUBLIC_API_URL}/api`,
+  prefix: `${BASE_URL}/api`,
 });
 
 // Add a request interceptor
