@@ -3,33 +3,32 @@ import { Inter } from "next/font/google";
 import { generateMetadataObject } from "@/lib/shared/metadata";
 import api from "@/lib/api";
 import AdminClientLayout from "@/components/layout/AdminLayout";
+import { ViewTransitions } from "next-view-transitions";
+import { CartProvider } from "@/context/cart-context";
+import { cn } from "@/lib/utils";
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
 // Metadata cho Admin section
 export async function generateMetadata({
   params,
 }: {
-  params: { locale: string };
+  params: { locale: string; slug: string };
 }): Promise<Metadata> {
-  try {
-    const response = await api.global.getGlobal({
-      filters: { filters: { locale: params.locale?.toString() || "en" } },
-      populate: "seo",
-    });
-    const pageData = response.data;
-    const seo = pageData?.seo;
-
-    return (
-      generateMetadataObject(seo) || {
-        title: "Admin Dashboard | CRM BĐS",
-        description: "Hệ thống quản lý bất động sản",
-      }
-    );
-  } catch (error) {
-    console.error("Error generating metadata:", error);
-    return {
-      title: "Admin Dashboard | CRM BĐS",
-      description: "Hệ thống quản lý bất động sản",
-    };
-  }
+  // Add default locale if params.locale is undefined
+  const locale = params?.locale?.toString() || "en";
+  
+  const response = await api.global.getGlobal({
+    filters: { filters: { locale } },
+    populate: "seo",
+  });
+  const pageData = response.data;
+  const seo = pageData?.seo;
+  const metadata = generateMetadataObject(seo);
+  return metadata;
 }
 
 export default async function AdminLayout({
@@ -39,54 +38,38 @@ export default async function AdminLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  try {
-    // Server-side data fetching
-    const response = await api.global.getGlobal({
-      filters: { filters: { locale: params.locale?.toString() || "en" } },
-      populate: {
-        seo: {
-          populate: "*",
-        },
-        navbar: {
-          populate: "*",
-        },
-      } as any,
-    });
+  // Add default locale if params.locale is undefined
+  const locale = params?.locale?.toString() || "en";
+  
+  const response = await api.global.getGlobal({
+    filters: { filters: { locale } },
+    populate: {
+      seo: {
+        populate: "*",
+      },
+      navbar: {
+        populate: "*",
+      },
+    } as any,
+  });
 
-    const globalData = response.data;
-
-    return (
-      <html lang={params.locale} >
-        <body className="antialiased bg-gray-50">
-          <AdminClientLayout params={params} initialData={globalData}>
-            {children}
-          </AdminClientLayout>
-        </body>
-      </html>
-    );
-  } catch (error) {
-    console.error("Error in AdminLayout:", error);
-    return (
-      <html lang={params.locale} >
-        <body className="antialiased bg-gray-50">
-          <div className="flex items-center justify-center h-screen">
-            <div className="text-center">
-              <h1 className="text-2xl font-bold text-red-600 mb-4">
-                Đã xảy ra lỗi
-              </h1>
-              <p className="mb-4">
-                Không thể tải dữ liệu. Vui lòng thử lại sau.
-              </p>
-              <button
-                className="px-4 py-2 bg-blue-600 text-white rounded-md"
-                onClick={() => window.location.reload()}
-              >
-                Tải lại trang
-              </button>
-            </div>
-          </div>
-        </body>
-      </html>
-    );
-  }
+  const { data: globalData } = response;
+  return (
+    <html lang={locale}>
+      <ViewTransitions>
+        <CartProvider>
+          <body
+            className={cn(
+              inter.className,
+              "bg-charcoal antialiased h-full w-full"
+            )}
+          >
+            <AdminClientLayout params={params} initialData={globalData}>
+              {children}
+            </AdminClientLayout>
+          </body>
+        </CartProvider>
+      </ViewTransitions>
+    </html>
+  );
 }
