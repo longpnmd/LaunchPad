@@ -1,0 +1,339 @@
+{
+  "name": "Crypto News Automation Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        200,
+        200
+      ],
+      "id": "schedule",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "sheetId": "YOUR_GOOGLE_SHEET_ID",
+        "range": "A2:A",
+        "operation": "read",
+        "options": {
+          "valueRenderOption": "UNFORMATTED_VALUE",
+          "dateTimeRenderOption": "FORMATTED_VALUE"
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [
+        400,
+        200
+      ],
+      "id": "read_x_accounts_from_sheets",
+      "name": "Read X Accounts from Sheets",
+      "credentials": {
+        "googleSheets": {
+          "type": "oauth2",
+          "authentication": "serviceAccount",
+          "serviceAccountJson": "YOUR_SERVICE_ACCOUNT_JSON_HERE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "items": "={{ $node(\"read_x_accounts_from_sheets\").data.map(item => {\n  const xAccount = item.valueRanges[0].values[0][0];\n  return {\n    url: `https://x.com/${xAccount}/feed`,\n    account: xAccount\n  };\n}) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [
+        600,
+        200
+      ],
+      "id": "set_rss_urls",
+      "name": "Set RSS URLs"
+    },
+    {
+      "parameters": {
+        "urls": "={{$json.map(item => item.url)}}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.multipleRssFeed",
+      "typeVersion": 1,
+      "position": [
+        800,
+        200
+      ],
+      "id": "multiple_rss_feed",
+      "name": "Multiple RSS Feed"
+    },
+    {
+      "parameters": {
+        "function": "// Filter posts from the last 2 hours\nconst twoHoursAgo = new Date(Date.now() - 2 * 60 * 60 * 1000);\n\nlet recentPosts = $node(\"multiple_rss_feed\").data.filter(item => {\n  const itemDate = new Date(item.json.pubDate);\n  return itemDate > twoHoursAgo;\n});\n\n// Add source account name to each post\nconst xAccounts = $node(\"set_rss_urls\").json;\nrecentPosts = recentPosts.map(post => {\n    const matchingAccount = xAccounts.find(account => post.feedUrl === `https://x.com/${account.account}/feed`);\n    return {\n        json: {\n            ...post.json,\n             source: matchingAccount ? matchingAccount.account : 'Unknown Source' //add source\n        }\n    }\n});\n\nreturn recentPosts.length > 0 ? recentPosts : [{json: {message: 'No new posts in the last 2 hours'}}];",
+        "functionMode": "javascript"
+      },
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        200
+      ],
+      "id": "filter_recent_posts",
+      "name": "Filter Recent Posts"
+    },
+    {
+      "parameters": {
+        "sheetId": "YOUR_GOOGLE_SHEET_ID",
+        "range": "A1",
+        "operation": "append",
+        "options": {
+          "insertDataOption": "INSERT_ROWS",
+          "valueInputOption": "USER_ENTERED"
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        350
+      ],
+      "id": "google_sheets_append",
+      "name": "Append to Google Sheets",
+      "credentials": {
+        "googleSheets": {
+          "type": "oauth2",
+          "authentication": "serviceAccount",
+          "serviceAccountJson": "YOUR_SERVICE_ACCOUNT_JSON_HERE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "prompt": "Summarize the following X posts and identify the main trending topic.  Provide a summary of the topic and key supporting points.  Do not include any introductory or concluding remarks.:\n\n{{ JSON.stringify($node(\"filter_recent_posts\").data.map(item => item.json), null, 2) }}\n",
+        "model": "gemini-pro",
+        "maxTokens": 2000
+      },
+      "type": "n8n-nodes-google.googleAI",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        200
+      ],
+      "id": "gemini_summarize_posts",
+      "name": "Summarize Posts with Gemini",
+      "credentials": {
+        "googleCloud": {
+          "type": "serviceAccount",
+          "serviceAccountJson": "YOUR_GEMINI_CREDENTIALS_HERE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "prompt": "Create a 500-1500 word blog post and a Google Docs version of it, expanding on the following topic and key points. Include a title and introduction. Add relevant headings and subheadings.  Include  inline image suggestions using markdown syntax, like .\n\n{{$json[\"choices\"][0][\"message\"][\"content\"]}}\n",
+        "model": "gemini-pro",
+        "maxTokens": 4000
+      },
+      "type": "n8n-nodes-google.googleAI",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        200
+      ],
+      "id": "gemini_create_blog_post",
+      "name": "Generate Blog Post",
+      "credentials": {
+        "googleCloud": {
+          "type": "serviceAccount",
+          "serviceAccountJson": "YOUR_GEMINI_CREDENTIALS_HERE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fileContent": "={{$json[\"choices\"][0][\"message\"][\"content\"]}}",
+        "fileName": "Crypto_Blog_Post_{{ new Date().toISOString() }}.txt",
+        "folderId": "YOUR_GOOGLE_DRIVE_FOLDER_ID"
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        100
+      ],
+      "id": "google_docs_upload",
+      "name": "Upload to Google Docs",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "type": "oauth2",
+          "oauth2": {}
+        }
+      }
+    },
+    {
+      "parameters": {
+        "text": "Check out my latest blog post on the trending crypto topic: {{$json[\"choices\"][0][\"message\"][\"content\"]}} #crypto #blog #trending",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 2,
+      "position": [
+        1600,
+        300
+      ],
+      "id": "x_post",
+      "name": "Post to X",
+      "credentials": {
+        "twitterOAuth2Api": {
+          "type": "oauth2",
+          "consumerKey": "YOUR_X_CONSUMER_KEY",
+          "consumerSecret": "YOUR_X_CONSUMER_SECRET",
+          "accessToken": "YOUR_X_ACCESS_TOKEN",
+          "accessSecret": "YOUR_X_ACCESS_TOKEN_SECRET"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "YOUR_BLOG_URL",
+        "content": "={{$json[\"choices\"][0][\"message\"][\"content\"]}}",
+        "title": "Trending Crypto Topic: {{$json[\"choices\"][0][\"message\"][\"content\"]?.substring(0, 50) }}...",
+        "method": "POST"
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        200
+      ],
+      "id": "http_request_blog_post",
+      "name": "Post to Blog (HTTP)"
+    }
+  ],
+  "connections": {
+    "schedule": {
+      "main": [
+        [
+          {
+            "node": "read_x_accounts_from_sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "read_x_accounts_from_sheets": {
+      "main": [
+        [
+          {
+            "node": "set_rss_urls",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set_rss_urls": {
+      "main": [
+        [
+          {
+            "node": "multiple_rss_feed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "multiple_rss_feed": {
+      "main": [
+        [
+          {
+            "node": "filter_recent_posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "filter_recent_posts": {
+      "main": [
+        [
+          {
+            "node": "google_sheets_append",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "gemini_summarize_posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google_sheets_append": {
+      "main": []
+    },
+    "gemini_summarize_posts": {
+      "main": [
+        [
+          {
+            "node": "gemini_create_blog_post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "gemini_create_blog_post": {
+      "main": [
+        [
+          {
+            "node": "google_docs_upload",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "x_post",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "http_request_blog_post",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "google_docs_upload": {
+      "main": []
+    },
+    "x_post": {
+      "main": []
+    },
+    "http_request_blog_post": {
+      "main": []
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "your_version_id",
+  "meta": {
+    "templateId": null,
+    "complexity": 74,
+    "subType": "workflow"
+  },
+  "id": "your_workflow_id",
+  "tags": []
+}
