@@ -2,9 +2,6 @@ import { notification } from "antd";
 import qs from "qs";
 import { extend } from "umi-request";
 
-const isBuildTime =
-  process.env.NODE_ENV === "production" && typeof window === "undefined";
-
 const request = extend({
   // Default options for all requests
   timeout: 10000, // 10 seconds timeout
@@ -27,10 +24,6 @@ const request = extend({
     });
   },
   errorHandler: (error) => {
-    if (isBuildTime) {
-      console.log("Build time request intercepted, returning empty data");
-      return {}; // Trả về dữ liệu trống trong quá trình build
-    }
     // Handle errors globally
     const { response } = error;
     if (response) {
@@ -54,22 +47,15 @@ const request = extend({
     } else {
       // Handle network errors
       console.error("Network error - ", error);
+      return {}
     }
     throw error;
   },
-  prefix: `${process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:1337"}/api`,
+  prefix: `${process.env.NEXT_PUBLIC_API_URL}/api`,
 });
 
 // Add a request interceptor
 request.interceptors.request.use((url, options) => {
-  // You can modify the URL or options here
-  if (isBuildTime) {
-    // Override giá trị return để không thực hiện request thực tế
-    return { 
-      url: 'about:blank',
-      options: { ...options, skipFetch: true }
-    };
-  }
   // set default headers or add authentication tokens
   let token;
   if (typeof window !== "undefined") {

@@ -35,14 +35,14 @@ export async function generateMetadata({
 }
 
 export default async function SingleProductPage({
-  params,
+  params = { slug: "", locale: "en" },
 }: {
   params: { slug: string; locale: string };
 }) {
   const { data: response } = await api.product.getProducts({
     filters: {
       filters: {
-        slug: params.slug?.toString() || "",
+        slug: params.slug,
       },
     },
     populate: {
@@ -65,7 +65,6 @@ export default async function SingleProductPage({
       },
     } as any,
     "pagination[limit]": 1,
-    locale: params.locale,
   });
 
   const product = response?.[0];

@@ -125,7 +125,7 @@ services:
     env_file:
       - .env
     ports:
-      - "${DATABASE_PORT:-5432}:5432"
+      - "127.0.0.1:${DATABASE_PORT:-5432}:5432"
     environment:
       - POSTGRES_DB=${DATABASE_NAME:-postgres}
       - POSTGRES_USER=${DATABASE_USERNAME:-postgres}
@@ -141,10 +141,10 @@ services:
       - postgres-data:/var/lib/postgresql/data
       - ~/apps/postgres/init:/docker-entrypoint-initdb.d:ro
       - ./scripts:/scripts
-    command: ["bash", "-c", "bash /scripts/init-always.sh & docker-entrypoint.sh postgres"]
+      - ./config/pg_hba.conf:/var/lib/postgresql/data/pg_hba.conf
+    command: ["bash", "-c", "cp /etc/postgresql/pg_hba.conf /var/lib/postgresql/data/ && bash /scripts/init-always.sh & docker-entrypoint.sh postgres"]
     networks:
       - web
-
   n8n:
     container_name: n8n
     image: n8nio/n8n:latest
@@ -276,6 +276,10 @@ networks:
   web:
     name: web
     external: false
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
 
 volumes:
   postgres-data:
