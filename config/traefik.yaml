@@ -8,7 +8,7 @@ http:
       tls:
         certResolver: myresolver
     strapi:
-      rule: Host(`beta-admin.{{ env "BASE_DOMAIN" }}`)
+      rule: Host(`admin.{{ env "BASE_DOMAIN" }}`)
       service: strapi@docker
       middlewares:
         - rate-limit
@@ -28,7 +28,7 @@ http:
       entryPoints:
         - websecure
     n8n:
-      rule: Host(`n8n-beta.{{ env "BASE_DOMAIN" }}`)
+      rule: Host(`n8n.{{ env "BASE_DOMAIN" }}`)
       service: n8n@docker
       middlewares:
         - rate-limit
