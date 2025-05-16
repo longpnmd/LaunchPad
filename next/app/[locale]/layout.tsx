@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { generateMetadataObject } from "@/lib/shared/metadata";
 
 import { Footer } from "@/components/footer";
@@ -11,11 +10,6 @@ import { cn } from "@/lib/utils";
 import { ViewTransitions } from "next-view-transitions";
 import api from "@/lib/api";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800", "900"],
-});
 
 // Default Global SEO for pages without them
 export async function generateMetadata({
@@ -58,7 +52,6 @@ export default async function LocaleLayout({
         <CartProvider>
           <body
             className={cn(
-              inter.className,
               "bg-charcoal antialiased h-full w-full"
             )}
           >
