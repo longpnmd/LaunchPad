@@ -27,6 +27,10 @@ const request = extend({
     });
   },
   errorHandler: (error) => {
+    if (isBuildTime) {
+      console.log("Build time request intercepted, returning empty data");
+      return {}; // Trả về dữ liệu trống trong quá trình build
+    }
     // Handle errors globally
     const { response } = error;
     if (response) {
@@ -51,7 +55,6 @@ const request = extend({
       // Handle network errors
       console.error("Network error - ", error);
     }
-    if (isBuildTime) return {};
     throw error;
   },
   prefix: `${process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:1337"}/api`,
@@ -60,6 +63,13 @@ const request = extend({
 // Add a request interceptor
 request.interceptors.request.use((url, options) => {
   // You can modify the URL or options here
+  if (isBuildTime) {
+    // Override giá trị return để không thực hiện request thực tế
+    return { 
+      url: 'about:blank',
+      options: { ...options, skipFetch: true }
+    };
+  }
   // set default headers or add authentication tokens
   let token;
   if (typeof window !== "undefined") {

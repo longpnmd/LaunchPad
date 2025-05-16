@@ -15,35 +15,45 @@ function getLocale(request: NextRequest): string {
 }
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname
+  try {
+    const pathname = request.nextUrl.pathname
 
-  // Kiểm tra xem đường dẫn có phải là auth route không
-  const isAuthRoute = pathname.startsWith('/auth') || 
-                      pathname.startsWith('/login') || 
-                      pathname.startsWith('/register') ||
-                      pathname.startsWith('/forgot-password') ||
-                      pathname.startsWith('/reset-password') ||
-                      pathname.startsWith('/verify-email')
-                      pathname.startsWith('/admin') 
+    // Kiểm tra xem đường dẫn có phải là auth route không
+    const isAuthRoute = pathname.startsWith('/auth') || 
+                        pathname.startsWith('/login') || 
+                        pathname.startsWith('/register') ||
+                        pathname.startsWith('/forgot-password') ||
+                        pathname.startsWith('/reset-password') ||
+                        pathname.startsWith('/verify-email')
+                        pathname.startsWith('/admin') 
 
-  // Nếu là auth route, bỏ qua xử lý locale
-  if (isAuthRoute) {
-    return NextResponse.next()
+    // Nếu là auth route, bỏ qua xử lý locale
+    if (isAuthRoute) {
+      return NextResponse.next()
+    }
+
+    // Kiểm tra xem pathname đã có locale chưa
+    const pathnameHasLocale = i18n.locales.some(
+      locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    )
+
+    // Nếu đã có locale trong pathname, không cần redirect
+    if (pathnameHasLocale) return NextResponse.next()
+
+    // Redirect nếu không có locale
+    const locale = getLocale(request)
+    request.nextUrl.pathname = `/${locale}${pathname}`
+    
+    return NextResponse.redirect(request.nextUrl)
+  } catch (error:any) {
+    if (error.message.includes("Incorrect locale information")) {
+      // Fallback về locale mặc định
+      const response = NextResponse.next();
+      response.headers.set("x-middleware-locale", "en");
+      return response;
+    }
+    throw error;
   }
-
-  // Kiểm tra xem pathname đã có locale chưa
-  const pathnameHasLocale = i18n.locales.some(
-    locale => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
-
-  // Nếu đã có locale trong pathname, không cần redirect
-  if (pathnameHasLocale) return NextResponse.next()
-
-  // Redirect nếu không có locale
-  const locale = getLocale(request)
-  request.nextUrl.pathname = `/${locale}${pathname}`
-  
-  return NextResponse.redirect(request.nextUrl)
 }
 
 export const config = {

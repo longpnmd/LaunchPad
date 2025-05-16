@@ -61,7 +61,7 @@ http:
       rule: "PathPrefix(`/.well-known/acme-challenge/`)"
       entryPoints:
         - web
-      service: acme-challenge@internal
+      service: api@internal
       priority: 100
 
   middlewares:
