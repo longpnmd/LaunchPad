@@ -83,6 +83,7 @@ http:
 certificatesResolvers:
   myresolver:
     acme:
+      caServer: https://acme-staging-v02.api.letsencrypt.org/directory
       email: ${CER_ACME_EMAIL:-admin@localhost.dev}
       storage: /letsencrypt/acme.json
       httpChallenge:
