@@ -2,7 +2,7 @@ import { notification } from "antd";
 import qs from "qs";
 import { extend } from "umi-request";
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== "undefined" ? "http://strapi:1337" : "http://localhost:3000");
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || (typeof window !== "undefined" ? "http://strapi:1337" : "http://localhost:1337");
 
 const request = extend({
   // Default options for all requests
